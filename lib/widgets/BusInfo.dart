@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class BusInfo extends StatelessWidget {
-  final List<String> timeTable;
+  final List<dynamic> timeTable;
   final double width;
   final String title;
 
   const BusInfo(
-      {Key key, this.timeTable, @required this.width, @required this.title})
+      {Key key,@required this.timeTable, @required this.width, @required this.title})
       : super(key: key);
 
   @override
@@ -41,7 +41,7 @@ class BusInfo extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Text(
-                          "09:46",
+                          timeTable[0]["min"],
                           style: const TextStyle(
                             color: const Color(0xff131415),
                             fontWeight: FontWeight.w500,
@@ -53,13 +53,13 @@ class BusInfo extends StatelessWidget {
                         ),
                         Spacer(),
                         Text(
-                          "5분 후!",
+                          timeTable[0]["content"],
                           style: const TextStyle(
                             color: const Color(0xff666666),
                             fontWeight: FontWeight.w500,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
-                            fontSize: 14.0,
+                            fontSize: 12.0,
                           ),
                         )
                       ],
@@ -113,7 +113,7 @@ class BusInfo extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Text(
-                          "09:51",
+                          timeTable[1]["min"],
                           style: const TextStyle(
                             color: const Color(0xff131415),
                             fontWeight: FontWeight.w500,
@@ -125,7 +125,7 @@ class BusInfo extends StatelessWidget {
                         ),
                         Spacer(),
                         Text(
-                          "10분 후",
+                          timeTable[1]["content"],
                           style: const TextStyle(
                             color: const Color(0xff666666),
                             fontWeight: FontWeight.w500,
@@ -173,7 +173,7 @@ class BusInfo extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       Text(
-                        "09:56",
+                        timeTable[2]["min"],
                         style: const TextStyle(
                           color: const Color(0xff131415),
                           fontWeight: FontWeight.w500,
@@ -185,7 +185,7 @@ class BusInfo extends StatelessWidget {
                       ),
                       Spacer(),
                       Text(
-                        "15분 후",
+                        timeTable[2]["content"],
                         style: const TextStyle(
                           color: const Color(0xff666666),
                           fontWeight: FontWeight.w500,
