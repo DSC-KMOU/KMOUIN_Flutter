@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'Dart:ui';
 
-class SecondFloor extends StatefulWidget {
+class FifthFloor extends StatefulWidget {
   @override
-  _SecondFloorState createState() => _SecondFloorState();
+  _FifthFloorState createState() => _FifthFloorState();
 }
 
-class _SecondFloorState extends State<SecondFloor> {
+class _FifthFloorState extends State<FifthFloor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,7 +86,7 @@ class _SecondFloorState extends State<SecondFloor> {
                                   width: 56,
                                 ),
                                 Text(
-                                  '2층 학식',
+                                  '5층 학식',
                                   style: const TextStyle(
                                       color: const Color(0xffeb577c),
                                       fontWeight: FontWeight.w500,
@@ -152,7 +152,7 @@ class _SecondFloorState extends State<SecondFloor> {
                             height: 68,
                           ),
                           Text(
-                            '오늘의 메뉴는 뭘까요?',
+                            '교직원 식당입니다!',
                             style: const TextStyle(
                                 color: const Color(0xfff05c53),
                                 fontWeight: FontWeight.w300,
@@ -204,7 +204,7 @@ class _SecondFloorState extends State<SecondFloor> {
                                 SizedBox(
                                   height: 15,
                                 ),
-                                Text("숯불제육덮밥",
+                                Text("쌀밥 / 잡곡밥",
                                     style: const TextStyle(
                                         color: const Color(0xff131415),
                                         fontWeight: FontWeight.w300,
@@ -215,7 +215,7 @@ class _SecondFloorState extends State<SecondFloor> {
                                 SizedBox(
                                   height: 12,
                                 ),
-                                Text("치즈라면 + 공기밥",
+                                Text("닭개장",
                                     style: const TextStyle(
                                         color: const Color(0xff131415),
                                         fontWeight: FontWeight.w300,
@@ -226,62 +226,7 @@ class _SecondFloorState extends State<SecondFloor> {
                                 SizedBox(
                                   height: 12,
                                 ),
-                                Text("치즈라면",
-                                    style: const TextStyle(
-                                        color: const Color(0xff131415),
-                                        fontWeight: FontWeight.w300,
-                                        fontFamily: "NotoSansKR",
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 16.0),
-                                    textAlign: TextAlign.center),
-                              ],
-                            ),
-                          ),
-
-                          SizedBox(
-                            height: 34,
-                          ),
-                          //저녁
-                          Container(
-                            padding: EdgeInsets.all(16),
-                            width: 355,
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(18)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color(0x80cacaca),
-                                  offset: Offset(0, -1),
-                                  blurRadius: 16,
-                                  spreadRadius: 2,
-                                ),
-                              ],
-                              color: const Color(0xffffffff),
-                            ),
-                            child: Column(
-                              children: <Widget>[
-                                Text("저녁",
-                                    style: const TextStyle(
-                                        color: const Color(0xff131415),
-                                        fontWeight: FontWeight.w500,
-                                        fontFamily: "NotoSansKR",
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 24.0),
-                                    textAlign: TextAlign.center),
-                                SizedBox(
-                                  height: 7,
-                                ),
-                                Container(
-                                  width: 319,
-                                  height: 1,
-                                  decoration: BoxDecoration(
-                                    color: const Color(0xffc53786),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Text("숯불제육덮밥",
+                                Text("고추장 불고기",
                                     style: const TextStyle(
                                         color: const Color(0xff131415),
                                         fontWeight: FontWeight.w300,
@@ -292,7 +237,7 @@ class _SecondFloorState extends State<SecondFloor> {
                                 SizedBox(
                                   height: 12,
                                 ),
-                                Text("치즈라면 + 공기밥",
+                                Text("연두부 / 양념장",
                                     style: const TextStyle(
                                         color: const Color(0xff131415),
                                         fontWeight: FontWeight.w300,
@@ -303,7 +248,40 @@ class _SecondFloorState extends State<SecondFloor> {
                                 SizedBox(
                                   height: 12,
                                 ),
-                                Text("치즈라면",
+                                Text("깻순나물무침",
+                                    style: const TextStyle(
+                                        color: const Color(0xff131415),
+                                        fontWeight: FontWeight.w300,
+                                        fontFamily: "NotoSansKR",
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: 16.0),
+                                    textAlign: TextAlign.center),
+                                SizedBox(
+                                  height: 12,
+                                ),
+                                Text("배추김치",
+                                    style: const TextStyle(
+                                        color: const Color(0xff131415),
+                                        fontWeight: FontWeight.w300,
+                                        fontFamily: "NotoSansKR",
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: 16.0),
+                                    textAlign: TextAlign.center),
+                                SizedBox(
+                                  height: 12,
+                                ),
+                                Text("요구르트",
+                                    style: const TextStyle(
+                                        color: const Color(0xff131415),
+                                        fontWeight: FontWeight.w300,
+                                        fontFamily: "NotoSansKR",
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: 16.0),
+                                    textAlign: TextAlign.center),
+                                SizedBox(
+                                  height: 12,
+                                ),
+                                Text("알배추쌈",
                                     style: const TextStyle(
                                         color: const Color(0xff131415),
                                         fontWeight: FontWeight.w300,
@@ -315,16 +293,15 @@ class _SecondFloorState extends State<SecondFloor> {
                             ),
                           ),
                           SizedBox(
-                            height: 34,
+                            height: 35,
                           ),
                           //일품식
                           Container(
                             padding: EdgeInsets.all(16),
                             width: 355,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(18),
-                              ),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(18)),
                               boxShadow: [
                                 BoxShadow(
                                   color: const Color(0x80cacaca),
@@ -356,31 +333,9 @@ class _SecondFloorState extends State<SecondFloor> {
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 15,
+                                  height: 17,
                                 ),
-                                Text("숯불제육덮밥",
-                                    style: const TextStyle(
-                                        color: const Color(0xff131415),
-                                        fontWeight: FontWeight.w300,
-                                        fontFamily: "NotoSansKR",
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 16.0),
-                                    textAlign: TextAlign.center),
-                                SizedBox(
-                                  height: 12,
-                                ),
-                                Text("치즈라면 + 공기밥",
-                                    style: const TextStyle(
-                                        color: const Color(0xff131415),
-                                        fontWeight: FontWeight.w300,
-                                        fontFamily: "NotoSansKR",
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 16.0),
-                                    textAlign: TextAlign.center),
-                                SizedBox(
-                                  height: 12,
-                                ),
-                                Text("치즈라면",
+                                Text("갈치조림",
                                     style: const TextStyle(
                                         color: const Color(0xff131415),
                                         fontWeight: FontWeight.w300,
@@ -392,7 +347,7 @@ class _SecondFloorState extends State<SecondFloor> {
                             ),
                           ),
                           SizedBox(
-                            height: 30,
+                            height: 83,
                           ),
                         ],
                       ),
