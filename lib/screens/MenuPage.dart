@@ -1,7 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kmouin/screens/DormMenu.dart';
 import 'package:kmouin/screens/FifthFloor.dart';
 import 'package:kmouin/screens/ThirdFloor.dart';
 import '../widgets/TopContainer.dart';
@@ -59,6 +58,7 @@ class _MenuPageState extends State<MenuPage> {
       backgroundColor: const Color(0xffffffff),
       body: Stack(
         children: <Widget>[
+          //배경
           BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
             child: TopContainer(
@@ -351,7 +351,14 @@ class _MenuPageState extends State<MenuPage> {
                       color: const Color(0xffffffff),
                     ),
                     child: FlatButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DormMenu(),
+                          ),
+                        );
+                      },
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
