@@ -37,8 +37,11 @@ class BusInfo extends StatelessWidget {
                 width: width,
                 height: 80,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
                           timeTable[0]["min"],
@@ -60,6 +63,7 @@ class BusInfo extends StatelessWidget {
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
                             fontSize: 12.0,
+                            height: 1.7,
                           ),
                         )
                       ],
@@ -109,8 +113,11 @@ class BusInfo extends StatelessWidget {
                   bottom: 4.0,
                 ),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
                           timeTable[1]["min"],
@@ -131,6 +138,7 @@ class BusInfo extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
+                            height: 1.7,
                             fontSize: 12.0,
                           ),
                         )
@@ -138,6 +146,7 @@ class BusInfo extends StatelessWidget {
                     ),
                     Spacer(),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
                           "다다음차",
@@ -149,7 +158,6 @@ class BusInfo extends StatelessWidget {
                             fontSize: 12.0,
                           ),
                         ),
-                        Spacer(),
                         SizedBox(
                           width: 20,
                           height: 20,
@@ -171,6 +179,8 @@ class BusInfo extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
                         timeTable[2]["min"],
@@ -192,6 +202,7 @@ class BusInfo extends StatelessWidget {
                           fontFamily: "NotoSansKR",
                           fontStyle: FontStyle.normal,
                           fontSize: 12.0,
+                          height: 1.7,
                         ),
                       )
                     ],
