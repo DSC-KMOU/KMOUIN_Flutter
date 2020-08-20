@@ -79,7 +79,7 @@ class _SisulPageState extends State<SisulPage> {
           Container(
             height: _ht * (60.1/100),
             width: _widht,
-            child: Image.asset('images/greenback.png',
+            child: Image.asset('images/FacilityPage/greenback.png',
               fit: BoxFit.fill,),
           ),
 
@@ -178,7 +178,7 @@ class _SisulPageState extends State<SisulPage> {
                                   Container(
                                     height: _ht * (6.52/100),
                                     width: _widht * (10.6/100),
-                                    child: Image.asset('images/book.png'),
+                                    child: Image.asset('images/FacilityPage/book.png'),
                                   )
                                 ],
                               ),
@@ -261,7 +261,7 @@ class _SisulPageState extends State<SisulPage> {
                                   Container(
                                     height: _ht * (6.52/100),
                                     width: _widht * (10.6/100),
-                                    child: Image.asset('images/book.png'),
+                                    child: Image.asset('images/FacilityPage/book.png'),
                                   )
                                 ],
                               ),
@@ -349,7 +349,7 @@ class _SisulPageState extends State<SisulPage> {
                                   Container(
                                     height: _ht * (6.52/100),
                                     width: _widht * (10.6/100),
-                                    child: Image.asset('images/book.png'),
+                                    child: Image.asset('images/FacilityPage/book.png'),
                                   )
                                 ],
                               ),
@@ -432,7 +432,7 @@ class _SisulPageState extends State<SisulPage> {
                                   Container(
                                     height: _ht * (6.52/100),
                                     width: _widht * (10.6/100),
-                                    child: Image.asset('images/book.png'),
+                                    child: Image.asset('images/FacilityPage/book.png'),
                                   )
                                 ],
                               ),
@@ -476,7 +476,7 @@ class _SisulPageState extends State<SisulPage> {
                         //onTap: ,
                         child: Container(
                           width: _widht * (42.7/100),
-                          height: _ht * (19.7/100),
+                          height: _widht * (42.7/100),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.all(
                                   Radius.circular(20)
@@ -494,7 +494,7 @@ class _SisulPageState extends State<SisulPage> {
                             children: <Widget>[
                               Container(
                                 height: _ht * (9.7/100),
-                                child: Image.asset('images/coffee.png'),
+                                child: Image.asset('images/FacilityPage/coffee.png'),
                               ),
                               Text(
                                   "편의 시설",
@@ -529,7 +529,7 @@ class _SisulPageState extends State<SisulPage> {
                         //onTap: ,
                         child: Container(
                           width: _widht * (42.7/100),
-                          height: _ht * (19.7/100),
+                          height: _widht * (42.7/100),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.all(
                                   Radius.circular(20)
@@ -547,7 +547,7 @@ class _SisulPageState extends State<SisulPage> {
                             children: <Widget>[
                               Container(
                                 height: _ht * (9.7/100),
-                                child: Image.asset('images/sos.png'),
+                                child: Image.asset('images/FacilityPage/sos.png'),
                               ),
                               Text(
                                   "대피 시설",
