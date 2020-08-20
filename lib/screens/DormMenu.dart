@@ -12,7 +12,7 @@ class _DormMenuState extends State<DormMenu> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
-        backgroundColor: Colors.white.withOpacity(0.7),
+        backgroundColor: Colors.white.withOpacity(0.8),
         elevation: 0,
         automaticallyImplyLeading: false,
         title: Row(
@@ -27,7 +27,7 @@ class _DormMenuState extends State<DormMenu> {
               child: Row(
                 children: <Widget>[
                   Icon(
-                    Icons.navigate_before,
+                    Icons.arrow_back_ios,
                     color: Color(0xffeb577c),
                   ),
                   Text(
@@ -39,9 +39,6 @@ class _DormMenuState extends State<DormMenu> {
                       fontStyle: FontStyle.normal,
                       fontSize: 20.0,
                     ),
-                  ),
-                  SizedBox(
-                    width: 20,
                   ),
                 ],
               ),
