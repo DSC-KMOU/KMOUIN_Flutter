@@ -32,13 +32,13 @@ class Calendar{
 }
 
 
-
+/*
 void main() {
   //intl 패키지 사용을 위한 runApp 함수 호출
-  initializeDateFormatting().then((_) => runApp(MyApp()));
+  initializeDateFormatting().then((_) => runApp(CalApp()));
 }
 
-class MyApp extends StatelessWidget {
+class CalApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -52,16 +52,16 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+*/
+class CalPage extends StatefulWidget {
+  CalPage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
+class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
   Map<DateTime, List> _events;
   Map<DateTime, List> _holidays;
 
@@ -587,7 +587,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   Widget _buildTableCalendar() {
     return TableCalendar(
-        locale: 'ko_KR',
+        //locale: 'ko_KR',
         calendarController: _calendarController,
         events: _events,
         holidays: _holidays,

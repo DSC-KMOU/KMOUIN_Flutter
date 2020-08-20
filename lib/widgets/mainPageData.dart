@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kmouin/screens/AcademicCalendar.dart';
 import 'package:kmouin/screens/BusPage.dart';
 import 'package:kmouin/screens/CommuterBusPage.dart';
 import 'package:kmouin/screens/DormMenu.dart';
@@ -19,7 +20,7 @@ const color8 = Color(0xff5995eb);
 final cat1 = BusPage();
 final cat2 = MenuPage();
 final cat3 = BusPage();
-final cat4 = MenuPage();
+final cat4 = CalPage();
 
 final sub1 = CoummuterBusPage();
 final sub2 = SecondFloor();
