@@ -18,43 +18,45 @@ class _MenuPageState extends State<MenuPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        titleSpacing: -15,
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        title: Row(
-          children: <Widget>[
-            SizedBox(
-              width: 14,
-            ),
-            Container(
-              width: 100,
-              child: FlatButton(
-                child: Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.navigate_before,
-                      color: const Color(0xffffffff),
-                    ),
-                    Text(
-                      "메인",
-                      style: const TextStyle(
-                        color: const Color(0xffffffff),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: 16.0,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
+      centerTitle: false,
+      titleSpacing: -3,
+      backgroundColor: Colors.white.withOpacity(0.0),
+      elevation: 0,
+      automaticallyImplyLeading: false,
+      title: Row(
+        children: <Widget>[
+          FlatButton(
+            padding: EdgeInsets.all(0),
+            onPressed: () {
+              setState(() {
+                Navigator.pop(context);
+              });
+            },
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  CupertinoIcons.back,
+                  color: Colors.white,
                 ),
-                onPressed: () => Navigator.pop(context),
-              ),
+                Text(
+                  " 메인",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "NotoSansKR",
+                    fontStyle: FontStyle.normal,
+                    fontSize: 18.0,
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
+    ),
       backgroundColor: const Color(0xffffffff),
       body: Stack(
         children: <Widget>[
