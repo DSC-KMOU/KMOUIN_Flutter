@@ -176,7 +176,8 @@ class _MyHomePageState extends State<MyHomePage> {
 //                                            );
                                         }
                                       }
-                                      return AlertDialog(
+                                      return CupertinoAlertDialog(
+
                                         title: const Text('죄송합니다'),
                                         content:
                                             Text('"$value"(이)라는 키워드가 없습니다.'),
