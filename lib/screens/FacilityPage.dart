@@ -7,12 +7,12 @@ import '../widgets/TopContainer.dart';
 import '../screens/SecondFloor.dart';
 import 'dart:ui';
 
-class SisulPage extends StatefulWidget {
+class FacilityPage extends StatefulWidget {
   @override
-  _SisulPageState createState() => _SisulPageState();
+  _FacilityPageState createState() => _FacilityPageState();
 }
 
-class _SisulPageState extends State<SisulPage> {
+class _FacilityPageState extends State<FacilityPage> {
   //열람실 학생수 변수
   int _yulStd_1 = 1;
   int _yulStd_2 = 2;
