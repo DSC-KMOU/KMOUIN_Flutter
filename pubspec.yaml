@@ -60,10 +60,10 @@ flutter:
     - images/BusPage/bus_min1.jpg
     - images/BusPage/bus_min2.jpg
     - images/BusPage/commuterbus.png
-    - images/SisulPage/book.png
-    - images/SisulPage/coffee.png
-    - images/SisulPage/greenback.png
-    - images/SisulPage/sos.png
+    - images/FacilityPage/book.png
+    - images/FacilityPage/coffee.png
+    - images/FacilityPage/greenback.png
+    - images/FacilityPage/sos.png
   fonts:
     - family: NotoSansKR
       fonts:
