@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'widgets/TopContainer.dart';
@@ -35,8 +36,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
+  TextEditingController _controller;
+
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   Widget build(BuildContext context) {
+    int _connect = 0;
+
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: <Widget>[
           TopContainer(
@@ -101,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       // Rectangle Copy 11
                       Container(
-                        padding: EdgeInsets.all(10.0),
+                        padding: EdgeInsets.only(left: 5.0),
                         margin: EdgeInsets.fromLTRB(26.0, 26.0, 25.0, 45.0),
                         width: 324,
                         height: 44,
@@ -118,12 +134,67 @@ class _MyHomePageState extends State<MyHomePage> {
                                 spreadRadius: 2),
                           ],
                         ),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Icon(
-                            Icons.search,
-                            color: Color(0xff307ac6),
-                          ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            IconButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => subpage[_connect],
+                                  ),
+                                );
+                              },
+                              icon: Icon(Icons.search),
+                              color: Color(0xff307ac6),
+                            ),
+                            Flexible(
+                              child: TextField(
+                                textAlignVertical: TextAlignVertical.center,
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: '키워드 검색'),
+                                cursorColor: Colors.blueAccent,
+                                controller: _controller,
+                                onSubmitted: (String value) async {
+                                  await showDialog<void>(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      for (int i = 0;
+                                          i < keywords.length;
+                                          i++) {
+                                        if (value.toString() ==
+                                            keywords[i].toString()) {
+                                          _connect=i;
+                                          return subpage[i];
+//                                            Navigator.push(
+//                                              context,
+//                                              new MaterialPageRoute(
+//                                                builder: (context) => subpage[i],
+//                                              ),
+//                                            );
+                                        }
+                                      }
+                                      return AlertDialog(
+                                        title: const Text('죄송합니다'),
+                                        content:
+                                            Text('"$value"(이)라는 키워드가 없습니다.'),
+                                        actions: <Widget>[
+                                          FlatButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: const Text('OK'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
