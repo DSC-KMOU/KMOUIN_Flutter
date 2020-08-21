@@ -39,8 +39,8 @@ class _MyHomePageState extends State<BusPage> {
   Future<BusData> _fetch1() async {
     try {
       print("future 실행!");
-      http.Response response =
-          await http.get("https://us-central1-kmouin-62d7f.cloudfunctions.net/api/bus");
+      http.Response response = await http.get(
+          "https://asia-northeast1-kmouin-62d7f.cloudfunctions.net/api/bus");
       if (response.statusCode == 200) {
         // final busInfo = json.decode(response.body);
         return BusData.fromJson(json.decode(response.body));
@@ -105,23 +105,42 @@ class _MyHomePageState extends State<BusPage> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: false,
-        backgroundColor: Colors.transparent,
+        titleSpacing: -3,
+        backgroundColor: Colors.white.withOpacity(0.0),
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: () => Navigator.maybePop(context),
-          color: Color(0xffffffff),
-        ),
-        titleSpacing: -15,
-        title: Text(
-          "메인",
-          style: const TextStyle(
-            color: const Color(0xffffffff),
-            fontWeight: FontWeight.w300,
-            fontFamily: "NotoSansKR",
-            fontStyle: FontStyle.normal,
-            // fontSize: 16.0,
-          ),
+        automaticallyImplyLeading: false,
+        title: Row(
+          children: <Widget>[
+            FlatButton(
+              padding: EdgeInsets.all(0),
+              onPressed: () {
+                setState(() {
+                  Navigator.pop(context);
+                });
+              },
+              child: Row(
+                children: <Widget>[
+                  Icon(
+                    CupertinoIcons.back,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    " 메인",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "NotoSansKR",
+                      fontStyle: FontStyle.normal,
+                      fontSize: 18.0,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
       body: Stack(
@@ -188,7 +207,9 @@ class _MyHomePageState extends State<BusPage> {
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: CircularProgressIndicator(),
+                    child: CupertinoActivityIndicator(
+                      radius: 20,
+                    ),
                   ),
                 ),
               ],
@@ -276,7 +297,8 @@ class _MyHomePageState extends State<BusPage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => CoummuterBusPage()));
+                                        builder: (context) =>
+                                            CoummuterBusPage()));
                               },
                               child: Container(
                                 width: 355 * fullWidth * rate,
