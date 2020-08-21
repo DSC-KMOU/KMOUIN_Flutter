@@ -5,6 +5,7 @@ import 'package:kmouin/screens/FifthFloor.dart';
 import 'package:kmouin/screens/ThirdFloor.dart';
 import '../widgets/TopContainer.dart';
 import '../screens/SecondFloor.dart';
+import '../widgets/FacilityLibButton.dart';
 import 'dart:ui';
 
 class FacilityPage extends StatefulWidget {
@@ -136,78 +137,11 @@ class _FacilityPageState extends State<FacilityPage> {
                             _yulStd_1 = _yulStd_1 + 1;
                           });
                         },
-                        child: Container(
-                          width: _widht * (42.7/100),
-                          height: _ht * (13.54/100),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                                Radius.circular(20)
-                            ),
-                            border: Border.all(
-                                color: const Color(0xff5d9023),
-                                width: 1),
-                            boxShadow: [BoxShadow(
-                                color: const
-                                Color(0x80cacaca),
-                                offset:
-                                Offset(0,-1),
-                                blurRadius: 16,
-                                spreadRadius: 2)],
-                            color: const Color(0xffffffff),
-                          ),
-
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                      "열람실 1",
-                                      style: const TextStyle(
-                                          color:  const Color(0xff000000),
-                                          fontWeight: FontWeight.w500,
-                                          fontFamily: "NotoSansKR",
-                                          fontStyle:  FontStyle.normal,
-                                          fontSize: 22.0
-                                      )
-                                  ),
-                                  SizedBox(
-                                    width: _widht * (1.1/100),
-                                  ),
-                                  Container(
-                                    height: _ht * (6.52/100),
-                                    width: _widht * (10.6/100),
-                                    child: Image.asset('images/FacilityPage/book.png'),
-                                  )
-                                ],
-                              ),
-                              RichText(
-                                  text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                            style: const TextStyle(
-                                                color:  const Color(0xff5d9023),
-                                                fontWeight: FontWeight.w500,
-                                                fontFamily: "NotoSansKR",
-                                                fontStyle:  FontStyle.normal,
-                                                fontSize: 16.0
-                                            ),
-                                            text: _yulStd_1.toString()),
-                                        TextSpan(
-                                            style: const TextStyle(
-                                                color:  const Color(0xff5f605f),
-                                                fontWeight: FontWeight.w500,
-                                                fontFamily: "NotoSansKR",
-                                                fontStyle:  FontStyle.normal,
-                                                fontSize: 16.0
-                                            ),
-                                            text: "/150석")
-                                      ]
-                                  )
-                              )
-                            ],
-                          ),
+                        child: LibButton(
+                          num: 1,
+                          yulStdNum: _yulStd_1,
+                          wdt: _widht,
+                          ht: _ht,
                         ),
                       ),
                       SizedBox(
