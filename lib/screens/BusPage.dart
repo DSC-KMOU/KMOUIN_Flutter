@@ -39,8 +39,8 @@ class _MyHomePageState extends State<BusPage> {
   Future<BusData> _fetch1() async {
     try {
       print("future 실행!");
-      http.Response response =
-          await http.get("https://asia-northeast1-kmouin-62d7f.cloudfunctions.net/api/bus");
+      http.Response response = await http.get(
+          "https://asia-northeast1-kmouin-62d7f.cloudfunctions.net/api/bus");
       if (response.statusCode == 200) {
         // final busInfo = json.decode(response.body);
         return BusData.fromJson(json.decode(response.body));
@@ -103,7 +103,7 @@ class _MyHomePageState extends State<BusPage> {
     double fullWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar:AppBar(
+      appBar: AppBar(
         centerTitle: false,
         titleSpacing: -3,
         backgroundColor: Colors.white.withOpacity(0.0),
@@ -207,7 +207,9 @@ class _MyHomePageState extends State<BusPage> {
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: CircularProgressIndicator(),
+                    child: CupertinoActivityIndicator(
+                      radius: 20,
+                    ),
                   ),
                 ),
               ],
@@ -295,7 +297,8 @@ class _MyHomePageState extends State<BusPage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => CoummuterBusPage()));
+                                        builder: (context) =>
+                                            CoummuterBusPage()));
                               },
                               child: Container(
                                 width: 355 * fullWidth * rate,
