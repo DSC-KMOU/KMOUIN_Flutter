@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kmouin/widgets/MenuCard.dart';
+import 'package:kmouin/widgets/MenuInfo.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'Dart:ui';
 
 class FifthFloor extends StatefulWidget {
@@ -6,7 +10,69 @@ class FifthFloor extends StatefulWidget {
   _FifthFloorState createState() => _FifthFloorState();
 }
 
+class MenuData {
+  final String status;
+  final Map<dynamic, dynamic> f2l;
+  final Map<dynamic, dynamic> f2d;
+  final Map<dynamic, dynamic> f2s;
+  final Map<dynamic, dynamic> f3b;
+  final Map<dynamic, dynamic> f5l;
+  final Map<dynamic, dynamic> f5s;
+
+  MenuData(
+      {this.status,
+      this.f2l,
+      this.f2d,
+      this.f2s,
+      this.f3b,
+      this.f5l,
+      this.f5s});
+
+  factory MenuData.fromJson(Map<String, dynamic> json) {
+    return MenuData(
+      status: json['status'],
+      f2l: json['f2l'],
+      f2d: json['f2d'],
+      f2s: json['f2s'],
+      f3b: json['f3b'],
+      f5l: json['f5l'],
+      f5s: json['f5s'],
+    );
+  }
+}
+
 class _FifthFloorState extends State<FifthFloor> {
+  Future<MenuData> menuData;
+
+  Future<MenuData> _fetch1() async {
+    try {
+      print("future 실행!");
+      http.Response response = await http.get("http://192.168.35.1:3000/api/menu");
+      if (response.statusCode == 200) {
+        // final busInfo = json.decode(response.body);
+        return MenuData.fromJson(json.decode(response.body));
+      } else {
+        throw Exception("Failed to load data");
+      }
+    } catch (err) {
+      print("error!");
+      return MenuData.fromJson({
+        "status": "error",
+        "f2l": ["식단 정보 없음"],
+        "f2d": ["식단 정보 없음"],
+        "f2s": ["식단 정보 없음"],
+        "f3b": ["식단 정보 없음"],
+        "f5l": ["식단 정보 없음"],
+        "f5s": ["식단 정보 없음"],
+      });
+    }
+  }
+
+  void initState() {
+    super.initState();
+    menuData = _fetch1();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -228,189 +294,190 @@ class _FifthFloorState extends State<FifthFloor> {
                       SizedBox(
                         height: 28,
                       ),
-                      //점심
-                      Container(
-                        padding: EdgeInsets.all(16),
-                        width: 355,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(18)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x80cacaca),
-                              offset: Offset(0, -1),
-                              blurRadius: 16,
-                              spreadRadius: 2,
-                            )
-                          ],
-                          color: const Color(0xffffffff),
-                        ),
-                        child: Column(
-                          children: <Widget>[
-                            Text("점심",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w500,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 24.0),
-                                textAlign: TextAlign.center),
-                            SizedBox(
-                              height: 7,
-                            ),
-                            Container(
-                              width: 319,
-                              height: 1,
-                              decoration: BoxDecoration(
-                                color: const Color(0xffc53786),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text("쌀밥 / 잡곡밥",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 16.0),
-                                textAlign: TextAlign.center),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            Text("닭개장",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 16.0),
-                                textAlign: TextAlign.center),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            Text("고추장 불고기",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 16.0),
-                                textAlign: TextAlign.center),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            Text("연두부 / 양념장",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 16.0),
-                                textAlign: TextAlign.center),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            Text("깻순나물무침",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 16.0),
-                                textAlign: TextAlign.center),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            Text("배추김치",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 16.0),
-                                textAlign: TextAlign.center),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            Text("요구르트",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 16.0),
-                                textAlign: TextAlign.center),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            Text("알배추쌈",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 16.0),
-                                textAlign: TextAlign.center),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 35,
-                      ),
-                      //일품식
-                      Container(
-                        padding: EdgeInsets.all(16),
-                        width: 355,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(18)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x80cacaca),
-                              offset: Offset(0, -1),
-                              blurRadius: 16,
-                              spreadRadius: 2,
-                            ),
-                          ],
-                          color: const Color(0xffffffff),
-                        ),
-                        child: Column(
-                          children: <Widget>[
-                            Text("일품식",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w500,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 24.0),
-                                textAlign: TextAlign.center),
-                            SizedBox(
-                              height: 7,
-                            ),
-                            Container(
-                              width: 319,
-                              height: 1,
-                              decoration: BoxDecoration(
-                                color: const Color(0xffc53786),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 17,
-                            ),
-                            Text("갈치조림",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 16.0),
-                                textAlign: TextAlign.center),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 83,
-                      ),
+//                      //점심
+//                      Container(
+//                        padding: EdgeInsets.all(16),
+//                        width: 355,
+//                        decoration: BoxDecoration(
+//                          borderRadius: BorderRadius.all(Radius.circular(18)),
+//                          boxShadow: [
+//                            BoxShadow(
+//                              color: const Color(0x80cacaca),
+//                              offset: Offset(0, -1),
+//                              blurRadius: 16,
+//                              spreadRadius: 2,
+//                            )
+//                          ],
+//                          color: const Color(0xffffffff),
+//                        ),
+//                        child: Column(
+//                          children: <Widget>[
+//                            Text("점심",
+//                                style: const TextStyle(
+//                                    color: const Color(0xff131415),
+//                                    fontWeight: FontWeight.w500,
+//                                    fontFamily: "NotoSansKR",
+//                                    fontStyle: FontStyle.normal,
+//                                    fontSize: 24.0),
+//                                textAlign: TextAlign.center),
+//                            SizedBox(
+//                              height: 7,
+//                            ),
+//                            Container(
+//                              width: 319,
+//                              height: 1,
+//                              decoration: BoxDecoration(
+//                                color: const Color(0xffc53786),
+//                              ),
+//                            ),
+//                            SizedBox(
+//                              height: 15,
+//                            ),
+//                            Text("쌀밥 / 잡곡밥",
+//                                style: const TextStyle(
+//                                    color: const Color(0xff131415),
+//                                    fontWeight: FontWeight.w300,
+//                                    fontFamily: "NotoSansKR",
+//                                    fontStyle: FontStyle.normal,
+//                                    fontSize: 16.0),
+//                                textAlign: TextAlign.center),
+//                            SizedBox(
+//                              height: 12,
+//                            ),
+//                            Text("닭개장",
+//                                style: const TextStyle(
+//                                    color: const Color(0xff131415),
+//                                    fontWeight: FontWeight.w300,
+//                                    fontFamily: "NotoSansKR",
+//                                    fontStyle: FontStyle.normal,
+//                                    fontSize: 16.0),
+//                                textAlign: TextAlign.center),
+//                            SizedBox(
+//                              height: 12,
+//                            ),
+//                            Text("고추장 불고기",
+//                                style: const TextStyle(
+//                                    color: const Color(0xff131415),
+//                                    fontWeight: FontWeight.w300,
+//                                    fontFamily: "NotoSansKR",
+//                                    fontStyle: FontStyle.normal,
+//                                    fontSize: 16.0),
+//                                textAlign: TextAlign.center),
+//                            SizedBox(
+//                              height: 12,
+//                            ),
+//                            Text("연두부 / 양념장",
+//                                style: const TextStyle(
+//                                    color: const Color(0xff131415),
+//                                    fontWeight: FontWeight.w300,
+//                                    fontFamily: "NotoSansKR",
+//                                    fontStyle: FontStyle.normal,
+//                                    fontSize: 16.0),
+//                                textAlign: TextAlign.center),
+//                            SizedBox(
+//                              height: 12,
+//                            ),
+//                            Text("깻순나물무침",
+//                                style: const TextStyle(
+//                                    color: const Color(0xff131415),
+//                                    fontWeight: FontWeight.w300,
+//                                    fontFamily: "NotoSansKR",
+//                                    fontStyle: FontStyle.normal,
+//                                    fontSize: 16.0),
+//                                textAlign: TextAlign.center),
+//                            SizedBox(
+//                              height: 12,
+//                            ),
+//                            Text("배추김치",
+//                                style: const TextStyle(
+//                                    color: const Color(0xff131415),
+//                                    fontWeight: FontWeight.w300,
+//                                    fontFamily: "NotoSansKR",
+//                                    fontStyle: FontStyle.normal,
+//                                    fontSize: 16.0),
+//                                textAlign: TextAlign.center),
+//                            SizedBox(
+//                              height: 12,
+//                            ),
+//                            Text("요구르트",
+//                                style: const TextStyle(
+//                                    color: const Color(0xff131415),
+//                                    fontWeight: FontWeight.w300,
+//                                    fontFamily: "NotoSansKR",
+//                                    fontStyle: FontStyle.normal,
+//                                    fontSize: 16.0),
+//                                textAlign: TextAlign.center),
+//                            SizedBox(
+//                              height: 12,
+//                            ),
+//                            Text("알배추쌈",
+//                                style: const TextStyle(
+//                                    color: const Color(0xff131415),
+//                                    fontWeight: FontWeight.w300,
+//                                    fontFamily: "NotoSansKR",
+//                                    fontStyle: FontStyle.normal,
+//                                    fontSize: 16.0),
+//                                textAlign: TextAlign.center),
+//                          ],
+//                        ),
+//                      ),
+//                      SizedBox(
+//                        height: 35,
+//                      ),
+//                      //일품식
+//                      Container(
+//                        padding: EdgeInsets.all(16),
+//                        width: 355,
+//                        decoration: BoxDecoration(
+//                          borderRadius: BorderRadius.all(Radius.circular(18)),
+//                          boxShadow: [
+//                            BoxShadow(
+//                              color: const Color(0x80cacaca),
+//                              offset: Offset(0, -1),
+//                              blurRadius: 16,
+//                              spreadRadius: 2,
+//                            ),
+//                          ],
+//                          color: const Color(0xffffffff),
+//                        ),
+//                        child: Column(
+//                          children: <Widget>[
+//                            Text("일품식",
+//                                style: const TextStyle(
+//                                    color: const Color(0xff131415),
+//                                    fontWeight: FontWeight.w500,
+//                                    fontFamily: "NotoSansKR",
+//                                    fontStyle: FontStyle.normal,
+//                                    fontSize: 24.0),
+//                                textAlign: TextAlign.center),
+//                            SizedBox(
+//                              height: 7,
+//                            ),
+//                            Container(
+//                              width: 319,
+//                              height: 1,
+//                              decoration: BoxDecoration(
+//                                color: const Color(0xffc53786),
+//                              ),
+//                            ),
+//                            SizedBox(
+//                              height: 17,
+//                            ),
+//                            Text("갈치조림",
+//                                style: const TextStyle(
+//                                    color: const Color(0xff131415),
+//                                    fontWeight: FontWeight.w300,
+//                                    fontFamily: "NotoSansKR",
+//                                    fontStyle: FontStyle.normal,
+//                                    fontSize: 16.0),
+//                                textAlign: TextAlign.center),
+//                          ],
+//                        ),
+//                      ),
+//                      SizedBox(
+//                        height: 83,
+//                      ),
+                      buildFutureBuilder(),
                     ],
                   ),
                 ),
@@ -420,5 +487,39 @@ class _FifthFloorState extends State<FifthFloor> {
         ],
       ),
     );
+  }
+
+  FutureBuilder<MenuData> buildFutureBuilder() {
+    return FutureBuilder(
+        future: menuData,
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData == false) {
+            return Column(
+              children: <Widget>[
+                SizedBox(height: 20.0),
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
+              ],
+            );
+          } else if (snapshot.hasError) {
+            return Text("error");
+          } else {
+            print(snapshot.data);
+            return Column(
+              children: <Widget>[
+                MenuCard(
+                  title: '점심',
+                  children: <Widget>[
+                    MenuInfo(menuTable: snapshot.data.f5l, length: 10,),
+                  ],
+                ),
+              ],
+            );
+          }
+        });
   }
 }
