@@ -5,6 +5,7 @@ import 'widgets/TopContainer.dart';
 import 'widgets/mainPageData.dart';
 import 'widgets/mainCategory.dart';
 import 'widgets/mainIcon.dart';
+import 'package:kmouin/screens/ErrorAndDev.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -272,8 +273,15 @@ class _MyHomePageState extends State<MyHomePage> {
               Flexible(
                 flex: 1,
                 child: Center(
-                  child: Container(
-                    //margin: EdgeInsets.only(top:44.0),
+                  child: FlatButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ErrorAndDev(),
+                        ),
+                      );
+                    },
                     child: Text("오류 제보 및 개발자",
                         style: const TextStyle(
                             color: const Color(0xff2c6ec4),
