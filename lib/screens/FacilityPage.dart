@@ -153,78 +153,11 @@ class _FacilityPageState extends State<FacilityPage> {
                             _yulStd_2 = _yulStd_2 + 1;
                           });
                         },
-                        child: Container(
-                          width: _widht * (42.7/100),
-                          height: _ht * (13.54/100),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                                Radius.circular(20)
-                            ),
-                            border: Border.all(
-                                color: const Color(0xff5d9023),
-                                width: 1),
-                            boxShadow: [BoxShadow(
-                                color: const
-                                Color(0x80cacaca),
-                                offset:
-                                Offset(0,-1),
-                                blurRadius: 16,
-                                spreadRadius: 2)],
-                            color: const Color(0xffffffff),
-                          ),
-
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                      "열람실 2",
-                                      style: const TextStyle(
-                                          color:  const Color(0xff000000),
-                                          fontWeight: FontWeight.w500,
-                                          fontFamily: "NotoSansKR",
-                                          fontStyle:  FontStyle.normal,
-                                          fontSize: 22.0
-                                      )
-                                  ),
-                                  SizedBox(
-                                    width: _widht * (1.1/100),
-                                  ),
-                                  Container(
-                                    height: _ht * (6.52/100),
-                                    width: _widht * (10.6/100),
-                                    child: Image.asset('images/FacilityPage/book.png'),
-                                  )
-                                ],
-                              ),
-                              RichText(
-                                  text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                            style: const TextStyle(
-                                                color:  const Color(0xff5d9023),
-                                                fontWeight: FontWeight.w500,
-                                                fontFamily: "NotoSansKR",
-                                                fontStyle:  FontStyle.normal,
-                                                fontSize: 16.0
-                                            ),
-                                            text: _yulStd_2.toString()),
-                                        TextSpan(
-                                            style: const TextStyle(
-                                                color:  const Color(0xff5f605f),
-                                                fontWeight: FontWeight.w500,
-                                                fontFamily: "NotoSansKR",
-                                                fontStyle:  FontStyle.normal,
-                                                fontSize: 16.0
-                                            ),
-                                            text: "/150석")
-                                      ]
-                                  )
-                              )
-                            ],
-                          ),
+                        child: LibButton(
+                          num: 2,
+                          yulStdNum: _yulStd_2,
+                          wdt: _widht,
+                          ht: _ht,
                         ),
                       )
                     ],
@@ -241,78 +174,11 @@ class _FacilityPageState extends State<FacilityPage> {
                             _yulStd_3 = _yulStd_3 + 1;
                           });
                         },
-                        child: Container(
-                          width: _widht * (42.7/100),
-                          height: _ht * (13.54/100),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                                Radius.circular(20)
-                            ),
-                            border: Border.all(
-                                color: const Color(0xff5d9023),
-                                width: 1),
-                            boxShadow: [BoxShadow(
-                                color: const
-                                Color(0x80cacaca),
-                                offset:
-                                Offset(0,-1),
-                                blurRadius: 16,
-                                spreadRadius: 2)],
-                            color: const Color(0xffffffff),
-                          ),
-
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                      "열람실 3",
-                                      style: const TextStyle(
-                                          color:  const Color(0xff000000),
-                                          fontWeight: FontWeight.w500,
-                                          fontFamily: "NotoSansKR",
-                                          fontStyle:  FontStyle.normal,
-                                          fontSize: 22.0
-                                      )
-                                  ),
-                                  SizedBox(
-                                    width: _widht * (1.1/100),
-                                  ),
-                                  Container(
-                                    height: _ht * (6.52/100),
-                                    width: _widht * (10.6/100),
-                                    child: Image.asset('images/FacilityPage/book.png'),
-                                  )
-                                ],
-                              ),
-                              RichText(
-                                  text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                            style: const TextStyle(
-                                                color:  const Color(0xff5d9023),
-                                                fontWeight: FontWeight.w500,
-                                                fontFamily: "NotoSansKR",
-                                                fontStyle:  FontStyle.normal,
-                                                fontSize: 16.0
-                                            ),
-                                            text: _yulStd_3.toString()),
-                                        TextSpan(
-                                            style: const TextStyle(
-                                                color:  const Color(0xff5f605f),
-                                                fontWeight: FontWeight.w500,
-                                                fontFamily: "NotoSansKR",
-                                                fontStyle:  FontStyle.normal,
-                                                fontSize: 16.0
-                                            ),
-                                            text: "/150석")
-                                      ]
-                                  )
-                              )
-                            ],
-                          ),
+                        child: LibButton(
+                          num: 3,
+                          yulStdNum: _yulStd_3,
+                          wdt: _widht,
+                          ht: _ht,
                         ),
                       ),
                       SizedBox(
@@ -324,78 +190,11 @@ class _FacilityPageState extends State<FacilityPage> {
                             _yulStd_4 = _yulStd_4 + 1;
                           });
                         },
-                        child: Container(
-                          width: _widht * (42.7/100),
-                          height: _ht * (13.54/100),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                                Radius.circular(20)
-                            ),
-                            border: Border.all(
-                                color: const Color(0xff5d9023),
-                                width: 1),
-                            boxShadow: [BoxShadow(
-                                color: const
-                                Color(0x80cacaca),
-                                offset:
-                                Offset(0,-1),
-                                blurRadius: 16,
-                                spreadRadius: 2)],
-                            color: const Color(0xffffffff),
-                          ),
-
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                      "열람실 4",
-                                      style: const TextStyle(
-                                          color:  const Color(0xff000000),
-                                          fontWeight: FontWeight.w500,
-                                          fontFamily: "NotoSansKR",
-                                          fontStyle:  FontStyle.normal,
-                                          fontSize: 22.0
-                                      )
-                                  ),
-                                  SizedBox(
-                                    width: _widht * (1.1/100),
-                                  ),
-                                  Container(
-                                    height: _ht * (6.52/100),
-                                    width: _widht * (10.6/100),
-                                    child: Image.asset('images/FacilityPage/book.png'),
-                                  )
-                                ],
-                              ),
-                              RichText(
-                                  text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                            style: const TextStyle(
-                                                color:  const Color(0xff5d9023),
-                                                fontWeight: FontWeight.w500,
-                                                fontFamily: "NotoSansKR",
-                                                fontStyle:  FontStyle.normal,
-                                                fontSize: 16.0
-                                            ),
-                                            text: _yulStd_4.toString()),
-                                        TextSpan(
-                                            style: const TextStyle(
-                                                color:  const Color(0xff5f605f),
-                                                fontWeight: FontWeight.w500,
-                                                fontFamily: "NotoSansKR",
-                                                fontStyle:  FontStyle.normal,
-                                                fontSize: 16.0
-                                            ),
-                                            text: "/150석")
-                                      ]
-                                  )
-                              )
-                            ],
-                          ),
+                        child: LibButton(
+                          num: 4,
+                          yulStdNum: _yulStd_4,
+                          wdt: _widht,
+                          ht: _ht,
                         ),
                       )
                     ],
