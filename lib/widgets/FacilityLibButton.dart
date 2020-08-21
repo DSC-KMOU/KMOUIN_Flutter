@@ -5,20 +5,20 @@ import '../widgets/FacilityLibButton.dart';
 class LibButton extends StatelessWidget {
   LibButton ({
     @required this.num,
-    @required this.yulStdNum,
-    @required this.wdt,
-    @required this.ht,
+    @required this.stdRoomNum,
+    @required this.screenWidth,
+    @required this.screenHeight,
   });
   final int num;
-  final int yulStdNum;
-  final double wdt;
-  final double ht;
+  final int stdRoomNum;
+  final double screenWidth;
+  final double screenHeight;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: wdt * (42.7/100),
-      height: ht * (13.54/100),
+      width: screenWidth * (42.7/100),
+      height: screenHeight * (13.54/100),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
             Radius.circular(20)
@@ -53,11 +53,11 @@ class LibButton extends StatelessWidget {
                   )
               ),
               SizedBox(
-                width: wdt * (1.1/100),
+                width: screenWidth * (1.1/100),
               ),
               Container(
-                height: ht * (6.52/100),
-                width: wdt * (10.6/100),
+                height: screenHeight * (6.52/100),
+                width: screenWidth * (10.6/100),
                 child: Image.asset('images/FacilityPage/book.png'),
               )
             ],
@@ -73,7 +73,7 @@ class LibButton extends StatelessWidget {
                             fontStyle:  FontStyle.normal,
                             fontSize: 16.0
                         ),
-                        text: yulStdNum.toString()),
+                        text: stdRoomNum.toString()),
                     TextSpan(
                         style: const TextStyle(
                             color:  const Color(0xff5f605f),
@@ -91,7 +91,7 @@ class LibButton extends StatelessWidget {
                             fontStyle:  FontStyle.normal,
                             fontSize: 14.0
                         ),
-                        text: " (" + ((yulStdNum/150)*100).toInt().toString() + "%)")
+                        text: " (" + ((stdRoomNum/150)*100).toInt().toString() + "%)")
                   ]
               )
           )
