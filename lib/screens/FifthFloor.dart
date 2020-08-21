@@ -12,31 +12,14 @@ class FifthFloor extends StatefulWidget {
 
 class MenuData {
   final String status;
-  final Map<dynamic, dynamic> f2l;
-  final Map<dynamic, dynamic> f2d;
-  final Map<dynamic, dynamic> f2s;
-  final Map<dynamic, dynamic> f3b;
-  final Map<dynamic, dynamic> f5l;
-  final Map<dynamic, dynamic> f5s;
+  final Map<dynamic, dynamic> result;
 
-  MenuData(
-      {this.status,
-      this.f2l,
-      this.f2d,
-      this.f2s,
-      this.f3b,
-      this.f5l,
-      this.f5s});
+  MenuData({this.status, this.result});
 
   factory MenuData.fromJson(Map<String, dynamic> json) {
     return MenuData(
       status: json['status'],
-      f2l: json['f2l'],
-      f2d: json['f2d'],
-      f2s: json['f2s'],
-      f3b: json['f3b'],
-      f5l: json['f5l'],
-      f5s: json['f5s'],
+      result: json['result'],
     );
   }
 }
@@ -47,9 +30,11 @@ class _FifthFloorState extends State<FifthFloor> {
   Future<MenuData> _fetch1() async {
     try {
       print("future 실행!");
-      http.Response response = await http.get("http://192.168.35.1:3000/api/menu");
+      http.Response response =
+          await http.get("http://192.168.1.64:3000/api/menu");
       if (response.statusCode == 200) {
         // final busInfo = json.decode(response.body);
+        print(response.body);
         return MenuData.fromJson(json.decode(response.body));
       } else {
         throw Exception("Failed to load data");
@@ -58,12 +43,14 @@ class _FifthFloorState extends State<FifthFloor> {
       print("error!");
       return MenuData.fromJson({
         "status": "error",
-        "f2l": ["식단 정보 없음"],
-        "f2d": ["식단 정보 없음"],
-        "f2s": ["식단 정보 없음"],
-        "f3b": ["식단 정보 없음"],
-        "f5l": ["식단 정보 없음"],
-        "f5s": ["식단 정보 없음"],
+        "result": {
+          "f2l": ["식단 정보 없음"],
+          "f2d": ["식단 정보 없음"],
+          "f2s": ["식단 정보 없음"],
+          "f3b": ["식단 정보 없음"],
+          "f5l": ["식단 정보 없음"],
+          "f5s": ["식단 정보 없음"],
+        }
       });
     }
   }
@@ -509,14 +496,14 @@ class _FifthFloorState extends State<FifthFloor> {
             return Text("error");
           } else {
             print(snapshot.data);
-            return Column(
+            return MenuCard(
+              title: '점심',
               children: <Widget>[
-                MenuCard(
-                  title: '점심',
-                  children: <Widget>[
-                    MenuInfo(menuTable: snapshot.data.f5l, length: 10,),
-                  ],
-                ),
+                //MenuInfo(
+                  //menuTable: snapshot.data.result["f5l"],
+                  //length:
+                      //snapshot.data.result["f5l"].toString().split(',').length,
+                //),
               ],
             );
           }
