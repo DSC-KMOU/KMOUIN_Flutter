@@ -142,6 +142,23 @@ class _MyHomePageState extends State<BusPage> {
             ),
           ],
         ),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: IconButton(
+              icon: Icon(
+                Icons.refresh,
+                color: Colors.white,
+              ),
+              onPressed: () async {
+                // await _fetch1();
+                setState(() { // 수정 필요 !!
+                  busData = _fetch1();
+                });
+              },
+            ),
+          ),
+        ],
       ),
       body: Stack(
         children: <Widget>[
@@ -184,15 +201,7 @@ class _MyHomePageState extends State<BusPage> {
           )
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.refresh),
-          backgroundColor: Color(0xff842fb5),
-          onPressed: () async {
-            // await _fetch1();
-            setState(() {
-              busData = _fetch1();
-            });
-          }),
+      
     );
   }
 
