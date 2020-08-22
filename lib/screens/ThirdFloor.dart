@@ -1,5 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kmouin/widgets/MenuCard.dart';
+import 'package:kmouin/widgets/MenuInfo.dart';
+import 'package:kmouin/widgets/MenuData.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'Dart:ui';
 
 class ThirdFloor extends StatefulWidget {
@@ -8,6 +13,40 @@ class ThirdFloor extends StatefulWidget {
 }
 
 class _ThirdFloorState extends State<ThirdFloor> {
+  Future<MenuData> menuData;
+
+  Future<MenuData> _fetch1() async {
+    try {
+      print("future 실행!");
+      http.Response response = await http.get(
+          "https://asia-northeast1-kmouin-62d7f.cloudfunctions.net/api/menu");
+      if (response.statusCode == 200) {
+        print(response.body);
+        return MenuData.fromJson(json.decode(response.body));
+      } else {
+        throw Exception("Failed to load data");
+      }
+    } catch (err) {
+      print("error!");
+      return MenuData.fromJson({
+        "status": "error",
+        "result": {
+          "f2l": ["식단 정보 없음"],
+          "f2d": ["식단 정보 없음"],
+          "f2s": ["식단 정보 없음"],
+          "f3b": ["식단 정보 없음"],
+          "f5l": ["식단 정보 없음"],
+          "f5s": ["식단 정보 없음"],
+        }
+      });
+    }
+  }
+
+  void initState() {
+    super.initState();
+    menuData = _fetch1();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,9 +77,6 @@ class _ThirdFloorState extends State<ThirdFloor> {
                       fontSize: 18.0,
                       wordSpacing: 0.0,
                     ),
-                  ),
-                  SizedBox(
-                    width: 20,
                   ),
                 ],
               ),
@@ -166,78 +202,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                       SizedBox(
                         height: 28,
                       ),
-                      //천원의 아침
-                      Container(
-                        padding: EdgeInsets.all(16),
-                        width: 355,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(18)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0x80cacaca),
-                              offset: Offset(0, -1),
-                              blurRadius: 16,
-                              spreadRadius: 2,
-                            )
-                          ],
-                          color: const Color(0xffffffff),
-                        ),
-                        child: Column(
-                          children: <Widget>[
-                            Text("천원의 아침",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w500,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 24.0),
-                                textAlign: TextAlign.center),
-                            SizedBox(
-                              height: 7,
-                            ),
-                            Container(
-                              width: 319,
-                              height: 1,
-                              decoration: BoxDecoration(
-                                color: const Color(0xffc53786),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text("숯불제육덮밥",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 16.0),
-                                textAlign: TextAlign.center),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            Text("치즈라면 + 공기밥",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 16.0),
-                                textAlign: TextAlign.center),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            Text("치즈라면",
-                                style: const TextStyle(
-                                    color: const Color(0xff131415),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 16.0),
-                                textAlign: TextAlign.center),
-                          ],
-                        ),
-                      ),
+                      buildFutureBuilder(),
                       SizedBox(
                         height: 52,
                       ),
@@ -286,7 +251,8 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                         height: 15,
                                       ),
                                       Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: <Widget>[
                                           Row(
                                             children: <Widget>[
@@ -298,10 +264,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -319,10 +285,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -340,10 +306,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -361,10 +327,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -497,7 +463,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                 children: <Widget>[
                                   Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Row(
                                         children: <Widget>[
@@ -507,7 +473,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("라면코너",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w500,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -531,7 +497,8 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                         height: 15,
                                       ),
                                       Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: <Widget>[
                                           Row(
                                             children: <Widget>[
@@ -543,10 +510,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -564,10 +531,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -585,10 +552,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -606,10 +573,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -629,7 +596,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("라면코너",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w500,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -657,7 +624,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("￦ 5,000",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w300,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -676,7 +643,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("￦ 5,000",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w300,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -695,7 +662,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("￦ 5,000",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w300,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -714,7 +681,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("￦ 5,000",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w300,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -742,7 +709,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                 children: <Widget>[
                                   Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Row(
                                         children: <Widget>[
@@ -752,7 +719,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("분식코너",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w500,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -776,7 +743,8 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                         height: 15,
                                       ),
                                       Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: <Widget>[
                                           Row(
                                             children: <Widget>[
@@ -788,10 +756,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -809,10 +777,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -830,10 +798,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -851,10 +819,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -874,7 +842,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("분식코너",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w500,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -902,7 +870,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("￦ 5,000",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w300,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -921,7 +889,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("￦ 5,000",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w300,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -940,7 +908,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("￦ 5,000",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w300,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -959,7 +927,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("￦ 5,000",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w300,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -987,7 +955,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                 children: <Widget>[
                                   Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Row(
                                         children: <Widget>[
@@ -997,7 +965,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("덮밥코너",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w500,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -1021,7 +989,8 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                         height: 15,
                                       ),
                                       Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: <Widget>[
                                           Row(
                                             children: <Widget>[
@@ -1033,10 +1002,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -1054,10 +1023,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -1075,10 +1044,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -1096,10 +1065,10 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                                       color: const Color(
                                                           0xff131415),
                                                       fontWeight:
-                                                      FontWeight.w300,
+                                                          FontWeight.w300,
                                                       fontFamily: "NotoSansKR",
                                                       fontStyle:
-                                                      FontStyle.normal,
+                                                          FontStyle.normal,
                                                       fontSize: 16.0),
                                                   textAlign: TextAlign.center),
                                             ],
@@ -1119,7 +1088,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("덮밥코너",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w500,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -1147,7 +1116,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("￦ 5,000",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w300,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -1166,7 +1135,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("￦ 5,000",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w300,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -1185,7 +1154,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("￦ 5,000",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w300,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -1204,7 +1173,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                                           Text("￦ 5,000",
                                               style: const TextStyle(
                                                   color:
-                                                  const Color(0xff131415),
+                                                      const Color(0xff131415),
                                                   fontWeight: FontWeight.w300,
                                                   fontFamily: "NotoSansKR",
                                                   fontStyle: FontStyle.normal,
@@ -1235,5 +1204,41 @@ class _ThirdFloorState extends State<ThirdFloor> {
         ],
       ),
     );
+  }
+
+  FutureBuilder<MenuData> buildFutureBuilder() {
+    return FutureBuilder(
+        future: menuData,
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData == false) {
+            return Column(
+              children: <Widget>[
+                SizedBox(height: 20.0),
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
+              ],
+            );
+          } else if (snapshot.hasError) {
+            return Text("error");
+          } else {
+            print(snapshot.data);
+            return Column(
+              children: <Widget>[
+                MenuCard(
+                  title: '천원의 아침',
+                  children: <Widget>[
+                    MenuInfo(
+                      menuTable: snapshot.data.result["f3b"],
+                    ),
+                  ],
+                ),
+              ],
+            );
+          }
+        });
   }
 }

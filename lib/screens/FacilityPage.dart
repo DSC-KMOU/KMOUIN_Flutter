@@ -1,10 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kmouin/screens/DormMenu.dart';
-import 'package:kmouin/screens/FifthFloor.dart';
-import 'package:kmouin/screens/ThirdFloor.dart';
-import '../widgets/TopContainer.dart';
-import '../screens/SecondFloor.dart';
 import '../widgets/FacilityLibButton.dart';
 import 'dart:ui';
 
@@ -15,23 +10,23 @@ class FacilityPage extends StatefulWidget {
 
 class _FacilityPageState extends State<FacilityPage> {
   //열람실 학생수 변수
-  int _yulStd_1 = 1;
-  int _yulStd_2 = 2;
-  int _yulStd_3 = 3;
-  int _yulStd_4 = 4;
+  int _stdRoomNum_1 = 1;
+  int _stdRoomNum_2 = 2;
+  int _stdRoomNum_3 = 3;
+  int _stdRoomNum_4 = 4;
 
   @override
   Widget build(BuildContext context) {
     //화면 크기 체크
     //디바이스 너비
-    double _widht = MediaQuery.of(context).size.width;
+    double _width = MediaQuery.of(context).size.width;
     //디바이스 높이
     double _height = MediaQuery.of(context).size.height;
     //상태바 높이
-    double _top = MediaQuery.of(context).padding.top;
+    double _naviTop = MediaQuery.of(context).padding.top;
     //네비게이션바 높이
     double _bottom = MediaQuery.of(context).padding.bottom;
-    double _ht = _height;
+    double _screenHeight = _height;
 
 
     return Scaffold(
@@ -44,7 +39,7 @@ class _FacilityPageState extends State<FacilityPage> {
         title: Row(
           children: <Widget>[
             SizedBox(
-              width: _widht * (3.7 /100),
+              width: _width * (3.7 /100),
             ),
             Container(
               width: 100,
@@ -78,8 +73,8 @@ class _FacilityPageState extends State<FacilityPage> {
       body: Stack(
         children: <Widget>[
           Container(
-            height: _ht * (60.1/100),
-            width: _widht,
+            height: _screenHeight * (60.1/100),
+            width: _width,
             child: Image.asset('images/FacilityPage/greenback.png',
               fit: BoxFit.fill,),
           ),
@@ -88,7 +83,7 @@ class _FacilityPageState extends State<FacilityPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: _ht * (11.9/100),
+                height: _screenHeight * (11.9/100),
               ),
               Center(
                 child: Container(
@@ -105,7 +100,7 @@ class _FacilityPageState extends State<FacilityPage> {
                 ),
               ),
               SizedBox(
-                height: _ht * (1.8/100),
+                height: _screenHeight * (1.8/100),
               ),
               Center(
                 child: Container(
@@ -126,7 +121,7 @@ class _FacilityPageState extends State<FacilityPage> {
               Column(
                 children: <Widget>[
                   SizedBox(
-                    height: _ht * (3.57/100),
+                    height: _screenHeight * (3.57/100),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -134,36 +129,36 @@ class _FacilityPageState extends State<FacilityPage> {
                       InkWell(
                         onTap: (){
                           setState(() {
-                            _yulStd_1 = _yulStd_1 + 1;
+                            _stdRoomNum_1 = _stdRoomNum_1 + 1;
                           });
                         },
                         child: LibButton(
                           num: 1,
-                          yulStdNum: _yulStd_1,
-                          wdt: _widht,
-                          ht: _ht,
+                          stdRoomNum: _stdRoomNum_1,
+                          screenWidth: _width,
+                          screenHeight: _screenHeight,
                         ),
                       ),
                       SizedBox(
-                        width: _widht * (4/100),
+                        width: _width * (4/100),
                       ),
                       InkWell(
                         onTap: (){
                           setState(() {
-                            _yulStd_2 = _yulStd_2 + 1;
+                            _stdRoomNum_2 = _stdRoomNum_2 + 1;
                           });
                         },
                         child: LibButton(
                           num: 2,
-                          yulStdNum: _yulStd_2,
-                          wdt: _widht,
-                          ht: _ht,
+                          stdRoomNum: _stdRoomNum_2,
+                          screenWidth: _width,
+                          screenHeight: _screenHeight,
                         ),
                       )
                     ],
                   ),
                   SizedBox(
-                    height: _ht * (1.84/100),
+                    height: _screenHeight * (1.84/100),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -171,36 +166,36 @@ class _FacilityPageState extends State<FacilityPage> {
                       InkWell(
                         onTap: (){
                           setState(() {
-                            _yulStd_3 = _yulStd_3 + 1;
+                            _stdRoomNum_3 = _stdRoomNum_3 + 1;
                           });
                         },
                         child: LibButton(
                           num: 3,
-                          yulStdNum: _yulStd_3,
-                          wdt: _widht,
-                          ht: _ht,
+                          stdRoomNum: _stdRoomNum_3,
+                          screenWidth: _width,
+                          screenHeight: _screenHeight,
                         ),
                       ),
                       SizedBox(
-                        width: _widht * (4/100),
+                        width: _width * (4/100),
                       ),
                       InkWell(
                         onTap: (){
                           setState(() {
-                            _yulStd_4 = _yulStd_4 + 1;
+                            _stdRoomNum_4 = _stdRoomNum_4 + 1;
                           });
                         },
                         child: LibButton(
                           num: 4,
-                          yulStdNum: _yulStd_4,
-                          wdt: _widht,
-                          ht: _ht,
+                          stdRoomNum: _stdRoomNum_4,
+                          screenWidth: _width,
+                          screenHeight: _screenHeight,
                         ),
                       )
                     ],
                   ),
                   SizedBox(
-                    height: _ht * (5.5/100),
+                    height: _screenHeight * (5.5/100),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -208,8 +203,8 @@ class _FacilityPageState extends State<FacilityPage> {
                       InkWell(
                         //onTap: ,
                         child: Container(
-                          width: _widht * (42.7/100),
-                          height: _widht * (42.7/100),
+                          width: _width * (42.7/100),
+                          height: _width * (42.7/100),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.all(
                                   Radius.circular(20)
@@ -226,7 +221,7 @@ class _FacilityPageState extends State<FacilityPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Container(
-                                height: _ht * (9.7/100),
+                                height: _screenHeight * (9.7/100),
                                 child: Image.asset('images/FacilityPage/coffee.png'),
                               ),
                               Text(
@@ -256,13 +251,13 @@ class _FacilityPageState extends State<FacilityPage> {
                         ),
                       ),
                       SizedBox(
-                        width: _widht * (4/100),
+                        width: _width * (4/100),
                       ),
                       InkWell(
                         //onTap: ,
                         child: Container(
-                          width: _widht * (42.7/100),
-                          height: _widht * (42.7/100),
+                          width: _width * (42.7/100),
+                          height: _width * (42.7/100),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.all(
                                   Radius.circular(20)
@@ -279,7 +274,7 @@ class _FacilityPageState extends State<FacilityPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Container(
-                                height: _ht * (9.7/100),
+                                height: _screenHeight * (9.7/100),
                                 child: Image.asset('images/FacilityPage/sos.png'),
                               ),
                               Text(
