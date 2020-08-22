@@ -16,26 +16,48 @@ class _MyHomePageState extends State<CoummuterBusPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.navigate_before),
-          onPressed: () => Navigator.maybePop(context),
-          color: Color(0xff793cc2),
+        centerTitle: false,
+        title: Row(
+          children: <Widget>[
+            FlatButton(
+              padding: EdgeInsets.all(0),
+              onPressed: () {
+                setState(() {
+                  Navigator.pop(context);
+                });
+              },
+              child: Row(
+                children: <Widget>[
+                  Icon(
+                    CupertinoIcons.back,
+                    color: Color(0xff842fb5),
+                  ),
+                  Text(
+                    "버스",
+                    style: TextStyle(
+                      color: const Color(0xff842fb5),
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "NotoSansKR",
+                      fontStyle: FontStyle.normal,
+                      fontSize: 18.0,
+                      wordSpacing: -5.0,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-        title: Text(
-          "버스정보",
-          style: TextStyle(
-            color: const Color(0xff842fb5),
-            fontWeight: FontWeight.w300,
-            fontFamily: "NotoSansKR",
-            fontStyle: FontStyle.normal,
-            fontSize: 20.0,
-          ),
-        ),
-        titleSpacing: -15,
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
+        titleSpacing: -5,
+        elevation: 1.0,
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
       ),
       body: Container(
+        color: Colors.white,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -119,27 +141,27 @@ class CommuterCard extends StatelessWidget {
           ),
           RichText(
               text: new TextSpan(children: [
-                new TextSpan(
-                    text: "교직원 이용/",
-                    style: TextStyle(
-                      fontFamily: 'NotoSansKR',
-                      color: Color(0xff6d6d6d),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                      fontStyle: FontStyle.normal,
-                      letterSpacing: -0.3323076923076922,
-                    )),
-                new TextSpan(
-                    text: "학생은 영도대교 승차",
-                    style: TextStyle(
-                      fontFamily: 'NotoSansKR',
-                      color: Color(0xff842fb5),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                      fontStyle: FontStyle.normal,
-                      letterSpacing: -0.3323076923076922,
-                    )),
-              ])),
+            new TextSpan(
+                text: "교직원 이용/",
+                style: TextStyle(
+                  fontFamily: 'NotoSansKR',
+                  color: Color(0xff6d6d6d),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  fontStyle: FontStyle.normal,
+                  letterSpacing: -0.3323076923076922,
+                )),
+            new TextSpan(
+                text: "학생은 영도대교 승차",
+                style: TextStyle(
+                  fontFamily: 'NotoSansKR',
+                  color: Color(0xff842fb5),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  fontStyle: FontStyle.normal,
+                  letterSpacing: -0.3323076923076922,
+                )),
+          ])),
           Text("구서동2동 풍년혼수마트(07:27) > 롯데캐슬 상가앞(02:28)"
               "장전동 기아자동차(07:31) > 장전동 놀이터(07:34)"
               "온천장 홈플러스(07:42) > 롯데백화점 정류장(07:44)"

@@ -105,7 +105,7 @@ class _MyHomePageState extends State<BusPage> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: false,
-        titleSpacing: -3,
+        titleSpacing: -5,
         backgroundColor: Colors.white.withOpacity(0.0),
         elevation: 0,
         automaticallyImplyLeading: false,
@@ -132,6 +132,7 @@ class _MyHomePageState extends State<BusPage> {
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
                       fontSize: 18.0,
+                      wordSpacing: -5.0,
                     ),
                   ),
                   SizedBox(
@@ -201,7 +202,7 @@ class _MyHomePageState extends State<BusPage> {
           )
         ],
       ),
-      
+
     );
   }
 
