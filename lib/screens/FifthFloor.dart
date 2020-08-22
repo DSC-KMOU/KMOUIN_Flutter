@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kmouin/widgets/MenuCard.dart';
 import 'package:kmouin/widgets/MenuInfo.dart';
+import 'package:kmouin/widgets/MenuData.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'Dart:ui';
@@ -10,30 +11,15 @@ class FifthFloor extends StatefulWidget {
   _FifthFloorState createState() => _FifthFloorState();
 }
 
-class MenuData {
-  final String status;
-  final Map<dynamic, dynamic> result;
-
-  MenuData({this.status, this.result});
-
-  factory MenuData.fromJson(Map<String, dynamic> json) {
-    return MenuData(
-      status: json['status'],
-      result: json['result'],
-    );
-  }
-}
-
 class _FifthFloorState extends State<FifthFloor> {
   Future<MenuData> menuData;
 
   Future<MenuData> _fetch1() async {
     try {
       print("future 실행!");
-      http.Response response =
-          await http.get("http://192.168.1.64:3000/api/menu");
+      http.Response response = await http.get(
+          "https://asia-northeast1-kmouin-62d7f.cloudfunctions.net/api/menu");
       if (response.statusCode == 200) {
-        // final busInfo = json.decode(response.body);
         print(response.body);
         return MenuData.fromJson(json.decode(response.body));
       } else {
@@ -278,190 +264,10 @@ class _FifthFloorState extends State<FifthFloor> {
                       SizedBox(
                         height: 28,
                       ),
-//                      //점심
-//                      Container(
-//                        padding: EdgeInsets.all(16),
-//                        width: 355,
-//                        decoration: BoxDecoration(
-//                          borderRadius: BorderRadius.all(Radius.circular(18)),
-//                          boxShadow: [
-//                            BoxShadow(
-//                              color: const Color(0x80cacaca),
-//                              offset: Offset(0, -1),
-//                              blurRadius: 16,
-//                              spreadRadius: 2,
-//                            )
-//                          ],
-//                          color: const Color(0xffffffff),
-//                        ),
-//                        child: Column(
-//                          children: <Widget>[
-//                            Text("점심",
-//                                style: const TextStyle(
-//                                    color: const Color(0xff131415),
-//                                    fontWeight: FontWeight.w500,
-//                                    fontFamily: "NotoSansKR",
-//                                    fontStyle: FontStyle.normal,
-//                                    fontSize: 24.0),
-//                                textAlign: TextAlign.center),
-//                            SizedBox(
-//                              height: 7,
-//                            ),
-//                            Container(
-//                              width: 319,
-//                              height: 1,
-//                              decoration: BoxDecoration(
-//                                color: const Color(0xffc53786),
-//                              ),
-//                            ),
-//                            SizedBox(
-//                              height: 15,
-//                            ),
-//                            Text("쌀밥 / 잡곡밥",
-//                                style: const TextStyle(
-//                                    color: const Color(0xff131415),
-//                                    fontWeight: FontWeight.w300,
-//                                    fontFamily: "NotoSansKR",
-//                                    fontStyle: FontStyle.normal,
-//                                    fontSize: 16.0),
-//                                textAlign: TextAlign.center),
-//                            SizedBox(
-//                              height: 12,
-//                            ),
-//                            Text("닭개장",
-//                                style: const TextStyle(
-//                                    color: const Color(0xff131415),
-//                                    fontWeight: FontWeight.w300,
-//                                    fontFamily: "NotoSansKR",
-//                                    fontStyle: FontStyle.normal,
-//                                    fontSize: 16.0),
-//                                textAlign: TextAlign.center),
-//                            SizedBox(
-//                              height: 12,
-//                            ),
-//                            Text("고추장 불고기",
-//                                style: const TextStyle(
-//                                    color: const Color(0xff131415),
-//                                    fontWeight: FontWeight.w300,
-//                                    fontFamily: "NotoSansKR",
-//                                    fontStyle: FontStyle.normal,
-//                                    fontSize: 16.0),
-//                                textAlign: TextAlign.center),
-//                            SizedBox(
-//                              height: 12,
-//                            ),
-//                            Text("연두부 / 양념장",
-//                                style: const TextStyle(
-//                                    color: const Color(0xff131415),
-//                                    fontWeight: FontWeight.w300,
-//                                    fontFamily: "NotoSansKR",
-//                                    fontStyle: FontStyle.normal,
-//                                    fontSize: 16.0),
-//                                textAlign: TextAlign.center),
-//                            SizedBox(
-//                              height: 12,
-//                            ),
-//                            Text("깻순나물무침",
-//                                style: const TextStyle(
-//                                    color: const Color(0xff131415),
-//                                    fontWeight: FontWeight.w300,
-//                                    fontFamily: "NotoSansKR",
-//                                    fontStyle: FontStyle.normal,
-//                                    fontSize: 16.0),
-//                                textAlign: TextAlign.center),
-//                            SizedBox(
-//                              height: 12,
-//                            ),
-//                            Text("배추김치",
-//                                style: const TextStyle(
-//                                    color: const Color(0xff131415),
-//                                    fontWeight: FontWeight.w300,
-//                                    fontFamily: "NotoSansKR",
-//                                    fontStyle: FontStyle.normal,
-//                                    fontSize: 16.0),
-//                                textAlign: TextAlign.center),
-//                            SizedBox(
-//                              height: 12,
-//                            ),
-//                            Text("요구르트",
-//                                style: const TextStyle(
-//                                    color: const Color(0xff131415),
-//                                    fontWeight: FontWeight.w300,
-//                                    fontFamily: "NotoSansKR",
-//                                    fontStyle: FontStyle.normal,
-//                                    fontSize: 16.0),
-//                                textAlign: TextAlign.center),
-//                            SizedBox(
-//                              height: 12,
-//                            ),
-//                            Text("알배추쌈",
-//                                style: const TextStyle(
-//                                    color: const Color(0xff131415),
-//                                    fontWeight: FontWeight.w300,
-//                                    fontFamily: "NotoSansKR",
-//                                    fontStyle: FontStyle.normal,
-//                                    fontSize: 16.0),
-//                                textAlign: TextAlign.center),
-//                          ],
-//                        ),
-//                      ),
-//                      SizedBox(
-//                        height: 35,
-//                      ),
-//                      //일품식
-//                      Container(
-//                        padding: EdgeInsets.all(16),
-//                        width: 355,
-//                        decoration: BoxDecoration(
-//                          borderRadius: BorderRadius.all(Radius.circular(18)),
-//                          boxShadow: [
-//                            BoxShadow(
-//                              color: const Color(0x80cacaca),
-//                              offset: Offset(0, -1),
-//                              blurRadius: 16,
-//                              spreadRadius: 2,
-//                            ),
-//                          ],
-//                          color: const Color(0xffffffff),
-//                        ),
-//                        child: Column(
-//                          children: <Widget>[
-//                            Text("일품식",
-//                                style: const TextStyle(
-//                                    color: const Color(0xff131415),
-//                                    fontWeight: FontWeight.w500,
-//                                    fontFamily: "NotoSansKR",
-//                                    fontStyle: FontStyle.normal,
-//                                    fontSize: 24.0),
-//                                textAlign: TextAlign.center),
-//                            SizedBox(
-//                              height: 7,
-//                            ),
-//                            Container(
-//                              width: 319,
-//                              height: 1,
-//                              decoration: BoxDecoration(
-//                                color: const Color(0xffc53786),
-//                              ),
-//                            ),
-//                            SizedBox(
-//                              height: 17,
-//                            ),
-//                            Text("갈치조림",
-//                                style: const TextStyle(
-//                                    color: const Color(0xff131415),
-//                                    fontWeight: FontWeight.w300,
-//                                    fontFamily: "NotoSansKR",
-//                                    fontStyle: FontStyle.normal,
-//                                    fontSize: 16.0),
-//                                textAlign: TextAlign.center),
-//                          ],
-//                        ),
-//                      ),
-//                      SizedBox(
-//                        height: 83,
-//                      ),
                       buildFutureBuilder(),
+                      SizedBox(
+                        height: 32,
+                      ),
                     ],
                   ),
                 ),
@@ -493,14 +299,27 @@ class _FifthFloorState extends State<FifthFloor> {
             return Text("error");
           } else {
             print(snapshot.data);
-            return MenuCard(
-              title: '점심',
+            return Column(
               children: <Widget>[
-                //MenuInfo(
-                  //menuTable: snapshot.data.result["f5l"],
-                  //length:
-                      //snapshot.data.result["f5l"].toString().split(',').length,
-                //),
+                MenuCard(
+                  title: '점심',
+                  children: <Widget>[
+                    MenuInfo(
+                      menuTable: snapshot.data.result["f5l"],
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 35,
+                ),
+                MenuCard(
+                  title: '일품식',
+                  children: <Widget>[
+                    MenuInfo(
+                      menuTable: snapshot.data.result["f5s"],
+                    ),
+                  ],
+                ),
               ],
             );
           }
