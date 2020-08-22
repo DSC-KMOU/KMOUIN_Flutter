@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kmouin/widgets/MenuCard.dart';
 import 'package:kmouin/widgets/MenuInfo.dart';
@@ -48,9 +49,6 @@ class _DormMenuState extends State<DormMenu> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
-        backgroundColor: Colors.white.withOpacity(0.8),
-        elevation: 0,
-        automaticallyImplyLeading: false,
         title: Row(
           children: <Widget>[
             FlatButton(
@@ -63,17 +61,18 @@ class _DormMenuState extends State<DormMenu> {
               child: Row(
                 children: <Widget>[
                   Icon(
-                    Icons.arrow_back_ios,
+                    CupertinoIcons.back,
                     color: Color(0xffeb577c),
                   ),
                   Text(
-                    "학식정보",
+                    "학식 정보",
                     style: TextStyle(
-                      color: const Color(0xffeb577c),
+                      color:  Color(0xffeb577c),
                       fontWeight: FontWeight.w300,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
-                      fontSize: 20.0,
+                      fontSize: 18.0,
+                      wordSpacing: 0.0,
                     ),
                   ),
                 ],
@@ -81,6 +80,10 @@ class _DormMenuState extends State<DormMenu> {
             ),
           ],
         ),
+        titleSpacing: -1.8,
+        elevation: 1.0,
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
       ),
       extendBodyBehindAppBar: true,
       backgroundColor: const Color(0xffffffff),
