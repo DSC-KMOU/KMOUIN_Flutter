@@ -6,7 +6,6 @@ import 'package:kmouin/widgets/MenuData.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'Dart:ui';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 class DormMenu extends StatefulWidget {
   @override
@@ -47,7 +46,6 @@ class _DormMenuState extends State<DormMenu> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,

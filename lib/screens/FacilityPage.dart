@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/FacilityLibButton.dart';
 import 'dart:ui';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 class FacilityPage extends StatefulWidget {
   @override
@@ -18,7 +17,6 @@ class _FacilityPageState extends State<FacilityPage> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     //화면 크기 체크
     //디바이스 너비
     double _width = MediaQuery.of(context).size.width;

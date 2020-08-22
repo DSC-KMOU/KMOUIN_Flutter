@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/BusRoute.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 class CoummuterBusPage extends StatefulWidget {
   CoummuterBusPage({Key key, this.title}) : super(key: key);
@@ -15,7 +14,6 @@ class CoummuterBusPage extends StatefulWidget {
 class _MyHomePageState extends State<CoummuterBusPage> {
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
