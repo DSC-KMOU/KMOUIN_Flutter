@@ -6,6 +6,7 @@ import 'package:kmouin/screens/ThirdFloor.dart';
 import '../widgets/TopContainer.dart';
 import '../screens/SecondFloor.dart';
 import 'dart:ui';
+import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -15,6 +16,7 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(

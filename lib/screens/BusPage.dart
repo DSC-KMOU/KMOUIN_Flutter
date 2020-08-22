@@ -7,6 +7,7 @@ import '../widgets/BusCard.dart';
 import '../widgets/BusInfo.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 class BusPage extends StatefulWidget {
   BusPage({Key key, this.title}) : super(key: key);
@@ -99,6 +100,7 @@ class _MyHomePageState extends State<BusPage> {
 
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     double rate = 1 / 375.0;
     double fullWidth = MediaQuery.of(context).size.width;
     return Scaffold(
