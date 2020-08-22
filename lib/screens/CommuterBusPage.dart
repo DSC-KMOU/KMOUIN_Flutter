@@ -17,46 +17,46 @@ class _MyHomePageState extends State<CoummuterBusPage> {
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        title: Row(
-          children: <Widget>[
-            FlatButton(
-              padding: EdgeInsets.all(0),
-              onPressed: () {
-                setState(() {
-                  Navigator.pop(context);
-                });
-              },
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    CupertinoIcons.back,
-                    color: Color(0xff842fb5),
-                  ),
-                  Text(
-                    "버스",
-                    style: TextStyle(
-                      color: const Color(0xff842fb5),
-                      fontWeight: FontWeight.w300,
-                      fontFamily: "NotoSansKR",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 18.0,
-                      wordSpacing: -5.0,
+      appBar:PreferredSize(
+        preferredSize: Size.fromHeight(47.0),
+        child: AppBar(
+          centerTitle: false,
+          title: Row(
+            children: <Widget>[
+              FlatButton(
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
+                },
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      CupertinoIcons.back,
+                      color: Color(0xff842fb5),
                     ),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                ],
+                    Text(
+                      "학식 정보",
+                      style: TextStyle(
+                        color:   Color(0xff842fb5),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 18.0,
+                        wordSpacing: 0.0,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
+          titleSpacing: -1.8,
+          elevation: 1.0,
+          backgroundColor: Colors.white,
+          automaticallyImplyLeading: false,
         ),
-        titleSpacing: -5,
-        elevation: 1.0,
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
       ),
       body: Container(
         color: Colors.white,

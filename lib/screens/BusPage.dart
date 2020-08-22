@@ -157,7 +157,8 @@ class _MyHomePageState extends State<BusPage> {
                 ),
                 onPressed: () async {
                   // await _fetch1();
-                  setState(() { // 수정 필요 !!
+                  setState(() {
+                    // 수정 필요 !!
                     busData = _fetch1();
                   });
                 },
@@ -207,7 +208,6 @@ class _MyHomePageState extends State<BusPage> {
           )
         ],
       ),
-
     );
   }
 
@@ -242,19 +242,18 @@ class _MyHomePageState extends State<BusPage> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Chip(
-                              backgroundColor:
-                                  Colors.deepPurple.withOpacity(0.8),
-                              label: Text(snapshot.data.cur,
-                                  style: const TextStyle(
-                                    color: const Color(0xffffffff),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 20.0,
-                                  )),
+                            SizedBox(height: 10.0),
+                            Text(
+                              snapshot.data.cur,
+                              style: const TextStyle(
+                                color: const Color(0xffffffff),
+                                fontWeight: FontWeight.w300,
+                                fontFamily: "NotoSansKR",
+                                fontStyle: FontStyle.normal,
+                                fontSize: 18.0,
+                              ),
                             ),
-                            SizedBox(height: 43.0),
+                            SizedBox(height: 33.0),
                             BusCard(
                                 title: '셔틀 버스',
                                 width: 355 * fullWidth * rate,
