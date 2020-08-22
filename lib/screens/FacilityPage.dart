@@ -33,42 +33,48 @@ class _FacilityPageState extends State<FacilityPage> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        titleSpacing: -15,
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        title: Row(
-          children: <Widget>[
-            SizedBox(
-              width: _width * (3.7 /100),
-            ),
-            Container(
-              width: 100,
-              child: FlatButton(
+      appBar:PreferredSize(
+        preferredSize: Size.fromHeight(47.0),
+        child: AppBar(
+          centerTitle: false,
+          titleSpacing: -5,
+          backgroundColor: Colors.white.withOpacity(0.0),
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          title: Row(
+            children: <Widget>[
+              FlatButton(
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
+                },
                 child: Row(
                   children: <Widget>[
                     Icon(
-                      Icons.navigate_before,
-                      color: const Color(0xffffffff),
+                      CupertinoIcons.back,
+                      color: Colors.white,
                     ),
                     Text(
-                      "메인",
-                      style: const TextStyle(
-                        color: const Color(0xffffffff),
+                      " 메인",
+                      style: TextStyle(
+                        color: Colors.white,
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 16.0,
+                        fontSize: 18.0,
+                        wordSpacing: -5.0,
                       ),
-                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      width: 20,
                     ),
                   ],
                 ),
-                onPressed: () => Navigator.pop(context),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       backgroundColor: const Color(0xffffffff),
