@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kmouin/widgets/ErrorContainer.dart';
+import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 class ErrorAndDev extends StatefulWidget {
   @override
@@ -10,12 +11,14 @@ class ErrorAndDev extends StatefulWidget {
 class _ErrorAndDevState extends State<ErrorAndDev> {
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
         titleSpacing: -3,
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
+        elevation: 1.0,
         title: Row(
           children: <Widget>[
             FlatButton(
