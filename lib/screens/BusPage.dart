@@ -105,63 +105,67 @@ class _MyHomePageState extends State<BusPage> {
     double fullWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        centerTitle: false,
-        titleSpacing: -5,
-        backgroundColor: Colors.white.withOpacity(0.0),
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        title: Row(
-          children: <Widget>[
-            FlatButton(
-              padding: EdgeInsets.all(0),
-              onPressed: () {
-                setState(() {
-                  Navigator.pop(context);
-                });
-              },
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    CupertinoIcons.back,
-                    color: Colors.white,
-                  ),
-                  Text(
-                    " 메인",
-                    style: TextStyle(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(47.0),
+        child: AppBar(
+          centerTitle: false,
+          titleSpacing: -5,
+          backgroundColor: Colors.white.withOpacity(0.0),
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          title: Row(
+            children: <Widget>[
+              FlatButton(
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
+                },
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      CupertinoIcons.back,
                       color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                      fontFamily: "NotoSansKR",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 18.0,
-                      wordSpacing: -5.0,
                     ),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                ],
+                    Text(
+                      " 메인",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 18.0,
+                        wordSpacing: -5.0,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          actions: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: IconButton(
+                icon: Icon(
+                  Icons.refresh,
+                  color: Colors.white,
+                ),
+                onPressed: () async {
+                  // await _fetch1();
+                  setState(() {
+                    // 수정 필요 !!
+                    busData = _fetch1();
+                  });
+                },
               ),
             ),
           ],
         ),
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: IconButton(
-              icon: Icon(
-                Icons.refresh,
-                color: Colors.white,
-              ),
-              onPressed: () async {
-                // await _fetch1();
-                setState(() { // 수정 필요 !!
-                  busData = _fetch1();
-                });
-              },
-            ),
-          ),
-        ],
       ),
       body: Stack(
         children: <Widget>[
@@ -204,7 +208,6 @@ class _MyHomePageState extends State<BusPage> {
           )
         ],
       ),
-
     );
   }
 
@@ -239,19 +242,18 @@ class _MyHomePageState extends State<BusPage> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Chip(
-                              backgroundColor:
-                                  Colors.deepPurple.withOpacity(0.8),
-                              label: Text(snapshot.data.cur,
-                                  style: const TextStyle(
-                                    color: const Color(0xffffffff),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 20.0,
-                                  )),
+                            SizedBox(height: 10.0),
+                            Text(
+                              snapshot.data.cur,
+                              style: const TextStyle(
+                                color: const Color(0xffffffff),
+                                fontWeight: FontWeight.w300,
+                                fontFamily: "NotoSansKR",
+                                fontStyle: FontStyle.normal,
+                                fontSize: 18.0,
+                              ),
                             ),
-                            SizedBox(height: 43.0),
+                            SizedBox(height: 33.0),
                             BusCard(
                                 title: '셔틀 버스',
                                 width: 355 * fullWidth * rate,
