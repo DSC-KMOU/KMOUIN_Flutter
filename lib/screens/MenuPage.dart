@@ -116,313 +116,315 @@ class _MenuPageState extends State<MenuPage> {
               ),
             ],
           ),
-          Column(
-            children: <Widget>[
-              SizedBox(
-                height: 310,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    width: fullWidth * 0.42,
-                    height: fullWidth * 0.42,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
+          SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 310,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: fullWidth * 0.42,
+                      height: fullWidth * 0.42,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                              color: const Color(0x80cacaca),
+                              offset: Offset(0, -1),
+                              blurRadius: 16,
+                              spreadRadius: 2),
+                        ],
+                        color: const Color(0xffffffff),
                       ),
-                      boxShadow: [
-                        BoxShadow(
+                      child: FlatButton(
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => SecondFloor(),
+                            ),
+                          );
+                        },
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(20.0),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                margin: EdgeInsets.only(
+                                  bottom: fullWidth * 0.025,
+                                ),
+                                height: fullWidth * 0.117,
+                                width: fullWidth * 0.117,
+                                child: Image.asset(
+                                  'images/MenuPage/second_imoji.png',
+                                ),
+                              ),
+                              Text(
+                                '2층 학식',
+                                style: const TextStyle(
+                                    color: const Color(0xff131415),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 26.0),
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                '오늘은 무슨 메뉴일까?',
+                                style: const TextStyle(
+                                    color: const Color(0xff5f605f),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12.0),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Container(
+                      width: fullWidth * 0.42,
+                      height: fullWidth * 0.42,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
                             color: const Color(0x80cacaca),
                             offset: Offset(0, -1),
                             blurRadius: 16,
-                            spreadRadius: 2),
-                      ],
-                      color: const Color(0xffffffff),
-                    ),
-                    child: FlatButton(
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => SecondFloor(),
+                            spreadRadius: 2,
                           ),
-                        );
-                      },
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(20.0),
+                        ],
+                        color: const Color(0xffffffff),
                       ),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(
-                                bottom: fullWidth * 0.025,
-                              ),
-                              height: fullWidth * 0.117,
-                              width: fullWidth * 0.117,
-                              child: Image.asset(
-                                'images/MenuPage/second_imoji.png',
-                              ),
+                      child: FlatButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ThirdFloor(),
                             ),
-                            Text(
-                              '2층 학식',
-                              style: const TextStyle(
-                                  color: const Color(0xff131415),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: "NotoSansKR",
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: 26.0),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              '오늘은 무슨 메뉴일까?',
-                              style: const TextStyle(
+                          );
+                        },
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(20.0),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                margin: EdgeInsets.only(
+                                  bottom: fullWidth * 0.025,
+                                ),
+                                height: fullWidth * 0.117,
+                                width: fullWidth * 0.117,
+                                child: Image.asset(
+                                  'images/MenuPage/three_imoji.png',
+                                ),
+                              ),
+                              Text(
+                                '3층 학식',
+                                style: const TextStyle(
+                                    color: const Color(0xff131415),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 26.0),
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                '천원의 아침만 바뀌어요!',
+                                style: const TextStyle(
                                   color: const Color(0xff5f605f),
                                   fontWeight: FontWeight.w500,
                                   fontFamily: "NotoSansKR",
                                   fontStyle: FontStyle.normal,
-                                  fontSize: 12.0),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Container(
-                    width: fullWidth * 0.42,
-                    height: fullWidth * 0.42,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0x80cacaca),
-                          offset: Offset(0, -1),
-                          blurRadius: 16,
-                          spreadRadius: 2,
-                        ),
-                      ],
-                      color: const Color(0xffffffff),
-                    ),
-                    child: FlatButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ThirdFloor(),
+                                  fontSize: 12.0,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
                           ),
-                        );
-                      },
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(20.0),
-                      ),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(
-                                bottom: fullWidth * 0.025,
-                              ),
-                              height: fullWidth * 0.117,
-                              width: fullWidth * 0.117,
-                              child: Image.asset(
-                                'images/MenuPage/three_imoji.png',
-                              ),
-                            ),
-                            Text(
-                              '3층 학식',
-                              style: const TextStyle(
-                                  color: const Color(0xff131415),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: "NotoSansKR",
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: 26.0),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              '천원의 아침만 바뀌어요!',
-                              style: const TextStyle(
-                                color: const Color(0xff5f605f),
-                                fontWeight: FontWeight.w500,
-                                fontFamily: "NotoSansKR",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.0,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(
-                      bottom: fullWidth * 0.025,
-                    ),
-                    width: fullWidth * 0.42,
-                    height: fullWidth * 0.42,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(
+                        bottom: fullWidth * 0.025,
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0x80cacaca),
-                          offset: Offset(0, -1),
-                          blurRadius: 16,
-                          spreadRadius: 2,
+                      width: fullWidth * 0.42,
+                      height: fullWidth * 0.42,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
                         ),
-                      ],
-                      color: const Color(0xffffffff),
-                    ),
-                    child: FlatButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => FifthFloor(),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x80cacaca),
+                            offset: Offset(0, -1),
+                            blurRadius: 16,
+                            spreadRadius: 2,
                           ),
-                        );
-                      },
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(20.0),
+                        ],
+                        color: const Color(0xffffffff),
                       ),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(
-                                bottom: fullWidth * 0.025,
-                              ),
-                              height: fullWidth * 0.117,
-                              width: fullWidth * 0.117,
-                              child: Image.asset(
-                                'images/MenuPage/five_imoji.png',
-                              ),
+                      child: FlatButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => FifthFloor(),
                             ),
-                            Text(
-                              '5층 학식',
-                              style: const TextStyle(
-                                  color: const Color(0xff131415),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: "NotoSansKR",
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: 26.0),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              '교직원 식당입니다!',
-                              style: const TextStyle(
-                                color: const Color(0xff5f605f),
-                                fontWeight: FontWeight.w500,
-                                fontFamily: "NotoSansKR",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.0,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
+                          );
+                        },
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(20.0),
                         ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      bottom: fullWidth * 0.025,
-                    ),
-                    width: fullWidth * 0.42,
-                    height: fullWidth * 0.42,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0x80cacaca),
-                          offset: Offset(0, -1),
-                          blurRadius: 16,
-                          spreadRadius: 2,
-                        ),
-                      ],
-                      color: const Color(0xffffffff),
-                    ),
-                    child: FlatButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => DormMenu(),
-                          ),
-                        );
-                      },
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(20.0),
-                      ),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(
-                                bottom: fullWidth * 0.025,
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                margin: EdgeInsets.only(
+                                  bottom: fullWidth * 0.025,
+                                ),
+                                height: fullWidth * 0.117,
+                                width: fullWidth * 0.117,
+                                child: Image.asset(
+                                  'images/MenuPage/five_imoji.png',
+                                ),
                               ),
-                              height: fullWidth * 0.117,
-                              width: fullWidth * 0.117,
-                              child: Image.asset(
-                                'images/MenuPage/dorm_imoji.png',
+                              Text(
+                                '5층 학식',
+                                style: const TextStyle(
+                                    color: const Color(0xff131415),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 26.0),
+                                textAlign: TextAlign.center,
                               ),
-                            ),
-                            Text(
-                              '기숙사식',
-                              style: const TextStyle(
-                                  color: const Color(0xff131415),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: "NotoSansKR",
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: 26.0),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              '기숙사생들을 위한 식단!',
-                              style: const TextStyle(
+                              Text(
+                                '교직원 식당입니다!',
+                                style: const TextStyle(
                                   color: const Color(0xff5f605f),
                                   fontWeight: FontWeight.w500,
                                   fontFamily: "NotoSansKR",
                                   fontStyle: FontStyle.normal,
-                                  fontSize: 12.0),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
+                                  fontSize: 12.0,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(
+                        bottom: fullWidth * 0.025,
+                      ),
+                      width: fullWidth * 0.42,
+                      height: fullWidth * 0.42,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x80cacaca),
+                            offset: Offset(0, -1),
+                            blurRadius: 16,
+                            spreadRadius: 2,
+                          ),
+                        ],
+                        color: const Color(0xffffffff),
+                      ),
+                      child: FlatButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DormMenu(),
+                            ),
+                          );
+                        },
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(20.0),
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                margin: EdgeInsets.only(
+                                  bottom: fullWidth * 0.025,
+                                ),
+                                height: fullWidth * 0.117,
+                                width: fullWidth * 0.117,
+                                child: Image.asset(
+                                  'images/MenuPage/dorm_imoji.png',
+                                ),
+                              ),
+                              Text(
+                                '기숙사식',
+                                style: const TextStyle(
+                                    color: const Color(0xff131415),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 26.0),
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                '기숙사생들을 위한 식단!',
+                                style: const TextStyle(
+                                    color: const Color(0xff5f605f),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12.0),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
