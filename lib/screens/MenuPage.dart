@@ -17,6 +17,7 @@ class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    double fullWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
@@ -124,8 +125,8 @@ class _MenuPageState extends State<MenuPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    width: 160,
-                    height: 160,
+                    width: fullWidth * 0.42,
+                    height: fullWidth * 0.42,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
@@ -152,20 +153,18 @@ class _MenuPageState extends State<MenuPage> {
                       ),
                       child: Center(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            SizedBox(
-                              height: 20,
-                            ),
                             Container(
-                              height: 66,
-                              width: 49,
+                              margin: EdgeInsets.only(
+                                bottom: fullWidth * 0.025,
+                              ),
+                              height: fullWidth * 0.117,
+                              width: fullWidth * 0.117,
                               child: Image.asset(
                                 'images/MenuPage/second_imoji.png',
                               ),
-                            ),
-                            SizedBox(
-                              height: 6,
                             ),
                             Text(
                               '2층 학식',
@@ -196,8 +195,8 @@ class _MenuPageState extends State<MenuPage> {
                     width: 15,
                   ),
                   Container(
-                    width: 160,
-                    height: 160,
+                    width: fullWidth * 0.42,
+                    height: fullWidth * 0.42,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
@@ -226,20 +225,18 @@ class _MenuPageState extends State<MenuPage> {
                       ),
                       child: Center(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            SizedBox(
-                              height: 20,
-                            ),
                             Container(
-                              height: 66,
-                              width: 49,
+                              margin: EdgeInsets.only(
+                                bottom: fullWidth * 0.025,
+                              ),
+                              height: fullWidth * 0.117,
+                              width: fullWidth * 0.117,
                               child: Image.asset(
                                 'images/MenuPage/three_imoji.png',
                               ),
-                            ),
-                            SizedBox(
-                              height: 6,
                             ),
                             Text(
                               '3층 학식',
@@ -274,10 +271,14 @@ class _MenuPageState extends State<MenuPage> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    width: 160,
-                    height: 160,
+                    margin: EdgeInsets.only(
+                      bottom: fullWidth * 0.025,
+                    ),
+                    width: fullWidth * 0.42,
+                    height: fullWidth * 0.42,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
@@ -306,20 +307,17 @@ class _MenuPageState extends State<MenuPage> {
                       ),
                       child: Center(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            SizedBox(
-                              height: 20,
-                            ),
                             Container(
-                              height: 66,
-                              width: 49,
+                              margin: EdgeInsets.only(
+                                bottom: fullWidth * 0.025,
+                              ),
+                              height: fullWidth * 0.117,
+                              width: fullWidth * 0.117,
                               child: Image.asset(
                                 'images/MenuPage/five_imoji.png',
                               ),
-                            ),
-                            SizedBox(
-                              height: 6,
                             ),
                             Text(
                               '5층 학식',
@@ -334,11 +332,12 @@ class _MenuPageState extends State<MenuPage> {
                             Text(
                               '교직원 식당입니다!',
                               style: const TextStyle(
-                                  color: const Color(0xff5f605f),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: "NotoSansKR",
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: 12.0),
+                                color: const Color(0xff5f605f),
+                                fontWeight: FontWeight.w500,
+                                fontFamily: "NotoSansKR",
+                                fontStyle: FontStyle.normal,
+                                fontSize: 12.0,
+                              ),
                               textAlign: TextAlign.center,
                             ),
                           ],
@@ -350,8 +349,11 @@ class _MenuPageState extends State<MenuPage> {
                     width: 15,
                   ),
                   Container(
-                    width: 160,
-                    height: 160,
+                    margin: EdgeInsets.only(
+                      bottom: fullWidth * 0.025,
+                    ),
+                    width: fullWidth * 0.42,
+                    height: fullWidth * 0.42,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
@@ -380,20 +382,18 @@ class _MenuPageState extends State<MenuPage> {
                       ),
                       child: Center(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            SizedBox(
-                              height: 20,
-                            ),
                             Container(
-                              height: 66,
-                              width: 49,
+                              margin: EdgeInsets.only(
+                                bottom: fullWidth * 0.025,
+                              ),
+                              height: fullWidth * 0.117,
+                              width: fullWidth * 0.117,
                               child: Image.asset(
                                 'images/MenuPage/dorm_imoji.png',
                               ),
-                            ),
-                            SizedBox(
-                              height: 6,
                             ),
                             Text(
                               '기숙사식',
