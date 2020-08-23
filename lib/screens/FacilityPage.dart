@@ -228,9 +228,21 @@ class _FacilityPageState extends State<FacilityPage> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Container(
-                                height: _screenHeight * (9.7/100),
-                                child: Image.asset('images/FacilityPage/coffee.png'),
+                              Row(
+                                children: <Widget>[
+                                  SizedBox(
+                                    width: _width * (16.5/100),
+                                  ),
+                                  Container(
+                                    height: _screenHeight * (5.4/100),
+                                    width: _width * (11.7/100),
+                                    child: Image.asset('images/FacilityPage/coffee.png', fit: BoxFit.fitHeight,),
+                                  ),
+                                ],
+                              ),
+
+                              SizedBox(
+                                height: _screenHeight * (1.7/100),
                               ),
                               Text(
                                   "편의 시설",
@@ -282,17 +294,21 @@ class _FacilityPageState extends State<FacilityPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Container(
-                                height: _screenHeight * (9.7/100),
-                                child: Image.asset('images/FacilityPage/sos.png'),
+                                height: _screenHeight * (6/100),
+                                width: _width * (9.3/100),
+                                child: Image.asset('images/FacilityPage/sos.png', fit: BoxFit.fitHeight,),
+                              ),
+                              SizedBox(
+                                height: _screenHeight * (2.1/100),
                               ),
                               Text(
-                                  "대피 시설",
+                                  "대피 시설 및 지도",
                                   style: const TextStyle(
                                       color:  const Color(0xff131415),
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
                                       fontStyle:  FontStyle.normal,
-                                      fontSize: 24.0
+                                      fontSize: 18.0
                                   ),
                                   textAlign: TextAlign.center
                               ),
