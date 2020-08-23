@@ -282,6 +282,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 flex: 1,
                 child: Center(
                   child: FlatButton(
+                    shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(20.0),
+                    ),
                     onPressed: () {
                       Navigator.push(
                         context,

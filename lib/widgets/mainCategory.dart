@@ -38,6 +38,9 @@ class CategoryCards extends StatelessWidget {
         color: const Color(0xffffffff),
       ),
       child: FlatButton(
+        shape: new RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(20.0),
+        ),
         padding: EdgeInsets.all(0.0),
         onPressed: () {
           Navigator.push(
