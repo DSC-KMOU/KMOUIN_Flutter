@@ -48,6 +48,7 @@ class _DormMenuState extends State<DormMenu> {
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    double fullWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(47.0),
@@ -131,7 +132,7 @@ class _DormMenuState extends State<DormMenu> {
                       SizedBox(
                         height: 28,
                       ),
-                      buildFutureBuilder(),
+                      buildFutureBuilder(fullWidth),
                       SizedBox(
                         height: 70,
                       ),
@@ -146,7 +147,7 @@ class _DormMenuState extends State<DormMenu> {
     );
   }
 
-  FutureBuilder<MenuData> buildFutureBuilder() {
+  FutureBuilder<MenuData> buildFutureBuilder(double fullWidth) {
     return FutureBuilder(
         future: menuData,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -172,6 +173,8 @@ class _DormMenuState extends State<DormMenu> {
               children: <Widget>[
                 MenuCard(
                   title: '아침',
+                  width: fullWidth * 0.92,
+                  dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
                       menuTable: snapshot.data.result["db"],
@@ -183,6 +186,8 @@ class _DormMenuState extends State<DormMenu> {
                 ),
                 MenuCard(
                   title: '점심',
+                  width: fullWidth * 0.92,
+                  dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
                       menuTable: snapshot.data.result["dl"],
@@ -194,6 +199,8 @@ class _DormMenuState extends State<DormMenu> {
                 ),
                 MenuCard(
                   title: '저녁',
+                  width: fullWidth * 0.92,
+                  dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
                       menuTable: snapshot.data.result["dd"],
