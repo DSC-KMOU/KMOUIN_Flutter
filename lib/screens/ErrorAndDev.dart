@@ -61,9 +61,6 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
               child: Column(
                 children: <Widget>[
                   Container(
-                    margin: EdgeInsets.only(
-                      top: 26.0,
-                    ),
                     child: FlatButton(
                       padding: EdgeInsets.all(0.0),
                       child: ErrorContainer(
