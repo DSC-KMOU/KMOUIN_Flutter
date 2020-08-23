@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ErrorContainer extends StatelessWidget {
-  ErrorContainer({@required this.imageName, @required this.reportTitle, @required this.reportDescription, this.url,});
+  ErrorContainer({
+    @required this.imageName,
+    @required this.reportTitle,
+    @required this.reportDescription,
+    this.url,
+  });
 
   final String imageName;
   final String reportTitle;
@@ -12,49 +17,53 @@ class ErrorContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        padding: EdgeInsets.only(
+          left: 20.0,
+        ),
         margin: EdgeInsets.only(
           top: 20.0,
         ),
         child: FlatButton(
-          onPressed: () {_launchURL(url);},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          onPressed: () {
+            _launchURL(url);
+          },
+          child: Stack(
             children: [
-              Container(
-                margin: EdgeInsets.only(
-                  right: 40.0,
-                ),
-                width: 50.0,
-                child: Image.asset(
-                  'images/ErrorAndDev/$imageName@3x.png',
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  width: 35.0,
+                  child: Image.asset(
+                    'images/ErrorAndDev/$imageName@3x.png',
+                  ),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(
-                  right: 35.0,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    // 오류제보
-                    Text(reportTitle,
-                        style: const TextStyle(
-                            color: const Color(0xff131415),
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "NotoSansKR",
-                            fontStyle: FontStyle.normal,
-                            fontSize: 24.0),
-                        textAlign: TextAlign.center),
-                    // 버그나 피드백 부탁드립니다!
-                    Text(reportDescription,
-                        style: const TextStyle(
-                            color: const Color(0xff5f605f),
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "NotoSansKR",
-                            fontStyle: FontStyle.normal,
-                            fontSize: 12.0),
-                        textAlign: TextAlign.center)
-                  ],
+              Align(
+                alignment: Alignment.center,
+                child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      // 오류제보
+                      Text(reportTitle,
+                          style: const TextStyle(
+                              color: const Color(0xff131415),
+                              fontWeight: FontWeight.w500,
+                              fontFamily: "NotoSansKR",
+                              fontStyle: FontStyle.normal,
+                              fontSize: 24.0),
+                          textAlign: TextAlign.center),
+                      // 버그나 피드백 부탁드립니다!
+                      Text(reportDescription,
+                          style: const TextStyle(
+                              color: const Color(0xff5f605f),
+                              fontWeight: FontWeight.w500,
+                              fontFamily: "NotoSansKR",
+                              fontStyle: FontStyle.normal,
+                              fontSize: 12.0),
+                          textAlign: TextAlign.center)
+                    ],
+                  ),
                 ),
               ),
             ],

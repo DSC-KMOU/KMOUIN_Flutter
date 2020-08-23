@@ -55,37 +55,51 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
       ),
       backgroundColor: const Color(0xffffffff),
       body: SafeArea(
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(
-                  top: 26.0,
-                ),
-                child: FlatButton(
-                  padding: EdgeInsets.all(0.0),
-                  child: ErrorContainer(
-                    imageName: 'error',
-                    reportTitle: '오류제보',
-                    reportDescription: '버그나 피드 부탁드립니다!',
-                    url: 'http://kmou.ac.kr',
+        child: Stack(
+          children: [
+            Center(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: 26.0,
+                    ),
+                    child: FlatButton(
+                      padding: EdgeInsets.all(0.0),
+                      child: ErrorContainer(
+                        imageName: 'error',
+                        reportTitle: '오류제보',
+                        reportDescription: '버그나 피드 부탁드립니다!',
+                        url: 'http://kmou.ac.kr',
+                      ),
+                    ),
                   ),
-                ),
+                  ErrorContainer(
+                    imageName: 'survey',
+                    reportTitle: '설문조사',
+                    reportDescription: '앱의 발전을 위해 힘쓰겠습니다!',
+                    url: 'http://www.naver.com',
+                  ),
+                  ErrorContainer(
+                    imageName: 'DevTeam',
+                    reportTitle: '개발자 정보',
+                    reportDescription: '사용해주셔서 감사합니다!',
+                  ),
+                ],
               ),
-              ErrorContainer(
-                imageName: 'survey',
-                reportTitle: '설문조사',
-                reportDescription: '앱의 발전을 위해 힘쓰겠습니다!',
-                url: 'http://www.naver.com',
-              ),
-              ErrorContainer(
-                imageName: 'DevTeam',
-                reportTitle: '개발자 정보',
-                reportDescription: '사용해주셔서 감사합니다!',
-              ),
-            ],
-          ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Text('< Copyright 2020. DSC_KMOU. All right reserved. >',
+                  style: const TextStyle(
+                      color: const Color(0xff828282),
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "NotoSansKR",
+                      fontStyle: FontStyle.normal,
+                      fontSize: 14.0),
+                  textAlign: TextAlign.center),
+            ),
+          ],
         ),
       ),
     );
