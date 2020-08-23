@@ -49,6 +49,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget build(BuildContext context) {
     int _connect = 0;
+    double _mainWidth = MediaQuery.of(context).size.width;
+    double _mainHeight = MediaQuery.of(context).size.height;
+    double _backgroundHeight = _mainHeight * (33.0/100);
+    double _titleLeftBorder = _mainWidth * (8.0/100);
+    double _sideBorder = _mainWidth * (6.0/100);
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -58,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Image.asset(
               'images/frontPage/background@3x.png',
               fit: BoxFit.fill,
-              height: 285.0,
+              height: _backgroundHeight,
             ),
           ),
           Column(
@@ -72,11 +77,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Container(
-                        margin: EdgeInsets.only(top: 66.0),
+                        margin: EdgeInsets.only(top: _backgroundHeight * (23.2/100)),
                         child: Row(
                           children: <Widget>[
                             Container(
-                              margin: EdgeInsets.fromLTRB(34.0, 0.0, 0.0, 10.0),
+                              margin: EdgeInsets.only(bottom: 10.0, left: _titleLeftBorder,),
                               child: Text(
                                 "안녕하세요!",
                                 style: const TextStyle(
@@ -102,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(left: 34.0),
+                        margin: EdgeInsets.only(left: _titleLeftBorder),
                         child: Text(
                           "해대인에 오신걸 환영합니다",
                           style: const TextStyle(
@@ -117,12 +122,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       // Rectangle Copy 11
                       Container(
                         padding: EdgeInsets.only(left: 5.0),
-                        margin: EdgeInsets.fromLTRB(26.0, 26.0, 25.0, 45.0),
-                        width: 324,
-                        height: 44,
+                        margin: EdgeInsets.fromLTRB(_sideBorder, _sideBorder, _sideBorder, _sideBorder),
+                        width: _mainWidth * (86.4/100),
+                        height: _mainHeight * (5.0/100),
                         decoration: BoxDecoration(
                           color: Color(0xffffffff),
-                          borderRadius: BorderRadius.all(Radius.circular(23)),
+                          borderRadius: BorderRadius.all(Radius.circular(23.0)),
                           border: Border.all(
                               color: const Color(0xffffffff), width: 2),
                           boxShadow: [
