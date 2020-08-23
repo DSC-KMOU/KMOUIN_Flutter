@@ -4,16 +4,18 @@ import 'package:flutter/cupertino.dart';
 class MenuCard extends StatelessWidget {
   final String title;
   final List<Widget> children;
+  final double width;
+  final double dividerWidth;
 
   const MenuCard(
-      {Key key, @required this.title, @required this.children})
+      {Key key, @required this.title, @required this.children,this.width,this.dividerWidth})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(16),
-      width: 355,
+      width: width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(18)),
         boxShadow: [
@@ -40,7 +42,7 @@ class MenuCard extends StatelessWidget {
             height: 7,
           ),
           Container(
-            width: 319,
+            width: dividerWidth,
             height: 1,
             decoration: BoxDecoration(
               color: const Color(0xffc53786),

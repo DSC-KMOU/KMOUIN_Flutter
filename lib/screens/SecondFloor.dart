@@ -17,6 +17,7 @@ class SecondFloor extends StatefulWidget {
 class _SecondFloorState extends State<SecondFloor> {
   Future<MenuData> menuData;
 
+
   Future<MenuData> _fetch1() async {
     try {
       print("future 실행!");
@@ -52,6 +53,7 @@ class _SecondFloorState extends State<SecondFloor> {
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    double fullWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(47.0),
@@ -196,7 +198,7 @@ class _SecondFloorState extends State<SecondFloor> {
                       SizedBox(
                         height: 17,
                       ),
-                      buildFutureBuilder(),
+                      buildFutureBuilder(fullWidth),
                       SizedBox(
                         height: 30,
                       ),
@@ -211,7 +213,7 @@ class _SecondFloorState extends State<SecondFloor> {
     );
   }
 
-  FutureBuilder<MenuData> buildFutureBuilder() {
+  FutureBuilder<MenuData> buildFutureBuilder(double fullWidth) {
     return FutureBuilder(
         future: menuData,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -237,6 +239,8 @@ class _SecondFloorState extends State<SecondFloor> {
               children: <Widget>[
                 MenuCard(
                   title: '점심',
+                  width: fullWidth * 0.92,
+                  dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
                       menuTable: snapshot.data.result["f2l"],
@@ -248,6 +252,8 @@ class _SecondFloorState extends State<SecondFloor> {
                 ),
                 MenuCard(
                   title: '저녁',
+                  width: fullWidth * 0.92,
+                  dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
                       menuTable: snapshot.data.result["f2d"],
@@ -259,6 +265,8 @@ class _SecondFloorState extends State<SecondFloor> {
                 ),
                 MenuCard(
                   title: '일품식',
+                  width: fullWidth * 0.92,
+                  dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
                       menuTable: snapshot.data.result["f2s"],

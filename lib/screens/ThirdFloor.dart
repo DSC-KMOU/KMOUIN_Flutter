@@ -51,6 +51,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    double fullWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(47.0),
@@ -207,7 +208,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                       SizedBox(
                         height: 28,
                       ),
-                      buildFutureBuilder(),
+                      buildFutureBuilder(fullWidth),
                       SizedBox(
                         height: 52,
                       ),
@@ -1211,7 +1212,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
     );
   }
 
-  FutureBuilder<MenuData> buildFutureBuilder() {
+  FutureBuilder<MenuData> buildFutureBuilder(double fullWidth) {
     return FutureBuilder(
         future: menuData,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -1237,9 +1238,12 @@ class _ThirdFloorState extends State<ThirdFloor> {
               children: <Widget>[
                 MenuCard(
                   title: '천원의 아침',
+                  width: fullWidth * 0.92,
+                  dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
                       menuTable: snapshot.data.result["f3b"],
+
                     ),
                   ],
                 ),

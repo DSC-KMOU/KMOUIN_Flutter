@@ -84,7 +84,7 @@ class BusInfo extends StatelessWidget {
                           ),
                           Spacer(),
                           SizedBox(
-                            width: 20,
+                            width: fullWidth*0.053,
                             height: 20,
                             child: Image.asset("images/BusPage/bus_min1.jpg"),
                           ),
@@ -104,7 +104,7 @@ class BusInfo extends StatelessWidget {
                       Border.all(color: const Color(0xff842fb5), width: 2),
                       color: const Color(0xffffffff))),
             ),
-            SizedBox(width: 13.0 * fullWidth * rate),
+            SizedBox(width: fullWidth * 0.03),
             SafeArea(
               child: Container( 
                   width: width,
@@ -162,7 +162,7 @@ class BusInfo extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            width: 20,
+                            width: fullWidth*0.053,
                             height: 20,
                             child: Image.asset("images/BusPage/bus_min2.jpg"),
                           ),
@@ -176,7 +176,7 @@ class BusInfo extends StatelessWidget {
                       Border.all(color: const Color(0xff737373), width: 1),
                       color: const Color(0xffffffff))),
             ),
-            SizedBox(width: 13.0 * fullWidth * rate),
+            SizedBox(width: fullWidth * 0.03),
             SafeArea(
               child: Container( 
                 width: width,
@@ -227,7 +227,7 @@ class BusInfo extends StatelessWidget {
                         ),
                         Spacer(),
                         SizedBox(
-                          width: 20,
+                          width: fullWidth*0.053,
                           height: 20,
                           child: Image.asset("images/BusPage/bus_min2.jpg"),
                         ),
