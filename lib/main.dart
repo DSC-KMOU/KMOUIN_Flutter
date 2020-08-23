@@ -182,7 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             Column(
                                               children: [
                                                 Text('"$value"(이)라는 키워드가 없습니다. \n'),
-                                                Text("키워드: \n 통근 / 통근버스 / 2층 / 3층 / 5층 / 교직원 / 기숙사 / 생활관 / 편의시설 / 대피시설",),
+                                                Text("[키워드] \n 통근 / 통근버스 / 2층 / 3층 / 5층 \n 교직원 / 기숙사 / 생활관 \n 편의시설 / 대피시설",),
                                               ],
                                             ),
                                         actions: <Widget>[
