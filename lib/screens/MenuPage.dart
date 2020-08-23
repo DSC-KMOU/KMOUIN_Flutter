@@ -144,6 +144,9 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                         );
                       },
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(20.0),
+                      ),
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -219,6 +222,9 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                         );
                       },
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(20.0),
+                      ),
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -296,6 +302,9 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                         );
                       },
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(20.0),
+                      ),
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -367,6 +376,9 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                         );
                       },
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(20.0),
+                      ),
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
