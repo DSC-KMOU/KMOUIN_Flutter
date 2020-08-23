@@ -71,7 +71,7 @@ class _DormMenuState extends State<DormMenu> {
                     Text(
                       "학식 정보",
                       style: TextStyle(
-                        color:  Color(0xffeb577c),
+                        color: Color(0xffeb577c),
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
@@ -157,7 +157,9 @@ class _DormMenuState extends State<DormMenu> {
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: CircularProgressIndicator(),
+                    child: CupertinoActivityIndicator(
+                      radius: 20,
+                    ),
                   ),
                 ),
               ],
