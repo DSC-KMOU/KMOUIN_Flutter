@@ -101,8 +101,8 @@ class _MyHomePageState extends State<BusPage> {
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
-    double rate = 1 / 375.0;
     double fullWidth = MediaQuery.of(context).size.width;
+    double rate = 0.0;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
@@ -258,24 +258,24 @@ class _MyHomePageState extends State<BusPage> {
                             SizedBox(height: 33.0),
                             BusCard(
                                 title: '셔틀 버스',
-                                width: 355 * fullWidth * rate,
+                                width: fullWidth * 0.947,
                                 children: <Widget>[
                                   BusInfo(
-                                    width: 100 * fullWidth * rate,
+                                    width:fullWidth * 0.27,
                                     title: "평일",
                                     timeTable: snapshot.data.result["shuttle"]
                                         ["week"],
                                   ),
                                   SizedBox(height: 14.0),
                                   BusInfo(
-                                    width: 100 * fullWidth * rate,
+                                    width: fullWidth * 0.27,
                                     title: "방학 / 주말",
                                     timeTable: snapshot.data.result["shuttle"]
                                         ["vacation"],
                                   ),
                                   SizedBox(height: 14.0),
                                   BusInfo(
-                                    width: 100 * fullWidth * rate,
+                                    width: fullWidth * 0.27,
                                     title: "시험기간",
                                     timeTable: snapshot.data.result["shuttle"]
                                         ["exam"],
@@ -284,24 +284,24 @@ class _MyHomePageState extends State<BusPage> {
                             SizedBox(height: 30.0),
                             BusCard(
                                 title: '190번 버스',
-                                width: 355 * fullWidth * rate,
+                                width: fullWidth * 0.947,
                                 children: <Widget>[
                                   BusInfo(
-                                    width: 100 * fullWidth * rate,
+                                    width: fullWidth * 0.27,
                                     title: "평일",
                                     timeTable: snapshot.data.result["bus190"]
                                         ["week"],
                                   ),
                                   SizedBox(height: 14.0),
                                   BusInfo(
-                                    width: 100 * fullWidth * rate,
+                                    width: fullWidth * 0.27,
                                     title: "토요일",
                                     timeTable: snapshot.data.result["bus190"]
                                         ["saturday"],
                                   ),
                                   SizedBox(height: 14.0),
                                   BusInfo(
-                                    width: 100 * fullWidth * rate,
+                                    width: fullWidth * 0.27,
                                     title: "일요일 / 공휴일",
                                     timeTable: snapshot.data.result["bus190"]
                                         ["weekend"],
@@ -317,8 +317,8 @@ class _MyHomePageState extends State<BusPage> {
                                             CoummuterBusPage()));
                               },
                               child: Container(
-                                width: 355 * fullWidth * rate,
-                                height: 100,
+                                width: fullWidth * 0.947,
+                                height: 107,
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -330,12 +330,13 @@ class _MyHomePageState extends State<BusPage> {
                                         fontWeight: FontWeight.w500,
                                         fontFamily: "NotoSansKR",
                                         fontStyle: FontStyle.normal,
+                                        letterSpacing: -1.0,
                                         fontSize: 28.0,
                                       ),
                                     ),
-                                    SizedBox(width: 22 * fullWidth * rate),
+                                    SizedBox(width: fullWidth * 0.058),
                                     SizedBox(
-                                      width: 62,
+                                      width: fullWidth * 0.165,
                                       height: 44,
                                       child: Image.asset(
                                           "images/BusPage/commuterbus.png"),
@@ -364,7 +365,7 @@ class _MyHomePageState extends State<BusPage> {
                             Text(
                               "학교 홈페이지 버스 시간표를 기준으로 만들었습니다.",
                               style: const TextStyle(
-                                color: const Color(0xff131415),
+                                color: const Color(0xff666666),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
