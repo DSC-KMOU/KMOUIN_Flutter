@@ -207,15 +207,15 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                     spreadRadius: 0)
               ], color: const Color(0xb3ffffff)),
               child: Padding(
-                padding: const EdgeInsets.only(top:25.0),
+                padding: const EdgeInsets.only(top: 25.0),
                 child: Text(
                   "학사일정",
                   style: const TextStyle(
-                  color: const Color(0xff5b9fee),
-                  fontWeight: FontWeight.w500,
-                  fontFamily: "NotoSansKR",
-                  fontStyle: FontStyle.normal,
-                  fontSize: 20.0),
+                      color: const Color(0xff5b9fee),
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "NotoSansKR",
+                      fontStyle: FontStyle.normal,
+                      fontSize: 20.0),
                   textAlign: TextAlign.center,
                 ),
               )),
@@ -406,10 +406,9 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
                 ),
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                 child: Container(
-                    width: 350,
+                    width: double.infinity,
                     height: 50,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -432,6 +431,18 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                           )),
                       SizedBox(width: 15),
                       Container(
+                          child: FittedBox(
+                        fit: BoxFit.contain,
+                        child: Text(event.toString(),
+                            style: const TextStyle(
+                                color: const Color(0xff000000),
+                                fontWeight: FontWeight.w500,
+                                fontFamily: "NotoSansKR",
+                                fontStyle: FontStyle.normal)),
+                      )
+                          /*
+=======
+>>>>>>> upstream/master
                         child: Text(event.toString(),
                             style: const TextStyle(
                                 color: const Color(0xff000000),
@@ -439,7 +450,9 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
                                 fontSize: 16.0)),
-                      ),
+<<<<<<< HEAD
+                        */
+                          ),
                     ])),
               ))
           .toList(),
