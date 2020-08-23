@@ -32,6 +32,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    double fullWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(47.0),
@@ -99,6 +100,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                   title: "통근버스 1호차",
                   info: "서면/구서동",
                 ),
+                width: fullWidth * 0.947,
                 cardcontent: Container(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -231,6 +233,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                   title: "통근버스 1호차",
                   info: "서면/구서동",
                 ),
+                width: fullWidth * 0.947,
                 cardcontent: Container(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -357,6 +360,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                   ),
                 ),
               ),
+              SizedBox(height:18.0),
             ],
           ),
         ),
@@ -368,14 +372,15 @@ class _MyHomePageState extends State<CoummuterBusPage> {
 class CommuterCard extends StatelessWidget {
   final Widget cardtitle;
   final Widget cardcontent;
+  final double width;
 
-  const CommuterCard({Key key, @required this.cardtitle, this.cardcontent})
+  const CommuterCard({Key key, @required this.cardtitle, this.cardcontent, @required this.width})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 380.0,
+      width: width,
       padding: EdgeInsets.only(
         left: 18.0,
         top: 19.0,
