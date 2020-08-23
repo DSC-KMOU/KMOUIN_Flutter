@@ -57,6 +57,8 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
   List _selectedEvents;
   bool key = true;
 
+
+
   // 애니메이션 컨트롤러와 캘린더 컨트롤러 선언
   AnimationController _animationController;
   CalendarController _calendarController;
@@ -197,7 +199,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
           Container(
               //margin: EdgeInsets.only(top: 20.0),
               alignment: Alignment.center,
-              width: double.infinity,
+              width: MediaQuery.of(context).size.width,
               height: 74,
               decoration: BoxDecoration(boxShadow: [
                 BoxShadow(
@@ -408,7 +410,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                 ),
                 margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                 child: Container(
-                    width: double.infinity,
+                    width: MediaQuery.of(context).size.width,
                     height: 50,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -440,18 +442,6 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal)),
                       )
-                          /*
-=======
->>>>>>> upstream/master
-                        child: Text(event.toString(),
-                            style: const TextStyle(
-                                color: const Color(0xff000000),
-                                fontWeight: FontWeight.w500,
-                                fontFamily: "NotoSansKR",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 16.0)),
-<<<<<<< HEAD
-                        */
                           ),
                     ])),
               ))
