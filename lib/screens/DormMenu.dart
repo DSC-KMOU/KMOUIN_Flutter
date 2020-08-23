@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kmouin/widgets/MenuCard.dart';
 import 'package:kmouin/widgets/MenuInfo.dart';
@@ -5,6 +6,7 @@ import 'package:kmouin/widgets/MenuData.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'Dart:ui';
+import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 class DormMenu extends StatefulWidget {
   @override
@@ -45,41 +47,48 @@ class _DormMenuState extends State<DormMenu> {
 
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    double fullWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        backgroundColor: Colors.white.withOpacity(0.8),
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        title: Row(
-          children: <Widget>[
-            FlatButton(
-              padding: EdgeInsets.all(0),
-              onPressed: () {
-                setState(() {
-                  Navigator.pop(context);
-                });
-              },
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.arrow_back_ios,
-                    color: Color(0xffeb577c),
-                  ),
-                  Text(
-                    "학식정보",
-                    style: TextStyle(
-                      color: const Color(0xffeb577c),
-                      fontWeight: FontWeight.w300,
-                      fontFamily: "NotoSansKR",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 20.0,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(47.0),
+        child: AppBar(
+          centerTitle: false,
+          title: Row(
+            children: <Widget>[
+              FlatButton(
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
+                },
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      CupertinoIcons.back,
+                      color: Color(0xffeb577c),
                     ),
-                  ),
-                ],
+                    Text(
+                      "학식 정보",
+                      style: TextStyle(
+                        color: Color(0xffeb577c),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 18.0,
+                        wordSpacing: 0.0,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
+          titleSpacing: -1.8,
+          elevation: 1.0,
+          backgroundColor: Colors.white,
+          automaticallyImplyLeading: false,
         ),
       ),
       extendBodyBehindAppBar: true,
@@ -123,7 +132,7 @@ class _DormMenuState extends State<DormMenu> {
                       SizedBox(
                         height: 28,
                       ),
-                      buildFutureBuilder(),
+                      buildFutureBuilder(fullWidth),
                       SizedBox(
                         height: 70,
                       ),
@@ -138,7 +147,7 @@ class _DormMenuState extends State<DormMenu> {
     );
   }
 
-  FutureBuilder<MenuData> buildFutureBuilder() {
+  FutureBuilder<MenuData> buildFutureBuilder(double fullWidth) {
     return FutureBuilder(
         future: menuData,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -149,7 +158,9 @@ class _DormMenuState extends State<DormMenu> {
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: CircularProgressIndicator(),
+                    child: CupertinoActivityIndicator(
+                      radius: 20,
+                    ),
                   ),
                 ),
               ],
@@ -162,6 +173,8 @@ class _DormMenuState extends State<DormMenu> {
               children: <Widget>[
                 MenuCard(
                   title: '아침',
+                  width: fullWidth * 0.92,
+                  dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
                       menuTable: snapshot.data.result["db"],
@@ -173,6 +186,8 @@ class _DormMenuState extends State<DormMenu> {
                 ),
                 MenuCard(
                   title: '점심',
+                  width: fullWidth * 0.92,
+                  dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
                       menuTable: snapshot.data.result["dl"],
@@ -184,6 +199,8 @@ class _DormMenuState extends State<DormMenu> {
                 ),
                 MenuCard(
                   title: '저녁',
+                  width: fullWidth * 0.92,
+                  dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
                       menuTable: snapshot.data.result["dd"],

@@ -12,8 +12,6 @@ class BusCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double rate = 1 / 375.0;
-    double fullWidth = MediaQuery.of(context).size.width;
     return Container(
       padding: EdgeInsets.only(
         left: 15,

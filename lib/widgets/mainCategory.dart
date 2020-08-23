@@ -16,10 +16,15 @@ class CategoryCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double _mainWidth = MediaQuery.of(context).size.width;
+    double _containerSize = _mainWidth * (42.0/100);
+    double _marginSize = _mainWidth * (2.0/100);
+
     return Container(
-      margin: EdgeInsets.all(7.5),
-      width: 160,
-      height: 160,
+      margin: EdgeInsets.all(_marginSize),
+      width: _containerSize,
+      height: _containerSize,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(20)),
         boxShadow: [
@@ -33,6 +38,9 @@ class CategoryCards extends StatelessWidget {
         color: const Color(0xffffffff),
       ),
       child: FlatButton(
+        shape: new RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(20.0),
+        ),
         padding: EdgeInsets.all(0.0),
         onPressed: () {
           Navigator.push(

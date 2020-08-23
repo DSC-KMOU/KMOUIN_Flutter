@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/FacilityLibButton.dart';
 import 'dart:ui';
+import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 class FacilityPage extends StatefulWidget {
   @override
@@ -17,6 +18,7 @@ class _FacilityPageState extends State<FacilityPage> {
 
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     //화면 크기 체크
     //디바이스 너비
     double _width = MediaQuery.of(context).size.width;
@@ -31,42 +33,48 @@ class _FacilityPageState extends State<FacilityPage> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        titleSpacing: -15,
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        title: Row(
-          children: <Widget>[
-            SizedBox(
-              width: _width * (3.7 /100),
-            ),
-            Container(
-              width: 100,
-              child: FlatButton(
+      appBar:PreferredSize(
+        preferredSize: Size.fromHeight(47.0),
+        child: AppBar(
+          centerTitle: false,
+          titleSpacing: -5,
+          backgroundColor: Colors.white.withOpacity(0.0),
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          title: Row(
+            children: <Widget>[
+              FlatButton(
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
+                },
                 child: Row(
                   children: <Widget>[
                     Icon(
-                      Icons.navigate_before,
-                      color: const Color(0xffffffff),
+                      CupertinoIcons.back,
+                      color: Colors.white,
                     ),
                     Text(
-                      "메인",
-                      style: const TextStyle(
-                        color: const Color(0xffffffff),
+                      " 메인",
+                      style: TextStyle(
+                        color: Colors.white,
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 16.0,
+                        fontSize: 18.0,
+                        wordSpacing: -5.0,
                       ),
-                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      width: 20,
                     ),
                   ],
                 ),
-                onPressed: () => Navigator.pop(context),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       backgroundColor: const Color(0xffffffff),
@@ -220,9 +228,21 @@ class _FacilityPageState extends State<FacilityPage> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Container(
-                                height: _screenHeight * (9.7/100),
-                                child: Image.asset('images/FacilityPage/coffee.png'),
+                              Row(
+                                children: <Widget>[
+                                  SizedBox(
+                                    width: _width * (16.5/100),
+                                  ),
+                                  Container(
+                                    height: _screenHeight * (5.4/100),
+                                    width: _width * (11.7/100),
+                                    child: Image.asset('images/FacilityPage/coffee.png', fit: BoxFit.fitHeight,),
+                                  ),
+                                ],
+                              ),
+
+                              SizedBox(
+                                height: _screenHeight * (1.7/100),
                               ),
                               Text(
                                   "편의 시설",
@@ -274,17 +294,21 @@ class _FacilityPageState extends State<FacilityPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Container(
-                                height: _screenHeight * (9.7/100),
-                                child: Image.asset('images/FacilityPage/sos.png'),
+                                height: _screenHeight * (6/100),
+                                width: _width * (9.3/100),
+                                child: Image.asset('images/FacilityPage/sos.png', fit: BoxFit.fitHeight,),
+                              ),
+                              SizedBox(
+                                height: _screenHeight * (2.1/100),
                               ),
                               Text(
-                                  "대피 시설",
+                                  "대피 시설 및 지도",
                                   style: const TextStyle(
                                       color:  const Color(0xff131415),
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
                                       fontStyle:  FontStyle.normal,
-                                      fontSize: 24.0
+                                      fontSize: 18.0
                                   ),
                                   textAlign: TextAlign.center
                               ),

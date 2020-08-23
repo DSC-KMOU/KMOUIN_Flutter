@@ -6,18 +6,21 @@ import 'widgets/mainPageData.dart';
 import 'widgets/mainCategory.dart';
 import 'widgets/mainIcon.dart';
 import 'package:kmouin/screens/ErrorAndDev.dart';
+import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent, // transparent status bar
-  ));
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(new MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -51,6 +54,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget build(BuildContext context) {
     int _connect = 0;
+    double _mainWidth = MediaQuery.of(context).size.width;
+    double _mainHeight = MediaQuery.of(context).size.height;
+    double _backgroundHeight = _mainHeight * (33.0/100);
+    double _titleLeftBorder = _mainWidth * (8.0/100);
+    double _sideBorder = _mainWidth * (6.0/100);
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -60,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Image.asset(
               'images/frontPage/background@3x.png',
               fit: BoxFit.fill,
-              height: 285.0,
+              height: _backgroundHeight,
             ),
           ),
           Column(
@@ -74,19 +82,21 @@ class _MyHomePageState extends State<MyHomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Container(
-                        margin: EdgeInsets.only(top: 66.0),
+                        margin: EdgeInsets.only(top: _backgroundHeight * (23.2/100)),
                         child: Row(
                           children: <Widget>[
                             Container(
-                              margin: EdgeInsets.fromLTRB(34.0, 0.0, 0.0, 10.0),
+                              margin: EdgeInsets.only(bottom: 10.0, left: _titleLeftBorder,),
                               child: Text(
                                 "안녕하세요!",
                                 style: const TextStyle(
                                     color: const Color(0xfff1f1f1),
+                                    letterSpacing: -0.5,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: "NotoSansKR",
                                     fontStyle: FontStyle.normal,
-                                    fontSize: 34.0),
+                                    fontSize: 34.0,
+                                ),
                                 textAlign: TextAlign.left,
                               ),
                             ),
@@ -104,27 +114,28 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(left: 34.0),
+                        margin: EdgeInsets.only(left: _titleLeftBorder),
                         child: Text(
                           "해대인에 오신걸 환영합니다",
                           style: const TextStyle(
                               color: const Color(0xffffffff),
+                              letterSpacing: -0.5,
                               fontWeight: FontWeight.w300,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: 22.0),
+                              fontSize: 22.0,),
                           textAlign: TextAlign.left,
                         ),
                       ),
                       // Rectangle Copy 11
                       Container(
                         padding: EdgeInsets.only(left: 5.0),
-                        margin: EdgeInsets.fromLTRB(26.0, 26.0, 25.0, 45.0),
-                        width: 324,
-                        height: 44,
+                        margin: EdgeInsets.fromLTRB(_sideBorder, _sideBorder, _sideBorder, _sideBorder),
+                        width: _mainWidth * (86.4/100),
+                        height: _mainHeight * (5.0/100),
                         decoration: BoxDecoration(
                           color: Color(0xffffffff),
-                          borderRadius: BorderRadius.all(Radius.circular(23)),
+                          borderRadius: BorderRadius.all(Radius.circular(23.0)),
                           border: Border.all(
                               color: const Color(0xffffffff), width: 2),
                           boxShadow: [
@@ -181,7 +192,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
                                         title: const Text('죄송합니다'),
                                         content:
-                                            Text('"$value"(이)라는 키워드가 없습니다.'),
+                                            Column(
+                                              children: [
+                                                Text('"$value"(이)라는 키워드가 없습니다. \n'),
+                                                Text("[키워드] \n 통근 / 통근버스 / 2층 / 3층 / 5층 \n 교직원 / 기숙사 / 생활관 \n 편의시설 / 대피시설",),
+                                              ],
+                                            ),
                                         actions: <Widget>[
                                           FlatButton(
                                             onPressed: () {
@@ -274,6 +290,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 flex: 1,
                 child: Center(
                   child: FlatButton(
+                    shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(20.0),
+                    ),
                     onPressed: () {
                       Navigator.push(
                         context,

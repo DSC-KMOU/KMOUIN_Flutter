@@ -7,6 +7,7 @@ import '../widgets/BusCard.dart';
 import '../widgets/BusInfo.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 class BusPage extends StatefulWidget {
   BusPage({Key key, this.title}) : super(key: key);
@@ -99,45 +100,68 @@ class _MyHomePageState extends State<BusPage> {
 
   @override
   Widget build(BuildContext context) {
-    double rate = 1 / 375.0;
+    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     double fullWidth = MediaQuery.of(context).size.width;
+    double rate = 0.0;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        centerTitle: false,
-        titleSpacing: -3,
-        backgroundColor: Colors.white.withOpacity(0.0),
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        title: Row(
-          children: <Widget>[
-            FlatButton(
-              padding: EdgeInsets.all(0),
-              onPressed: () {
-                setState(() {
-                  Navigator.pop(context);
-                });
-              },
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    CupertinoIcons.back,
-                    color: Colors.white,
-                  ),
-                  Text(
-                    " 메인",
-                    style: TextStyle(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(47.0),
+        child: AppBar(
+          centerTitle: false,
+          titleSpacing: -5,
+          backgroundColor: Colors.white.withOpacity(0.0),
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          title: Row(
+            children: <Widget>[
+              FlatButton(
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
+                },
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      CupertinoIcons.back,
                       color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                      fontFamily: "NotoSansKR",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 18.0,
                     ),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                ],
+                    Text(
+                      " 메인",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 18.0,
+                        wordSpacing: -5.0,
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+            ],
+          ),
+          actions: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(
+                right: 10.0,
+              ),
+              child: IconButton(
+                icon: Icon(
+                  Icons.refresh,
+                  color: Colors.white,
+                ),
+                onPressed: () async {
+                  // await _fetch1();
+                  setState(() {
+                    // 수정 필요 !!
+                    busData = _fetch1();
+                  });
+                },
               ),
             ),
           ],
@@ -158,6 +182,7 @@ class _MyHomePageState extends State<BusPage> {
                     "버스 정보",
                     style: const TextStyle(
                       color: const Color(0xffffffff),
+                      letterSpacing: -0.5,
                       fontWeight: FontWeight.w500,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
@@ -170,6 +195,7 @@ class _MyHomePageState extends State<BusPage> {
                     "실시간 위치를 알 수 있어요",
                     style: const TextStyle(
                       color: const Color(0xffffffff),
+                      letterSpacing: -0.5,
                       fontWeight: FontWeight.w300,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
@@ -184,15 +210,6 @@ class _MyHomePageState extends State<BusPage> {
           )
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.refresh),
-          backgroundColor: Color(0xff842fb5),
-          onPressed: () async {
-            // await _fetch1();
-            setState(() {
-              busData = _fetch1();
-            });
-          }),
     );
   }
 
@@ -227,39 +244,38 @@ class _MyHomePageState extends State<BusPage> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Chip(
-                              backgroundColor:
-                                  Colors.deepPurple.withOpacity(0.8),
-                              label: Text(snapshot.data.cur,
-                                  style: const TextStyle(
-                                    color: const Color(0xffffffff),
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 20.0,
-                                  )),
+                            SizedBox(height: 10.0),
+                            Text(
+                              snapshot.data.cur,
+                              style: const TextStyle(
+                                color: const Color(0xffffffff),
+                                fontWeight: FontWeight.w300,
+                                fontFamily: "NotoSansKR",
+                                fontStyle: FontStyle.normal,
+                                fontSize: 18.0,
+                              ),
                             ),
-                            SizedBox(height: 43.0),
+                            SizedBox(height: 33.0),
                             BusCard(
                                 title: '셔틀 버스',
-                                width: 355 * fullWidth * rate,
+                                width: fullWidth * 0.947,
                                 children: <Widget>[
                                   BusInfo(
-                                    width: 100 * fullWidth * rate,
+                                    width:fullWidth * 0.27,
                                     title: "평일",
                                     timeTable: snapshot.data.result["shuttle"]
                                         ["week"],
                                   ),
                                   SizedBox(height: 14.0),
                                   BusInfo(
-                                    width: 100 * fullWidth * rate,
+                                    width: fullWidth * 0.27,
                                     title: "방학 / 주말",
                                     timeTable: snapshot.data.result["shuttle"]
                                         ["vacation"],
                                   ),
                                   SizedBox(height: 14.0),
                                   BusInfo(
-                                    width: 100 * fullWidth * rate,
+                                    width: fullWidth * 0.27,
                                     title: "시험기간",
                                     timeTable: snapshot.data.result["shuttle"]
                                         ["exam"],
@@ -268,24 +284,24 @@ class _MyHomePageState extends State<BusPage> {
                             SizedBox(height: 30.0),
                             BusCard(
                                 title: '190번 버스',
-                                width: 355 * fullWidth * rate,
+                                width: fullWidth * 0.947,
                                 children: <Widget>[
                                   BusInfo(
-                                    width: 100 * fullWidth * rate,
+                                    width: fullWidth * 0.27,
                                     title: "평일",
                                     timeTable: snapshot.data.result["bus190"]
                                         ["week"],
                                   ),
                                   SizedBox(height: 14.0),
                                   BusInfo(
-                                    width: 100 * fullWidth * rate,
+                                    width: fullWidth * 0.27,
                                     title: "토요일",
                                     timeTable: snapshot.data.result["bus190"]
                                         ["saturday"],
                                   ),
                                   SizedBox(height: 14.0),
                                   BusInfo(
-                                    width: 100 * fullWidth * rate,
+                                    width: fullWidth * 0.27,
                                     title: "일요일 / 공휴일",
                                     timeTable: snapshot.data.result["bus190"]
                                         ["weekend"],
@@ -301,8 +317,8 @@ class _MyHomePageState extends State<BusPage> {
                                             CoummuterBusPage()));
                               },
                               child: Container(
-                                width: 355 * fullWidth * rate,
-                                height: 100,
+                                width: fullWidth * 0.947,
+                                height: 107,
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -314,12 +330,13 @@ class _MyHomePageState extends State<BusPage> {
                                         fontWeight: FontWeight.w500,
                                         fontFamily: "NotoSansKR",
                                         fontStyle: FontStyle.normal,
+                                        letterSpacing: -1.0,
                                         fontSize: 28.0,
                                       ),
                                     ),
-                                    SizedBox(width: 22 * fullWidth * rate),
+                                    SizedBox(width: fullWidth * 0.058),
                                     SizedBox(
-                                      width: 62,
+                                      width: fullWidth * 0.165,
                                       height: 44,
                                       child: Image.asset(
                                           "images/BusPage/commuterbus.png"),
@@ -348,7 +365,7 @@ class _MyHomePageState extends State<BusPage> {
                             Text(
                               "학교 홈페이지 버스 시간표를 기준으로 만들었습니다.",
                               style: const TextStyle(
-                                color: const Color(0xff131415),
+                                color: const Color(0xff666666),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,

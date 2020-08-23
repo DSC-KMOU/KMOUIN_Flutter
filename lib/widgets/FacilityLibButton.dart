@@ -53,12 +53,12 @@ class LibButton extends StatelessWidget {
                   )
               ),
               SizedBox(
-                width: screenWidth * (1.1/100),
+                width: screenWidth * (4.8/100),
               ),
               Container(
                 height: screenHeight * (6.52/100),
-                width: screenWidth * (10.6/100),
-                child: Image.asset('images/FacilityPage/book.png'),
+                width: screenWidth * (8.8/100),
+                child: Image.asset('images/FacilityPage/book.png', fit: BoxFit.fitWidth,),
               )
             ],
           ),

@@ -6,6 +6,7 @@ import 'package:kmouin/screens/ThirdFloor.dart';
 import '../widgets/TopContainer.dart';
 import '../screens/SecondFloor.dart';
 import 'dart:ui';
+import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -15,46 +16,52 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    double fullWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        centerTitle: false,
-        titleSpacing: -3,
-        backgroundColor: Colors.white.withOpacity(0.0),
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        title: Row(
-          children: <Widget>[
-            FlatButton(
-              padding: EdgeInsets.all(0),
-              onPressed: () {
-                setState(() {
-                  Navigator.pop(context);
-                });
-              },
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    CupertinoIcons.back,
-                    color: Colors.white,
-                  ),
-                  Text(
-                    " 메인",
-                    style: TextStyle(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(47.0),
+        child: AppBar(
+          centerTitle: false,
+          titleSpacing: -5,
+          backgroundColor: Colors.white.withOpacity(0.0),
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          title: Row(
+            children: <Widget>[
+              FlatButton(
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
+                },
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      CupertinoIcons.back,
                       color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                      fontFamily: "NotoSansKR",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 18.0,
                     ),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                ],
+                    Text(
+                      " 메인",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 18.0,
+                        wordSpacing: -5.0,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       backgroundColor: const Color(0xffffffff),
@@ -81,11 +88,13 @@ class _MenuPageState extends State<MenuPage> {
                 child: Text(
                   '오늘은 몇 층에서\n드시겠어요?',
                   style: const TextStyle(
-                      color: const Color(0xffffffff),
-                      fontWeight: FontWeight.w500,
-                      fontFamily: "NotoSansKR",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 32.0),
+                    color: const Color(0xffffffff),
+                    letterSpacing: -0.5,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: "NotoSansKR",
+                    fontStyle: FontStyle.normal,
+                    fontSize: 32.0,
+                  ),
                 ),
               ),
               SizedBox(
@@ -97,6 +106,7 @@ class _MenuPageState extends State<MenuPage> {
                   '각 층마다 메뉴가 다르게 나와요',
                   style: const TextStyle(
                     color: const Color(0xffffffff),
+                    letterSpacing: -0.5,
                     fontWeight: FontWeight.w300,
                     fontFamily: "NotoSansKR",
                     fontStyle: FontStyle.normal,
@@ -115,8 +125,8 @@ class _MenuPageState extends State<MenuPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    width: 160,
-                    height: 160,
+                    width: fullWidth * 0.42,
+                    height: fullWidth * 0.42,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
@@ -138,26 +148,23 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                         );
                       },
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(20.0),
+                      ),
                       child: Center(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            SizedBox(
-                              height: 20,
-                            ),
                             Container(
-                              width: 49,
-                              height: 66,
-                              padding: EdgeInsets.only(
-                                left: 7,
-                                right: 7,
+                              margin: EdgeInsets.only(
+                                bottom: fullWidth * 0.025,
                               ),
+                              height: fullWidth * 0.117,
+                              width: fullWidth * 0.117,
                               child: Image.asset(
                                 'images/MenuPage/second_imoji.png',
                               ),
-                            ),
-                            SizedBox(
-                              height: 6,
                             ),
                             Text(
                               '2층 학식',
@@ -188,8 +195,8 @@ class _MenuPageState extends State<MenuPage> {
                     width: 15,
                   ),
                   Container(
-                    width: 160,
-                    height: 160,
+                    width: fullWidth * 0.42,
+                    height: fullWidth * 0.42,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
@@ -213,22 +220,23 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                         );
                       },
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(20.0),
+                      ),
                       child: Center(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            SizedBox(
-                              height: 20,
-                            ),
                             Container(
-                              height: 66,
-                              width: 49,
+                              margin: EdgeInsets.only(
+                                bottom: fullWidth * 0.025,
+                              ),
+                              height: fullWidth * 0.117,
+                              width: fullWidth * 0.117,
                               child: Image.asset(
                                 'images/MenuPage/three_imoji.png',
                               ),
-                            ),
-                            SizedBox(
-                              height: 6,
                             ),
                             Text(
                               '3층 학식',
@@ -263,10 +271,14 @@ class _MenuPageState extends State<MenuPage> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    width: 160,
-                    height: 160,
+                    margin: EdgeInsets.only(
+                      bottom: fullWidth * 0.025,
+                    ),
+                    width: fullWidth * 0.42,
+                    height: fullWidth * 0.42,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
@@ -290,22 +302,22 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                         );
                       },
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(20.0),
+                      ),
                       child: Center(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            SizedBox(
-                              height: 20,
-                            ),
                             Container(
-                              height: 66,
-                              width: 49,
+                              margin: EdgeInsets.only(
+                                bottom: fullWidth * 0.025,
+                              ),
+                              height: fullWidth * 0.117,
+                              width: fullWidth * 0.117,
                               child: Image.asset(
                                 'images/MenuPage/five_imoji.png',
                               ),
-                            ),
-                            SizedBox(
-                              height: 6,
                             ),
                             Text(
                               '5층 학식',
@@ -320,11 +332,12 @@ class _MenuPageState extends State<MenuPage> {
                             Text(
                               '교직원 식당입니다!',
                               style: const TextStyle(
-                                  color: const Color(0xff5f605f),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: "NotoSansKR",
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: 12.0),
+                                color: const Color(0xff5f605f),
+                                fontWeight: FontWeight.w500,
+                                fontFamily: "NotoSansKR",
+                                fontStyle: FontStyle.normal,
+                                fontSize: 12.0,
+                              ),
                               textAlign: TextAlign.center,
                             ),
                           ],
@@ -336,8 +349,11 @@ class _MenuPageState extends State<MenuPage> {
                     width: 15,
                   ),
                   Container(
-                    width: 160,
-                    height: 160,
+                    margin: EdgeInsets.only(
+                      bottom: fullWidth * 0.025,
+                    ),
+                    width: fullWidth * 0.42,
+                    height: fullWidth * 0.42,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
@@ -361,22 +377,23 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                         );
                       },
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(20.0),
+                      ),
                       child: Center(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            SizedBox(
-                              height: 20,
-                            ),
                             Container(
-                              height: 66,
-                              width: 49,
+                              margin: EdgeInsets.only(
+                                bottom: fullWidth * 0.025,
+                              ),
+                              height: fullWidth * 0.117,
+                              width: fullWidth * 0.117,
                               child: Image.asset(
                                 'images/MenuPage/dorm_imoji.png',
                               ),
-                            ),
-                            SizedBox(
-                              height: 6,
                             ),
                             Text(
                               '기숙사식',
