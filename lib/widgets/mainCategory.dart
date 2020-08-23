@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kmouin/main.dart';
 import '../widgets/mainPageData.dart';
 
 class CategoryCards extends StatelessWidget {
@@ -16,6 +17,14 @@ class CategoryCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    void scopeOut(){
+      FocusScopeNode currentFocus = FocusScope.of(context);
+
+      if (!currentFocus.hasPrimaryFocus) {
+        currentFocus.unfocus();
+      }
+    }
 
     double _mainWidth = MediaQuery.of(context).size.width;
     double _containerSize = _mainWidth * (42.0/100);
@@ -43,6 +52,7 @@ class CategoryCards extends StatelessWidget {
         ),
         padding: EdgeInsets.all(0.0),
         onPressed: () {
+          scopeOut();
           Navigator.push(
             context,
             MaterialPageRoute(
