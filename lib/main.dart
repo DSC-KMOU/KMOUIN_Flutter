@@ -179,7 +179,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
                                         title: const Text('죄송합니다'),
                                         content:
-                                            Text('"$value"(이)라는 키워드가 없습니다.'),
+                                            Column(
+                                              children: [
+                                                Text('"$value"(이)라는 키워드가 없습니다. \n'),
+                                                Text("키워드: \n 통근 / 통근버스 / 2층 / 3층 / 5층 / 교직원 / 기숙사 / 생활관 / 편의시설 / 대피시설",),
+                                              ],
+                                            ),
                                         actions: <Widget>[
                                           FlatButton(
                                             onPressed: () {

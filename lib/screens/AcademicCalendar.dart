@@ -4,7 +4,6 @@ import 'package:flutter/rendering.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
-
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
