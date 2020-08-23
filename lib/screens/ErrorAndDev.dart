@@ -70,7 +70,7 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
                         imageName: 'error',
                         reportTitle: '오류제보',
                         reportDescription: '버그나 피드 부탁드립니다!',
-                        url: 'http://kmou.ac.kr',
+                        url: 'https://docs.google.com/forms/d/e/1FAIpQLSdAxdRIV-3rwbN9P36nrP-VGgA0aPYSgVt0vEL8JYeY8TtIdA/viewform?usp=send_form',
                       ),
                     ),
                   ),
@@ -78,7 +78,7 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
                     imageName: 'survey',
                     reportTitle: '설문조사',
                     reportDescription: '앱의 발전을 위해 힘쓰겠습니다!',
-                    url: 'http://www.naver.com',
+                    //url: 'http://www.naver.com',
                   ),
                   ErrorContainer(
                     imageName: 'DevTeam',
@@ -90,14 +90,17 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: Text('< Copyright 2020. DSC_KMOU. All right reserved. >',
-                  style: const TextStyle(
-                      color: const Color(0xff828282),
-                      fontWeight: FontWeight.w300,
-                      fontFamily: "NotoSansKR",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 14.0),
-                  textAlign: TextAlign.center),
+              child: Container(
+                margin: EdgeInsets.only(bottom: 55.0,),
+                child: Text('< Copyright 2020. DSC_KMOU. All right reserved. >',
+                    style: const TextStyle(
+                        color: const Color(0xff828282),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 14.0),
+                    textAlign: TextAlign.center),
+              ),
             ),
           ],
         ),
