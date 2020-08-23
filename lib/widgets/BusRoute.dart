@@ -7,8 +7,7 @@ class BusRoute extends StatelessWidget {
   // )
   final String title;
   final String info;
-  final String busnum;
-  const BusRoute({Key key, @required this.title, @required this.info , @required this.busnum})
+  const BusRoute({Key key, @required this.title, @required this.info})
       : super(key: key);
 
   @override
@@ -24,6 +23,7 @@ class BusRoute extends StatelessWidget {
                 title,
                 style: TextStyle(
                   fontSize: 22.0,
+                  letterSpacing: -1.0,
                   color: Color(0xff131415),
                   fontWeight: FontWeight.w500,
                 ),
@@ -31,6 +31,7 @@ class BusRoute extends StatelessWidget {
               Text(info,
                   style: TextStyle(
                     fontSize: 12.0,
+                    letterSpacing: -1.0,
                     color: Color(0xff787878),
                     fontWeight: FontWeight.w500,
                   )),
@@ -43,25 +44,7 @@ class BusRoute extends StatelessWidget {
               child: Stack(
                 children: <Widget>[
                   Image.asset('images/BusPage/commuterbus.png'),
-                  Column(
-                    children: <Widget>[
-                      SizedBox(height:26.0),
-                      Row(
-                        children: <Widget>[
-                          SizedBox(width:14.0),
-                          Text(
-                            busnum,
-                            style: TextStyle(
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w500,
-                                fontFamily: "NotoSansKR",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 10.0),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+
                 ],
               ))
         ],
