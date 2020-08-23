@@ -149,7 +149,9 @@ class _MyHomePageState extends State<BusPage> {
           ),
           actions: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.only(
+                right: 10.0,
+              ),
               child: IconButton(
                 icon: Icon(
                   Icons.refresh,
