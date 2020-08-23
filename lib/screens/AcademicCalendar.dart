@@ -57,8 +57,6 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
   List _selectedEvents;
   bool key = true;
 
-
-
   // 애니메이션 컨트롤러와 캘린더 컨트롤러 선언
   AnimationController _animationController;
   CalendarController _calendarController;
@@ -153,93 +151,79 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
         preferredSize: Size.fromHeight(47.0),
         child: AppBar(
           centerTitle: false,
-          titleSpacing: -5,
-          backgroundColor: Colors.white.withOpacity(0.0),
-          elevation: 0,
-          automaticallyImplyLeading: false,
-          title: Row(
-            children: <Widget>[
-              FlatButton(
-                padding: EdgeInsets.all(0),
-                onPressed: () {
-                  setState(() {
-                    Navigator.pop(context);
-                  });
-                },
-                child: Row(
-                  children: <Widget>[
-                    Icon(
-                      CupertinoIcons.back,
+          title: Row(children: <Widget>[
+            FlatButton(
+              padding: EdgeInsets.all(0),
+              onPressed: () {
+                setState(() {
+                  Navigator.pop(context);
+                });
+              },
+              child: Row(
+                children: <Widget>[
+                  Icon(
+                    CupertinoIcons.back,
+                    color: Color(0xff5b9fee),
+                  ),
+                  Text(
+                    "메인",
+                    style: TextStyle(
                       color: Color(0xff5b9fee),
-                    ),
-                    Text(
-                      " 메인",
-                      style: TextStyle(
-                        color: Color(0xff5b9fee),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: 18.0,
-                        wordSpacing: -5.0,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-      body: Column(
-        //mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Container(
-              //margin: EdgeInsets.only(top: 20.0),
-              alignment: Alignment.center,
-              width: MediaQuery.of(context).size.width,
-              height: 74,
-              decoration: BoxDecoration(boxShadow: [
-                BoxShadow(
-                    color: const Color(0x80d1d1d1),
-                    offset: Offset(0, 1),
-                    blurRadius: 0,
-                    spreadRadius: 0)
-              ], color: const Color(0xb3ffffff)),
-              child: Padding(
-                padding: const EdgeInsets.only(top: 25.0),
-                child: Text(
-                  "학사일정",
-                  style: const TextStyle(
-                      color: const Color(0xff5b9fee),
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w300,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
-                      fontSize: 20.0),
-                  textAlign: TextAlign.center,
+                      fontSize: 18.0,
+                      wordSpacing: 0.0,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(left:MediaQuery.of(context).size.height *0.1),
+              alignment: Alignment.bottomCenter,
+              child: Text(
+                "학사 일정",
+                style: const TextStyle(
+                  color: const Color(0xff5b9fee),
+                  fontWeight: FontWeight.w500,
+                  fontFamily: "NotoSansKR",
+                  fontStyle: FontStyle.normal,
+                  fontSize: 18.0,
                 ),
-              )),
-          //SizedBox(height:20),
-          FutureBuilder<Calendar>(
-              future: calendar,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  if (key) {
-                    setData(snapshot.data.jsonList);
+              ),
+            )
+          ]),
+          titleSpacing: -1.8,
+          elevation: 1.0,
+          backgroundColor: Colors.white,
+          automaticallyImplyLeading: false,
+        ),
+      ),
+      body: SafeArea(
+        child: Column(
+          //mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            //SizedBox(height:20),
+            FutureBuilder<Calendar>(
+                future: calendar,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    if (key) {
+                      setData(snapshot.data.jsonList);
+                    }
+                  } else if (snapshot.hasError) {
+                    print(
+                        '\n\nERRORMESSAGE :: snapshot Error :  ${snapshot.error}\n\n');
                   }
-                } else if (snapshot.hasError) {
-                  print(
-                      '\n\nERRORMESSAGE :: snapshot Error :  ${snapshot.error}\n\n');
-                }
-                return _buildTableCalendar();
-              }),
-          //const SizedBox(height: 13.3),
-          Expanded(
-            child: _buildEventList(),
-          ),
-        ],
+                  return _buildTableCalendar();
+                }),
+            //const SizedBox(height: 13.3),
+            Expanded(
+              child: _buildEventList(),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -408,7 +392,8 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
                 ),
-                margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                 child: Container(
                     width: MediaQuery.of(context).size.width,
                     height: 50,
@@ -441,8 +426,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal)),
-                      )
-                          ),
+                      )),
                     ])),
               ))
           .toList(),
