@@ -88,18 +88,6 @@ class CategoryCards extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            // #셔틀 버스
-//            Text(
-//              "#셔틀 버스 #통근버스 #190번 버스",
-//              style: const TextStyle(
-//                color: const Color(0xff878787),
-//                fontWeight: FontWeight.w500,
-//                fontFamily: "NotoSansKR",
-//                fontStyle: FontStyle.normal,
-//                fontSize: 9.0,
-//              ),
-//              textAlign: TextAlign.center,
-//            )
           ],
         ),
       ),

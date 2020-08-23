@@ -62,7 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
     double _backgroundHeight = _mainHeight * (33.0 / 100);
     double _titleLeftBorder = _mainWidth * (8.0 / 100);
     double _sideBorder = _mainWidth * (6.0 / 100);
-    bool _stat = false;
 
     return GestureDetector(
       onTap: () {
