@@ -16,14 +16,21 @@ class ErrorContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double _mainWidth = MediaQuery.of(context).size.width;
+    double _mainHeight = MediaQuery.of(context).size.height;
+    double _marginHeight = _mainHeight * (2.5/100);
+    double _containerHeight = _mainHeight * (11.1/100);
+    double _containerWidth = _mainWidth * (88.0/100);
+    double _iconSize = _containerHeight * (27.8/100);
+
     return Container(
-        padding: EdgeInsets.only(
-          left: 20.0,
-        ),
         margin: EdgeInsets.only(
-          top: 20.0,
+          top: _marginHeight,
         ),
         child: FlatButton(
+          shape: new RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(20.0),
+          ),
           onPressed: () {
             _launchURL(url);
           },
@@ -32,15 +39,16 @@ class ErrorContainer extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  width: 35.0,
+                  margin: EdgeInsets.only(left: _iconSize,),
+                  width: _iconSize,
                   child: Image.asset(
                     'images/ErrorAndDev/$imageName@3x.png',
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.center,
+              Center(
                 child: Container(
+                  margin: EdgeInsets.only(left: _iconSize),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -69,8 +77,8 @@ class ErrorContainer extends StatelessWidget {
             ],
           ),
         ),
-        width: 330,
-        height: 90,
+        width: _containerWidth,
+        height: _containerHeight,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(20)),
             boxShadow: [
