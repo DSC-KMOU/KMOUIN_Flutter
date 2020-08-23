@@ -51,6 +51,7 @@ class _FifthFloorState extends State<FifthFloor> {
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    double fullWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(47.0),
@@ -161,14 +162,16 @@ class _FifthFloorState extends State<FifthFloor> {
                         SizedBox(
                           height: 7,
                         ),
-                        Text("5층 학식",
-                            style: const TextStyle(
-                                color: const Color(0xffeb577c),
-                                fontWeight: FontWeight.w500,
-                                fontFamily: "NotoSansKR",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 32.0),
-                            textAlign: TextAlign.center),
+                        Text(
+                          "5층 학식",
+                          style: const TextStyle(
+                              color: const Color(0xffeb577c),
+                              fontWeight: FontWeight.w500,
+                              fontFamily: "NotoSansKR",
+                              fontStyle: FontStyle.normal,
+                              fontSize: 32.0),
+                          textAlign: TextAlign.center,
+                        ),
                         SizedBox(
                           height: 9,
                         ),
@@ -272,7 +275,7 @@ class _FifthFloorState extends State<FifthFloor> {
                       SizedBox(
                         height: 28,
                       ),
-                      buildFutureBuilder(),
+                      buildFutureBuilder(fullWidth),
                       SizedBox(
                         height: 32,
                       ),
@@ -287,7 +290,7 @@ class _FifthFloorState extends State<FifthFloor> {
     );
   }
 
-  FutureBuilder<MenuData> buildFutureBuilder() {
+  FutureBuilder<MenuData> buildFutureBuilder(double fullWidth) {
     return FutureBuilder(
         future: menuData,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -313,6 +316,8 @@ class _FifthFloorState extends State<FifthFloor> {
               children: <Widget>[
                 MenuCard(
                   title: '점심',
+                  width: fullWidth * 0.92,
+                  dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
                       menuTable: snapshot.data.result["f5l"],
@@ -324,6 +329,8 @@ class _FifthFloorState extends State<FifthFloor> {
                 ),
                 MenuCard(
                   title: '일품식',
+                  width: fullWidth * 0.92,
+                  dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
                       menuTable: snapshot.data.result["f5s"],

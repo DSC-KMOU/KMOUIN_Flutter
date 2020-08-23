@@ -87,11 +87,13 @@ class _MenuPageState extends State<MenuPage> {
                 child: Text(
                   '오늘은 몇 층에서\n드시겠어요?',
                   style: const TextStyle(
-                      color: const Color(0xffffffff),
-                      fontWeight: FontWeight.w500,
-                      fontFamily: "NotoSansKR",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 32.0),
+                    color: const Color(0xffffffff),
+                    letterSpacing: -0.5,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: "NotoSansKR",
+                    fontStyle: FontStyle.normal,
+                    fontSize: 32.0,
+                  ),
                 ),
               ),
               SizedBox(
@@ -103,6 +105,7 @@ class _MenuPageState extends State<MenuPage> {
                   '각 층마다 메뉴가 다르게 나와요',
                   style: const TextStyle(
                     color: const Color(0xffffffff),
+                    letterSpacing: -0.5,
                     fontWeight: FontWeight.w300,
                     fontFamily: "NotoSansKR",
                     fontStyle: FontStyle.normal,

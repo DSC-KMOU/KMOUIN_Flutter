@@ -139,9 +139,7 @@ class _MyHomePageState extends State<BusPage> {
                         wordSpacing: -5.0,
                       ),
                     ),
-                    SizedBox(
-                      width: 20,
-                    ),
+
                   ],
                 ),
               ),
@@ -184,6 +182,7 @@ class _MyHomePageState extends State<BusPage> {
                     "버스 정보",
                     style: const TextStyle(
                       color: const Color(0xffffffff),
+                      letterSpacing: -0.5,
                       fontWeight: FontWeight.w500,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
@@ -196,6 +195,7 @@ class _MyHomePageState extends State<BusPage> {
                     "실시간 위치를 알 수 있어요",
                     style: const TextStyle(
                       color: const Color(0xffffffff),
+                      letterSpacing: -0.5,
                       fontWeight: FontWeight.w300,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
