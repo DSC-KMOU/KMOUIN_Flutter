@@ -76,13 +76,13 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
                   ),
                   ErrorContainer(
                     imageName: 'survey',
-                    reportTitle: '설문조사',
+                    reportTitle: '설문조사 (준비중)',
                     reportDescription: '앱의 발전을 위해 힘쓰겠습니다!',
                     //url: 'http://www.naver.com',
                   ),
                   ErrorContainer(
                     imageName: 'DevTeam',
-                    reportTitle: '개발자 정보',
+                    reportTitle: '개발자 정보 (준비중)',
                     reportDescription: '사용해주셔서 감사합니다!',
                   ),
                 ],
