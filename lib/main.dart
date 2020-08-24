@@ -60,6 +60,15 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  void pagePop(int i){
+    Navigator.push(
+      context,
+      new MaterialPageRoute(
+        builder: (context) => subpage[i],
+      ),
+    );
+  }
+
   Widget build(BuildContext context) {
     int _connect = 0;
     double _mainWidth = MediaQuery.of(context).size.width;
@@ -200,24 +209,18 @@ class _MyHomePageState extends State<MyHomePage> {
                                   cursorColor: Colors.blueAccent,
                                   controller: _controller,
                                   onSubmitted: (String value) async {
+                                    for (int i = 0;
+                                    i < keywords.length;
+                                    i++) {
+                                      if (value.toString() ==
+                                          keywords[i].toString()) {
+                                        _connect = i;
+                                        return pagePop(i);
+                                      }
+                                    }
                                     await showDialog<void>(
                                       context: context,
                                       builder: (BuildContext context) {
-                                        for (int i = 0;
-                                            i < keywords.length;
-                                            i++) {
-                                          if (value.toString() ==
-                                              keywords[i].toString()) {
-                                            _connect = i;
-                                            return subpage[i];
-//                                            Navigator.push(
-//                                              context,
-//                                              new MaterialPageRoute(
-//                                                builder: (context) => subpage[i],
-//                                              ),
-//                                            );
-                                          }
-                                        }
                                         return CupertinoAlertDialog(
                                           title: const Text('죄송합니다'),
                                           content: Column(
