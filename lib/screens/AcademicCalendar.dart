@@ -152,47 +152,56 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
         child: AppBar(
           centerTitle: false,
           title: Row(children: <Widget>[
-            FlatButton(
-              padding: EdgeInsets.all(0),
-              onPressed: () {
-                setState(() {
-                  Navigator.pop(context);
-                });
-              },
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    CupertinoIcons.back,
-                    color: Color(0xff5b9fee),
-                  ),
-                  Text(
-                    "메인",
-                    style: TextStyle(
+            SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.22,
+              child: FlatButton(
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
+                },
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      CupertinoIcons.back,
                       color: Color(0xff5b9fee),
-                      fontWeight: FontWeight.w300,
-                      fontFamily: "NotoSansKR",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 18.0,
-                      wordSpacing: 0.0,
                     ),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                ],
+                    Text(
+                      "메인",
+                      style: TextStyle(
+                        color: Color(0xff5b9fee),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 18.0,
+                        wordSpacing: 0.0,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                  ],
+                ),
               ),
             ),
             Container(
-              padding: EdgeInsets.only(left:MediaQuery.of(context).size.height *0.1),
+              margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.14),
+              width: MediaQuery.of(context).size.width * 0.22,
               alignment: Alignment.bottomCenter,
-              child: Text(
-                "학사 일정",
-                style: const TextStyle(
-                  color: const Color(0xff5b9fee),
-                  fontWeight: FontWeight.w500,
-                  fontFamily: "NotoSansKR",
-                  fontStyle: FontStyle.normal,
-                  fontSize: 18.0,
+              child: FittedBox(
+                fit: BoxFit.contain,
+                child: Text(
+                  "학사 일정",
+                  style: const TextStyle(
+                    color: const Color(0xff5b9fee),
+                    fontWeight: FontWeight.w500,
+                    fontFamily: "NotoSansKR",
+                    fontStyle: FontStyle.normal,
+                    fontSize: 18.0,
+                  ),
                 ),
               ),
             )
