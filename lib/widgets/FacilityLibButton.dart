@@ -62,39 +62,50 @@ class LibButton extends StatelessWidget {
               )
             ],
           ),
-          RichText(
-              text: TextSpan(
-                  children: [
-                    TextSpan(
-                        style: const TextStyle(
-                            color:  const Color(0xff5d9023),
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "NotoSansKR",
-                            fontStyle:  FontStyle.normal,
-                            fontSize: 16.0
-                        ),
-                        text: stdRoomNum.toString()),
-                    TextSpan(
-                        style: const TextStyle(
-                            color:  const Color(0xff5f605f),
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "NotoSansKR",
-                            fontStyle:  FontStyle.normal,
-                            fontSize: 16.0
-                        ),
-                        text: "/150석"),
-                    TextSpan(
-                        style: const TextStyle(
-                            color:  const Color(0xff5d9023),
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "NotoSansKR",
-                            fontStyle:  FontStyle.normal,
-                            fontSize: 14.0
-                        ),
-                        text: " (" + ((stdRoomNum/150)*100).toInt().toString() + "%)")
-                  ]
-              )
-          )
+          Text(
+              "[준비중]",
+              style: const TextStyle(
+                  color:  Colors.red,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: "NotoSansKR",
+                  fontStyle:  FontStyle.normal,
+                  fontSize: 15.0
+              ),
+              textAlign: TextAlign.center
+          ),
+//          RichText(
+//              text: TextSpan(
+//                  children: [
+//                    TextSpan(
+//                        style: const TextStyle(
+//                            color:  const Color(0xff5d9023),
+//                            fontWeight: FontWeight.w500,
+//                            fontFamily: "NotoSansKR",
+//                            fontStyle:  FontStyle.normal,
+//                            fontSize: 16.0
+//                        ),
+//                        text: stdRoomNum.toString()),
+//                    TextSpan(
+//                        style: const TextStyle(
+//                            color:  const Color(0xff5f605f),
+//                            fontWeight: FontWeight.w500,
+//                            fontFamily: "NotoSansKR",
+//                            fontStyle:  FontStyle.normal,
+//                            fontSize: 16.0
+//                        ),
+//                        text: "/150석"),
+//                    TextSpan(
+//                        style: const TextStyle(
+//                            color:  const Color(0xff5d9023),
+//                            fontWeight: FontWeight.w500,
+//                            fontFamily: "NotoSansKR",
+//                            fontStyle:  FontStyle.normal,
+//                            fontSize: 14.0
+//                        ),
+//                        text: " (" + ((stdRoomNum/150)*100).toInt().toString() + "%)")
+//                  ]
+//              )
+//          )
         ],
       ),
     );
