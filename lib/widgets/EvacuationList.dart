@@ -15,7 +15,7 @@ class EvacuationList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: screenHeight * (60/100),
+      height: screenHeight * (56/100),
       width: width,
       child: Row(
         children: <Widget>[

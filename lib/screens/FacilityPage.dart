@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../widgets/FacilityLibButton.dart';
 import 'dart:ui';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
+import '../screens/EvacuationFacility.dart';
 
 class FacilityPage extends StatefulWidget {
   @override
@@ -274,7 +275,13 @@ class _FacilityPageState extends State<FacilityPage> {
                         width: _width * (4/100),
                       ),
                       InkWell(
-                        //onTap: ,
+                        onTap: (){
+                          Navigator.push(context,
+                              MaterialPageRoute(
+                                builder: (context) => EvacuationFacility()
+                              ),
+                          );
+                        },
                         child: Container(
                           width: _width * (42.7/100),
                           height: _width * (42.7/100),
