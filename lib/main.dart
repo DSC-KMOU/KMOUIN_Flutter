@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.dispose();
   }
 
-  void scopeOut(){
+  void scopeOut() {
     FocusScopeNode currentFocus = FocusScope.of(context);
 
     if (!currentFocus.hasPrimaryFocus) {
@@ -62,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
     double _backgroundHeight = _mainHeight * (33.0 / 100);
     double _titleLeftBorder = _mainWidth * (8.0 / 100);
     double _sideBorder = _mainWidth * (6.0 / 100);
+    double _logoSize = _mainWidth * (18.7 / 100);
 
     return GestureDetector(
       onTap: () {
@@ -90,12 +91,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: <Widget>[
                         Container(
                           margin: EdgeInsets.only(
-                              top: _backgroundHeight * (23.2 / 100)),
+                            top: _backgroundHeight * (23.2 / 100),
+                          ),
                           child: Row(
                             children: <Widget>[
                               Container(
                                 margin: EdgeInsets.only(
-                                  bottom: 10.0,
+                                  bottom: _backgroundHeight * (2.1 / 100),
                                   left: _titleLeftBorder,
                                 ),
                                 child: Text(
@@ -106,16 +108,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fontWeight: FontWeight.w500,
                                     fontFamily: "NotoSansKR",
                                     fontStyle: FontStyle.normal,
-                                    fontSize: 34.0,
+                                    fontSize: 36.0,
                                   ),
                                   textAlign: TextAlign.left,
                                 ),
                               ),
                               Container(
-                                height: 45.0,
-                                width: 45.0,
+                                height: _logoSize,
+                                width: _logoSize,
                                 margin: EdgeInsets.only(
-                                  left: 15.0,
+                                  left: _mainWidth * (6.7 / 100),
                                 ),
                                 child: Image.asset(
                                   'images/frontPage/copy2@3x.png',
@@ -134,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               fontWeight: FontWeight.w300,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: 22.0,
+                              fontSize: 24.0,
                             ),
                             textAlign: TextAlign.left,
                           ),
@@ -143,12 +145,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           padding: EdgeInsets.only(left: 5.0),
                           margin: EdgeInsets.fromLTRB(
-                              _sideBorder, _sideBorder, _sideBorder, _sideBorder),
+                            _sideBorder,
+                            _sideBorder,
+                            _sideBorder,
+                            _sideBorder,
+                          ),
                           width: _mainWidth * (86.4 / 100),
                           height: _mainHeight * (5.0 / 100),
                           decoration: BoxDecoration(
                             color: Color(0xffffffff),
-                            borderRadius: BorderRadius.all(Radius.circular(23.0)),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(23.0)),
                             border: Border.all(
                                 color: const Color(0xffffffff), width: 2),
                             boxShadow: [
@@ -210,7 +217,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                           title: const Text('죄송합니다'),
                                           content: Column(
                                             children: [
-                                              Text('"$value"(이)라는 키워드가 없습니다. \n'),
+                                              Text(
+                                                  '"$value"(이)라는 키워드가 없습니다. \n'),
                                               Text(
                                                 "[키워드] \n 통근 / 통근버스 / 2층 / 3층 / 5층 \n 교직원 / 기숙사 / 생활관 \n 편의시설 / 대피시설",
                                               ),
@@ -247,7 +255,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           logoContainer: IconContainer(
                             startingColor: color1,
                             endingColor: color2,
-                            iconImage: Image.asset('images/frontPage/bus@3x.png'),
+                            iconImage:
+                                Image.asset('images/frontPage/bus@3x.png'),
                           ),
                           containerTitle: '버스 정보',
                           containerDescription: '버스 언제 출발하지..',
