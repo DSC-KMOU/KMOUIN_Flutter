@@ -102,14 +102,14 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
           Stack(
             children: <Widget>[
               new Image(
-                image: AssetImage("images/invalidName@3x.png"),
+                image: AssetImage("images/map/campusmap.png"),
                 fit: BoxFit.cover,
               ),
               Positioned(
-                left: _width * (61 / 100),
-                top: _screenHeight * (7.8 / 100),
+                left: _width * (60 / 100),
+                top: _screenHeight * (7.6 / 100),
                 child: Container(
-                  //child: Image(image: _a),
+                  width: _width*(36/100),
                   child: _bildZone(buttonPushed, 1),
                 ),
               ),
@@ -131,7 +131,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 left: _width * (47.5 / 100),
                 top: _screenHeight * (16 / 100),
                 child: Container(
-                  //child: Image(image: _a),
+                  width: _width*(33/100),
                   child: _bildZone(buttonPushed, 2),
                 ),
               ),
@@ -151,8 +151,9 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
               ),
               Positioned(
                 left: _width * (40 / 100),
-                top: _screenHeight * (6 / 100),
+                top: _screenHeight * (5.6 / 100),
                 child: Container(
+                  width: _width*(29/100),
                   child: _bildZone(buttonPushed, 3),
                 ),
               ),
@@ -171,10 +172,11 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 ),
               ),
               Positioned(
-                left: _width * (20 / 100),
+                left: _width * (19 / 100),
                 top: _screenHeight * (9 / 100),
 
                 child: Container(
+                  width: _width*(32/100),
                   child: _bildZone(buttonPushed, 4),
                 ),
               ),
@@ -193,9 +195,10 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 ),
               ),
               Positioned(
-                left: _width * (11 / 100),
+                left: _width * (9 / 100),
                 top: _screenHeight * (3 / 100),
                 child: Container(
+                  width: _width*(38/100),
                   child: _bildZone(buttonPushed, 5),
                 ),
               ),
@@ -239,32 +242,16 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
   }
 
   Widget _bildZone(num, loNum) {
-    var temp = 'a';
     List<String> tempList = ['a', 'b', 'c', 'd', 'e'];
-    switch (num) {
-      case 1:
-        temp = 'a';
-        break;
-      case 2:
-        temp = 'b';
-        break;
-      case 3:
-        temp = 'c';
-        break;
-      case 4:
-        temp = 'd';
-        break;
-      case 5:
-        temp = 'e';
-        break;
-    }
     if (num == loNum)
       return Image(
-        image: AssetImage("images/map/" + temp + "Zone.png"),
+        image: AssetImage("images/map/" + tempList[loNum - 1] + "Zone@3x.png"),
+        fit: BoxFit.fitWidth,
       );
     else
       return Image(
-        image: AssetImage("images/map/" + tempList[loNum - 1] + ".png"),
+        image: AssetImage("images/map/" + tempList[loNum - 1] + "@3x.png"),
+        fit: BoxFit.fitWidth,
       );
   }
 }

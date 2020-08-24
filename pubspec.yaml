@@ -70,6 +70,17 @@ flutter:
     - images/ErrorAndDev/error@3x.png
     - images/ErrorAndDev/survey@3x.png
     - images/ErrorAndDev/DevTeam@3x.png
+    - images/map/aZone@3x.png
+    - images/map/bZone@3x.png
+    - images/map/cZone@3x.png
+    - images/map/dZone@3x.png
+    - images/map/eZone@3x.png
+    - images/map/a@3x.png
+    - images/map/b@3x.png
+    - images/map/c@3x.png
+    - images/map/d@3x.png
+    - images/map/e@3x.png
+    - images/map/campusmap.png
   fonts:
     - family: NotoSansKR
       fonts:
