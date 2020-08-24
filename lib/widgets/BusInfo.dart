@@ -51,7 +51,7 @@ class BusInfo extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: 16.0,
+                              fontSize: 15.5,
                               letterSpacing: -0.28,
                             ),
                           ),
