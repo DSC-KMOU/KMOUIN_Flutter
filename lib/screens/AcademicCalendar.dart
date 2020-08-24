@@ -197,7 +197,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
               ),
             )
           ]),
-          titleSpacing: -1.8,
+          titleSpacing: -5.0,
           elevation: 1.0,
           backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
