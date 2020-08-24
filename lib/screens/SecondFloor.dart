@@ -22,7 +22,7 @@ class _SecondFloorState extends State<SecondFloor> {
     try {
       print("future 실행!");
       http.Response response = await http.get(
-          "https://asia-northeast1-kmouin-62d7f.cloudfunctions.net/api/menu");
+          "https://asia-northeast1-kmouin-62d7f.cloudfunctions.net/api/menu/smeal");
       if (response.statusCode == 200) {
         print(response.body);
         return MenuData.fromJson(json.decode(response.body));

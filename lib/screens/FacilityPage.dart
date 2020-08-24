@@ -4,6 +4,7 @@ import '../widgets/FacilityLibButton.dart';
 import 'dart:ui';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 import '../screens/EvacuationFacility.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FacilityPage extends StatefulWidget {
   @override
@@ -16,6 +17,7 @@ class _FacilityPageState extends State<FacilityPage> {
   int _stdRoomNum_2 = 2;
   int _stdRoomNum_3 = 3;
   int _stdRoomNum_4 = 4;
+  String _kmouPage = 'http://www.kmou.ac.kr/coop/cm/cntnts/cntntsView.do?mi=1181&cntntsId=1102';
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +33,9 @@ class _FacilityPageState extends State<FacilityPage> {
     double _bottom = MediaQuery.of(context).padding.bottom;
     double _screenHeight = _height;
 
-
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar:PreferredSize(
+      appBar: PreferredSize(
         preferredSize: Size.fromHeight(47.0),
         child: AppBar(
           centerTitle: false,
@@ -82,17 +83,18 @@ class _FacilityPageState extends State<FacilityPage> {
       body: Stack(
         children: <Widget>[
           Container(
-            height: _screenHeight * (60.1/100),
+            height: _screenHeight * (60.1 / 100),
             width: _width,
-            child: Image.asset('images/FacilityPage/greenback.png',
-              fit: BoxFit.fill,),
+            child: Image.asset(
+              'images/FacilityPage/greenback.png',
+              fit: BoxFit.fill,
+            ),
           ),
-
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: _screenHeight * (11.9/100),
+                height: _screenHeight * (11.9 / 100),
               ),
               Center(
                 child: Container(
@@ -102,14 +104,13 @@ class _FacilityPageState extends State<FacilityPage> {
                         color: const Color(0xffffffff),
                         fontWeight: FontWeight.w500,
                         fontFamily: "NotoSansKR",
-                        fontStyle:  FontStyle.normal,
-                        fontSize: 30.0
-                    ),
+                        fontStyle: FontStyle.normal,
+                        fontSize: 30.0),
                   ),
                 ),
               ),
               SizedBox(
-                height: _screenHeight * (1.8/100),
+                height: _screenHeight * (1.8 / 100),
               ),
               Center(
                 child: Container(
@@ -117,30 +118,28 @@ class _FacilityPageState extends State<FacilityPage> {
                     "다른 시설도 확인해봐요",
                     //_ht.toString(),
                     style: const TextStyle(
-                        color:  const Color(0xffffffff),
+                        color: const Color(0xffffffff),
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
-                        fontStyle:  FontStyle.normal,
-                        fontSize: 22.0
-                    ),
+                        fontStyle: FontStyle.normal,
+                        fontSize: 22.0),
                   ),
                 ),
               ),
-
               Column(
                 children: <Widget>[
                   SizedBox(
-                    height: _screenHeight * (3.57/100),
+                    height: _screenHeight * (3.57 / 100),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       InkWell(
-                        onTap: (){
-                          setState(() {
-                            _stdRoomNum_1 = _stdRoomNum_1 + 1;
-                          });
-                        },
+//                        onTap: () {
+//                          setState(() {
+//                            _stdRoomNum_1 = _stdRoomNum_1 + 1;
+//                          });
+//                        },
                         child: LibButton(
                           num: 1,
                           stdRoomNum: _stdRoomNum_1,
@@ -149,14 +148,14 @@ class _FacilityPageState extends State<FacilityPage> {
                         ),
                       ),
                       SizedBox(
-                        width: _width * (4/100),
+                        width: _width * (4 / 100),
                       ),
                       InkWell(
-                        onTap: (){
-                          setState(() {
-                            _stdRoomNum_2 = _stdRoomNum_2 + 1;
-                          });
-                        },
+//                        onTap: () {
+//                          setState(() {
+//                            _stdRoomNum_2 = _stdRoomNum_2 + 1;
+//                          });
+//                        },
                         child: LibButton(
                           num: 2,
                           stdRoomNum: _stdRoomNum_2,
@@ -167,17 +166,17 @@ class _FacilityPageState extends State<FacilityPage> {
                     ],
                   ),
                   SizedBox(
-                    height: _screenHeight * (1.84/100),
+                    height: _screenHeight * (1.84 / 100),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       InkWell(
-                        onTap: (){
-                          setState(() {
-                            _stdRoomNum_3 = _stdRoomNum_3 + 1;
-                          });
-                        },
+//                        onTap: () {
+//                          setState(() {
+//                            _stdRoomNum_3 = _stdRoomNum_3 + 1;
+//                          });
+//                        },
                         child: LibButton(
                           num: 3,
                           stdRoomNum: _stdRoomNum_3,
@@ -186,14 +185,14 @@ class _FacilityPageState extends State<FacilityPage> {
                         ),
                       ),
                       SizedBox(
-                        width: _width * (4/100),
+                        width: _width * (4 / 100),
                       ),
                       InkWell(
-                        onTap: (){
-                          setState(() {
-                            _stdRoomNum_4 = _stdRoomNum_4 + 1;
-                          });
-                        },
+//                        onTap: () {
+//////                          setState(() {
+//////                            _stdRoomNum_4 = _stdRoomNum_4 + 1;
+//////                          });
+//////                        },
                         child: LibButton(
                           num: 4,
                           stdRoomNum: _stdRoomNum_4,
@@ -204,135 +203,163 @@ class _FacilityPageState extends State<FacilityPage> {
                     ],
                   ),
                   SizedBox(
-                    height: _screenHeight * (5.5/100),
+                    height: _screenHeight * (5.5 / 100),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       InkWell(
-                        //onTap: ,
+                        onTap: () async {
+                          await showDialog<void>(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return CupertinoAlertDialog(
+                                title: const Text(
+                                  '<준비중>',
+                                ),
+                                content: Column(
+                                  children: [
+                                    Text(
+                                      '추가예정입니다.',
+                                    ),
+                                    Text(
+                                      "더 나은 서비스로 찾아뵙겠습니다",
+                                    ),
+                                  ],
+                                ),
+                                actions: <Widget>[
+                                  FlatButton(
+                                    onPressed: () {
+                                      _launchURL(_kmouPage);
+                                    },
+                                    child: const Text('학교 홈페이지'),
+                                  ),
+                                  FlatButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text('OK'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
                         child: Container(
-                          width: _width * (42.7/100),
-                          height: _width * (42.7/100),
+                          width: _width * (42.7 / 100),
+                          height: _width * (42.7 / 100),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                  Radius.circular(20)
-                              ),
-                              boxShadow: [BoxShadow(
-                                  color: const Color(0x80cacaca),
-                                  offset: Offset(0,-1),
-                                  blurRadius: 16,
-                                  spreadRadius: 2
-                              )] ,
-                              color: Colors.white
-                          ),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: const Color(0x80cacaca),
+                                    offset: Offset(0, -1),
+                                    blurRadius: 16,
+                                    spreadRadius: 2)
+                              ],
+                              color: Colors.white),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Row(
                                 children: <Widget>[
                                   SizedBox(
-                                    width: _width * (16.5/100),
+                                    width: _width * (16.5 / 100),
                                   ),
                                   Container(
-                                    height: _screenHeight * (5.4/100),
-                                    width: _width * (11.7/100),
-                                    child: Image.asset('images/FacilityPage/coffee.png', fit: BoxFit.fitHeight,),
+                                    height: _screenHeight * (5.4 / 100),
+                                    width: _width * (11.7 / 100),
+                                    child: Image.asset(
+                                      'images/FacilityPage/coffee.png',
+                                      fit: BoxFit.fitHeight,
+                                    ),
                                   ),
                                 ],
                               ),
-
                               SizedBox(
-                                height: _screenHeight * (1.7/100),
+                                height: _screenHeight * (1.7 / 100),
                               ),
-                              Text(
-                                  "편의 시설",
+                              Text("편의 시설",
                                   style: const TextStyle(
-                                      color:  const Color(0xff131415),
+                                      color: const Color(0xff131415),
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
-                                      fontStyle:  FontStyle.normal,
-                                      fontSize: 24.0
-                                  ),
-                                  textAlign: TextAlign.center
-                              ),
-                              Text(
-                                  "편의점, 카페 등 복지시설",
+                                      fontStyle: FontStyle.normal,
+                                      fontSize: 24.0),
+                                  textAlign: TextAlign.center),
+                              Text("편의점, 카페 등 복지시설",
                                   style: const TextStyle(
-                                      color:  const Color(0xff5f605f),
+                                      color: const Color(0xff5f605f),
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
-                                      fontStyle:  FontStyle.normal,
-                                      fontSize: 12.0
-                                  ),
-                                  textAlign: TextAlign.center
-                              )
+                                      fontStyle: FontStyle.normal,
+                                      fontSize: 12.0),
+                                  textAlign: TextAlign.center)
                             ],
                           ),
                         ),
+                        highlightColor: Colors.white,
                       ),
                       SizedBox(
-                        width: _width * (4/100),
+                        width: _width * (4 / 100),
                       ),
                       InkWell(
-                        onTap: (){
-                          Navigator.push(context,
-                              MaterialPageRoute(
-                                builder: (context) => EvacuationFacility()
-                              ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => EvacuationFacility()),
                           );
                         },
                         child: Container(
-                          width: _width * (42.7/100),
-                          height: _width * (42.7/100),
+                          width: _width * (42.7 / 100),
+                          height: _width * (42.7 / 100),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                  Radius.circular(20)
-                              ),
-                              boxShadow: [BoxShadow(
-                                  color: const Color(0x80cacaca),
-                                  offset: Offset(0,-1),
-                                  blurRadius: 16,
-                                  spreadRadius: 2
-                              )] ,
-                              color: Colors.white
-                          ),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: const Color(0x80cacaca),
+                                    offset: Offset(0, -1),
+                                    blurRadius: 16,
+                                    spreadRadius: 2)
+                              ],
+                              color: Colors.white),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Container(
-                                height: _screenHeight * (6/100),
-                                width: _width * (9.3/100),
-                                child: Image.asset('images/FacilityPage/sos.png', fit: BoxFit.fitHeight,),
+                                height: _screenHeight * (6 / 100),
+                                width: _width * (9.3 / 100),
+                                child: Image.asset(
+                                  'images/FacilityPage/sos.png',
+                                  fit: BoxFit.fitHeight,
+                                ),
                               ),
                               SizedBox(
-                                height: _screenHeight * (2.1/100),
+                                height: _screenHeight * (2.1 / 100),
                               ),
-                              Text(
-                                  "대피 시설 및 지도",
+                              Text("대피 시설 및 지도",
                                   style: const TextStyle(
-                                      color:  const Color(0xff131415),
+                                      color: const Color(0xff131415),
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
-                                      fontStyle:  FontStyle.normal,
-                                      fontSize: 18.0
-                                  ),
-                                  textAlign: TextAlign.center
-                              ),
-                              Text(
-                                  "대피로",
+                                      fontStyle: FontStyle.normal,
+                                      fontSize: 18.0),
+                                  textAlign: TextAlign.center),
+                              Text("대피로",
                                   style: const TextStyle(
-                                      color:  const Color(0xff5f605f),
+                                      color: const Color(0xff5f605f),
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
-                                      fontStyle:  FontStyle.normal,
-                                      fontSize: 12.0
-                                  ),
-                                  textAlign: TextAlign.center
-                              )
+                                      fontStyle: FontStyle.normal,
+                                      fontSize: 12.0),
+                                  textAlign: TextAlign.center)
                             ],
                           ),
                         ),
+                        highlightColor: Colors.white,
                       )
                     ],
                   ),
@@ -343,5 +370,15 @@ class _FacilityPageState extends State<FacilityPage> {
         ],
       ),
     );
+  }
+}
+
+_launchURL(FeedUrl) async {
+  var url = FeedUrl;
+
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }

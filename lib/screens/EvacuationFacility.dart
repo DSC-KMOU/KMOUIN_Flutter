@@ -11,6 +11,7 @@ class EvacuationFacility extends StatefulWidget {
 
 class _EvacuationFacilityState extends State<EvacuationFacility> {
   int buttonPushed = 1;
+  double widLeft = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -50,26 +51,38 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
           automaticallyImplyLeading: false,
           title: Row(
             children: <Widget>[
-              FlatButton(
-                padding: EdgeInsets.all(0),
-                onPressed: () {
+              IconButton(
+                icon: Icon(
+                  CupertinoIcons.back,
+                  color: const Color(0xff000000),
+                ),
+                onPressed: (){
                   setState(() {
                     Navigator.pop(context);
                   });
                 },
-                child: Row(
-                  children: <Widget>[
-                    Icon(
-                      CupertinoIcons.back,
-                      color: const Color(0xff000000),
+              ),
+              SizedBox(
+
+              ),
+              Container(
+                child: Text(
+                    "대피시설 및 지도",
+                    style: const TextStyle(
+                        color:  const Color(0xff000000),
+                        fontWeight: FontWeight.w500,
+                        fontFamily: "NotoSansKR",
+                        fontStyle:  FontStyle.normal,
+                        fontSize: 16.0
                     ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                  ],
+                    textAlign: TextAlign.center
                 ),
               ),
+              SizedBox(
+                width: _width * (29/100),
+              )
             ],
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
           ),
         ),
       ),
@@ -83,7 +96,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
           Center(
             child: Container(
               child: Text(
-                  "대피시설 및 지도",
+                  "",
                   //buttonPushed.toString(),
                   style: const TextStyle(
                       color: const Color(0xff000000),
