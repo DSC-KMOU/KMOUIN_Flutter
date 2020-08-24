@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'widgets/TopContainer.dart';
 import 'widgets/mainPageData.dart';
 import 'widgets/mainCategory.dart';
@@ -8,7 +9,11 @@ import 'package:kmouin/screens/ErrorAndDev.dart';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(new MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
