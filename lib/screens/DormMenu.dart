@@ -20,7 +20,7 @@ class _DormMenuState extends State<DormMenu> {
     try {
       print("future 실행!");
       http.Response response = await http.get(
-          "https://asia-northeast1-kmouin-62d7f.cloudfunctions.net/api/dormmenu");
+          "https://asia-northeast1-kmouin-62d7f.cloudfunctions.net/api/menu/dorm");
       if (response.statusCode == 200) {
         print(response.body);
         return MenuData.fromJson(json.decode(response.body));
@@ -32,9 +32,9 @@ class _DormMenuState extends State<DormMenu> {
       return MenuData.fromJson({
         "status": "error",
         "result": {
-          "db": ["식단 정보 없음"],
-          "dl": ["식단 정보 없음"],
-          "dd": ["식단 정보 없음"],
+          "dormb": ["식단 정보 없음"],
+          "dorml": ["식단 정보 없음"],
+          "dormd": ["식단 정보 없음"],
         }
       });
     }
@@ -177,7 +177,7 @@ class _DormMenuState extends State<DormMenu> {
                   dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
-                      menuTable: snapshot.data.result["db"],
+                      menuTable: snapshot.data.result["dormb"],
                     ),
                   ],
                 ),
@@ -190,7 +190,7 @@ class _DormMenuState extends State<DormMenu> {
                   dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
-                      menuTable: snapshot.data.result["dl"],
+                      menuTable: snapshot.data.result["dorml"],
                     ),
                   ],
                 ),
@@ -203,7 +203,7 @@ class _DormMenuState extends State<DormMenu> {
                   dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
                     MenuInfo(
-                      menuTable: snapshot.data.result["dd"],
+                      menuTable: snapshot.data.result["dormd"],
                     ),
                   ],
                 ),
