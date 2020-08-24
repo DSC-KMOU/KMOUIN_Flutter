@@ -139,7 +139,9 @@ class _MyHomePageState extends State<BusPage> {
                         wordSpacing: -5.0,
                       ),
                     ),
-
+                    SizedBox(
+                      width: 20,
+                    ),
                   ],
                 ),
               ),
