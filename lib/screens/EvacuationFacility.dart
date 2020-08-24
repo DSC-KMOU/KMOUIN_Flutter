@@ -102,7 +102,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
           Stack(
             children: <Widget>[
               new Image(
-                image: AssetImage("images/invalidName@3x.png"),
+                image: AssetImage("images/map/campusmap.png"),
                 fit: BoxFit.cover,
               ),
               Positioned(
