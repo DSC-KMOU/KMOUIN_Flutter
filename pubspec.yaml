@@ -52,6 +52,10 @@ flutter:
     - images/frontPage/meal@3x.png
     - images/frontPage/sched@3x.png
     - images/frontPage/background@3x.png
+    - images/frontPage/ovalBus@3x.png
+    - images/frontPage/ovalMeal@3x.png
+    - images/frontPage/ovalFacil@3x.png
+    - images/frontPage/ovalSched@3x.png
     - images/MenuPage/bg_image.png
     - images/MenuPage/dorm_imoji.png
     - images/MenuPage/five_imoji.png
