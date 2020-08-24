@@ -157,7 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         // Rectangle Copy 11
                         Container(
-                          padding: EdgeInsets.only(left: 5.0),
+                          padding: EdgeInsets.only(left: 5.0, top: 2.0,),
                           margin: EdgeInsets.fromLTRB(
                             _sideBorder,
                             _sideBorder,
@@ -171,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(23.0)),
                             border: Border.all(
-                                color: const Color(0xffffffff), width: 2),
+                                color: const Color(0xffffffff), width: 1),
                             boxShadow: [
                               BoxShadow(
                                   color: const Color(0x80cacaca),
@@ -181,6 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                           child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               IconButton(
@@ -195,7 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 icon: Icon(Icons.search),
                                 color: Color(0xff307ac6),
                               ),
-                              Flexible(
+                              Expanded(
                                 child: TextField(
                                   textAlignVertical: TextAlignVertical.center,
                                   decoration: InputDecoration(
@@ -203,7 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     hintText: '키워드 검색',
                                     suffixIcon: IconButton(
                                       onPressed: () => _controller.clear(),
-                                      icon: Icon(Icons.clear),
+                                      icon: Center(child: Icon(Icons.clear)),
                                     ),
                                   ),
                                   cursorColor: Colors.blueAccent,
