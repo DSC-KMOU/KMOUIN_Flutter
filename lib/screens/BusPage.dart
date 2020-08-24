@@ -372,6 +372,7 @@ class _MyHomePageState extends State<BusPage> {
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
                                 fontSize: 14.0,
+                                letterSpacing: -0.2,
                               ),
                             ),
                             SizedBox(height: 20.0),
