@@ -208,68 +208,68 @@ class _FacilityPageState extends State<FacilityPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      FlatButton(
-                        padding: EdgeInsets.all(0.0),
-                        onPressed: () async {
-                          await showDialog<void>(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return CupertinoAlertDialog(
-                                title: const Text(
-                                  '<준비중>',
-                                ),
-                                content: Column(
-                                  children: [
-                                    Text(
-                                      '추가예정입니다.',
+                      Container(
+                        width: _width * (42.7 / 100),
+                        height: _width * (42.7 / 100),
+                        decoration: BoxDecoration(
+                            borderRadius:
+                            BorderRadius.all(Radius.circular(20)),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: const Color(0x80cacaca),
+                                  offset: Offset(0, -1),
+                                  blurRadius: 16,
+                                  spreadRadius: 2)
+                            ],
+                            color: Colors.white),
+                        child: FlatButton(
+                          onPressed: () async {
+                            await showDialog<void>(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return CupertinoAlertDialog(
+                                  title: const Text(
+                                    '<준비중>',
+                                  ),
+                                  content: Column(
+                                    children: [
+                                      Text(
+                                        '추가예정입니다.',
+                                      ),
+                                      Text(
+                                        "더 나은 서비스로 찾아뵙겠습니다",
+                                      ),
+                                    ],
+                                  ),
+                                  actions: <Widget>[
+                                    FlatButton(
+                                      onPressed: () {
+                                        _launchURL(_kmouPage);
+                                      },
+                                      child: const Text('학교 홈페이지'),
                                     ),
-                                    Text(
-                                      "더 나은 서비스로 찾아뵙겠습니다",
+                                    FlatButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: const Text('OK'),
                                     ),
                                   ],
-                                ),
-                                actions: <Widget>[
-                                  FlatButton(
-                                    onPressed: () {
-                                      _launchURL(_kmouPage);
-                                    },
-                                    child: const Text('학교 홈페이지'),
-                                  ),
-                                  FlatButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text('OK'),
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        },
-                        shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(20.0),
-                        ),
-                        child: Container(
-                          width: _width * (42.7 / 100),
-                          height: _width * (42.7 / 100),
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: const Color(0x80cacaca),
-                                    offset: Offset(0, -1),
-                                    blurRadius: 16,
-                                    spreadRadius: 2)
-                              ],
-                              color: Colors.white),
+                                );
+                              },
+                            );
+                          },
+                          shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(20.0),
+                          ),
+                          //highlightColor: Colors.white,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Row(
                                 children: <Widget>[
                                   SizedBox(
-                                    width: _width * (16.5 / 100),
+                                    width: _width * (12 / 100),
                                   ),
                                   Container(
                                     height: _screenHeight * (5.4 / 100),
@@ -303,39 +303,37 @@ class _FacilityPageState extends State<FacilityPage> {
                             ],
                           ),
                         ),
-                        //highlightColor: Colors.white,
                       ),
-
                       SizedBox(
                         width: _width * (4/100),
                       ),
                       //대피 시설 및 지도
-                      FlatButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => EvacuationFacility()),
-                          );
-                        },
-                        shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(20.0),
-                        ),
-                        padding: EdgeInsets.all(0.0),
-                        child: Container(
-                          width: _width * (42.7 / 100),
-                          height: _width * (42.7 / 100),
-                          decoration: BoxDecoration(
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(20)),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: const Color(0x80cacaca),
-                                    offset: Offset(0, -1),
-                                    blurRadius: 16,
-                                    spreadRadius: 2)
-                              ],
-                              color: Colors.white),
+                      Container(
+                        width: _width * (42.7 / 100),
+                        height: _width * (42.7 / 100),
+                        decoration: BoxDecoration(
+                            borderRadius:
+                            BorderRadius.all(Radius.circular(20)),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: const Color(0x80cacaca),
+                                  offset: Offset(0, -1),
+                                  blurRadius: 16,
+                                  spreadRadius: 2)
+                            ],
+                            color: Colors.white),
+                        child: FlatButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => EvacuationFacility()),
+                            );
+                          },
+                          shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(20.0),
+                          ),
+                          padding: EdgeInsets.all(0.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[

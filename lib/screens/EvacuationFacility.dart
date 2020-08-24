@@ -51,19 +51,38 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
           automaticallyImplyLeading: false,
           title: Row(
             children: <Widget>[
-              IconButton(
-                icon: Icon(
-                  CupertinoIcons.back,
-                  color: const Color(0xff000000),
-                ),
-                onPressed: (){
+              FlatButton(
+                padding: EdgeInsets.all(0),
+                onPressed: () {
                   setState(() {
                     Navigator.pop(context);
                   });
                 },
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      CupertinoIcons.back,
+                      color:  const Color(0xff000000),
+                    ),
+                    Text(
+                      " 메인",
+                      style: TextStyle(
+                        color: Colors.transparent,
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 18.0,
+                        wordSpacing: -5.0,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                  ],
+                ),
               ),
               SizedBox(
-
+                width: _width*(15/100),
               ),
               Container(
                 child: Text(
@@ -78,14 +97,11 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                     textAlign: TextAlign.center
                 ),
               ),
-              SizedBox(
-                width: _width * (29/100),
-              )
             ],
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
           ),
         ),
       ),
+
       backgroundColor: const Color(0xffffffff),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
