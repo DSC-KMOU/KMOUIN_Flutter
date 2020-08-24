@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  void pagePop(int i){
+  void pagePop(int i) {
     Navigator.push(
       context,
       new MaterialPageRoute(
@@ -209,9 +209,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   cursorColor: Colors.blueAccent,
                                   controller: _controller,
                                   onSubmitted: (String value) async {
-                                    for (int i = 0;
-                                    i < keywords.length;
-                                    i++) {
+                                    for (int i = 0; i < keywords.length; i++) {
                                       if (value.toString() ==
                                           keywords[i].toString()) {
                                         _connect = i;
@@ -261,10 +259,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       Flexible(
                         child: CategoryCards(
                           logoContainer: IconContainer(
-                            startingColor: color1,
-                            endingColor: color2,
-                            iconImage:
-                                Image.asset('images/frontPage/bus@3x.png'),
+                            backImage: Image.asset(
+                              'images/frontPage/ovalBus@3x.png',
+                            ),
+                            iconImage: Image.asset(
+                              'images/frontPage/bus@3x.png',
+                            ),
                           ),
                           containerTitle: '버스 정보',
                           containerDescription: '버스 언제 출발하지..',
@@ -274,10 +274,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       Flexible(
                         child: CategoryCards(
                           logoContainer: IconContainer(
-                            startingColor: color3,
-                            endingColor: color4,
-                            iconImage:
-                                Image.asset('images/frontPage/meal@3x.png'),
+                            backImage: Image.asset(
+                              'images/frontPage/ovalMeal@3x.png',
+                            ),
+                            iconImage: Image.asset(
+                              'images/frontPage/meal@3x.png',
+                            ),
                           ),
                           containerTitle: '식단 정보',
                           containerDescription: '오늘 뭐 먹지..',
@@ -295,10 +297,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       Flexible(
                         child: CategoryCards(
                           logoContainer: IconContainer(
-                            startingColor: color5,
-                            endingColor: color6,
-                            iconImage:
-                                Image.asset('images/frontPage/facility@3x.png'),
+                            backImage: Image.asset(
+                              'images/frontPage/ovalFacil@3x.png',
+                            ),
+                            iconImage: Image.asset(
+                              'images/frontPage/facility@3x.png',
+                            ),
                           ),
                           containerTitle: '시설 정보',
                           containerDescription: '도서관에 자리가 있나..',
@@ -308,10 +312,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       Flexible(
                         child: CategoryCards(
                           logoContainer: IconContainer(
-                            startingColor: color7,
-                            endingColor: color8,
-                            iconImage:
-                                Image.asset('images/frontPage/sched@3x.png'),
+                            backImage: Image.asset(
+                              'images/frontPage/ovalSched@3x.png',
+                            ),
+                            iconImage: Image.asset(
+                              'images/frontPage/sched@3x.png',
+                            ),
                           ),
                           containerTitle: '학사 일정',
                           containerDescription: '학기 언제 끝나..',

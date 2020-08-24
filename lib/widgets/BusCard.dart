@@ -14,8 +14,8 @@ class BusCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
-        left: 15,
-        right: 14,
+        left: width * 0.042,
+        right: width * 0.039,
         top: 12,
         bottom: 22,
       ),

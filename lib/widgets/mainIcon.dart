@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 
 class IconContainer extends StatelessWidget {
   IconContainer({
-    @required this.startingColor,
-    @required this.endingColor,
     @required this.iconImage,
+    @required this.backImage,
   });
 
-  final Color startingColor;
-  final Color endingColor;
   final Image iconImage;
+  final Image backImage;
 
   @override
   Widget build(BuildContext context) {
@@ -23,26 +21,15 @@ class IconContainer extends StatelessWidget {
       margin: EdgeInsets.fromLTRB(0.0, _iconPadding, 0.0, _iconPadding),
       width: _iconSize,
       height: _iconSize,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(_iconSize),
-        gradient: LinearGradient(
-          begin: Alignment(
-            0.20662397904829533,
-            0,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          backImage,
+          Container(
+            padding: EdgeInsets.all(_iconPadding),
+            child: iconImage,
           ),
-          end: Alignment(
-            0.8835055264559655,
-            1.0000000000000002,
-          ),
-          colors: [
-            startingColor,
-            endingColor,
-          ],
-        ),
-      ),
-      child: Container(
-        padding: EdgeInsets.all(_iconPadding),
-        child: iconImage,
+        ],
       ),
     );
   }

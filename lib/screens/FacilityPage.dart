@@ -208,8 +208,9 @@ class _FacilityPageState extends State<FacilityPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      InkWell(
-                        onTap: () async {
+                      FlatButton(
+                        padding: EdgeInsets.all(0.0),
+                        onPressed: () async {
                           await showDialog<void>(
                             context: context,
                             builder: (BuildContext context) {
@@ -245,6 +246,9 @@ class _FacilityPageState extends State<FacilityPage> {
                             },
                           );
                         },
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(20.0),
+                        ),
                         child: Container(
                           width: _width * (42.7 / 100),
                           height: _width * (42.7 / 100),
@@ -299,25 +303,31 @@ class _FacilityPageState extends State<FacilityPage> {
                             ],
                           ),
                         ),
-                        highlightColor: Colors.white,
+                        //highlightColor: Colors.white,
                       ),
+
                       SizedBox(
-                        width: _width * (4 / 100),
+                        width: _width * (4/100),
                       ),
-                      InkWell(
-                        onTap: () {
+                      //대피 시설 및 지도
+                      FlatButton(
+                        onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => EvacuationFacility()),
                           );
                         },
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(20.0),
+                        ),
+                        padding: EdgeInsets.all(0.0),
                         child: Container(
                           width: _width * (42.7 / 100),
                           height: _width * (42.7 / 100),
                           decoration: BoxDecoration(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
+                              BorderRadius.all(Radius.circular(20)),
                               boxShadow: [
                                 BoxShadow(
                                     color: const Color(0x80cacaca),
@@ -359,8 +369,7 @@ class _FacilityPageState extends State<FacilityPage> {
                             ],
                           ),
                         ),
-                        highlightColor: Colors.white,
-                      )
+                      ),
                     ],
                   ),
                 ],
