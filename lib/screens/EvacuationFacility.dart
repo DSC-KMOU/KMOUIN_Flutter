@@ -83,8 +83,8 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
           Center(
             child: Container(
               child: Text(
-                //"대피시설 및 지도",
-                  buttonPushed.toString(),
+                  "대피시설 및 지도",
+                  //buttonPushed.toString(),
                   style: const TextStyle(
                       color: const Color(0xff000000),
                       fontWeight: FontWeight.w500,
