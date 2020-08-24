@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../widgets/FacilityLibButton.dart';
+import '../widgets/EvacuationList.dart';
 import 'dart:ui';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
@@ -36,11 +36,6 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
         .padding
         .bottom;
     double _screenHeight = _height - _naviTop;
-
-    AssetImage _aZone = AssetImage("images/map/aZone.png");
-    AssetImage _a = AssetImage("images/map/a.png");
-    AssetImage _bZone = AssetImage("images/map/bZone.png");
-    AssetImage _b = AssetImage("images/map/b.png");
 
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return Scaffold(
@@ -219,6 +214,24 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 ),
               ),
             ],
+          ),
+          SizedBox(
+            height: _screenHeight * (1.3 / 100),
+          ),
+          Text(
+            "<한국해양대학교 지도>",
+            style: const TextStyle(
+                color:  const Color(0xff727272),
+                fontWeight: FontWeight.w500,
+                fontFamily: "NotoSansKR",
+                fontStyle:  FontStyle.normal,
+                fontSize: 14.0
+            ), //textAlign: TextAlign.center
+          ),
+          EvacuationList(
+            num: buttonPushed,
+            screenHeight: _screenHeight,
+            width: _width,
           )
         ],
       ),
