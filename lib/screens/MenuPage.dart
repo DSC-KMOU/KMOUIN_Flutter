@@ -16,8 +16,19 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
+    double _mainWidth = MediaQuery.of(context).size.width;
+    double _mainHeight = MediaQuery.of(context).size.height;
+    double _backgroundSize = _mainHeight * (47.7 / 100);
+    double _topMargin = _backgroundSize * (28.9 / 100);
+    double _titleMargin = _backgroundSize * (2.8 / 100);
+    double _containerMargin = _mainHeight * (38.2 / 100);
+    double _containerSize = _mainWidth * (42.7 / 100);
+    double _containerTitle = _containerSize * (20.6 / 100);
+    double _containerIcon = _mainWidth * (11.7 / 100);
+    double _containerInner = _containerSize * (10.6 / 100);
+    double _containerBetween = _mainWidth * (2.0 / 100);
+
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
-    double fullWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
@@ -81,10 +92,10 @@ class _MenuPageState extends State<MenuPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: 112,
+                height: _topMargin,
               ),
               Container(
-                padding: EdgeInsets.fromLTRB(34, 0, 0, 0),
+                padding: EdgeInsets.only(left: _titleMargin * 3),
                 child: Text(
                   '오늘은 몇 층에서\n드시겠어요?',
                   style: const TextStyle(
@@ -98,10 +109,10 @@ class _MenuPageState extends State<MenuPage> {
                 ),
               ),
               SizedBox(
-                height: 11,
+                height: _titleMargin,
               ),
               Container(
-                padding: EdgeInsets.fromLTRB(34, 0, 0, 0),
+                padding: EdgeInsets.only(left: _titleMargin * 3),
                 child: Text(
                   '각 층마다 메뉴가 다르게 나와요',
                   style: const TextStyle(
@@ -119,14 +130,15 @@ class _MenuPageState extends State<MenuPage> {
           Column(
             children: <Widget>[
               SizedBox(
-                height: 310,
+                height: _containerMargin,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    width: fullWidth * 0.42,
-                    height: fullWidth * 0.42,
+                    margin: EdgeInsets.all(_containerBetween),
+                    width: _containerSize,
+                    height: _containerSize,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
@@ -153,18 +165,16 @@ class _MenuPageState extends State<MenuPage> {
                       ),
                       child: Center(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Container(
-                              margin: EdgeInsets.only(
-                                bottom: fullWidth * 0.025,
-                              ),
-                              height: fullWidth * 0.117,
-                              width: fullWidth * 0.117,
+                              margin: EdgeInsets.only(top: _containerTitle),
+                              width: _containerIcon,
                               child: Image.asset(
                                 'images/MenuPage/second_imoji.png',
                               ),
+                            ),
+                            SizedBox(
+                              height: _containerInner,
                             ),
                             Text(
                               '2층 학식',
@@ -191,30 +201,26 @@ class _MenuPageState extends State<MenuPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 15,
-                  ),
                   Container(
-                    width: fullWidth * 0.42,
-                    height: fullWidth * 0.42,
+                    margin: EdgeInsets.all(_containerBetween),
+                    width: _containerSize,
+                    height: _containerSize,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0x80cacaca),
-                          offset: Offset(0, -1),
-                          blurRadius: 16,
-                          spreadRadius: 2,
-                        ),
+                            color: const Color(0x80cacaca),
+                            offset: Offset(0, -1),
+                            blurRadius: 16,
+                            spreadRadius: 2),
                       ],
                       color: const Color(0xffffffff),
                     ),
                     child: FlatButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
+                        Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => ThirdFloor(),
                           ),
@@ -225,18 +231,16 @@ class _MenuPageState extends State<MenuPage> {
                       ),
                       child: Center(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Container(
-                              margin: EdgeInsets.only(
-                                bottom: fullWidth * 0.025,
-                              ),
-                              height: fullWidth * 0.117,
-                              width: fullWidth * 0.117,
+                              margin: EdgeInsets.only(top: _containerTitle),
+                              width: _containerIcon,
                               child: Image.asset(
                                 'images/MenuPage/three_imoji.png',
                               ),
+                            ),
+                            SizedBox(
+                              height: _containerInner,
                             ),
                             Text(
                               '3층 학식',
@@ -266,37 +270,29 @@ class _MenuPageState extends State<MenuPage> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 15,
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    margin: EdgeInsets.only(
-                      bottom: fullWidth * 0.025,
-                    ),
-                    width: fullWidth * 0.42,
-                    height: fullWidth * 0.42,
+                    margin: EdgeInsets.all(_containerBetween),
+                    width: _containerSize,
+                    height: _containerSize,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0x80cacaca),
-                          offset: Offset(0, -1),
-                          blurRadius: 16,
-                          spreadRadius: 2,
-                        ),
+                            color: const Color(0x80cacaca),
+                            offset: Offset(0, -1),
+                            blurRadius: 16,
+                            spreadRadius: 2),
                       ],
                       color: const Color(0xffffffff),
                     ),
                     child: FlatButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
+                        Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => FifthFloor(),
                           ),
@@ -307,17 +303,16 @@ class _MenuPageState extends State<MenuPage> {
                       ),
                       child: Center(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Container(
-                              margin: EdgeInsets.only(
-                                bottom: fullWidth * 0.025,
-                              ),
-                              height: fullWidth * 0.117,
-                              width: fullWidth * 0.117,
+                              margin: EdgeInsets.only(top: _containerTitle),
+                              width: _containerIcon,
                               child: Image.asset(
                                 'images/MenuPage/five_imoji.png',
                               ),
+                            ),
+                            SizedBox(
+                              height: _containerInner,
                             ),
                             Text(
                               '5층 학식',
@@ -332,12 +327,11 @@ class _MenuPageState extends State<MenuPage> {
                             Text(
                               '교직원 식당입니다!',
                               style: const TextStyle(
-                                color: const Color(0xff5f605f),
-                                fontWeight: FontWeight.w500,
-                                fontFamily: "NotoSansKR",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.0,
-                              ),
+                                  color: const Color(0xff5f605f),
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: "NotoSansKR",
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: 12.0),
                               textAlign: TextAlign.center,
                             ),
                           ],
@@ -345,33 +339,26 @@ class _MenuPageState extends State<MenuPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 15,
-                  ),
                   Container(
-                    margin: EdgeInsets.only(
-                      bottom: fullWidth * 0.025,
-                    ),
-                    width: fullWidth * 0.42,
-                    height: fullWidth * 0.42,
+                    margin: EdgeInsets.all(_containerBetween),
+                    width: _containerSize,
+                    height: _containerSize,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0x80cacaca),
-                          offset: Offset(0, -1),
-                          blurRadius: 16,
-                          spreadRadius: 2,
-                        ),
+                            color: const Color(0x80cacaca),
+                            offset: Offset(0, -1),
+                            blurRadius: 16,
+                            spreadRadius: 2),
                       ],
                       color: const Color(0xffffffff),
                     ),
                     child: FlatButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
+                        Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => DormMenu(),
                           ),
@@ -382,18 +369,16 @@ class _MenuPageState extends State<MenuPage> {
                       ),
                       child: Center(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Container(
-                              margin: EdgeInsets.only(
-                                bottom: fullWidth * 0.025,
-                              ),
-                              height: fullWidth * 0.117,
-                              width: fullWidth * 0.117,
+                              margin: EdgeInsets.only(top: _containerTitle),
+                              width: _containerIcon,
                               child: Image.asset(
                                 'images/MenuPage/dorm_imoji.png',
                               ),
+                            ),
+                            SizedBox(
+                              height: _containerInner,
                             ),
                             Text(
                               '기숙사식',

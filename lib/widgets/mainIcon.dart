@@ -13,12 +13,18 @@ class IconContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double _mainWidth = MediaQuery.of(context).size.width;
+    double _iconSize = _mainWidth * (17.0/100);
+    double _iconPadding = _iconSize * (19.0/100);
+
+
     return Container(
-      margin: EdgeInsets.fromLTRB(0.0, 14.0, 0.0, 12.0),
-      width: 66.0,
-      height: 66.0,
+      margin: EdgeInsets.fromLTRB(0.0, _iconPadding, 0.0, _iconPadding),
+      width: _iconSize,
+      height: _iconSize,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(66.0),
+        borderRadius: BorderRadius.circular(_iconSize),
         gradient: LinearGradient(
           begin: Alignment(
             0.20662397904829533,
@@ -35,7 +41,7 @@ class IconContainer extends StatelessWidget {
         ),
       ),
       child: Container(
-        padding: EdgeInsets.all(13.0),
+        padding: EdgeInsets.all(_iconPadding),
         child: iconImage,
       ),
     );
