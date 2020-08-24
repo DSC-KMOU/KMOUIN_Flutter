@@ -146,7 +146,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return Scaffold(
-      extendBodyBehindAppBar: true,
+      //extendBodyBehindAppBar: true,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(47.0),
         child: AppBar(
@@ -175,6 +175,9 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                       fontSize: 18.0,
                       wordSpacing: 0.0,
                     ),
+                  ),
+                  SizedBox(
+                    width: 20,
                   ),
                 ],
               ),
