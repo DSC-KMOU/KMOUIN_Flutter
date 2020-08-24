@@ -239,28 +239,10 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
   }
 
   Widget _bildZone(num, loNum) {
-    var temp = 'a';
     List<String> tempList = ['a', 'b', 'c', 'd', 'e'];
-    switch (num) {
-      case 1:
-        temp = 'a';
-        break;
-      case 2:
-        temp = 'b';
-        break;
-      case 3:
-        temp = 'c';
-        break;
-      case 4:
-        temp = 'd';
-        break;
-      case 5:
-        temp = 'e';
-        break;
-    }
     if (num == loNum)
       return Image(
-        image: AssetImage("images/map/" + temp + "Zone.png"),
+        image: AssetImage("images/map/" + tempList[loNum - 1] + "Zone.png"),
       );
     else
       return Image(
