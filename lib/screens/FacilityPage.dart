@@ -299,6 +299,7 @@ class _FacilityPageState extends State<FacilityPage> {
                             ],
                           ),
                         ),
+                        highlightColor: Colors.white,
                       ),
                       SizedBox(
                         width: _width * (4 / 100),
@@ -358,6 +359,7 @@ class _FacilityPageState extends State<FacilityPage> {
                             ],
                           ),
                         ),
+                        highlightColor: Colors.white,
                       )
                     ],
                   ),
