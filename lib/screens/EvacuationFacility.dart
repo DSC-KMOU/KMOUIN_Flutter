@@ -51,24 +51,16 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
           automaticallyImplyLeading: false,
           title: Row(
             children: <Widget>[
-              FlatButton(
-                padding: EdgeInsets.all(0),
-                onPressed: () {
+              IconButton(
+                icon: Icon(
+                  CupertinoIcons.back,
+                  color: const Color(0xff000000),
+                ),
+                onPressed: (){
                   setState(() {
                     Navigator.pop(context);
                   });
                 },
-                child: Row(
-                  children: <Widget>[
-                    Icon(
-                      CupertinoIcons.back,
-                      color: const Color(0xff000000),
-                    ),
-                    Text(
-                      "        "
-                    )
-                  ],
-                ),
               ),
               SizedBox(
 
