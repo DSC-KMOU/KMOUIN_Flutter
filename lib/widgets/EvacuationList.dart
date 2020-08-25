@@ -15,7 +15,7 @@ class EvacuationList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: screenHeight * (56/100),
+      //height: screenHeight * (54/100),
       width: width,
       child: Row(
         children: <Widget>[
@@ -108,7 +108,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // A2 국제대학관
                 RichText(
                     text: TextSpan(
@@ -134,7 +134,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // A3 대학본부
                 RichText(
                     text: TextSpan(
@@ -160,7 +160,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // A4 종합연구관
                 RichText(
                     text: TextSpan(
@@ -188,7 +188,7 @@ Widget _zone(num, screenHeight){
                 ),
               ],
             ),
-            _fiveten(),
+            _fiveten(screenHeight),
             Row(
               children: <Widget>[
                 // A5 레포츠센터
@@ -216,7 +216,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // A6 아산관
                 RichText(
                     text: TextSpan(
@@ -242,7 +242,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // A7 케미컬탱커 훈련센터
                 RichText(
                     text: TextSpan(
@@ -268,7 +268,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // A8 체육관
                 RichText(
                     text: TextSpan(
@@ -296,7 +296,7 @@ Widget _zone(num, screenHeight){
                 ),
               ],
             ),
-            _fiveten(),
+            _fiveten(screenHeight),
             Row(
               children: <Widget>[
                 // A9 50주년기념관
@@ -324,7 +324,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // A10 선박평형수처리장치장비실
                 RichText(
                     text: TextSpan(
@@ -350,7 +350,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // AP1 중앙로
                 RichText(
                     text: TextSpan(
@@ -378,7 +378,7 @@ Widget _zone(num, screenHeight){
                 ),
               ],
             ),
-            _fiveten(),
+            _fiveten(screenHeight),
             Row(
               children: <Widget>[
                 // AP2 중앙광장
@@ -406,7 +406,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // AP3 스포츠존
                 RichText(
                     text: TextSpan(
@@ -432,7 +432,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // AP4 테니스코트
                 RichText(
                     text: TextSpan(
@@ -458,7 +458,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // AP5 남해안로
                 RichText(
                     text: TextSpan(
@@ -486,7 +486,7 @@ Widget _zone(num, screenHeight){
                 ),
               ],
             ),
-            _fiveten(),
+            _fiveten(screenHeight),
             Row(
               children: <Widget>[
                 // AP6 아치파랑길
@@ -567,7 +567,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 RichText(
                     text: TextSpan(
                         children: [
@@ -592,7 +592,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 RichText(
                     text: TextSpan(
                         children: [
@@ -617,7 +617,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 RichText(
                     text: TextSpan(
                         children: [
@@ -644,7 +644,7 @@ Widget _zone(num, screenHeight){
                 ),
               ],
             ),
-            _fiveten(),
+            _fiveten(screenHeight),
             Row(
               children: <Widget>[
                 RichText(
@@ -671,7 +671,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 RichText(
                     text: TextSpan(
                         children: [
@@ -696,7 +696,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 RichText(
                     text: TextSpan(
                         children: [
@@ -721,7 +721,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 RichText(
                     text: TextSpan(
                         children: [
@@ -748,7 +748,7 @@ Widget _zone(num, screenHeight){
                 ),
               ],
             ),
-            _fiveten(),
+            _fiveten(screenHeight),
             Row(
               children: <Widget>[
                 // BP3 어울림쉼터
@@ -776,7 +776,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // BP4 중앙공원
                 RichText(
                     text: TextSpan(
@@ -804,7 +804,7 @@ Widget _zone(num, screenHeight){
                 )
               ],
             ),
-            _fiveten(),
+            _fiveten(screenHeight),
           ],
         ),
       );
@@ -856,7 +856,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // C2 평생교육관
                 RichText(
                     text: TextSpan(
@@ -882,7 +882,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // C4 예섬관
                 RichText(
                     text: TextSpan(
@@ -908,7 +908,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // C5 다솜관
                 RichText(
                     text: TextSpan(
@@ -936,7 +936,7 @@ Widget _zone(num, screenHeight){
                 ),
               ],
             ),
-            _fiveten(),
+            _fiveten(screenHeight),
             Row(
               children: <Widget>[
                 // C6 해사대학 신관
@@ -964,7 +964,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // CP1 아치잔디공원
                 RichText(
                     text: TextSpan(
@@ -990,7 +990,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // CP2 아치뜰
                 RichText(
                     text: TextSpan(
@@ -1018,7 +1018,7 @@ Widget _zone(num, screenHeight){
                 ),
               ],
             ),
-            _fiveten(),
+            _fiveten(screenHeight),
             Row(
               children: <Widget>[
                 // CP3 아치해변
@@ -1098,7 +1098,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 RichText(
                     text: TextSpan(
                         children: [
@@ -1123,7 +1123,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 RichText(
                     text: TextSpan(
                         children: [
@@ -1150,7 +1150,7 @@ Widget _zone(num, screenHeight){
                 ),
               ],
             ),
-            _fiveten(),
+            _fiveten(screenHeight),
             Row(
               children: <Widget>[
                 RichText(
@@ -1177,7 +1177,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 RichText(
                     text: TextSpan(
                         children: [
@@ -1202,7 +1202,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 RichText(
                     text: TextSpan(
                         children: [
@@ -1227,7 +1227,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 RichText(
                     text: TextSpan(
                         children: [
@@ -1254,7 +1254,7 @@ Widget _zone(num, screenHeight){
                 ),
               ],
             ),
-            _fiveten(),
+            _fiveten(screenHeight),
             Row(
               children: <Widget>[
                 RichText(
@@ -1281,7 +1281,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 RichText(
                     text: TextSpan(
                         children: [
@@ -1306,7 +1306,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 RichText(
                     text: TextSpan(
                         children: [
@@ -1384,7 +1384,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // E2 누리관
                 RichText(
                     text: TextSpan(
@@ -1410,7 +1410,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // E3 전파암실동
                 RichText(
                     text: TextSpan(
@@ -1436,7 +1436,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // E4 학생군사교육단
                 RichText(
                     text: TextSpan(
@@ -1464,7 +1464,7 @@ Widget _zone(num, screenHeight){
                 ),
               ],
             ),
-            _fiveten(),
+            _fiveten(screenHeight),
             Row(
               children: <Widget>[
                 // E5 입지관
@@ -1492,7 +1492,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // EP1 아치해맞이길
                 RichText(
                     text: TextSpan(
@@ -1518,7 +1518,7 @@ Widget _zone(num, screenHeight){
                         ]
                     )
                 ),
-                _fiveten(),
+                _fiveten(screenHeight),
                 // EP2 아치노을길
                 RichText(
                     text: TextSpan(
@@ -1591,7 +1591,7 @@ Widget earthQuakeResistant(num, screenHeight){
                         ]
                     )
                 ),
-                _fivetwenty(),
+                _fivetwenty(screenHeight),
                 // A4 종합연구관 Copy
                 RichText(
                     text: TextSpan(
@@ -1619,7 +1619,7 @@ Widget earthQuakeResistant(num, screenHeight){
                 ),
               ],
             ),
-            _fivetwenty(),
+            _fivetwenty(screenHeight),
             Row(
               children: <Widget>[
                 // A5 레포츠센터 Copy
@@ -1689,7 +1689,7 @@ Widget earthQuakeResistant(num, screenHeight){
                         ]
                     )
                 ),
-                _fivetwenty(),
+                _fivetwenty(screenHeight),
                 // B3 도서관 Copy
                 RichText(
                     text: TextSpan(
@@ -1785,7 +1785,7 @@ Widget earthQuakeResistant(num, screenHeight){
                         ]
                     )
                 ),
-                _fivetwenty(),
+                _fivetwenty(screenHeight),
                 // D3 반도체실험동 Copy
                 RichText(
                     text: TextSpan(
@@ -1811,7 +1811,7 @@ Widget earthQuakeResistant(num, screenHeight){
                         ]
                     )
                 ),
-                _fivetwenty(),
+                _fivetwenty(screenHeight),
                 // D6 아라관 Copy
                 RichText(
                     text: TextSpan(
@@ -1839,7 +1839,7 @@ Widget earthQuakeResistant(num, screenHeight){
                 ),
               ],
             ),
-            _fivetwenty(),
+            _fivetwenty(screenHeight),
             Row(
               children: <Widget>[
                 // D8 국제교류협력관 Copy
@@ -1994,7 +1994,7 @@ Widget earthQuakeEvacuation(num, screenHeight){
                         ]
                     )
                 ),
-                _fivetwenty(),
+                _fivetwenty(screenHeight),
                 // BP4 중앙공원 Copy
                 RichText(
                     text: TextSpan(
@@ -2060,7 +2060,7 @@ Widget earthQuakeEvacuation(num, screenHeight){
                         ]
                     )
                 ),
-                _fivetwenty(),
+                _fivetwenty(screenHeight),
                 // CP2 아치뜰 Copy
                 RichText(
                     text: TextSpan(
@@ -2147,15 +2147,15 @@ Widget earthQuakeEvacuation(num, screenHeight){
       break;
   }
 }
-Widget _fiveten(){
+Widget _fiveten(screenHeight){
   return SizedBox(
-    height: 5,
+    height: screenHeight * (0.5/100),
     width: 10,
   );
 }
-Widget _fivetwenty(){
+Widget _fivetwenty(screenHeight){
   return SizedBox(
-    height: 5,
+    height: screenHeight * (0.5/100),
     width: 20,
   );
 }
