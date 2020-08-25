@@ -72,7 +72,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
       DateTime(_selectedDay.year - 1, 5, 5): ['어린이날'],
       DateTime(_selectedDay.year - 1, 6, 6): ['현충일'],
       DateTime(_selectedDay.year - 1, 8, 15): ['광복절'],
-      DateTime(_selectedDay.year - 1, 9, 3): ['개천절'],
+      DateTime(_selectedDay.year - 1, 10, 3): ['개천절'],
       DateTime(_selectedDay.year - 1, 10, 9): ['한글날'],
       DateTime(_selectedDay.year - 1, 12, 25): ['크리스마스'],
 
@@ -81,7 +81,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
       DateTime(_selectedDay.year, 5, 5): ['어린이날'],
       DateTime(_selectedDay.year, 6, 6): ['현충일'],
       DateTime(_selectedDay.year, 8, 15): ['광복절'],
-      DateTime(_selectedDay.year, 9, 3): ['개천절'],
+      DateTime(_selectedDay.year, 10, 3): ['개천절'],
       DateTime(_selectedDay.year, 10, 9): ['한글날'],
       DateTime(_selectedDay.year, 12, 25): ['크리스마스'],
 
@@ -90,7 +90,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
       DateTime(_selectedDay.year + 1, 5, 5): ['어린이날'],
       DateTime(_selectedDay.year + 1, 6, 6): ['현충일'],
       DateTime(_selectedDay.year + 1, 8, 15): ['광복절'],
-      DateTime(_selectedDay.year + 1, 9, 3): ['개천절'],
+      DateTime(_selectedDay.year + 1, 10, 3): ['개천절'],
       DateTime(_selectedDay.year + 1, 10, 9): ['한글날'],
       DateTime(_selectedDay.year + 1, 12, 25): ['크리스마스'],
     };
@@ -168,15 +168,18 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                       CupertinoIcons.back,
                       color: Color(0xff5b9fee),
                     ),
-                    Text(
-                      "메인",
-                      style: TextStyle(
-                        color: Color(0xff5b9fee),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: 18.0,
-                        wordSpacing: 0.0,
+                    FittedBox(
+                      fit: BoxFit.contain,
+                      child: Text(
+                        "메인",
+                        style: TextStyle(
+                          color: Color(0xff5b9fee),
+                          fontWeight: FontWeight.w300,
+                          fontFamily: "NotoSansKR",
+                          fontStyle: FontStyle.normal,
+                          fontSize: 18.0,
+                          wordSpacing: 0.0,
+                        ),
                       ),
                     ),
                     SizedBox(
