@@ -1,4 +1,4 @@
-package com.example.KMOUIN_Flutter
+package com.example.kmouin
 
 import io.flutter.embedding.android.FlutterActivity
 

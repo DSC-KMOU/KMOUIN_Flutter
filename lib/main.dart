@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -77,6 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
     double _titleLeftBorder = _mainWidth * (8.0 / 100);
     double _sideBorder = _mainWidth * (6.0 / 100);
     double _logoSize = _mainWidth * (18.7 / 100);
+    double _searchHeight = _mainHeight * (5.4 / 100);
+    double _searchPadding = _searchHeight * (22.7/100);
 
     return GestureDetector(
       onTap: () {
@@ -157,7 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         // Rectangle Copy 11
                         Container(
-                          padding: EdgeInsets.only(left: 5.0, top: 2.0,),
+                          padding: EdgeInsets.only(left: 5.0,),
                           margin: EdgeInsets.fromLTRB(
                             _sideBorder,
                             _sideBorder,
@@ -165,7 +169,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             _sideBorder,
                           ),
                           width: _mainWidth * (86.4 / 100),
-                          height: _mainHeight * (5.0 / 100),
+                          height: _searchHeight,
                           decoration: BoxDecoration(
                             color: Color(0xffffffff),
                             borderRadius:
@@ -181,25 +185,24 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                           child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               IconButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => subpage[_connect],
-                                    ),
-                                  );
-                                },
-                                icon: Icon(Icons.search),
+//                                onPressed: (){
+//                                  Navigator.push(
+//                                    context,
+//                                    MaterialPageRoute(
+//                                      builder: (context) => subpage[_connect],
+//                                    ),
+//                                  );
+//                                },
+                                icon: Icon(Icons.search, color: Color(0xff307ac6),),
                                 color: Color(0xff307ac6),
                               ),
-                              Expanded(
+                              Flexible(
                                 child: TextField(
                                   textAlignVertical: TextAlignVertical.center,
                                   decoration: InputDecoration(
+//                                    contentPadding: EdgeInsets.only(top: _searchPadding, bottom: _searchPadding,),
                                     border: InputBorder.none,
                                     hintText: '키워드 검색',
                                     suffixIcon: IconButton(
