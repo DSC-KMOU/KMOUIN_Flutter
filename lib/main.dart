@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -77,6 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
     double _titleLeftBorder = _mainWidth * (8.0 / 100);
     double _sideBorder = _mainWidth * (6.0 / 100);
     double _logoSize = _mainWidth * (18.7 / 100);
+    double _searchHeight = _mainHeight * (5.4 / 100)+10;
+    double _searchPadding = _searchHeight * (22.7/100);
 
     return GestureDetector(
       onTap: () {
@@ -157,7 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         // Rectangle Copy 11
                         Container(
-                          padding: EdgeInsets.only(left: 5.0, top: 2.0,),
+                          padding: EdgeInsets.only(left: 5.0,),
                           margin: EdgeInsets.fromLTRB(
                             _sideBorder,
                             _sideBorder,
@@ -165,7 +169,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             _sideBorder,
                           ),
                           width: _mainWidth * (86.4 / 100),
-                          height: _mainHeight * (5.0 / 100),
+                          height: _searchHeight,
                           decoration: BoxDecoration(
                             color: Color(0xffffffff),
                             borderRadius:
@@ -181,68 +185,75 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                           child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               IconButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => subpage[_connect],
-                                    ),
-                                  );
-                                },
-                                icon: Icon(Icons.search),
+//                                onPressed: (){
+//                                  Navigator.push(
+//                                    context,
+//                                    MaterialPageRoute(
+//                                      builder: (context) => subpage[_connect],
+//                                    ),
+//                                  );
+//                                },
+                                icon: Icon(Icons.search, color: Color(0xff307ac6),),
                                 color: Color(0xff307ac6),
                               ),
-                              Expanded(
-                                child: TextField(
-                                  textAlignVertical: TextAlignVertical.center,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: '키워드 검색',
-                                    suffixIcon: IconButton(
-                                      onPressed: () => _controller.clear(),
-                                      icon: Center(child: Icon(Icons.clear)),
+                              Flexible(
+                                child: Center(
+                                  child: TextField(
+//                                    textAlignVertical: TextAlignVertical.center,
+                                    decoration: InputDecoration(
+                                      contentPadding: EdgeInsets.only(top: _searchPadding, bottom: _searchPadding,),
+                                      border: InputBorder.none,
+                                      hintText: '키워드 검색',
+                                      suffixIcon: IconButton(
+                                        onPressed: () => _controller.clear(),
+                                        icon: Center(child: Icon(Icons.clear)),
+                                      ),
                                     ),
-                                  ),
-                                  cursorColor: Colors.blueAccent,
-                                  controller: _controller,
-                                  onSubmitted: (String value) async {
-                                    for (int i = 0; i < keywords.length; i++) {
-                                      if (value.toString() ==
-                                          keywords[i].toString()) {
-                                        _connect = i;
-                                        return pagePop(i);
+                                    style: TextStyle(
+                                      color: Colors.black54,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: "NotoSansKR",
+                                      fontStyle: FontStyle.normal,
+                                    ),
+                                    cursorColor: Colors.blueAccent,
+                                    controller: _controller,
+                                    onSubmitted: (String value) async {
+                                      for (int i = 0; i < keywords.length; i++) {
+                                        if (value.toString() ==
+                                            keywords[i].toString()) {
+                                          _connect = i;
+                                          return pagePop(i);
+                                        }
                                       }
-                                    }
-                                    await showDialog<void>(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return CupertinoAlertDialog(
-                                          title: const Text('죄송합니다'),
-                                          content: Column(
-                                            children: [
-                                              Text(
-                                                  '"$value"(이)라는 키워드가 없습니다. \n'),
-                                              Text(
-                                                "[키워드] \n 통근 / 통근버스 / 2층 / 3층 / 5층 \n 교직원 / 기숙사 / 생활관 \n 편의시설 / 대피시설",
+                                      await showDialog<void>(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return CupertinoAlertDialog(
+                                            title: const Text('죄송합니다'),
+                                            content: Column(
+                                              children: [
+                                                Text(
+                                                    '"$value"(이)라는 키워드가 없습니다. \n'),
+                                                Text(
+                                                  "[키워드] \n 통근 / 통근버스 / 2층 / 3층 / 5층 \n 교직원 / 기숙사 / 생활관 \n 편의시설 / 대피시설",
+                                                ),
+                                              ],
+                                            ),
+                                            actions: <Widget>[
+                                              FlatButton(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: const Text('OK'),
                                               ),
                                             ],
-                                          ),
-                                          actions: <Widget>[
-                                            FlatButton(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              child: const Text('OK'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
-                                  },
+                                          );
+                                        },
+                                      );
+                                    },
+                                  ),
                                 ),
                               ),
                             ],
@@ -329,7 +340,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Flexible(
-                  flex: 1,
                   child: Center(
                     child: FlatButton(
                       shape: new RoundedRectangleBorder(
