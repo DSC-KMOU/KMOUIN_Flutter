@@ -76,10 +76,11 @@ class _MyHomePageState extends State<MyHomePage> {
     double _mainWidth = MediaQuery.of(context).size.width;
     double _mainHeight = MediaQuery.of(context).size.height;
     double _backgroundHeight = _mainHeight * (33.0 / 100);
+    double _backgroundHeight2 = _mainHeight * (50.0 / 100);
     double _titleLeftBorder = _mainWidth * (8.0 / 100);
     double _sideBorder = _mainWidth * (6.0 / 100);
     double _logoSize = _mainWidth * (18.7 / 100);
-    double _searchHeight = _mainHeight * (5.4 / 100)+10;
+    double _searchHeight = _mainHeight * (6.5 / 100);
     double _searchPadding = _searchHeight * (22.7/100);
 
     return GestureDetector(
@@ -94,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Image.asset(
                 'images/frontPage/background@3x.png',
                 fit: BoxFit.fill,
-                height: _backgroundHeight,
+                height: _backgroundHeight2,
               ),
             ),
             Column(
@@ -201,9 +202,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               Flexible(
                                 child: Center(
                                   child: TextField(
-//                                    textAlignVertical: TextAlignVertical.center,
+                                    textAlignVertical: TextAlignVertical.center,
                                     decoration: InputDecoration(
-                                      contentPadding: EdgeInsets.only(top: _searchPadding, bottom: _searchPadding,),
                                       border: InputBorder.none,
                                       hintText: '키워드 검색',
                                       suffixIcon: IconButton(

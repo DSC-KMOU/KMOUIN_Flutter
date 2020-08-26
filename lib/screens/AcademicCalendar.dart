@@ -142,38 +142,46 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
     print('CALLBACK: _onCalendarCreated');
   }
 
+  Color _appbarFont = Color(0xff5b9fee);
+
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return Scaffold(
       //extendBodyBehindAppBar: true,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(47.0),
+      appBar:
+      PreferredSize(
+        preferredSize: Size.fromHeight(44.0),
         child: AppBar(
           centerTitle: false,
-          title: Row(children: <Widget>[
-            SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.22,
-              child: FlatButton(
-                padding: EdgeInsets.all(0),
-                onPressed: () {
-                  setState(() {
-                    Navigator.pop(context);
-                  });
-                },
-                child: Row(
-                  children: <Widget>[
-                    Icon(
-                      CupertinoIcons.back,
-                      color: Color(0xff5b9fee),
-                    ),
-                    FittedBox(
-                      fit: BoxFit.contain,
-                      child: Text(
+          titleSpacing: -18.0,
+          backgroundColor: Colors.white,
+          elevation: 1.0,
+          automaticallyImplyLeading: false,
+          title: Stack(
+            alignment: Alignment.center,
+            children: <Widget>[
+              Align(
+                alignment: Alignment.centerLeft,
+                child: FlatButton(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(44.0)),
+                  onPressed: () {
+                    setState(() {
+                      Navigator.pop(context);
+                    },);
+                  },
+                  padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(
+                        CupertinoIcons.back,
+                        color:  _appbarFont,
+                      ),
+                      Text(
                         "메인",
                         style: TextStyle(
-                          color: Color(0xff5b9fee),
+                          color: _appbarFont,
                           fontWeight: FontWeight.w300,
                           fontFamily: "NotoSansKR",
                           fontStyle: FontStyle.normal,
@@ -181,38 +189,27 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                           wordSpacing: 0.0,
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.14),
-              width: MediaQuery.of(context).size.width * 0.22,
-              alignment: Alignment.bottomCenter,
-              child: FittedBox(
-                fit: BoxFit.contain,
-                child: Text(
-                  "학사 일정",
-                  style: const TextStyle(
-                    color: const Color(0xff5b9fee),
-                    fontWeight: FontWeight.w500,
-                    fontFamily: "NotoSansKR",
-                    fontStyle: FontStyle.normal,
-                    fontSize: 18.0,
+                    ],
                   ),
                 ),
               ),
-            )
-          ]),
-          titleSpacing: -5.0,
-          elevation: 1.0,
-          backgroundColor: Colors.white,
-          automaticallyImplyLeading: false,
+              Center(
+                child: Container(
+                  child: Text(
+                    "학사 일정",
+                    style: TextStyle(
+                        color:  _appbarFont,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: "NotoSansKR",
+                        fontStyle:  FontStyle.normal,
+                        fontSize: 18.0
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       body: SafeArea(

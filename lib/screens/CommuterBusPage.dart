@@ -55,46 +55,49 @@ class _MyHomePageState extends State<CoummuterBusPage> {
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     double fullWidth = MediaQuery.of(context).size.width;
+    Color _appbarFont = Color(0xff842fb5);
+
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(47.0),
+        preferredSize: Size.fromHeight(44.0),
         child: AppBar(
           centerTitle: false,
-          title: Row(
-            children: <Widget>[
-              FlatButton(
-                padding: EdgeInsets.all(0),
-                onPressed: () {
-                  setState(() {
-                    Navigator.pop(context);
-                  });
-                },
-                child: Row(
-                  children: <Widget>[
-                    Icon(
-                      CupertinoIcons.back,
-                      color: Color(0xff842fb5),
-                    ),
-                    Text(
-                      "버스 정보",
-                      style: TextStyle(
-                        color: Color(0xff842fb5),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: 18.0,
-                        wordSpacing: 0.0,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          titleSpacing: -1.8,
-          elevation: 1.0,
+          titleSpacing: -6.0,
           backgroundColor: Colors.white,
+          elevation: 1.0,
           automaticallyImplyLeading: false,
+          title: FlatButton(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(44.0)),
+            onPressed: () {
+              setState(
+                () {
+                  Navigator.pop(context);
+                },
+              );
+            },
+            padding: EdgeInsets.only(left: 5.0, right: 5.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Icon(
+                  CupertinoIcons.back,
+                  color: _appbarFont,
+                ),
+                Text(
+                  "버스 정보",
+                  style: TextStyle(
+                    color: _appbarFont,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "NotoSansKR",
+                    fontStyle: FontStyle.normal,
+                    fontSize: 18.0,
+                    wordSpacing: 0.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
       body: Container(

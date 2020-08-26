@@ -29,49 +29,47 @@ class _MenuPageState extends State<MenuPage> {
     double _containerBetween = _mainWidth * (2.0 / 100);
 
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(47.0),
+      appBar:
+      PreferredSize(
+        preferredSize: Size.fromHeight(44.0),
         child: AppBar(
           centerTitle: false,
           titleSpacing: -5,
-          backgroundColor: Colors.white.withOpacity(0.0),
-          elevation: 0,
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
           automaticallyImplyLeading: false,
-          title: Row(
-            children: <Widget>[
-              FlatButton(
-                padding: EdgeInsets.all(0),
-                onPressed: () {
-                  setState(() {
-                    Navigator.pop(context);
-                  });
-                },
-                child: Row(
-                  children: <Widget>[
-                    Icon(
-                      CupertinoIcons.back,
-                      color: Colors.white,
+          title: Container(
+            margin: EdgeInsets.only(left: 5.0),
+            child: FlatButton(
+              padding: EdgeInsets.all(0),
+              onPressed: () {
+                setState(() {
+                  Navigator.pop(context);
+                });
+              },
+              child: Row(
+                children: <Widget>[
+                  Icon(
+                    CupertinoIcons.back,
+                    color:  const Color(0xffffffff),
+                  ),
+                  Text(
+                    "메인",
+                    style: TextStyle(
+                      color: Color(0xffffffff),
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "NotoSansKR",
+                      fontStyle: FontStyle.normal,
+                      fontSize: 18.0,
+                      wordSpacing: 0.0,
                     ),
-                    Text(
-                      " 메인",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: 18.0,
-                        wordSpacing: -5.0,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),
