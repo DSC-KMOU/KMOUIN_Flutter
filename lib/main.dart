@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
     double _titleLeftBorder = _mainWidth * (8.0 / 100);
     double _sideBorder = _mainWidth * (6.0 / 100);
     double _logoSize = _mainWidth * (18.7 / 100);
-    double _searchHeight = _mainHeight * (5.4 / 100);
+    double _searchHeight = _mainHeight * (5.4 / 100)+10;
     double _searchPadding = _searchHeight * (22.7/100);
 
     return GestureDetector(
@@ -199,53 +199,61 @@ class _MyHomePageState extends State<MyHomePage> {
                                 color: Color(0xff307ac6),
                               ),
                               Flexible(
-                                child: TextField(
-                                  textAlignVertical: TextAlignVertical.center,
-                                  decoration: InputDecoration(
-//                                    contentPadding: EdgeInsets.only(top: _searchPadding, bottom: _searchPadding,),
-                                    border: InputBorder.none,
-                                    hintText: '키워드 검색',
-                                    suffixIcon: IconButton(
-                                      onPressed: () => _controller.clear(),
-                                      icon: Center(child: Icon(Icons.clear)),
+                                child: Center(
+                                  child: TextField(
+//                                    textAlignVertical: TextAlignVertical.center,
+                                    decoration: InputDecoration(
+                                      contentPadding: EdgeInsets.only(top: _searchPadding, bottom: _searchPadding,),
+                                      border: InputBorder.none,
+                                      hintText: '키워드 검색',
+                                      suffixIcon: IconButton(
+                                        onPressed: () => _controller.clear(),
+                                        icon: Center(child: Icon(Icons.clear)),
+                                      ),
                                     ),
-                                  ),
-                                  cursorColor: Colors.blueAccent,
-                                  controller: _controller,
-                                  onSubmitted: (String value) async {
-                                    for (int i = 0; i < keywords.length; i++) {
-                                      if (value.toString() ==
-                                          keywords[i].toString()) {
-                                        _connect = i;
-                                        return pagePop(i);
+                                    style: TextStyle(
+                                      color: Colors.black54,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: "NotoSansKR",
+                                      fontStyle: FontStyle.normal,
+                                    ),
+                                    cursorColor: Colors.blueAccent,
+                                    controller: _controller,
+                                    onSubmitted: (String value) async {
+                                      for (int i = 0; i < keywords.length; i++) {
+                                        if (value.toString() ==
+                                            keywords[i].toString()) {
+                                          _connect = i;
+                                          return pagePop(i);
+                                        }
                                       }
-                                    }
-                                    await showDialog<void>(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return CupertinoAlertDialog(
-                                          title: const Text('죄송합니다'),
-                                          content: Column(
-                                            children: [
-                                              Text(
-                                                  '"$value"(이)라는 키워드가 없습니다. \n'),
-                                              Text(
-                                                "[키워드] \n 통근 / 통근버스 / 2층 / 3층 / 5층 \n 교직원 / 기숙사 / 생활관 \n 편의시설 / 대피시설",
+                                      await showDialog<void>(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return CupertinoAlertDialog(
+                                            title: const Text('죄송합니다'),
+                                            content: Column(
+                                              children: [
+                                                Text(
+                                                    '"$value"(이)라는 키워드가 없습니다. \n'),
+                                                Text(
+                                                  "[키워드] \n 통근 / 통근버스 / 2층 / 3층 / 5층 \n 교직원 / 기숙사 / 생활관 \n 편의시설 / 대피시설",
+                                                ),
+                                              ],
+                                            ),
+                                            actions: <Widget>[
+                                              FlatButton(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: const Text('OK'),
                                               ),
                                             ],
-                                          ),
-                                          actions: <Widget>[
-                                            FlatButton(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              child: const Text('OK'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
-                                  },
+                                          );
+                                        },
+                                      );
+                                    },
+                                  ),
                                 ),
                               ),
                             ],
@@ -332,7 +340,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Flexible(
-                  flex: 1,
                   child: Center(
                     child: FlatButton(
                       shape: new RoundedRectangleBorder(
