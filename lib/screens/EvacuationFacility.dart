@@ -37,6 +37,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
         .padding
         .bottom;
     double _screenHeight = _height - _naviTop;
+    double _mapHeight = _width * (217/375);
 
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return Scaffold(
@@ -136,18 +137,19 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
               ),
               Positioned(
                 left: _width * (60 / 100),
-                top: _screenHeight * (7.6 / 100),
+                top: _mapHeight * (24.4 / 100),
                 child: Container(
                   width: _width*(36/100),
                   child: _bildZone(buttonPushed, 1),
                 ),
               ),
+
               //A지역 버튼
               Positioned(
-                left: _width * (70 / 100),
-                top: _screenHeight * (12 / 100),
-                width: 50,
-                height: 50,
+                left: _width * (68 / 100),
+                top: _mapHeight * (24.4 / 100),
+                width: _width * (16 / 100),
+                height: _mapHeight * (34/ 100),
                 child: InkWell(
                   onTap: () {
                     setState(() {
@@ -156,20 +158,22 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                   },
                 ),
               ),
+
               Positioned(
                 left: _width * (47.5 / 100),
-                top: _screenHeight * (16 / 100),
+                top: _mapHeight * (52.5 / 100),
                 child: Container(
                   width: _width*(33/100),
                   child: _bildZone(buttonPushed, 2),
                 ),
               ),
+
               //B지역 버튼
               Positioned(
-                left: _width * (55 / 100),
-                top: _screenHeight * (17 / 100),
-                width: 50,
-                height: 50,
+                left: _width * (53 / 100),
+                top: _mapHeight * (56 / 100),
+                width: _width * (13 / 100),
+                height: _mapHeight * (21/ 100),
                 child: InkWell(
                   onTap: () {
                     setState(() {
@@ -179,19 +183,34 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 ),
               ),
               Positioned(
+                left: _width * (58 / 100),
+                top: _mapHeight * (64 / 100),
+                width: _width * (13 / 100),
+                height: _mapHeight * (21/ 100),
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      buttonPushed = 2;
+                    });
+                  },
+                ),
+              ),
+
+              Positioned(
                 left: _width * (40 / 100),
-                top: _screenHeight * (5.6 / 100),
+                top: _mapHeight * (17.5 / 100),
                 child: Container(
                   width: _width*(29/100),
                   child: _bildZone(buttonPushed, 3),
                 ),
               ),
+
               //C지역 버튼
               Positioned(
-                left: _width * (48 / 100),
-                top: _screenHeight * (8 / 100),
-                width: 50,
-                height: 50,
+                left: _width * (47 / 100),
+                top: _mapHeight * (20 / 100),
+                width: _width * (13 / 100),
+                height: _mapHeight * (30/ 100),
                 child: InkWell(
                   onTap: () {
                     setState(() {
@@ -200,21 +219,23 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                   },
                 ),
               ),
+
               Positioned(
                 left: _width * (19 / 100),
-                top: _screenHeight * (9 / 100),
+                top: _mapHeight * (28.1 / 100),
 
                 child: Container(
                   width: _width*(32/100),
                   child: _bildZone(buttonPushed, 4),
                 ),
               ),
+
               //D지역 버튼
               Positioned(
-                left: _width * (28 / 100),
-                top: _screenHeight * (12 / 100),
-                width: 50,
-                height: 50,
+                left: _width * (20 / 100),
+                top: _mapHeight * (32 / 100),
+                width: _width * (12 / 100),
+                height: _mapHeight * (25/ 100),
                 child: InkWell(
                   onTap: () {
                     setState(() {
@@ -224,8 +245,22 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 ),
               ),
               Positioned(
+                left: _width * (31 / 100),
+                top: _mapHeight * (40 / 100),
+                width: _width * (12 / 100),
+                height: _mapHeight * (25/ 100),
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      buttonPushed = 4;
+                    });
+                  },
+                ),
+              ),
+
+              Positioned(
                 left: _width * (9 / 100),
-                top: _screenHeight * (3 / 100),
+                top: _mapHeight * (7.8 / 100),
                 child: Container(
                   width: _width*(38/100),
                   child: _bildZone(buttonPushed, 5),
@@ -233,10 +268,10 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
               ),
               //E지역 버튼
               Positioned(
-                left: _width * (29 / 100),
-                top: _screenHeight * (3 / 100),
-                width: 50,
-                height: 50,
+                left: _width * (15 / 100),
+                top: _mapHeight * (7.8 / 100),
+                width: _width * (28 / 100),
+                height: _mapHeight * (20/ 100),
                 child: InkWell(
                   onTap: () {
                     setState(() {
