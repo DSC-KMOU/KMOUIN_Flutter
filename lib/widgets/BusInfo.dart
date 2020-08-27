@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BusInfo extends StatelessWidget {
   final List<dynamic> timeTable;
@@ -12,6 +13,7 @@ class BusInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context,width: 625,height:1353 ,allowFontScaling: false);
     double rate = 1 / 375.0;
     double fullWidth = MediaQuery.of(context).size.width;
     return Column(
@@ -20,12 +22,12 @@ class BusInfo extends StatelessWidget {
       children: <Widget>[
         Text(
           title,
-          style: const TextStyle(
+          style: TextStyle(
             color: const Color(0xff000000),
             fontWeight: FontWeight.w600,
             fontFamily: "NotoSansKR",
             fontStyle: FontStyle.normal,
-            fontSize: 16.0,
+            fontSize: ScreenUtil().setSp(24),
           ),
         ),
         SizedBox(height: 10.0),
@@ -46,24 +48,24 @@ class BusInfo extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             timeTable[0]["min"],
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: const Color(0xff131415),
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: 15.5,
+                              fontSize: ScreenUtil().setSp(24),
                               letterSpacing: -0.28,
                             ),
                           ),
                           Spacer(),
                           Text(
                             timeTable[0]["content"],
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: const Color(0xff666666),
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: 11.5,
+                              fontSize: ScreenUtil().setSp(18),
                               height: 1.7,
                               letterSpacing: -0.25,
                             ),
@@ -75,12 +77,12 @@ class BusInfo extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             "다음차",
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: const Color(0xff131415),
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: 14.0,
+                              fontSize: ScreenUtil().setSp(20),
                             ),
                           ),
                           Spacer(),
@@ -125,25 +127,25 @@ class BusInfo extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             timeTable[1]["min"],
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: const Color(0xff131415),
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: 15.5,
+                              fontSize: ScreenUtil().setSp(24),
                               letterSpacing: -0.28,
                             ),
                           ),
                           Spacer(),
                           Text(
                             timeTable[1]["content"],
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: const Color(0xff666666),
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
                               height: 1.7,
-                              fontSize: 11.5,
+                              fontSize: ScreenUtil().setSp(18),
                               letterSpacing: -0.25,
                             ),
                           )
@@ -155,12 +157,12 @@ class BusInfo extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             "다다음차",
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: const Color(0xff131415),
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: 12.0,
+                              fontSize: ScreenUtil().setSp(20),
                             ),
                           ),
                           SizedBox(
@@ -191,24 +193,24 @@ class BusInfo extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           timeTable[2]["min"],
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: const Color(0xff131415),
                             fontWeight: FontWeight.w500,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
-                            fontSize: 15.5,
+                            fontSize: ScreenUtil().setSp(24),
                             letterSpacing: -0.28,
                           ),
                         ),
                         Spacer(),
                         Text(
                           timeTable[2]["content"],
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: const Color(0xff666666),
                             fontWeight: FontWeight.w500,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
-                            fontSize: 11.5,
+                            fontSize: ScreenUtil().setSp(18),
                             height: 1.7,
                             letterSpacing: -0.25,
                           ),
@@ -220,12 +222,12 @@ class BusInfo extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           "다다다음차",
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: const Color(0xff131415),
                             fontWeight: FontWeight.w500,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
-                            fontSize: 12.0,
+                            fontSize: ScreenUtil().setSp(20),
                           ),
                         ),
                         Spacer(),
