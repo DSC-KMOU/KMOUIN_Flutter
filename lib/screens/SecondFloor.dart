@@ -75,25 +75,29 @@ class _SecondFloorState extends State<SecondFloor> {
               );
             },
             padding: EdgeInsets.only(left: 5.0, right: 5.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Icon(
-                  CupertinoIcons.back,
-                  color: _appbarFont,
-                ),
-                Text(
-                  "학식 정보",
-                  style: TextStyle(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              widthFactor: 1.1,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Icon(
+                    CupertinoIcons.back,
                     color: _appbarFont,
-                    fontWeight: FontWeight.w300,
-                    fontFamily: "NotoSansKR",
-                    fontStyle: FontStyle.normal,
-                    fontSize: 18.0,
-                    wordSpacing: 0.0,
                   ),
-                ),
-              ],
+                  Text(
+                    "학식 정보",
+                    style: TextStyle(
+                      color: _appbarFont,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "NotoSansKR",
+                      fontStyle: FontStyle.normal,
+                      fontSize: 18.0,
+                      wordSpacing: 0.0,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

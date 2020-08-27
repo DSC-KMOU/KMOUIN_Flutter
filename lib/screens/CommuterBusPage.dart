@@ -71,31 +71,35 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                 borderRadius: BorderRadius.circular(44.0)),
             onPressed: () {
               setState(
-                () {
+                    () {
                   Navigator.pop(context);
                 },
               );
             },
             padding: EdgeInsets.only(left: 5.0, right: 5.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Icon(
-                  CupertinoIcons.back,
-                  color: _appbarFont,
-                ),
-                Text(
-                  "버스 정보",
-                  style: TextStyle(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              widthFactor: 1.1,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Icon(
+                    CupertinoIcons.back,
                     color: _appbarFont,
-                    fontWeight: FontWeight.w300,
-                    fontFamily: "NotoSansKR",
-                    fontStyle: FontStyle.normal,
-                    fontSize: 18.0,
-                    wordSpacing: 0.0,
                   ),
-                ),
-              ],
+                  Text(
+                    "버스 정보",
+                    style: TextStyle(
+                      color: _appbarFont,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "NotoSansKR",
+                      fontStyle: FontStyle.normal,
+                      fontSize: 18.0,
+                      wordSpacing: 0.0,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

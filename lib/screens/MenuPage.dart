@@ -30,44 +30,51 @@ class _MenuPageState extends State<MenuPage> {
 
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
 
+    Color _appbarFont = Color(0xffffffff);
+
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar:
-      PreferredSize(
+      appBar: PreferredSize(
         preferredSize: Size.fromHeight(44.0),
         child: AppBar(
           centerTitle: false,
-          titleSpacing: -5,
+          titleSpacing: -6.0,
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           automaticallyImplyLeading: false,
-          title: Container(
-            margin: EdgeInsets.only(left: 5.0),
+          title: Align(
+            alignment: Alignment.centerLeft,
             child: FlatButton(
-              padding: EdgeInsets.all(0),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(44.0)),
               onPressed: () {
                 setState(() {
                   Navigator.pop(context);
-                });
+                },);
               },
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    CupertinoIcons.back,
-                    color:  const Color(0xffffffff),
-                  ),
-                  Text(
-                    "메인",
-                    style: TextStyle(
-                      color: Color(0xffffffff),
-                      fontWeight: FontWeight.w300,
-                      fontFamily: "NotoSansKR",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 18.0,
-                      wordSpacing: 0.0,
+              padding: EdgeInsets.only(left: 5.0, right: 5.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                widthFactor: 1.5,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Icon(
+                      CupertinoIcons.back,
+                      color:  _appbarFont,
                     ),
-                  ),
-                ],
+                    Text(
+                      "메인",
+                      style: TextStyle(
+                        color: _appbarFont,
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 18.0,
+                        wordSpacing: 0.0,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

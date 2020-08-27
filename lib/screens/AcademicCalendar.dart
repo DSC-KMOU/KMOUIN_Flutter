@@ -149,12 +149,11 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return Scaffold(
       //extendBodyBehindAppBar: true,
-      appBar:
-      PreferredSize(
+      appBar: PreferredSize(
         preferredSize: Size.fromHeight(44.0),
         child: AppBar(
           centerTitle: false,
-          titleSpacing: -18.0,
+          titleSpacing: -6.0,
           backgroundColor: Colors.white,
           elevation: 1.0,
           automaticallyImplyLeading: false,
@@ -171,25 +170,29 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                     },);
                   },
                   padding: EdgeInsets.only(left: 5.0, right: 5.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Icon(
-                        CupertinoIcons.back,
-                        color:  _appbarFont,
-                      ),
-                      Text(
-                        "메인",
-                        style: TextStyle(
-                          color: _appbarFont,
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "NotoSansKR",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 18.0,
-                          wordSpacing: 0.0,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    widthFactor: 1.5,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Icon(
+                          CupertinoIcons.back,
+                          color:  _appbarFont,
                         ),
-                      ),
-                    ],
+                        Text(
+                          "메인",
+                          style: TextStyle(
+                            color: _appbarFont,
+                            fontWeight: FontWeight.w300,
+                            fontFamily: "NotoSansKR",
+                            fontStyle: FontStyle.normal,
+                            fontSize: 18.0,
+                            wordSpacing: 0.0,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
