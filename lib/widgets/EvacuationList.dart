@@ -2149,13 +2149,13 @@ Widget earthQuakeEvacuation(num, screenHeight){
 }
 Widget _fiveten(screenHeight){
   return SizedBox(
-    height: screenHeight * (0.5/100),
+    height: screenHeight * (0.3/100),
     width: 10,
   );
 }
 Widget _fivetwenty(screenHeight){
   return SizedBox(
-    height: screenHeight * (0.5/100),
+    height: screenHeight * (0.3/100),
     width: 20,
   );
 }
