@@ -52,41 +52,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     double fullWidth = MediaQuery.of(context).size.width;
-<<<<<<< HEAD
-    return Center(
-      child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(47.0),
-          child: AppBar(
-            centerTitle: false,
-            title: Row(
-              children: <Widget>[
-                FlatButton(
-                  padding: EdgeInsets.all(0),
-                  onPressed: () {
-                    setState(() {
-                      Navigator.pop(context);
-                    });
-                  },
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        CupertinoIcons.back,
-                        color: Color(0xffeb577c),
-                      ),
-                      Text(
-                        "학식 정보",
-                        style: TextStyle(
-                          color: Color(0xffeb577c),
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "NotoSansKR",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 18.0,
-                          wordSpacing: 0.0,
-                        ),
-                      ),
-                    ],
-=======
+
     Color _appbarFont = Color(0xffeb577c);
 
     return Scaffold(
@@ -118,7 +84,6 @@ class _ThirdFloorState extends State<ThirdFloor> {
                   Icon(
                     CupertinoIcons.back,
                     color: _appbarFont,
->>>>>>> upstream/master
                   ),
                   Text(
                     "학식 정보",
