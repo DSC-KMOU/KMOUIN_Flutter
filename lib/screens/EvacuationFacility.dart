@@ -38,97 +38,80 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
         .bottom;
     double _screenHeight = _height - _naviTop;
     double _mapHeight = _width * (217/375);
+    Color _appbarFont = Color(0xff000000);
 
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return Scaffold(
-      extendBodyBehindAppBar: true,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(47.0),
+        preferredSize: Size.fromHeight(44.0),
         child: AppBar(
           centerTitle: false,
-          titleSpacing: -5,
-          backgroundColor: Colors.white.withOpacity(0.0),
-          elevation: 0,
+          titleSpacing: -6.0,
+          backgroundColor: Colors.white,
+          elevation: 1.0,
           automaticallyImplyLeading: false,
-          title: Row(
+          title: Stack(
+            alignment: Alignment.center,
             children: <Widget>[
-              FlatButton(
-                padding: EdgeInsets.all(0),
-                onPressed: () {
-                  setState(() {
-                    Navigator.pop(context);
-                  });
-                },
-                child: Row(
-                  children: <Widget>[
-                    Icon(
-                      CupertinoIcons.back,
-                      color:  const Color(0xff000000),
-                    ),
-                    Text(
-                      " 메인",
-                      style: TextStyle(
-                        color: Colors.transparent,
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: 18.0,
-                        wordSpacing: -5.0,
+              Align(
+                alignment: Alignment.centerLeft,
+                child: FlatButton(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(44.0)),
+                  onPressed: () {
+                    setState(() {
+                      Navigator.pop(context);
+                    },);
+                  },
+                  padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      widthFactor: 1.5,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Icon(
+                            CupertinoIcons.back,
+                            color:  _appbarFont,
+                          ),
+                          Text(
+                            "메인",
+                            style: TextStyle(
+                              color: _appbarFont,
+                              fontWeight: FontWeight.w300,
+                              fontFamily: "NotoSansKR",
+                              fontStyle: FontStyle.normal,
+                              fontSize: 18.0,
+                              wordSpacing: 0.0,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                  ],
-                ),
+                  ),
               ),
-              SizedBox(
-                width: _width*(15/100),
-              ),
-              Container(
-                child: Text(
-                    "대피시설 및 지도",
-                    style: const TextStyle(
-                        color:  const Color(0xff000000),
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "NotoSansKR",
-                        fontStyle:  FontStyle.normal,
-                        fontSize: 16.0
-                    ),
-                    textAlign: TextAlign.center
+              Center(
+                child: Container(
+                  child: Text(
+                      "대피시설 및 지도",
+                      style: TextStyle(
+                          color:  _appbarFont,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: "NotoSansKR",
+                          fontStyle:  FontStyle.normal,
+                          fontSize: 18.0
+                      ),
+                      textAlign: TextAlign.center,
+                  ),
                 ),
               ),
             ],
           ),
         ),
       ),
-
       backgroundColor: const Color(0xffffffff),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          SizedBox(
-            height: _screenHeight * (6.8 / 100),
-          ),
-          Center(
-            child: Container(
-              child: Text(
-                  "",
-                  //buttonPushed.toString(),
-                  style: const TextStyle(
-                      color: const Color(0xff000000),
-                      fontWeight: FontWeight.w500,
-                      fontFamily: "NotoSansKR",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 16.0
-                  ),
-                  textAlign: TextAlign.center
-              ),
-            ),
-          ),
-          SizedBox(
-            height: _screenHeight * (0.6 / 100),
-          ),
           Stack(
             children: <Widget>[
               new Image(

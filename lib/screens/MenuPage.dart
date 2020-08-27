@@ -29,49 +29,54 @@ class _MenuPageState extends State<MenuPage> {
     double _containerBetween = _mainWidth * (2.0 / 100);
 
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+
+    Color _appbarFont = Color(0xffffffff);
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(47.0),
+        preferredSize: Size.fromHeight(44.0),
         child: AppBar(
           centerTitle: false,
-          titleSpacing: -5,
-          backgroundColor: Colors.white.withOpacity(0.0),
-          elevation: 0,
+          titleSpacing: -6.0,
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
           automaticallyImplyLeading: false,
-          title: Row(
-            children: <Widget>[
-              FlatButton(
-                padding: EdgeInsets.all(0),
-                onPressed: () {
-                  setState(() {
-                    Navigator.pop(context);
-                  });
-                },
+          title: Align(
+            alignment: Alignment.centerLeft,
+            child: FlatButton(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(44.0)),
+              onPressed: () {
+                setState(() {
+                  Navigator.pop(context);
+                },);
+              },
+              padding: EdgeInsets.only(left: 5.0, right: 5.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                widthFactor: 1.5,
                 child: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Icon(
                       CupertinoIcons.back,
-                      color: Colors.white,
+                      color:  _appbarFont,
                     ),
                     Text(
-                      " 메인",
+                      "메인",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: _appbarFont,
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
                         fontSize: 18.0,
-                        wordSpacing: -5.0,
+                        wordSpacing: 0.0,
                       ),
-                    ),
-                    SizedBox(
-                      width: 20,
                     ),
                   ],
                 ),
               ),
-            ],
+            ),
           ),
         ),
       ),
