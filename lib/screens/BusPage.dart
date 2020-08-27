@@ -102,6 +102,7 @@ class _MyHomePageState extends State<BusPage> {
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     double fullWidth = MediaQuery.of(context).size.width;
+    // double ratio = queryData.devicePixelRatio;
     double rate = 0.0;
     return Scaffold(
       extendBodyBehindAppBar: true,
