@@ -52,6 +52,41 @@ class _ThirdFloorState extends State<ThirdFloor> {
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     double fullWidth = MediaQuery.of(context).size.width;
+<<<<<<< HEAD
+    return Center(
+      child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(47.0),
+          child: AppBar(
+            centerTitle: false,
+            title: Row(
+              children: <Widget>[
+                FlatButton(
+                  padding: EdgeInsets.all(0),
+                  onPressed: () {
+                    setState(() {
+                      Navigator.pop(context);
+                    });
+                  },
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        CupertinoIcons.back,
+                        color: Color(0xffeb577c),
+                      ),
+                      Text(
+                        "학식 정보",
+                        style: TextStyle(
+                          color: Color(0xffeb577c),
+                          fontWeight: FontWeight.w300,
+                          fontFamily: "NotoSansKR",
+                          fontStyle: FontStyle.normal,
+                          fontSize: 18.0,
+                          wordSpacing: 0.0,
+                        ),
+                      ),
+                    ],
+=======
     Color _appbarFont = Color(0xffeb577c);
 
     return Scaffold(
@@ -83,6 +118,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                   Icon(
                     CupertinoIcons.back,
                     color: _appbarFont,
+>>>>>>> upstream/master
                   ),
                   Text(
                     "학식 정보",
@@ -213,39 +249,51 @@ class _ThirdFloorState extends State<ThirdFloor> {
                   buildFutureBuilder(fullWidth),
                   SizedBox(height: 50.0),
                   ThirdMenuList(
+                    fullWidth: fullWidth,
                     title: "양식 코너",
-                    menuList: [{ "menu": "숯불제육덮밥", "price": "￦ 5,000"},
+                    menuList: [
+                      {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
                       {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
                       {"menu": "치즈라면", "price": "￦ 5,000"},
                       {"menu": "치즈라면", "price": "￦ 5,000"},
-                    ],),
+                    ],
+                  ),
                   ThirdMenuList(
+                    fullWidth: fullWidth,
                     title: "라면 코너",
-                    menuList: [{ "menu": "숯불제육덮밥", "price": "￦ 5,000"},
+                    menuList: [
+                      {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
                       {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
                       {"menu": "치즈라면", "price": "￦ 5,000"},
                       {"menu": "치즈라면", "price": "￦ 5,000"},
-                    ],),
+                    ],
+                  ),
                   ThirdMenuList(
+                    fullWidth: fullWidth,
                     title: "분식 코너",
-                    menuList: [{ "menu": "숯불제육덮밥", "price": "￦ 5,000"},
+                    menuList: [
+                      {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
                       {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
                       {"menu": "치즈라면", "price": "￦ 5,000"},
                       {"menu": "치즈라면", "price": "￦ 5,000"},
-                    ],),
+                    ],
+                  ),
                   ThirdMenuList(
+                    fullWidth: fullWidth,
                     title: "덮밥 코너",
-                    menuList: [{ "menu": "숯불제육덮밥", "price": "￦ 5,000"},
+                    menuList: [
+                      {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
                       {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
                       {"menu": "치즈라면", "price": "￦ 5,000"},
                       {"menu": "치즈라면", "price": "￦ 5,000"},
-                    ],),
+                    ],
+                  ),
                 ],
               ),
             ]
-              //'오늘은 이걸 먹어볼까?' + 나머지내용
+                //'오늘은 이걸 먹어볼까?' + 나머지내용
 
-            ),
+                ),
           ),
         ),
     );
@@ -290,47 +338,54 @@ class _ThirdFloorState extends State<ThirdFloor> {
           }
         });
   }
-
 }
 
 class ThirdMenuList extends StatelessWidget {
+  final double fullWidth;
   final String title;
   final List<Map<String, String>> menuList;
 
   const ThirdMenuList({
-    Key key, this.title, this.menuList,
+    Key key,
+    this.fullWidth,
+    this.title,
+    this.menuList,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-        left: 20.0,
+        left: fullWidth * 0.06,
         bottom: 45.0,
-        right: 20.0,
+        right: fullWidth * 0.06,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: const TextStyle(
-              color: const Color(0xff131415),
-              fontWeight: FontWeight.w500,
-              fontFamily: "NotoSansKR",
-              fontStyle: FontStyle.normal,
-              fontSize: 24.0,
+          Padding(
+            padding: EdgeInsets.only(left: fullWidth * 0.02),
+            child: Text(
+              title,
+              style: const TextStyle(
+                color: const Color(0xff131415),
+                fontWeight: FontWeight.w500,
+                fontFamily: "NotoSansKR",
+                fontStyle: FontStyle.normal,
+                fontSize: 24.0,
+              ),
             ),
           ),
           Divider(
             thickness: 1.0,
+            endIndent: 5.0,
             color: Color(0xffc53786),
           ),
           Container(
             padding: EdgeInsets.only(
-              left: 7.0,
+              left: fullWidth * 0.0186,
               top: 8.0,
-              right: 7.0,
+              right: fullWidth * 0.0186,
             ),
             child: Column(
               children: [
@@ -340,95 +395,100 @@ class ThirdMenuList extends StatelessWidget {
                     Text(
                       menuList[0]["menu"],
                       style: const TextStyle(
-                          color: const Color(0xff131415),
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "NotoSansKR",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 16.0),
+                        color: const Color(0xff131415),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16.0,
+                      ),
                     ),
                     Text(
                       menuList[0]["price"],
                       style: const TextStyle(
-                          color: const Color(0xff131415),
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "NotoSansKR",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 16.0),
+                        color: const Color(0xff131415),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16.0,
+                      ),
                     ),
                   ],
                 ),
                 SizedBox(height: 10.0),
                 Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       menuList[1]["menu"],
                       style: const TextStyle(
-                          color: const Color(0xff131415),
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "NotoSansKR",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 16.0),
+                        color: const Color(0xff131415),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16.0,
+                      ),
                     ),
                     Text(
                       menuList[1]["price"],
                       style: const TextStyle(
-                          color: const Color(0xff131415),
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "NotoSansKR",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 16.0),
+                        color: const Color(0xff131415),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16.0,
+                      ),
                     ),
                   ],
                 ),
                 SizedBox(height: 10.0),
                 Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       menuList[2]["menu"],
                       style: const TextStyle(
-                          color: const Color(0xff131415),
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "NotoSansKR",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 16.0),
+                        color: const Color(0xff131415),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16.0,
+                      ),
                     ),
                     Text(
                       menuList[2]["price"],
                       style: const TextStyle(
-                          color: const Color(0xff131415),
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "NotoSansKR",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 16.0),
+                        color: const Color(0xff131415),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16.0,
+                      ),
                     ),
                   ],
                 ),
                 SizedBox(height: 10.0),
                 Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       menuList[3]["menu"],
                       style: const TextStyle(
-                          color: const Color(0xff131415),
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "NotoSansKR",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 16.0),
+                        color: const Color(0xff131415),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16.0,
+                      ),
                     ),
                     Text(
                       menuList[3]["price"],
                       style: const TextStyle(
-                          color: const Color(0xff131415),
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "NotoSansKR",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 16.0),
+                        color: const Color(0xff131415),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16.0,
+                      ),
                     ),
                   ],
                 ),
@@ -440,4 +500,3 @@ class ThirdMenuList extends StatelessWidget {
     );
   }
 }
-
