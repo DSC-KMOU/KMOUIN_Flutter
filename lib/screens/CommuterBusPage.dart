@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../widgets/CommuterCard.dart';
 import '../widgets/BusRoute.dart';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CoummuterBusPage extends StatefulWidget {
   CoummuterBusPage({Key key, this.title}) : super(key: key);
@@ -55,6 +56,8 @@ class _MyHomePageState extends State<CoummuterBusPage> {
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     double fullWidth = MediaQuery.of(context).size.width;
+    double fullHeight = MediaQuery.of(context).size.height;
+    ScreenUtil.init(context,width: fullWidth,height: fullHeight,allowFontScaling: false);
     Color _appbarFont = Color(0xff842fb5);
 
     return Scaffold(
@@ -94,7 +97,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       fontWeight: FontWeight.w300,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
-                      fontSize: 18.0,
+                      fontSize: ScreenUtil().setSp(16),
                       wordSpacing: 0.0,
                     ),
                   ),
@@ -116,7 +119,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
               Text(
                 "통근 버스 정보",
                 style: TextStyle(
-                  fontSize: 30.0,
+                  fontSize: ScreenUtil().setSp(28),
                   fontFamily: "NotoSansKR",
                   color: Color(0xff842fb5),
                   letterSpacing: -1.0,
@@ -137,7 +140,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       Text(
                         "출근 노선",
                         style: TextStyle(
-                          fontSize: 18.0,
+                          fontSize: ScreenUtil().setSp(16),
                           color: Color(0xff842fb5),
                           letterSpacing: -1.0,
                           fontWeight: FontWeight.w500,
@@ -192,7 +195,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       Text(
                         "학교도착(08:45)",
                         style: TextStyle(
-                          fontSize: 13.0,
+                          fontSize: ScreenUtil().setSp(13),
                           fontFamily: 'NotoSansKR',
                           height: 1.5,
                           color: Color(0xff787878),
@@ -202,7 +205,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       Text(
                         "퇴근 노선",
                         style: TextStyle(
-                          fontSize: 18.0,
+                          fontSize: ScreenUtil().setSp(16),
                           height: 1.5,
                           letterSpacing: -1.0,
                           color: Color(0xff842fb5),
@@ -244,7 +247,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         child: Text(
                           "학교출발(18:10) > 중앙역 > 부산역 > 서면 > 시청\n동래 > 부산대",
                           style: TextStyle(
-                            fontSize: 13.0,
+                            fontSize: ScreenUtil().setSp(13),
                             fontFamily: 'NotoSansKR',
                             height: 1.5,
                             color: Color(0xff787878),
@@ -270,7 +273,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       Text(
                         "출근 노선",
                         style: TextStyle(
-                          fontSize: 18.0,
+                          fontSize: ScreenUtil().setSp(16),
                           color: Color(0xff842fb5),
                           letterSpacing: -1.0,
                           fontWeight: FontWeight.w500,
@@ -336,7 +339,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       Text(
                         "학교도착(08:45)",
                         style: TextStyle(
-                          fontSize: 13.0,
+                          fontSize: ScreenUtil().setSp(13),
                           fontFamily: 'NotoSansKR',
                           height: 1.5,
                           color: Color(0xff787878),
@@ -346,7 +349,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       Text(
                         "퇴근 노선",
                         style: TextStyle(
-                          fontSize: 18.0,
+                          fontSize: ScreenUtil().setSp(16),
                           height: 1.5,
                           letterSpacing: -1.0,
                           color: Color(0xff842fb5),
@@ -388,7 +391,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         child: Text(
                           "학교출발(18:10) > 중리관사앞 > 영도소방서 >  롯데백화\n점 > 부산역 > 부산진역 > 문현동 > 대연동",
                           style: TextStyle(
-                            fontSize: 13.0,
+                            fontSize: ScreenUtil().setSp(13),
                             fontFamily: 'NotoSansKR',
                             height: 1.5,
                             color: Color(0xff787878),
@@ -414,7 +417,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       Text(
                         "출근 노선",
                         style: TextStyle(
-                          fontSize: 18.0,
+                          fontSize: ScreenUtil().setSp(16),
                           color: Color(0xff842fb5),
                           letterSpacing: -1.0,
                           fontWeight: FontWeight.w500,
@@ -460,7 +463,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       Text(
                         "퇴근 노선",
                         style: TextStyle(
-                          fontSize: 18.0,
+                          fontSize: ScreenUtil().setSp(16),
                           height: 1.5,
                           letterSpacing: -1.0,
                           color: Color(0xff842fb5),
@@ -502,7 +505,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         child: Text(
                           "학교출발(18:10) > 영도구청 > 부산항대교 >  경성대 > 남\n천역 > 수영로타리 > 망미동주공아파트",
                           style: TextStyle(
-                            fontSize: 13.0,
+                            fontSize: ScreenUtil().setSp(13),
                             fontFamily: 'NotoSansKR',
                             height: 1.5,
                             color: Color(0xff787878),
@@ -520,13 +523,13 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                   children: <Widget>[
                     Text(
                       "학교버스 셔틀",
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Color(0xff131415),
                         letterSpacing: -1.0,
                         fontWeight: FontWeight.w500,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 22.0,
+                        fontSize: ScreenUtil().setSp(22),
                       ),
                     ),
                   ],
@@ -540,7 +543,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         "학교 ↔ 남포동간 1회 운행",
                         style: TextStyle(
                           color: Color(0xff842fb5),
-                          fontSize: 16.0,
+                          fontSize: ScreenUtil().setSp(16),
                           fontFamily: "NotoSansKR",
                           letterSpacing: -1.0,
                           fontWeight: FontWeight.w500,
@@ -568,7 +571,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         "학교 ↔ 대연동간 1회 운행",
                         style: TextStyle(
                           color: Color(0xff842fb5),
-                          fontSize: 16.0,
+                          fontSize: ScreenUtil().setSp(16),
                           fontFamily: "NotoSansKR",
                           letterSpacing: -1.0,
                           fontWeight: FontWeight.w500,
@@ -598,12 +601,12 @@ class _MyHomePageState extends State<CoummuterBusPage> {
               SizedBox(height: 20.0),
               Text(
                 "학교 홈페이지 기준으로 만들었습니다.",
-                style: const TextStyle(
+                style: TextStyle(
                   color: const Color(0xff666666),
                   fontWeight: FontWeight.w500,
                   fontFamily: "NotoSansKR",
                   fontStyle: FontStyle.normal,
-                  fontSize: 14.0,
+                  fontSize: ScreenUtil().setSp(14),
                   letterSpacing: -0.2,
                 ),
               ),

@@ -12,7 +12,9 @@ class BusCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context,width: 625,height:1353 ,allowFontScaling: false);
+    double fullWidth = MediaQuery.of(context).size.width;
+    double fullHeight = MediaQuery.of(context).size.height;
+    ScreenUtil.init(context,width: fullWidth,height:fullHeight ,allowFontScaling: false);
     return Container(
       padding: EdgeInsets.only(
         left: width * 0.042,
@@ -34,7 +36,7 @@ class BusCard extends StatelessWidget {
               fontWeight: FontWeight.w600,
               fontFamily: "NotoSansKR",
               fontStyle: FontStyle.normal,
-              fontSize: ScreenUtil().setSp(28),
+              fontSize: ScreenUtil().setSp(18),
             ),
           ),
           Divider(

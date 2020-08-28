@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BusRoute extends StatelessWidget {
-  // BusInfo(
-  //  title: "통근버스 1호차"
-  //  info: "서면/구서동"
-  // )
   final String title;
   final String info;
   const BusRoute({Key key, @required this.title, @required this.info})
@@ -12,8 +9,11 @@ class BusRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double fullWidth = MediaQuery.of(context).size.width;
+    double fullHeight= MediaQuery.of(context).size.height;
+    ScreenUtil.init(context,width: fullWidth,height: fullHeight,allowFontScaling: false);
     return Container(
-      width: 355.0,
+      width: fullWidth * 0.947,
       child: Row(
         children: <Widget>[
           Column(
@@ -22,7 +22,7 @@ class BusRoute extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  fontSize: 22.0,
+                  fontSize: ScreenUtil().setSp(22),
                   letterSpacing: -1.0,
                   color: Color(0xff131415),
                   fontWeight: FontWeight.w500,
@@ -30,7 +30,7 @@ class BusRoute extends StatelessWidget {
               ),
               Text(info,
                   style: TextStyle(
-                    fontSize: 12.0,
+                    fontSize: ScreenUtil().setSp(12),
                     letterSpacing: -1.0,
                     color: Color(0xff787878),
                     fontWeight: FontWeight.w500,
