@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import '../widgets/BusInfo.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BusCard extends StatelessWidget {
   final String title;
@@ -12,6 +12,7 @@ class BusCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context,width: 625,height:1353 ,allowFontScaling: false);
     return Container(
       padding: EdgeInsets.only(
         left: width * 0.042,
@@ -28,12 +29,12 @@ class BusCard extends StatelessWidget {
         children: <Widget>[
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               color: const Color(0xff131415),
               fontWeight: FontWeight.w600,
               fontFamily: "NotoSansKR",
               fontStyle: FontStyle.normal,
-              fontSize: 18.0,
+              fontSize: ScreenUtil().setSp(28),
             ),
           ),
           Divider(

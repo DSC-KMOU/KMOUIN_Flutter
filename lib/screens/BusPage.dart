@@ -7,6 +7,7 @@ import '../widgets/BusCard.dart';
 import '../widgets/BusInfo.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 class BusPage extends StatefulWidget {
@@ -101,7 +102,9 @@ class _MyHomePageState extends State<BusPage> {
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    ScreenUtil.init(context,width: 625,height:1353 ,allowFontScaling: false);
     double fullWidth = MediaQuery.of(context).size.width;
+    // double ratio = queryData.devicePixelRatio;
     double rate = 0.0;
     Color _appbarFont = Color(0xffffffff);
 
@@ -145,7 +148,7 @@ class _MyHomePageState extends State<BusPage> {
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 18.0,
+                        fontSize: ScreenUtil().setSp(32),
                         wordSpacing: 0.0,
                       ),
                     ),
@@ -189,26 +192,26 @@ class _MyHomePageState extends State<BusPage> {
                   SizedBox(height: 20.0),
                   Text(
                     "버스 정보",
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: const Color(0xffffffff),
                       letterSpacing: -0.5,
                       fontWeight: FontWeight.w500,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
-                      fontSize: 32.0,
+                      fontSize: ScreenUtil().setSp(48),
                     ),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: 4.0),
                   Text(
                     "실시간 위치를 알 수 있어요",
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: const Color(0xffffffff),
                       letterSpacing: -0.5,
                       fontWeight: FontWeight.w300,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
-                      fontSize: 20.0,
+                      fontSize: ScreenUtil().setSp(32),
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -256,12 +259,12 @@ class _MyHomePageState extends State<BusPage> {
                             SizedBox(height: 10.0),
                             Text(
                               snapshot.data.cur,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 color: const Color(0xffffffff),
                                 fontWeight: FontWeight.w300,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: 18.0,
+                                fontSize: ScreenUtil().setSp(30),
                               ),
                             ),
                             SizedBox(height: 33.0),
@@ -334,13 +337,13 @@ class _MyHomePageState extends State<BusPage> {
                                   children: <Widget>[
                                     Text(
                                       "통근 버스 정보",
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         color: const Color(0xff131415),
                                         fontWeight: FontWeight.w500,
                                         fontFamily: "NotoSansKR",
                                         fontStyle: FontStyle.normal,
                                         letterSpacing: -1.0,
-                                        fontSize: 28.0,
+                                        fontSize: ScreenUtil().setSp(37),
                                       ),
                                     ),
                                     SizedBox(width: fullWidth * 0.058),
@@ -373,12 +376,12 @@ class _MyHomePageState extends State<BusPage> {
                             SizedBox(height: 20.0),
                             Text(
                               "학교 홈페이지 버스 시간표를 기준으로 만들었습니다.",
-                              style: const TextStyle(
+                              style: TextStyle(
                                 color: const Color(0xff666666),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: 14.0,
+                                fontSize: ScreenUtil().setSp(22),
                                 letterSpacing: -0.2,
                               ),
                             ),

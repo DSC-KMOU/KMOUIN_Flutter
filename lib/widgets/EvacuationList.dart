@@ -25,8 +25,12 @@ class EvacuationList extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-
-              _zone(num, screenHeight),
+              Container(
+                height: screenHeight * (18.5/100),
+                child: SingleChildScrollView(
+                  child: _zone(num, screenHeight),
+                ),
+              ),
               Text(
                   "내진설계구역",
                   style: const TextStyle(
@@ -38,7 +42,12 @@ class EvacuationList extends StatelessWidget {
                   ),
                   textAlign: TextAlign.right
               ),
-              earthQuakeResistant(num, screenHeight),
+              Container(
+                height: screenHeight * (11/100),
+                child: SingleChildScrollView(
+                  child: earthQuakeResistant(num, screenHeight),
+                ),
+              ),
               // 지진대피가능 야외공간
               Text(
                   "지진대피가능 야외공간",
@@ -51,7 +60,11 @@ class EvacuationList extends StatelessWidget {
                   ),
                   textAlign: TextAlign.right
               ),
-              earthQuakeEvacuation(num, screenHeight),
+              Container(
+                child: SingleChildScrollView(
+                  child: earthQuakeEvacuation(num, screenHeight),
+                ),
+              ),
             ],
           )
         ],
@@ -63,9 +76,7 @@ class EvacuationList extends StatelessWidget {
 Widget _zone(num, screenHeight){
   switch(num){
     case 1:
-      return Container(
-        height: screenHeight * (18.5/100),
-        child: Column(
+      return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
@@ -517,13 +528,10 @@ Widget _zone(num, screenHeight){
               ],
             ),
           ],
-        ),
-      );
+        );
       break;
     case 2:
-      return Container(
-        height: screenHeight * (18.5/100),
-        child: Column(
+      return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             // B zone
@@ -806,13 +814,10 @@ Widget _zone(num, screenHeight){
             ),
             _fiveten(screenHeight),
           ],
-        ),
-      );
+        );
       break;
     case 3:
-      return Container(
-        height: screenHeight * (18.5/100),
-        child: Column(
+      return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
@@ -1049,13 +1054,10 @@ Widget _zone(num, screenHeight){
               ],
             ),
           ],
-        ),
-      );
+        );
       break;
     case 4:
-      return Container(
-        height: screenHeight * (18.5/100),
-        child: Column(
+      return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
@@ -1334,13 +1336,10 @@ Widget _zone(num, screenHeight){
               ],
             ),
           ],
-        ),
-      );
+        );
       break;
     case 5:
-      return Container(
-        height: screenHeight * (18.5/100),
-        child: Column(
+      return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
@@ -1547,8 +1546,7 @@ Widget _zone(num, screenHeight){
               ],
             ),
           ],
-        ),
-      );
+        );
       break;
   }
 }
@@ -1556,9 +1554,7 @@ Widget _zone(num, screenHeight){
 Widget earthQuakeResistant(num, screenHeight){
   switch(num){
     case 1:
-      return Container(
-        height: screenHeight * (11/100),
-        child: Column(
+      return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             SizedBox(
@@ -1650,13 +1646,10 @@ Widget earthQuakeResistant(num, screenHeight){
               ],
             )
           ],
-        ),
-      );
+        );
       break;
     case 2:
-      return Container(
-        height: screenHeight * (11/100),
-        child: Column(
+      return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             SizedBox(
@@ -1718,13 +1711,10 @@ Widget earthQuakeResistant(num, screenHeight){
               ],
             ),
           ],
-        ),
-      );
+        );
       break;
     case 3:
-      return Container(
-        height: screenHeight * (11/100),
-        child: Column(
+      return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             SizedBox(
@@ -1746,13 +1736,10 @@ Widget earthQuakeResistant(num, screenHeight){
               ],
             ),
           ],
-        ),
-      );
+        );
       break;
     case 4:
-      return Container(
-        height: screenHeight * (11/100),
-        child: Column(
+      return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             SizedBox(
@@ -1870,13 +1857,10 @@ Widget earthQuakeResistant(num, screenHeight){
               ],
             )
           ],
-        ),
-      );
+        );
       break;
     case 5:
-      return Container(
-        height: screenHeight * (11/100),
-        child: Column(
+      return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             SizedBox(
@@ -1912,8 +1896,7 @@ Widget earthQuakeResistant(num, screenHeight){
               ],
             ),
           ],
-        ),
-      );
+        );
       break;
   }
 }
@@ -1921,8 +1904,7 @@ Widget earthQuakeResistant(num, screenHeight){
 Widget earthQuakeEvacuation(num, screenHeight){
   switch(num){
     case 1:
-      return Container(
-        child: Column(
+      return Column(
           children: <Widget>[
             SizedBox(
               height: screenHeight * (1/100),
@@ -1957,12 +1939,10 @@ Widget earthQuakeEvacuation(num, screenHeight){
               ],
             ),
           ],
-        ),
-      );
+        );
       break;
     case 2:
-      return Container(
-        child: Column(
+      return Column(
           children: <Widget>[
             SizedBox(
               height: screenHeight * (1/100),
@@ -2023,12 +2003,10 @@ Widget earthQuakeEvacuation(num, screenHeight){
               ],
             ),
           ],
-        ),
-      );
+        );
       break;
     case 3:
-      return Container(
-        child: Column(
+      return Column(
           children: <Widget>[
             SizedBox(
               height: screenHeight * (1/100),
@@ -2089,12 +2067,10 @@ Widget earthQuakeEvacuation(num, screenHeight){
               ],
             ),
           ],
-        ),
-      );
+        );
       break;
     case 4:
-      return Container(
-        child: Column(
+      return Column(
           children: <Widget>[
             SizedBox(
               height: screenHeight * (1/100),
@@ -2116,12 +2092,10 @@ Widget earthQuakeEvacuation(num, screenHeight){
               ],
             ),
           ],
-        ),
-      );
+        );
       break;
     case 5:
-      return Container(
-        child: Column(
+      return Column(
           children: <Widget>[
             SizedBox(
               height: screenHeight * (1/100),
@@ -2142,8 +2116,7 @@ Widget earthQuakeEvacuation(num, screenHeight){
               ],
             ),
           ],
-        ),
-      );
+        );
       break;
   }
 }
