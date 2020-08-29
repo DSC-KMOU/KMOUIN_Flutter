@@ -75,14 +75,14 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                             color:  _appbarFont,
                           ),
                           Text(
-                            "시설",
+                            "시설정보",
                             style: TextStyle(
                               //color: Colors.transparent,
                               color: _appbarFont,
                               fontWeight: FontWeight.w300,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(18),
+                              fontSize: 16,
                               wordSpacing: 0.0,
                             ),
                           ),
@@ -100,7 +100,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                           fontWeight: FontWeight.w600,
                           fontFamily: "NotoSansKR",
                           fontStyle:  FontStyle.normal,
-                          fontSize: ScreenUtil().setSp(18)
+                          fontSize: 16
                       ),
                       textAlign: TextAlign.center,
                   ),

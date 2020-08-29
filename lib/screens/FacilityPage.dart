@@ -78,7 +78,7 @@ class _FacilityPageState extends State<FacilityPage> {
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(16),
+                        fontSize: 16,
                         wordSpacing: 0.0,
                       ),
                     ),
