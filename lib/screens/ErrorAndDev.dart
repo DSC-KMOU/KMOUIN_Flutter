@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kmouin/widgets/ErrorContainer.dart';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ErrorAndDev extends StatefulWidget {
   @override
@@ -11,8 +13,12 @@ class ErrorAndDev extends StatefulWidget {
 class _ErrorAndDevState extends State<ErrorAndDev> {
   @override
   Widget build(BuildContext context) {
+    double _mainWidth = MediaQuery.of(context).size.width;
+    double _mainHeight = MediaQuery.of(context).size.height;
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     Color _appbarFont = Color(0xff5b9fee);
+
+    ScreenUtil.init(context,width: _mainWidth,height: _mainHeight ,allowFontScaling: false);
 
     return Scaffold(
       appBar: PreferredSize(
@@ -90,6 +96,12 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
                     reportTitle: '개발자 정보 (준비중)',
                     reportDescription: '사용해주셔서 감사합니다!',
                   ),
+                  ErrorContainer(
+                    imageName: 'survey',
+                    reportTitle: '아치신문고',
+                    reportDescription: '해양대 아치신문고로 연결됩니다',
+                    url: 'http://www.kmou.ac.kr/kmou/na/ntt/selectNttList.do?mi=3911&bbsId=10873#sideContent',
+                  ),
                 ],
               ),
             ),
@@ -98,12 +110,12 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
               child: Container(
                 margin: EdgeInsets.only(bottom: 55.0,),
                 child: Text('< Copyright 2020. DSC_KMOU. All right reserved. >',
-                    style: const TextStyle(
-                        color: const Color(0xff828282),
+                    style: TextStyle(
+                        color: Color(0xff828282),
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 14.0),
+                        fontSize: ScreenUtil().setSp(14.0)),
                     textAlign: TextAlign.center),
               ),
             ),

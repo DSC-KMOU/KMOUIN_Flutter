@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kmouin/main.dart';
 import '../widgets/mainPageData.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryCards extends StatelessWidget {
   CategoryCards({
@@ -67,24 +68,24 @@ class CategoryCards extends StatelessWidget {
             // 버스 정보
             Text(
               containerTitle,
-              style: const TextStyle(
-                color: const Color(0xff131415),
+              style: TextStyle(
+                color: Color(0xff131415),
                 fontWeight: FontWeight.w500,
                 fontFamily: "NotoSansKR",
                 fontStyle: FontStyle.normal,
-                fontSize: 24.0,
+                fontSize: ScreenUtil().setSp(24.0),
               ),
               textAlign: TextAlign.center,
             ),
             // 실시간 위치를 알 수 있어요
             Text(
               containerDescription,
-              style: const TextStyle(
-                color: const Color(0xff5f605f),
+              style: TextStyle(
+                color: Color(0xff5f605f),
                 fontWeight: FontWeight.w500,
                 fontFamily: "NotoSansKR",
                 fontStyle: FontStyle.normal,
-                fontSize: 12.0,
+                fontSize: ScreenUtil().setSp(12.0),
               ),
               textAlign: TextAlign.center,
             ),
