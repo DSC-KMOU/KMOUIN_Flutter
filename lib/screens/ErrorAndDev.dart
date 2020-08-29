@@ -56,7 +56,7 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 18.0,
+                        fontSize: 16.0,
                         wordSpacing: 0.0,
                       ),
                     ),

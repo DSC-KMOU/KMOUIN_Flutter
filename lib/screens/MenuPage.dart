@@ -97,6 +97,7 @@ class _MenuPageState extends State<MenuPage> {
               child: Image.asset(
                 'images/MenuPage/bg_image.png',
                 fit: BoxFit.cover,
+                height: _mainHeight*0.5,
               ),
             ),
           ),

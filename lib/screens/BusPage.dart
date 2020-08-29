@@ -147,7 +147,7 @@ class _MyHomePageState extends State<BusPage> {
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 16,
+                        fontSize: 16.0,
                         wordSpacing: 0.0,
                       ),
                     ),

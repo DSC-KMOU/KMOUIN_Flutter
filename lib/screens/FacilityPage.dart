@@ -93,7 +93,7 @@ class _FacilityPageState extends State<FacilityPage> {
       body: Stack(
         children: <Widget>[
           Container(
-            height: _screenHeight * (60.1 / 100),
+            height: _screenHeight * (50.0 / 100),
             width: _width,
             child: Image.asset(
               'images/FacilityPage/greenback.png',
@@ -236,16 +236,19 @@ class _FacilityPageState extends State<FacilityPage> {
                               context: context,
                               builder: (BuildContext context) {
                                 return CupertinoAlertDialog(
-                                  title: const Text(
+                                  title: Text(
                                     '<준비중>',
+                                    style: TextStyle(fontSize: ScreenUtil().setSp(16)),
                                   ),
                                   content: Column(
                                     children: [
                                       Text(
                                         '추가예정입니다.',
+                                        style: TextStyle(fontSize: ScreenUtil().setSp(16)),
                                       ),
                                       Text(
                                         "더 나은 서비스로 찾아뵙겠습니다",
+                                        style: TextStyle(fontSize: ScreenUtil().setSp(16)),
                                       ),
                                     ],
                                   ),
@@ -254,13 +257,16 @@ class _FacilityPageState extends State<FacilityPage> {
                                       onPressed: () {
                                         _launchURL(_kmouPage);
                                       },
-                                      child: const Text('학교 홈페이지'),
+                                      child: Text('학교 홈페이지',
+                                        style: TextStyle(fontSize: ScreenUtil().setSp(16)),
+                                      ),
                                     ),
                                     FlatButton(
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
-                                      child: const Text('OK'),
+                                      child: Text('OK',
+                                        style: TextStyle(fontSize: ScreenUtil().setSp(16)),),
                                     ),
                                   ],
                                 );

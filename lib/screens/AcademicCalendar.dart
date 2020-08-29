@@ -190,7 +190,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                             fontWeight: FontWeight.w300,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
-                            fontSize: ScreenUtil().setSp(18),
+                            fontSize: 16.0,
                             wordSpacing: 0.0,
                           ),
                         ),
@@ -208,7 +208,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                         fontWeight: FontWeight.w600,
                         fontFamily: "NotoSansKR",
                         fontStyle:  FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(18)
+                        fontSize: 16.0,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -276,12 +276,18 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
         startingDayOfWeek: StartingDayOfWeek.sunday,
         calendarStyle: CalendarStyle(
           outsideDaysVisible: false,
-          weekdayStyle: TextStyle().copyWith(color: Colors.blue[800],fontSize: ScreenUtil().setSp(16)),
-          holidayStyle: TextStyle().copyWith(color: Colors.red[800],fontSize: ScreenUtil().setSp(16)),
+          weekdayStyle: TextStyle(color: Colors.blue[800],fontSize: ScreenUtil().setSp(16)),
+          weekendStyle: TextStyle(color: Colors.red[600],fontSize: ScreenUtil().setSp(16)),
+          holidayStyle: TextStyle(color: Colors.red[800],fontSize: ScreenUtil().setSp(16)),
         ),
         headerStyle: HeaderStyle(
+          titleTextStyle: TextStyle(color: Colors.black,fontSize: ScreenUtil().setSp(20)),
           centerHeaderTitle: true,
           formatButtonVisible: false,
+        ),
+        daysOfWeekStyle: DaysOfWeekStyle(
+          weekdayStyle: TextStyle(fontSize: ScreenUtil().setSp(16)),
+          weekendStyle: TextStyle(color: Colors.red, fontSize: ScreenUtil().setSp(16)),
         ),
         onDaySelected: _onDaySelected,
         onVisibleDaysChanged: _onVisibleDaysChanged,
@@ -300,7 +306,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                 height: 100,
                 child: Text(
                   '${date.day}',
-                  style: TextStyle().copyWith(fontSize: ScreenUtil().setSp(16)),
+                  style: TextStyle(fontSize: ScreenUtil().setSp(16)),
                 ),
               ),
             );
@@ -315,7 +321,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                 height: 100,
                 child: Text(
                   '${date.day}',
-                  style: TextStyle().copyWith(fontSize: ScreenUtil().setSp(16)),
+                  style: TextStyle(fontSize: ScreenUtil().setSp(16)),
                 ));
           },
 

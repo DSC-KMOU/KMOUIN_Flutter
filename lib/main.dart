@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
     double _backgroundHeight2 = _mainHeight * (50.0 / 100);
     double _titleLeftBorder = _mainWidth * (8.0 / 100);
     double _sideBorder = _mainWidth * (6.0 / 100);
-    double _logoSize = _mainWidth * (18.7 / 100);
+    double _logoSize = _mainWidth * (14.4 / 100);
     double _searchHeight = _mainHeight * (6.5 / 100);
     double _searchPadding = _searchHeight * (22.7/100);
 
@@ -114,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: <Widget>[
                         Container(
                           margin: EdgeInsets.only(
-                            top: _backgroundHeight * (23.2 / 100),
+                            top: _mainHeight * (10 / 100),
                           ),
                           child: Text(
                             "해양대생의 정보창구",
@@ -154,7 +154,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               ),
                               Container(
-                                height: _logoSize,
                                 width: _logoSize,
                                 margin: EdgeInsets.only(
                                   left: _mainWidth * (4.5 / 100),
@@ -175,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             _sideBorder,
                           ),
                           width: _mainWidth * (86.4 / 100),
-                          height: _searchHeight, //높이 조절해야함 _ 상대말고 고정!
+                          height: 48, //높이 조절해야함 _ 상대말고 고정!
                           decoration: BoxDecoration(
                             color: Color(0xffffffff),
                             borderRadius:
@@ -237,13 +236,18 @@ class _MyHomePageState extends State<MyHomePage> {
                                         context: context,
                                         builder: (BuildContext context) {
                                           return CupertinoAlertDialog(
-                                            title: Text('죄송합니다'),
+                                            title: Text('죄송합니다',
+                                              style: TextStyle(fontSize: ScreenUtil().setSp(16)),
+                                            ),
                                             content: Column(
                                               children: [
                                                 Text(
-                                                    '"$value"(이)라는 키워드가 없습니다. \n'),
+                                                    '"$value"(이)라는 키워드가 없습니다. \n',
+                                                  style: TextStyle(fontSize: ScreenUtil().setSp(16)),
+                                                ),
                                                 Text(
                                                   "[키워드] \n 통근 / 통근버스 / 2층 / 3층 / 5층 \n 교직원 / 기숙사 / 생활관 \n 편의시설 / 대피시설",
+                                                  style: TextStyle(fontSize: ScreenUtil().setSp(16)),
                                                 ),
                                               ],
                                             ),
@@ -252,7 +256,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 onPressed: () {
                                                   Navigator.pop(context);
                                                 },
-                                                child: const Text('OK'),
+                                                child: Text('OK',
+                                                  style: TextStyle(fontSize: ScreenUtil().setSp(16)),),
                                               ),
                                             ],
                                           );
@@ -285,7 +290,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                           containerTitle: '버스 정보',
-                          containerDescription: '버스 언제 출발하지..',
+                          containerDescription: '#셔틀 #190번 #통학',
                           order: 1,
                         ),
                       ),
@@ -300,7 +305,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                           containerTitle: '식단 정보',
-                          containerDescription: '오늘 뭐 먹지..',
+                          containerDescription: '#2층 #3층 #5층 #기숙사',
                           order: 2,
                         ),
                       ),
@@ -323,7 +328,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                           containerTitle: '시설 정보',
-                          containerDescription: '도서관에 자리가 있나..',
+                          containerDescription: '#열람실 #대피 #편의 #지도',
                           order: 3,
                         ),
                       ),
@@ -338,7 +343,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                           containerTitle: '학사 일정',
-                          containerDescription: '학기 언제 끝나..',
+                          containerDescription: '#시험 #개학 #방학',
                           order: 4,
                         ),
                       ),
