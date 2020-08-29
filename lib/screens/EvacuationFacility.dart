@@ -76,7 +76,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                           Text(
                             "메인",
                             style: TextStyle(
-                              color: _appbarFont,
+                              color: Colors.transparent,
                               fontWeight: FontWeight.w300,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,

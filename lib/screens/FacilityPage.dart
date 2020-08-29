@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 import '../screens/EvacuationFacility.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FacilityPage extends StatefulWidget {
   @override
@@ -131,49 +132,49 @@ class _FacilityPageState extends State<FacilityPage> {
                 ),
               ),
               Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(
                     height: _screenHeight * (3.57 / 100),
                   ),
+
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      InkWell(
-//                        onTap: () {
-//                          setState(() {
-//                            _stdRoomNum_1 = _stdRoomNum_1 + 1;
-//                          });
-//                        },
-                        child: LibButton(
-                          num: 1,
-                          stdRoomNum: _stdRoomNum_1,
-                          screenWidth: _width,
-                          screenHeight: _screenHeight,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Flexible(
+                          child: InkWell(
+                            child: LibButton(
+                              num: 1,
+                              stdRoomNum: _stdRoomNum_1,
+                              screenWidth: _width,
+                              screenHeight: _screenHeight,
+                            ),
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: _width * (4 / 100),
-                      ),
-                      InkWell(
+                        Flexible(
+                          child: InkWell(
 //                        onTap: () {
 //                          setState(() {
 //                            _stdRoomNum_2 = _stdRoomNum_2 + 1;
 //                          });
 //                        },
-                        child: LibButton(
-                          num: 2,
-                          stdRoomNum: _stdRoomNum_2,
-                          screenWidth: _width,
-                          screenHeight: _screenHeight,
-                        ),
-                      )
-                    ],
-                  ),
+                            child: LibButton(
+                              num: 2,
+                              stdRoomNum: _stdRoomNum_2,
+                              screenWidth: _width,
+                              screenHeight: _screenHeight,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+
+
                   SizedBox(
                     height: _screenHeight * (1.84 / 100),
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       InkWell(
 //                        onTap: () {
@@ -188,9 +189,6 @@ class _FacilityPageState extends State<FacilityPage> {
                           screenHeight: _screenHeight,
                         ),
                       ),
-                      SizedBox(
-                        width: _width * (4 / 100),
-                      ),
                       InkWell(
 //                        onTap: () {
 //////                          setState(() {
@@ -203,14 +201,14 @@ class _FacilityPageState extends State<FacilityPage> {
                           screenWidth: _width,
                           screenHeight: _screenHeight,
                         ),
-                      )
+                      ),
                     ],
                   ),
                   SizedBox(
                     height: _screenHeight * (5.5 / 100),
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       Container(
                         width: _width * (42.7 / 100),
@@ -268,8 +266,11 @@ class _FacilityPageState extends State<FacilityPage> {
                           ),
                           //highlightColor: Colors.white,
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
+                              SizedBox(
+                                height: _screenHeight * (36/812),
+                              ),
                               Row(
                                 children: <Widget>[
                                   SizedBox(
@@ -286,7 +287,7 @@ class _FacilityPageState extends State<FacilityPage> {
                                 ],
                               ),
                               SizedBox(
-                                height: _screenHeight * (1.7 / 100),
+                                height: _screenHeight * (14/812),
                               ),
                               Text("편의 시설",
                                   style: const TextStyle(
@@ -308,9 +309,10 @@ class _FacilityPageState extends State<FacilityPage> {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        width: _width * (4/100),
-                      ),
+//                      SizedBox(
+//                        width: _width * (4/100),
+//                      ),
+
                       //대피 시설 및 지도
                       Container(
                         width: _width * (42.7 / 100),
@@ -339,19 +341,23 @@ class _FacilityPageState extends State<FacilityPage> {
                           ),
                           padding: EdgeInsets.all(0.0),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
+                              SizedBox(
+                                height: _screenHeight * (31/812),
+                              ),
                               Container(
-                                height: _screenHeight * (6 / 100),
-                                width: _width * (9.3 / 100),
+                                height: _screenHeight * (49.2/812),
+                                width: _width * (35/375),
                                 child: Image.asset(
                                   'images/FacilityPage/sos.png',
                                   fit: BoxFit.fitHeight,
                                 ),
                               ),
-                              SizedBox(
-                                height: _screenHeight * (2.1 / 100),
-                              ),
+                            SizedBox(
+                              height: _screenHeight * (17.8/812),
+                            ),
                               Text("대피 시설 및 지도",
                                   style: const TextStyle(
                                       color: const Color(0xff131415),
@@ -361,7 +367,7 @@ class _FacilityPageState extends State<FacilityPage> {
                                       fontSize: 18.0),
                                   textAlign: TextAlign.center),
                               Text("대피로",
-                                  style: const TextStyle(
+                                  style:  TextStyle(
                                       color: const Color(0xff5f605f),
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
