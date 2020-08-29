@@ -73,6 +73,13 @@ class LibButton extends StatelessWidget {
               ),
               textAlign: TextAlign.center
           ),
+        ],
+      ),
+    );
+  }
+}
+
+
 //          RichText(
 //              text: TextSpan(
 //                  children: [
@@ -106,8 +113,3 @@ class LibButton extends StatelessWidget {
 //                  ]
 //              )
 //          )
-        ],
-      ),
-    );
-  }
-}
