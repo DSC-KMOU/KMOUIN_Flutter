@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ErrorContainer extends StatelessWidget {
   ErrorContainer({
@@ -22,6 +23,8 @@ class ErrorContainer extends StatelessWidget {
     double _containerHeight = _mainHeight * (11.1/100);
     double _containerWidth = _mainWidth * (88.0/100);
     double _iconSize = _containerHeight * (27.8/100);
+
+    ScreenUtil.init(context,width: _mainWidth,height: _mainHeight ,allowFontScaling: false);
 
     return Container(
         margin: EdgeInsets.only(
@@ -54,21 +57,21 @@ class ErrorContainer extends StatelessWidget {
                     children: <Widget>[
                       // 오류제보
                       Text(reportTitle,
-                          style: const TextStyle(
-                              color: const Color(0xff131415),
+                          style: TextStyle(
+                              color: Color(0xff131415),
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: 24.0),
+                              fontSize: ScreenUtil().setSp(24.0)),
                           textAlign: TextAlign.center),
                       // 버그나 피드백 부탁드립니다!
                       Text(reportDescription,
-                          style: const TextStyle(
-                              color: const Color(0xff5f605f),
+                          style: TextStyle(
+                              color: Color(0xff5f605f),
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: 12.0),
+                              fontSize: ScreenUtil().setSp(12.0)),
                           textAlign: TextAlign.center)
                     ],
                   ),

@@ -9,6 +9,7 @@ import 'widgets/mainCategory.dart';
 import 'widgets/mainIcon.dart';
 import 'package:kmouin/screens/ErrorAndDev.dart';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -73,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget build(BuildContext context) {
     int _connect = 0;
+
     double _mainWidth = MediaQuery.of(context).size.width;
     double _mainHeight = MediaQuery.of(context).size.height;
     double _backgroundHeight = _mainHeight * (33.0 / 100);
@@ -82,6 +84,8 @@ class _MyHomePageState extends State<MyHomePage> {
     double _logoSize = _mainWidth * (18.7 / 100);
     double _searchHeight = _mainHeight * (6.5 / 100);
     double _searchPadding = _searchHeight * (22.7/100);
+
+    ScreenUtil.init(context,width: _mainWidth,height: _mainHeight ,allowFontScaling: false);
 
     return GestureDetector(
       onTap: () {
@@ -106,28 +110,45 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: <Widget>[
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Container(
                           margin: EdgeInsets.only(
                             top: _backgroundHeight * (23.2 / 100),
+                          ),
+                          child: Text(
+                            "해양대생의 정보창구",
+                            style: TextStyle(
+                              color: Color(0xffffffff),
+                              letterSpacing: -0.5,
+                              fontWeight: FontWeight.w300,
+                              fontFamily: "NotoSansKR",
+                              fontStyle: FontStyle.normal,
+                              fontSize: ScreenUtil().setSp(24.0),
+//                              fontSize: 24.0,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(
+                            top: _backgroundHeight * (5.0 / 100),
                           ),
                           child: Row(
                             children: <Widget>[
                               Container(
                                 margin: EdgeInsets.only(
                                   bottom: _backgroundHeight * (2.1 / 100),
-                                  left: _titleLeftBorder,
                                 ),
                                 child: Text(
-                                  "안녕하세요!",
-                                  style: const TextStyle(
-                                    color: const Color(0xfff1f1f1),
+                                  "해대인",
+                                  style: TextStyle(
+                                    color: Color(0xfff1f1f1),
                                     letterSpacing: -0.5,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: "NotoSansKR",
                                     fontStyle: FontStyle.normal,
-                                    fontSize: 36.0,
+                                    fontSize: ScreenUtil().setSp(32.0),
                                   ),
                                   textAlign: TextAlign.left,
                                 ),
@@ -136,31 +157,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: _logoSize,
                                 width: _logoSize,
                                 margin: EdgeInsets.only(
-                                  left: _mainWidth * (6.7 / 100),
+                                  left: _mainWidth * (4.5 / 100),
                                 ),
                                 child: Image.asset(
-                                  'images/frontPage/copy2@3x.png',
+                                  'images/frontPage/newLogo@3x.png',
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        Container(
-                          margin: EdgeInsets.only(left: _titleLeftBorder),
-                          child: Text(
-                            "해대인에 오신걸 환영합니다",
-                            style: const TextStyle(
-                              color: const Color(0xffffffff),
-                              letterSpacing: -0.5,
-                              fontWeight: FontWeight.w300,
-                              fontFamily: "NotoSansKR",
-                              fontStyle: FontStyle.normal,
-                              fontSize: 24.0,
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        // Rectangle Copy 11
                         Container(
                           padding: EdgeInsets.only(left: 5.0,),
                           margin: EdgeInsets.fromLTRB(
@@ -170,7 +175,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             _sideBorder,
                           ),
                           width: _mainWidth * (86.4 / 100),
-                          height: _searchHeight,
+                          height: _searchHeight, //높이 조절해야함 _ 상대말고 고정!
                           decoration: BoxDecoration(
                             color: Color(0xffffffff),
                             borderRadius:
@@ -216,6 +221,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
                                       fontStyle: FontStyle.normal,
+                                      fontSize: ScreenUtil().setSp(14.0),
                                     ),
                                     cursorColor: Colors.blueAccent,
                                     controller: _controller,
@@ -231,7 +237,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         context: context,
                                         builder: (BuildContext context) {
                                           return CupertinoAlertDialog(
-                                            title: const Text('죄송합니다'),
+                                            title: Text('죄송합니다'),
                                             content: Column(
                                               children: [
                                                 Text(
@@ -355,12 +361,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         );
                       },
                       child: Text("오류 제보 및 개발자",
-                          style: const TextStyle(
-                              color: const Color(0xff2c6ec4),
+                          style: TextStyle(
+                              color: Color(0xff2c6ec4),
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: 16.0),
+                              fontSize: ScreenUtil().setSp(16.0),),
                           textAlign: TextAlign.center),
                     ),
                   ),
