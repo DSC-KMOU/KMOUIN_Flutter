@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -146,6 +147,8 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context,width: MediaQuery.of(context).size.width,
+        height:MediaQuery.of(context).size.height ,allowFontScaling: false);
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return Scaffold(
       //extendBodyBehindAppBar: true,
@@ -187,7 +190,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                             fontWeight: FontWeight.w300,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
-                            fontSize: 18.0,
+                            fontSize: ScreenUtil().setSp(18),
                             wordSpacing: 0.0,
                           ),
                         ),
@@ -205,7 +208,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                         fontWeight: FontWeight.w600,
                         fontFamily: "NotoSansKR",
                         fontStyle:  FontStyle.normal,
-                        fontSize: 18.0
+                        fontSize: ScreenUtil().setSp(18)
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -297,7 +300,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                 height: 100,
                 child: Text(
                   '${date.day}',
-                  style: TextStyle().copyWith(fontSize: 16.0),
+                  style: TextStyle().copyWith(fontSize: ScreenUtil().setSp(16)),
                 ),
               ),
             );
@@ -312,7 +315,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                 height: 100,
                 child: Text(
                   '${date.day}',
-                  style: TextStyle().copyWith(fontSize: 16.0),
+                  style: TextStyle().copyWith(fontSize: ScreenUtil().setSp(16)),
                 ));
           },
 
@@ -337,7 +340,6 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                 ),
               );
             }
-
             return children;
           },
         ));
