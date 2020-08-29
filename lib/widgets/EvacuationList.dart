@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EvacuationList extends StatelessWidget {
   final List<String> tempList = ['a', 'b', 'c', 'd', 'e'];
@@ -14,6 +15,11 @@ class EvacuationList extends StatelessWidget {
   final double width;
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context,
+        width: width,
+        height: screenHeight ,
+        allowFontScaling: false
+    );
     return Container(
       //height: screenHeight * (54/100),
       width: width,
@@ -33,12 +39,12 @@ class EvacuationList extends StatelessWidget {
               ),
               Text(
                   "내진설계구역",
-                  style: const TextStyle(
+                  style: TextStyle(
                       color:  const Color(0xff000000),
                       fontWeight: FontWeight.w500,
                       fontFamily: "NotoSansKR",
                       fontStyle:  FontStyle.normal,
-                      fontSize: 18.0
+                      fontSize: ScreenUtil().setSp(18)
                   ),
                   textAlign: TextAlign.right
               ),
@@ -51,12 +57,12 @@ class EvacuationList extends StatelessWidget {
               // 지진대피가능 야외공간
               Text(
                   "지진대피가능 야외공간",
-                  style: const TextStyle(
+                  style: TextStyle(
                       color:  const Color(0xff000000),
                       fontWeight: FontWeight.w500,
                       fontFamily: "NotoSansKR",
                       fontStyle:  FontStyle.normal,
-                      fontSize: 18.0
+                      fontSize: ScreenUtil().setSp(18)
                   ),
                   textAlign: TextAlign.right
               ),
@@ -81,12 +87,12 @@ Widget _zone(num, screenHeight){
           children: <Widget>[
             Text(
                 "A zone",
-                style: const TextStyle(
+                style: TextStyle(
                     color:  const Color(0xffce0002),
                     fontWeight: FontWeight.w500,
                     fontFamily: "NotoSansKR",
                     fontStyle:  FontStyle.normal,
-                    fontSize: 14.0
+                    fontSize: ScreenUtil().setSp(14)
                 ),
                 textAlign: TextAlign.right
             ),
@@ -537,12 +543,12 @@ Widget _zone(num, screenHeight){
             // B zone
             Text(
                 "B zone",
-                style: const TextStyle(
+                style: TextStyle(
                     color:  const Color(0xff0033cc),
                     fontWeight: FontWeight.w500,
                     fontFamily: "NotoSansKR",
                     fontStyle:  FontStyle.normal,
-                    fontSize: 14.0
+                    fontSize: ScreenUtil().setSp(14)
                 ),
                 textAlign: TextAlign.right
             ),
@@ -822,12 +828,12 @@ Widget _zone(num, screenHeight){
           children: <Widget>[
             Text(
                 "C zone",
-                style: const TextStyle(
+                style: TextStyle(
                     color:  const Color(0xff581efc),
                     fontWeight: FontWeight.w500,
                     fontFamily: "NotoSansKR",
                     fontStyle:  FontStyle.normal,
-                    fontSize: 14.0
+                    fontSize: ScreenUtil().setSp(14)
                 ),
                 textAlign: TextAlign.right
             ),
@@ -1062,12 +1068,12 @@ Widget _zone(num, screenHeight){
           children: <Widget>[
             Text(
                 "D zone",
-                style: const TextStyle(
+                style: TextStyle(
                     color:  const Color(0xffff2d86),
                     fontWeight: FontWeight.w500,
                     fontFamily: "NotoSansKR",
                     fontStyle:  FontStyle.normal,
-                    fontSize: 14.0
+                    fontSize: ScreenUtil().setSp(14)
                 ),
                 textAlign: TextAlign.right
             ),
@@ -1344,12 +1350,12 @@ Widget _zone(num, screenHeight){
           children: <Widget>[
             Text(
                 "E zone",
-                style: const TextStyle(
+                style: TextStyle(
                     color:  const Color(0xffee6a00),
                     fontWeight: FontWeight.w500,
                     fontFamily: "NotoSansKR",
                     fontStyle:  FontStyle.normal,
-                    fontSize: 14.0
+                    fontSize: ScreenUtil().setSp(14)
                 ),
                 textAlign: TextAlign.right
             ),

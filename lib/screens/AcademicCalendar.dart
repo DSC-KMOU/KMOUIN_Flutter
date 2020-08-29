@@ -276,8 +276,8 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
         startingDayOfWeek: StartingDayOfWeek.sunday,
         calendarStyle: CalendarStyle(
           outsideDaysVisible: false,
-          weekdayStyle: TextStyle().copyWith(color: Colors.blue[800]), // 날짜(평일)
-          holidayStyle: TextStyle().copyWith(color: Colors.red[800]), //
+          weekdayStyle: TextStyle().copyWith(color: Colors.blue[800],fontSize: ScreenUtil().setSp(16)),
+          holidayStyle: TextStyle().copyWith(color: Colors.red[800],fontSize: ScreenUtil().setSp(16)),
         ),
         headerStyle: HeaderStyle(
           centerHeaderTitle: true,
@@ -404,13 +404,11 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
 
   Widget _buildEventList() {
     return ListView(
-      children: _selectedEvents
-          .map((event) => Container(
-                decoration: BoxDecoration(
+      children: _selectedEvents.map((event) => Container(
+        decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
                 ),
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                 child: Container(
                     width: MediaQuery.of(context).size.width,
                     height: 50,
@@ -436,14 +434,18 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                       SizedBox(width: 15),
                       Container(
                           child: FittedBox(
-                        fit: BoxFit.contain,
-                        child: Text(event.toString(),
-                            style: const TextStyle(
-                                color: const Color(0xff000000),
-                                fontWeight: FontWeight.w500,
-                                fontFamily: "NotoSansKR",
-                                fontStyle: FontStyle.normal)),
-                      )),
+                            fit: BoxFit.contain,
+                            child: Text(event.toString(),
+                                style: TextStyle(
+                                    color: const Color(0xff000000),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: ScreenUtil().setSp(15),
+                                )
+                            ),
+                          )
+                      ),
                     ])),
               ))
           .toList(),
