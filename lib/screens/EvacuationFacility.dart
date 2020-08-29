@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../widgets/EvacuationList.dart';
 import 'dart:ui';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EvacuationFacility extends StatefulWidget {
   @override
@@ -74,13 +75,14 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                             color:  _appbarFont,
                           ),
                           Text(
-                            "메인",
+                            "시설",
                             style: TextStyle(
-                              color: Colors.transparent,
+                              //color: Colors.transparent,
+                              color: Colors.black,
                               fontWeight: FontWeight.w300,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: 18.0,
+                              fontSize: ScreenUtil().setSp(18),
                               wordSpacing: 0.0,
                             ),
                           ),
@@ -98,7 +100,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                           fontWeight: FontWeight.w600,
                           fontFamily: "NotoSansKR",
                           fontStyle:  FontStyle.normal,
-                          fontSize: 18.0
+                          fontSize: ScreenUtil().setSp(18)
                       ),
                       textAlign: TextAlign.center,
                   ),
@@ -270,12 +272,12 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
           ),
           Text(
             "<한국해양대학교 지도>",
-            style: const TextStyle(
+            style: TextStyle(
                 color:  const Color(0xff727272),
                 fontWeight: FontWeight.w500,
                 fontFamily: "NotoSansKR",
                 fontStyle:  FontStyle.normal,
-                fontSize: 14.0
+                fontSize: ScreenUtil().setSp(14)
             ), //textAlign: TextAlign.center
           ),
           EvacuationList(

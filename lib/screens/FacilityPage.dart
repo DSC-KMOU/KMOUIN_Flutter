@@ -33,6 +33,11 @@ class _FacilityPageState extends State<FacilityPage> {
     //네비게이션바 높이
     double _bottom = MediaQuery.of(context).padding.bottom;
     double _screenHeight = _height;
+    ScreenUtil.init(context,
+        width: _width,
+        height: _screenHeight ,
+        allowFontScaling: false
+    );
 
     Color _appbarFont = Color(0xffffffff);
 
@@ -73,7 +78,7 @@ class _FacilityPageState extends State<FacilityPage> {
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 18.0,
+                        fontSize: ScreenUtil().setSp(16),
                         wordSpacing: 0.0,
                       ),
                     ),
@@ -105,12 +110,12 @@ class _FacilityPageState extends State<FacilityPage> {
                 child: Container(
                   child: Text(
                     "오늘은 어디서 공부하지?",
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: const Color(0xffffffff),
                         fontWeight: FontWeight.w500,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 30.0),
+                        fontSize: ScreenUtil().setSp(30)),
                   ),
                 ),
               ),
@@ -122,12 +127,13 @@ class _FacilityPageState extends State<FacilityPage> {
                   child: Text(
                     "다른 시설도 확인해봐요",
                     //_ht.toString(),
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: const Color(0xffffffff),
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 22.0),
+                        fontSize: ScreenUtil().setSp(22)
+                    ),
                   ),
                 ),
               ),
@@ -290,20 +296,20 @@ class _FacilityPageState extends State<FacilityPage> {
                                 height: _screenHeight * (14/812),
                               ),
                               Text("편의 시설",
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       color: const Color(0xff131415),
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
                                       fontStyle: FontStyle.normal,
-                                      fontSize: 24.0),
+                                      fontSize: ScreenUtil().setSp(24)),
                                   textAlign: TextAlign.center),
                               Text("편의점, 카페 등 복지시설",
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       color: const Color(0xff5f605f),
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
                                       fontStyle: FontStyle.normal,
-                                      fontSize: 12.0),
+                                      fontSize: ScreenUtil().setSp(12)),
                                   textAlign: TextAlign.center)
                             ],
                           ),
@@ -359,12 +365,12 @@ class _FacilityPageState extends State<FacilityPage> {
                               height: _screenHeight * (17.8/812),
                             ),
                               Text("대피 시설 및 지도",
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       color: const Color(0xff131415),
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
                                       fontStyle: FontStyle.normal,
-                                      fontSize: 18.0),
+                                      fontSize: ScreenUtil().setSp(20)),
                                   textAlign: TextAlign.center),
                               Text("대피로",
                                   style:  TextStyle(
@@ -372,7 +378,7 @@ class _FacilityPageState extends State<FacilityPage> {
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
                                       fontStyle: FontStyle.normal,
-                                      fontSize: 12.0),
+                                      fontSize: ScreenUtil().setSp(12)),
                                   textAlign: TextAlign.center)
                             ],
                           ),
