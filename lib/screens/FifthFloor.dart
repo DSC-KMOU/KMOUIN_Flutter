@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 import 'package:kmouin/widgets/MenuCard.dart';
 import 'package:kmouin/widgets/MenuInfo.dart';
 import 'package:kmouin/widgets/MenuData.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'Dart:ui';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 class FifthFloor extends StatefulWidget {
   @override
@@ -52,6 +53,8 @@ class _FifthFloorState extends State<FifthFloor> {
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     double fullWidth = MediaQuery.of(context).size.width;
+    double fullHeight = MediaQuery.of(context).size.height;
+    ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
     Color _appbarFont = Color(0xffeb577c);
 
     return Scaffold(
@@ -68,7 +71,7 @@ class _FifthFloorState extends State<FifthFloor> {
                 borderRadius: BorderRadius.circular(44.0)),
             onPressed: () {
               setState(
-                    () {
+                () {
                   Navigator.pop(context);
                 },
               );
@@ -91,7 +94,7 @@ class _FifthFloorState extends State<FifthFloor> {
                       fontWeight: FontWeight.w300,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
-                      fontSize: 18.0,
+                      fontSize: 16.0,
                       wordSpacing: 0.0,
                     ),
                   ),
@@ -171,12 +174,13 @@ class _FifthFloorState extends State<FifthFloor> {
                         ),
                         Text(
                           "5층 학식",
-                          style: const TextStyle(
-                              color: const Color(0xffeb577c),
-                              fontWeight: FontWeight.w500,
-                              fontFamily: "NotoSansKR",
-                              fontStyle: FontStyle.normal,
-                              fontSize: 32.0),
+                          style: TextStyle(
+                            color: const Color(0xffeb577c),
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "NotoSansKR",
+                            fontStyle: FontStyle.normal,
+                            fontSize: ScreenUtil().setSp(32),
+                          ),
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(
@@ -271,12 +275,13 @@ class _FifthFloorState extends State<FifthFloor> {
                       ),
                       Text(
                         '교직원 식당입니다!',
-                        style: const TextStyle(
-                            color: const Color(0xfff05c53),
-                            fontWeight: FontWeight.w300,
-                            fontFamily: "NotoSansKR",
-                            fontStyle: FontStyle.normal,
-                            fontSize: 20.0),
+                        style: TextStyle(
+                          color: const Color(0xfff05c53),
+                          fontWeight: FontWeight.w300,
+                          fontFamily: "NotoSansKR",
+                          fontStyle: FontStyle.normal,
+                          fontSize: ScreenUtil().setSp(20),
+                        ),
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(

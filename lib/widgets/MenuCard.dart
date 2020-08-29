@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MenuCard extends StatelessWidget {
   final String title;
@@ -8,11 +9,18 @@ class MenuCard extends StatelessWidget {
   final double dividerWidth;
 
   const MenuCard(
-      {Key key, @required this.title, @required this.children,this.width,this.dividerWidth})
+      {Key key,
+      @required this.title,
+      @required this.children,
+      this.width,
+      this.dividerWidth})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double fullWidth = MediaQuery.of(context).size.width;
+    double fullHeight = MediaQuery.of(context).size.height;
+    ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
     return Container(
       padding: EdgeInsets.all(16),
       width: width,
@@ -31,12 +39,13 @@ class MenuCard extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text(title,
-              style: const TextStyle(
-                  color: const Color(0xff131415),
-                  fontWeight: FontWeight.w500,
-                  fontFamily: "NotoSansKR",
-                  fontStyle: FontStyle.normal,
-                  fontSize: 24.0),
+              style: TextStyle(
+                color: const Color(0xff131415),
+                fontWeight: FontWeight.w500,
+                fontFamily: "NotoSansKR",
+                fontStyle: FontStyle.normal,
+                fontSize: ScreenUtil().setSp(24),
+              ),
               textAlign: TextAlign.center),
           SizedBox(
             height: 7,
