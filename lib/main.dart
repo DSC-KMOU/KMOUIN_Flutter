@@ -237,17 +237,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                         builder: (BuildContext context) {
                                           return CupertinoAlertDialog(
                                             title: Text('죄송합니다',
-                                              style: TextStyle(fontSize: ScreenUtil().setSp(16)),
+                                              style: TextStyle(fontSize: ScreenUtil().setSp(14)),
                                             ),
                                             content: Column(
                                               children: [
                                                 Text(
                                                     '"$value"(이)라는 키워드가 없습니다. \n',
-                                                  style: TextStyle(fontSize: ScreenUtil().setSp(16)),
+                                                  style: TextStyle(fontSize: ScreenUtil().setSp(14)),
                                                 ),
                                                 Text(
                                                   "[키워드] \n 통근 / 통근버스 / 2층 / 3층 / 5층 \n 교직원 / 기숙사 / 생활관 \n 편의시설 / 대피시설",
-                                                  style: TextStyle(fontSize: ScreenUtil().setSp(16)),
+                                                  style: TextStyle(fontSize: ScreenUtil().setSp(14)),
                                                 ),
                                               ],
                                             ),
@@ -257,7 +257,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   Navigator.pop(context);
                                                 },
                                                 child: Text('OK',
-                                                  style: TextStyle(fontSize: ScreenUtil().setSp(16)),),
+                                                  style: TextStyle(fontSize: ScreenUtil().setSp(14)),),
                                               ),
                                             ],
                                           );
