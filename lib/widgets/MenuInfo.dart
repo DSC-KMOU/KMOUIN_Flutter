@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MenuInfo extends StatelessWidget {
   final List<dynamic> menuTable;
@@ -9,7 +10,11 @@ class MenuInfo extends StatelessWidget {
     @required this.menuTable,
   }) : super(key: key);
 
-  Widget getList() {
+  @override
+  Widget build(BuildContext context) {
+    double fullWidth = MediaQuery.of(context).size.width;
+    double fullHeight = MediaQuery.of(context).size.height;
+    ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
     List<dynamic> list = menuTable;
     ListView myList = new ListView.builder(
         padding: EdgeInsets.all(0),
@@ -23,12 +28,12 @@ class MenuInfo extends StatelessWidget {
               ),
               Text(
                 list[index],
-                style: const TextStyle(
+                style: TextStyle(
                   color: const Color(0xff131415),
                   fontWeight: FontWeight.w300,
                   fontFamily: "NotoSansKR",
                   fontStyle: FontStyle.normal,
-                  fontSize: 16.0,
+                  fontSize: ScreenUtil().setSp(16),
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -36,10 +41,5 @@ class MenuInfo extends StatelessWidget {
           );
         });
     return myList;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return getList();
   }
 }

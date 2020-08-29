@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 import 'package:kmouin/widgets/MenuCard.dart';
 import 'package:kmouin/widgets/MenuInfo.dart';
 import 'package:kmouin/widgets/MenuData.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'Dart:ui';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 class ThirdFloor extends StatefulWidget {
   @override
@@ -52,6 +53,8 @@ class _ThirdFloorState extends State<ThirdFloor> {
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     double fullWidth = MediaQuery.of(context).size.width;
+    double fullHeight = MediaQuery.of(context).size.height;
+    ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
 
     Color _appbarFont = Color(0xffeb577c);
 
@@ -69,7 +72,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                 borderRadius: BorderRadius.circular(44.0)),
             onPressed: () {
               setState(
-                    () {
+                () {
                   Navigator.pop(context);
                 },
               );
@@ -92,7 +95,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                       fontWeight: FontWeight.w300,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
-                      fontSize: 18.0,
+                      fontSize: 16.0,
                       wordSpacing: 0.0,
                     ),
                   ),
@@ -102,165 +105,167 @@ class _ThirdFloorState extends State<ThirdFloor> {
           ),
         ),
       ),
-        extendBodyBehindAppBar: true,
-        backgroundColor: const Color(0xffffffff),
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Stack(children: <Widget>[
-              //점 3개 + '3층학식'
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    SizedBox(
-                      height: 24,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          width: 9,
-                          height: 9,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: const Color(0xffec5871)),
-                        ),
-                        SizedBox(
-                          width: 106,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 9,
-                    ),
-                    Column(
-                      children: <Widget>[
-                        SizedBox(
-                          height: 28,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            SizedBox(
-                              width: 201,
-                            ),
-                            SizedBox(
-                              width: 84,
-                            ),
-                            Container(
-                              width: 6,
-                              height: 6,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: const Color(0xfffe6396)),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 19,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              width: 9,
-                              height: 9,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: const Color(0xffef5b55)),
-                            ),
-                            SizedBox(
-                              width: 73,
-                            ),
-                            SizedBox(
-                              width: 111,
-                            ),
-                            SizedBox(
-                              width: 82,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              Column(
+      extendBodyBehindAppBar: true,
+      backgroundColor: const Color(0xffffffff),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Stack(children: <Widget>[
+            //점 3개 + '3층학식'
+            Center(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Container(),
-                  SizedBox(height: 42.0),
-                  Text(
-                    '3층 학식',
-                    style: const TextStyle(
-                        color: const Color(0xffeb577c),
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: 32.0),
-                    textAlign: TextAlign.center,
+                  SizedBox(
+                    height: 24,
                   ),
-                  Text(
-                    "오늘은 이걸 먹어볼까?",
-                    style: TextStyle(
-                        color: Color(0xfff05c53),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: 20.0),
-                  ),
-                  SizedBox(height: 28.0),
-                  buildFutureBuilder(fullWidth),
-                  SizedBox(height: 50.0),
-                  ThirdMenuList(
-                    fullWidth: fullWidth,
-                    title: "양식 코너",
-                    menuList: [
-                      {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
-                      {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
-                      {"menu": "치즈라면", "price": "￦ 5,000"},
-                      {"menu": "치즈라면", "price": "￦ 5,000"},
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        width: 9,
+                        height: 9,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: const Color(0xffec5871)),
+                      ),
+                      SizedBox(
+                        width: 106,
+                      ),
                     ],
                   ),
-                  ThirdMenuList(
-                    fullWidth: fullWidth,
-                    title: "라면 코너",
-                    menuList: [
-                      {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
-                      {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
-                      {"menu": "치즈라면", "price": "￦ 5,000"},
-                      {"menu": "치즈라면", "price": "￦ 5,000"},
-                    ],
+                  SizedBox(
+                    height: 9,
                   ),
-                  ThirdMenuList(
-                    fullWidth: fullWidth,
-                    title: "분식 코너",
-                    menuList: [
-                      {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
-                      {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
-                      {"menu": "치즈라면", "price": "￦ 5,000"},
-                      {"menu": "치즈라면", "price": "￦ 5,000"},
-                    ],
-                  ),
-                  ThirdMenuList(
-                    fullWidth: fullWidth,
-                    title: "덮밥 코너",
-                    menuList: [
-                      {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
-                      {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
-                      {"menu": "치즈라면", "price": "￦ 5,000"},
-                      {"menu": "치즈라면", "price": "￦ 5,000"},
+                  Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: 28,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          SizedBox(
+                            width: 201,
+                          ),
+                          SizedBox(
+                            width: 84,
+                          ),
+                          Container(
+                            width: 6,
+                            height: 6,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: const Color(0xfffe6396)),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 19,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            width: 9,
+                            height: 9,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: const Color(0xffef5b55)),
+                          ),
+                          SizedBox(
+                            width: 73,
+                          ),
+                          SizedBox(
+                            width: 111,
+                          ),
+                          SizedBox(
+                            width: 82,
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ],
               ),
-            ]
-                //'오늘은 이걸 먹어볼까?' + 나머지내용
-
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(),
+                SizedBox(height: 42.0),
+                Text(
+                  '3층 학식',
+                  style: TextStyle(
+                    color: const Color(0xffeb577c),
+                    fontWeight: FontWeight.w500,
+                    fontFamily: "NotoSansKR",
+                    fontStyle: FontStyle.normal,
+                    fontSize: ScreenUtil().setSp(32),
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-          ),
+                Text(
+                  "오늘은 이걸 먹어볼까?",
+                  style: TextStyle(
+                    color: Color(0xfff05c53),
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "NotoSansKR",
+                    fontStyle: FontStyle.normal,
+                    fontSize: ScreenUtil().setSp(20),
+                  ),
+                ),
+                SizedBox(height: 28.0),
+                buildFutureBuilder(fullWidth),
+                SizedBox(height: 50.0),
+                ThirdMenuList(
+                  fullWidth: fullWidth,
+                  title: "양식 코너",
+                  menuList: [
+                    {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
+                    {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
+                    {"menu": "치즈라면", "price": "￦ 5,000"},
+                    {"menu": "치즈라면", "price": "￦ 5,000"},
+                  ],
+                ),
+                ThirdMenuList(
+                  fullWidth: fullWidth,
+                  title: "라면 코너",
+                  menuList: [
+                    {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
+                    {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
+                    {"menu": "치즈라면", "price": "￦ 5,000"},
+                    {"menu": "치즈라면", "price": "￦ 5,000"},
+                  ],
+                ),
+                ThirdMenuList(
+                  fullWidth: fullWidth,
+                  title: "분식 코너",
+                  menuList: [
+                    {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
+                    {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
+                    {"menu": "치즈라면", "price": "￦ 5,000"},
+                    {"menu": "치즈라면", "price": "￦ 5,000"},
+                  ],
+                ),
+                ThirdMenuList(
+                  fullWidth: fullWidth,
+                  title: "덮밥 코너",
+                  menuList: [
+                    {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
+                    {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
+                    {"menu": "치즈라면", "price": "￦ 5,000"},
+                    {"menu": "치즈라면", "price": "￦ 5,000"},
+                  ],
+                ),
+              ],
+            ),
+          ]
+              //'오늘은 이걸 먹어볼까?' + 나머지내용
+
+              ),
         ),
+      ),
     );
   }
 
@@ -332,12 +337,12 @@ class ThirdMenuList extends StatelessWidget {
             padding: EdgeInsets.only(left: fullWidth * 0.02),
             child: Text(
               title,
-              style: const TextStyle(
+              style: TextStyle(
                 color: const Color(0xff131415),
                 fontWeight: FontWeight.w500,
                 fontFamily: "NotoSansKR",
                 fontStyle: FontStyle.normal,
-                fontSize: 24.0,
+                fontSize: ScreenUtil().setSp(24),
               ),
             ),
           ),
@@ -359,22 +364,22 @@ class ThirdMenuList extends StatelessWidget {
                   children: [
                     Text(
                       menuList[0]["menu"],
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: const Color(0xff131415),
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 16.0,
+                        fontSize: ScreenUtil().setSp(16),
                       ),
                     ),
                     Text(
                       menuList[0]["price"],
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: const Color(0xff131415),
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 16.0,
+                        fontSize: ScreenUtil().setSp(16),
                       ),
                     ),
                   ],
@@ -385,22 +390,22 @@ class ThirdMenuList extends StatelessWidget {
                   children: [
                     Text(
                       menuList[1]["menu"],
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: const Color(0xff131415),
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 16.0,
+                        fontSize: ScreenUtil().setSp(16),
                       ),
                     ),
                     Text(
                       menuList[1]["price"],
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: const Color(0xff131415),
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 16.0,
+                        fontSize: ScreenUtil().setSp(16),
                       ),
                     ),
                   ],
@@ -411,22 +416,22 @@ class ThirdMenuList extends StatelessWidget {
                   children: [
                     Text(
                       menuList[2]["menu"],
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: const Color(0xff131415),
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 16.0,
+                        fontSize: ScreenUtil().setSp(16),
                       ),
                     ),
                     Text(
                       menuList[2]["price"],
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: const Color(0xff131415),
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 16.0,
+                        fontSize: ScreenUtil().setSp(16),
                       ),
                     ),
                   ],
@@ -437,22 +442,22 @@ class ThirdMenuList extends StatelessWidget {
                   children: [
                     Text(
                       menuList[3]["menu"],
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: const Color(0xff131415),
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 16.0,
+                        fontSize: ScreenUtil().setSp(16),
                       ),
                     ),
                     Text(
                       menuList[3]["price"],
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: const Color(0xff131415),
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: 16.0,
+                        fontSize: ScreenUtil().setSp(16),
                       ),
                     ),
                   ],
