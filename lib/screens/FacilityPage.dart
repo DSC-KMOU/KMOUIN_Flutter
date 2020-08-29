@@ -238,17 +238,17 @@ class _FacilityPageState extends State<FacilityPage> {
                                 return CupertinoAlertDialog(
                                   title: Text(
                                     '<준비중>',
-                                    style: TextStyle(fontSize: ScreenUtil().setSp(16)),
+                                    style: TextStyle(fontSize: ScreenUtil().setSp(14)),
                                   ),
                                   content: Column(
                                     children: [
                                       Text(
                                         '추가예정입니다.',
-                                        style: TextStyle(fontSize: ScreenUtil().setSp(16)),
+                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
                                       ),
                                       Text(
                                         "더 나은 서비스로 찾아뵙겠습니다",
-                                        style: TextStyle(fontSize: ScreenUtil().setSp(16)),
+                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
                                       ),
                                     ],
                                   ),
@@ -257,8 +257,8 @@ class _FacilityPageState extends State<FacilityPage> {
                                       onPressed: () {
                                         _launchURL(_kmouPage);
                                       },
-                                      child: Text('학교 홈페이지',
-                                        style: TextStyle(fontSize: ScreenUtil().setSp(16)),
+                                      child: Text('홈페이지',
+                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
                                       ),
                                     ),
                                     FlatButton(
@@ -266,7 +266,7 @@ class _FacilityPageState extends State<FacilityPage> {
                                         Navigator.pop(context);
                                       },
                                       child: Text('OK',
-                                        style: TextStyle(fontSize: ScreenUtil().setSp(16)),),
+                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),),
                                     ),
                                   ],
                                 );
