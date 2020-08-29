@@ -102,10 +102,9 @@ class _MyHomePageState extends State<BusPage> {
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
-    ScreenUtil.init(context,width: 625,height:1353 ,allowFontScaling: false);
     double fullWidth = MediaQuery.of(context).size.width;
-    // double ratio = queryData.devicePixelRatio;
-    double rate = 0.0;
+    double fullHeight = MediaQuery.of(context).size.height;
+    ScreenUtil.init(context,width: fullWidth,height:fullHeight,allowFontScaling: false);
     Color _appbarFont = Color(0xffffffff);
 
     return Scaffold(
@@ -148,7 +147,7 @@ class _MyHomePageState extends State<BusPage> {
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(32),
+                        fontSize: ScreenUtil().setSp(16),
                         wordSpacing: 0.0,
                       ),
                     ),
@@ -198,7 +197,7 @@ class _MyHomePageState extends State<BusPage> {
                       fontWeight: FontWeight.w500,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
-                      fontSize: ScreenUtil().setSp(48),
+                      fontSize: ScreenUtil().setSp(32),
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -211,11 +210,11 @@ class _MyHomePageState extends State<BusPage> {
                       fontWeight: FontWeight.w300,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
-                      fontSize: ScreenUtil().setSp(32),
+                      fontSize: ScreenUtil().setSp(20),
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  buildFutureBuilder(fullWidth, rate),
+                  buildFutureBuilder(fullWidth),
                 ],
               ),
             ),
@@ -225,7 +224,7 @@ class _MyHomePageState extends State<BusPage> {
     );
   }
 
-  FutureBuilder<BusData> buildFutureBuilder(double fullWidth, double rate) {
+  FutureBuilder<BusData> buildFutureBuilder(double fullWidth) {
     return FutureBuilder(
         future: busData,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -264,7 +263,7 @@ class _MyHomePageState extends State<BusPage> {
                                 fontWeight: FontWeight.w300,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: ScreenUtil().setSp(30),
+                                fontSize: ScreenUtil().setSp(18),
                               ),
                             ),
                             SizedBox(height: 33.0),
@@ -343,7 +342,7 @@ class _MyHomePageState extends State<BusPage> {
                                         fontFamily: "NotoSansKR",
                                         fontStyle: FontStyle.normal,
                                         letterSpacing: -1.0,
-                                        fontSize: ScreenUtil().setSp(37),
+                                        fontSize: ScreenUtil().setSp(24),
                                       ),
                                     ),
                                     SizedBox(width: fullWidth * 0.058),
@@ -381,7 +380,7 @@ class _MyHomePageState extends State<BusPage> {
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: ScreenUtil().setSp(22),
+                                fontSize: ScreenUtil().setSp(14),
                                 letterSpacing: -0.2,
                               ),
                             ),

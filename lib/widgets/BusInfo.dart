@@ -8,14 +8,18 @@ class BusInfo extends StatelessWidget {
   final String title;
 
   const BusInfo(
-      {Key key,@required this.timeTable, @required this.width, @required this.title})
+      {Key key,
+      @required this.timeTable,
+      @required this.width,
+      @required this.title})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context,width: 625,height:1353 ,allowFontScaling: false);
-    double rate = 1 / 375.0;
     double fullWidth = MediaQuery.of(context).size.width;
+    double fullHeight = MediaQuery.of(context).size.height;
+    ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,7 +31,7 @@ class BusInfo extends StatelessWidget {
             fontWeight: FontWeight.w600,
             fontFamily: "NotoSansKR",
             fontStyle: FontStyle.normal,
-            fontSize: ScreenUtil().setSp(24),
+            fontSize: ScreenUtil().setSp(16),
           ),
         ),
         SizedBox(height: 10.0),
@@ -35,7 +39,7 @@ class BusInfo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SafeArea (
+            SafeArea(
               child: Container(
                   width: width,
                   height: 80,
@@ -53,7 +57,7 @@ class BusInfo extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(24),
+                              fontSize: ScreenUtil().setSp(16),
                               letterSpacing: -0.28,
                             ),
                           ),
@@ -65,7 +69,7 @@ class BusInfo extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(18),
+                              fontSize: ScreenUtil().setSp(12),
                               height: 1.7,
                               letterSpacing: -0.25,
                             ),
@@ -82,12 +86,12 @@ class BusInfo extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(20),
+                              fontSize: ScreenUtil().setSp(14),
                             ),
                           ),
                           Spacer(),
                           SizedBox(
-                            width: fullWidth*0.053,
+                            width: fullWidth * 0.053,
                             height: 20,
                             child: Image.asset("images/BusPage/bus_min1.jpg"),
                           ),
@@ -104,12 +108,12 @@ class BusInfo extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       border:
-                      Border.all(color: const Color(0xff842fb5), width: 2),
+                          Border.all(color: const Color(0xff842fb5), width: 2),
                       color: const Color(0xffffffff))),
             ),
             SizedBox(width: fullWidth * 0.03),
             SafeArea(
-              child: Container( 
+              child: Container(
                   width: width,
                   height: 80,
                   padding: EdgeInsets.only(
@@ -132,7 +136,7 @@ class BusInfo extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(24),
+                              fontSize: ScreenUtil().setSp(16),
                               letterSpacing: -0.28,
                             ),
                           ),
@@ -145,7 +149,7 @@ class BusInfo extends StatelessWidget {
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
                               height: 1.7,
-                              fontSize: ScreenUtil().setSp(18),
+                              fontSize: ScreenUtil().setSp(12),
                               letterSpacing: -0.25,
                             ),
                           )
@@ -162,11 +166,11 @@ class BusInfo extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(20),
+                              fontSize: ScreenUtil().setSp(14),
                             ),
                           ),
                           SizedBox(
-                            width: fullWidth*0.053,
+                            width: fullWidth * 0.053,
                             height: 20,
                             child: Image.asset("images/BusPage/bus_min2.jpg"),
                           ),
@@ -177,12 +181,12 @@ class BusInfo extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       border:
-                      Border.all(color: const Color(0xff737373), width: 1),
+                          Border.all(color: const Color(0xff737373), width: 1),
                       color: const Color(0xffffffff))),
             ),
             SizedBox(width: fullWidth * 0.03),
             SafeArea(
-              child: Container( 
+              child: Container(
                 width: width,
                 height: 80,
                 child: Column(
@@ -198,7 +202,7 @@ class BusInfo extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
-                            fontSize: ScreenUtil().setSp(24),
+                            fontSize: ScreenUtil().setSp(16),
                             letterSpacing: -0.28,
                           ),
                         ),
@@ -210,7 +214,7 @@ class BusInfo extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
-                            fontSize: ScreenUtil().setSp(18),
+                            fontSize: ScreenUtil().setSp(12),
                             height: 1.7,
                             letterSpacing: -0.25,
                           ),
@@ -227,12 +231,12 @@ class BusInfo extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
-                            fontSize: ScreenUtil().setSp(20),
+                            fontSize: ScreenUtil().setSp(14),
                           ),
                         ),
                         Spacer(),
                         SizedBox(
-                          width: fullWidth*0.053,
+                          width: fullWidth * 0.053,
                           height: 20,
                           child: Image.asset("images/BusPage/bus_min2.jpg"),
                         ),
