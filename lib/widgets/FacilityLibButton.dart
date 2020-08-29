@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../widgets/FacilityLibButton.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LibButton extends StatelessWidget {
   LibButton ({
@@ -16,6 +17,11 @@ class LibButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context,
+        width: screenWidth,
+        height: screenHeight ,
+        allowFontScaling: false
+    );
     return Container(
       width: screenWidth * (42.7/100),
       height: screenHeight * (13.54/100),
@@ -44,12 +50,12 @@ class LibButton extends StatelessWidget {
             children: <Widget>[
               Text(
                   "열람실 "+num.toString(),
-                  style: const TextStyle(
+                  style: TextStyle(
                       color:  const Color(0xff000000),
                       fontWeight: FontWeight.w500,
                       fontFamily: "NotoSansKR",
                       fontStyle:  FontStyle.normal,
-                      fontSize: 22.0
+                      fontSize: ScreenUtil().setSp(25),
                   )
               ),
               SizedBox(
@@ -64,12 +70,12 @@ class LibButton extends StatelessWidget {
           ),
           Text(
               "[준비중]",
-              style: const TextStyle(
+              style: TextStyle(
                   color:  Colors.red,
                   fontWeight: FontWeight.w500,
                   fontFamily: "NotoSansKR",
                   fontStyle:  FontStyle.normal,
-                  fontSize: 15.0
+                  fontSize: ScreenUtil().setSp(16),
               ),
               textAlign: TextAlign.center
           ),
