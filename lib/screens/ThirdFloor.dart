@@ -89,7 +89,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                     color: _appbarFont,
                   ),
                   Text(
-                    "학식 정보",
+                    "식단 정보",
                     style: TextStyle(
                       color: _appbarFont,
                       fontWeight: FontWeight.w300,
