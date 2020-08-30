@@ -8,7 +8,7 @@ import '../widgets/BusInfo.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 
 class BusPage extends StatefulWidget {
   BusPage({Key key, this.title}) : super(key: key);
@@ -101,130 +101,125 @@ class _MyHomePageState extends State<BusPage> {
 
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     double fullWidth = MediaQuery.of(context).size.width;
     double fullHeight = MediaQuery.of(context).size.height;
     ScreenUtil.init(context,width: fullWidth,height:fullHeight,allowFontScaling: false);
     Color _appbarFont = Color(0xffffffff);
 
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-        value: const SystemUiOverlayStyle(
-        statusBarIconBrightness: Brightness.light,
-        statusBarBrightness: Brightness.light,
-        ),
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(44.0),
-          child: AppBar(
-            centerTitle: false,
-            titleSpacing: -6.0,
-            backgroundColor: Colors.transparent,
-            elevation: 0.0,
-            automaticallyImplyLeading: false,
-            title: Align(
-              alignment: Alignment.centerLeft,
-              child: FlatButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(44.0)),
-                onPressed: () {
-                  setState(
-                    () {
-                      Navigator.pop(context);
-                    },
-                  );
-                },
-                padding: EdgeInsets.only(left: 5.0, right: 5.0),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  widthFactor: 1.5,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Icon(
-                        CupertinoIcons.back,
-                        color: _appbarFont,
-                      ),
-                      Text(
-                        "메인",
-                        style: TextStyle(
-                          color: _appbarFont,
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "NotoSansKR",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 16.0,
-                          wordSpacing: 0.0,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  right: 10.0,
-                ),
-                child: IconButton(
-                  icon: Icon(
-                    Icons.refresh,
-                    color: Colors.white,
-                  ),
-                  onPressed: () async {
-                    // await _fetch1();
-                    setState(() {
-                      // 수정 필요 !!
-                      busData = _fetch1();
-                    });
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(44.0),
+        child: AppBar(
+          centerTitle: false,
+          titleSpacing: -6.0,
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          automaticallyImplyLeading: false,
+          title: Align(
+            alignment: Alignment.centerLeft,
+            child: FlatButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(44.0)),
+              onPressed: () {
+                setState(
+                  () {
+                    Navigator.pop(context);
                   },
-                ),
-              ),
-            ],
-          ),
-        ),
-        body: Stack(
-          children: <Widget>[
-            Container(),
-            TopContainer(
-              child: Image.asset('images/BusPage/TopContainer.png'),
-            ),
-            SafeArea(
-              child: SingleChildScrollView(
-                child: Column(
+                );
+              },
+              padding: EdgeInsets.only(left: 5.0, right: 5.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                widthFactor: 1.5,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    SizedBox(height: 20.0),
-                    Text(
-                      "버스 정보",
-                      style: TextStyle(
-                        color: const Color(0xffffffff),
-                        letterSpacing: -0.5,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(32),
-                      ),
-                      textAlign: TextAlign.left,
+                    Icon(
+                      CupertinoIcons.back,
+                      color: _appbarFont,
                     ),
-                    SizedBox(height: 4.0),
                     Text(
-                      "실시간 위치를 알 수 있어요",
+                      "메인",
                       style: TextStyle(
-                        color: const Color(0xffffffff),
-                        letterSpacing: -0.5,
+                        color: _appbarFont,
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(20),
+                        fontSize: 16.0,
+                        wordSpacing: 0.0,
                       ),
-                      textAlign: TextAlign.center,
                     ),
-                    buildFutureBuilder(fullWidth),
                   ],
                 ),
               ),
-            )
+            ),
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(
+                right: 10.0,
+              ),
+              child: IconButton(
+                icon: Icon(
+                  Icons.refresh,
+                  color: Colors.white,
+                ),
+                onPressed: () async {
+                  // await _fetch1();
+                  setState(() {
+                    // 수정 필요 !!
+                    busData = _fetch1();
+                  });
+                },
+              ),
+            ),
           ],
         ),
+      ),
+      body: Stack(
+        children: <Widget>[
+          Container(),
+          TopContainer(
+            child: Image.asset('images/BusPage/TopContainer.png'),
+          ),
+          SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 20.0),
+                  Text(
+                    "버스 정보",
+                    style: TextStyle(
+                      color: const Color(0xffffffff),
+                      letterSpacing: -0.5,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "NotoSansKR",
+                      fontStyle: FontStyle.normal,
+                      fontSize: ScreenUtil().setSp(32),
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: 4.0),
+                  Text(
+                    "실시간 위치를 알 수 있어요",
+                    style: TextStyle(
+                      color: const Color(0xffffffff),
+                      letterSpacing: -0.5,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "NotoSansKR",
+                      fontStyle: FontStyle.normal,
+                      fontSize: ScreenUtil().setSp(20),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  buildFutureBuilder(fullWidth),
+                ],
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
