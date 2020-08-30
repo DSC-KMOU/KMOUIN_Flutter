@@ -37,6 +37,12 @@ class _ThirdFloorState extends State<ThirdFloor> {
           "f2d": ["식단 정보 없음"],
           "f2s": ["식단 정보 없음"],
           "f3b": ["식단 정보 없음"],
+          "f3m": [
+            {"menu": "메뉴 정보 없음", "price": ""},
+            {"menu": "메뉴 정보 없음", "price": ""},
+            {"menu": "메뉴 정보 없음", "price": ""},
+            {"menu": "메뉴 정보 없음", "price": ""}
+          ],
           "f5l": ["식단 정보 없음"],
           "f5s": ["식단 정보 없음"],
         }
@@ -54,7 +60,8 @@ class _ThirdFloorState extends State<ThirdFloor> {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     double fullWidth = MediaQuery.of(context).size.width;
     double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
+    ScreenUtil.init(context,
+        width: fullWidth, height: fullHeight, allowFontScaling: false);
 
     Color _appbarFont = Color(0xffeb577c);
 
@@ -217,47 +224,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                 ),
                 SizedBox(height: 28.0),
                 buildFutureBuilder(fullWidth),
-                SizedBox(height: 50.0),
-                ThirdMenuList(
-                  fullWidth: fullWidth,
-                  title: "양식 코너",
-                  menuList: [
-                    {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
-                    {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
-                    {"menu": "치즈라면", "price": "￦ 5,000"},
-                    {"menu": "치즈라면", "price": "￦ 5,000"},
-                  ],
-                ),
-                ThirdMenuList(
-                  fullWidth: fullWidth,
-                  title: "라면 코너",
-                  menuList: [
-                    {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
-                    {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
-                    {"menu": "치즈라면", "price": "￦ 5,000"},
-                    {"menu": "치즈라면", "price": "￦ 5,000"},
-                  ],
-                ),
-                ThirdMenuList(
-                  fullWidth: fullWidth,
-                  title: "분식 코너",
-                  menuList: [
-                    {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
-                    {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
-                    {"menu": "치즈라면", "price": "￦ 5,000"},
-                    {"menu": "치즈라면", "price": "￦ 5,000"},
-                  ],
-                ),
-                ThirdMenuList(
-                  fullWidth: fullWidth,
-                  title: "덮밥 코너",
-                  menuList: [
-                    {"menu": "숯불제육덮밥", "price": "￦ 5,000"},
-                    {"menu": "치즈라면+공기밥", "price": "￦ 5,000"},
-                    {"menu": "치즈라면", "price": "￦ 5,000"},
-                    {"menu": "치즈라면", "price": "￦ 5,000"},
-                  ],
-                ),
+
               ],
             ),
           ]
@@ -303,6 +270,27 @@ class _ThirdFloorState extends State<ThirdFloor> {
                     ),
                   ],
                 ),
+                SizedBox(height: 50.0),
+                ThirdMenuList(
+                  fullWidth: fullWidth,
+                  title: "양식 코너",
+                  menuList: snapshot.data.result["f3m"],
+                ),
+                ThirdMenuList(
+                  fullWidth: fullWidth,
+                  title: "라면 코너",
+                  menuList: snapshot.data.result["f3m"],
+                ),
+                ThirdMenuList(
+                  fullWidth: fullWidth,
+                  title: "분식 코너",
+                  menuList: snapshot.data.result["f3m"],
+                ),
+                ThirdMenuList(
+                  fullWidth: fullWidth,
+                  title: "덮밥 코너",
+                  menuList:  snapshot.data.result["f3m"],
+                ),
               ],
             );
           }
@@ -313,7 +301,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
 class ThirdMenuList extends StatelessWidget {
   final double fullWidth;
   final String title;
-  final List<Map<String, String>> menuList;
+  final List<dynamic> menuList;
 
   const ThirdMenuList({
     Key key,
@@ -373,7 +361,7 @@ class ThirdMenuList extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      menuList[0]["price"],
+                    menuList[0]["price"] == "" ? "￦ 0": menuList[0]["price"],
                       style: TextStyle(
                         color: const Color(0xff131415),
                         fontWeight: FontWeight.w300,
@@ -399,7 +387,7 @@ class ThirdMenuList extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      menuList[1]["price"],
+    menuList[1]["price"] == "" ? "￦ 0": menuList[1]["price"],
                       style: TextStyle(
                         color: const Color(0xff131415),
                         fontWeight: FontWeight.w300,
@@ -425,7 +413,7 @@ class ThirdMenuList extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      menuList[2]["price"],
+                      menuList[2]["price"] == "" ? "￦ 0": menuList[2]["price"],
                       style: TextStyle(
                         color: const Color(0xff131415),
                         fontWeight: FontWeight.w300,
@@ -451,7 +439,7 @@ class ThirdMenuList extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      menuList[3]["price"],
+                    menuList[3]["price"] == "" ? "￦ 0": menuList[3]["price"],
                       style: TextStyle(
                         color: const Color(0xff131415),
                         fontWeight: FontWeight.w300,
