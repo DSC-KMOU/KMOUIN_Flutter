@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/EvacuationList.dart';
 import 'dart:ui';
-
+import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EvacuationFacility extends StatefulWidget {
@@ -41,7 +41,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
     double _mapHeight = _width * (217/375);
     Color _appbarFont = Color(0xff000000);
 
-
+    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(44.0),
