@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
+
 import 'package:kmouin/widgets/MenuCard.dart';
 import 'package:kmouin/widgets/MenuInfo.dart';
 import 'package:kmouin/widgets/MenuData.dart';
@@ -48,7 +48,7 @@ class _DormMenuState extends State<DormMenu> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+
     double fullWidth = MediaQuery.of(context).size.width;
     double fullHeight = MediaQuery.of(context).size.height;
     ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
