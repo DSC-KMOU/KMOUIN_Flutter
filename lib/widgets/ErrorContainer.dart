@@ -8,23 +8,26 @@ class ErrorContainer extends StatelessWidget {
     @required this.reportTitle,
     @required this.reportDescription,
     this.url,
+    this.page,
   });
 
   final String imageName;
   final String reportTitle;
   final String reportDescription;
   final url;
+  final page;
 
   @override
   Widget build(BuildContext context) {
     double _mainWidth = MediaQuery.of(context).size.width;
     double _mainHeight = MediaQuery.of(context).size.height;
-    double _marginHeight = _mainHeight * (2.5/100);
-    double _containerHeight = _mainHeight * (11.1/100);
-    double _containerWidth = _mainWidth * (88.0/100);
-    double _iconSize = _containerHeight * (27.8/100);
+    double _marginHeight = _mainHeight * (2.5 / 100);
+    double _containerHeight = _mainHeight * (11.1 / 100);
+    double _containerWidth = _mainWidth * (88.0 / 100);
+    double _iconSize = _containerHeight * (27.8 / 100);
 
-    ScreenUtil.init(context,width: _mainWidth,height: _mainHeight ,allowFontScaling: false);
+    ScreenUtil.init(context,
+        width: _mainWidth, height: _mainHeight, allowFontScaling: false);
 
     return Container(
         margin: EdgeInsets.only(
@@ -35,14 +38,26 @@ class ErrorContainer extends StatelessWidget {
             borderRadius: new BorderRadius.circular(20.0),
           ),
           onPressed: () {
-            _launchURL(url);
+            if(page!=null) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => page,
+                ),
+              );
+            }
+            else{
+              _launchURL(url);
+            };
           },
           child: Stack(
             children: [
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  margin: EdgeInsets.only(left: _iconSize,),
+                  margin: EdgeInsets.only(
+                    left: _iconSize,
+                  ),
                   width: _iconSize,
                   child: Image.asset(
                     'images/ErrorAndDev/$imageName@3x.png',
