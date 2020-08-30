@@ -22,7 +22,7 @@ class _MenuPageState extends State<MenuPage> {
     double _backgroundSize = _mainHeight * (47.7 / 100);
     double _topMargin = _backgroundSize * (28.9 / 100);
     double _titleMargin = _backgroundSize * (2.8 / 100);
-    double _containerMargin = _mainHeight * (38.2 / 100);
+    double _containerMargin = _mainHeight * (39.8 / 100);
     double _containerSize = _mainWidth * (42.7 / 100);
     double _containerTitle = _containerSize * (20.6 / 100);
     double _containerIcon = _mainWidth * (11.7 / 100);

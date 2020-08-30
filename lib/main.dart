@@ -114,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: <Widget>[
                         Container(
                           margin: EdgeInsets.only(
-                            top: _mainHeight * (10 / 100),
+                            top: _mainHeight * (8.0 / 100),
                           ),
                           child: Text(
                             "해양대생의 정보창구",
@@ -145,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   style: TextStyle(
                                     color: Color(0xfff1f1f1),
                                     letterSpacing: -0.5,
-                                    fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.bold,
                                     fontFamily: "NotoSansKR",
                                     fontStyle: FontStyle.normal,
                                     fontSize: ScreenUtil().setSp(32.0),
@@ -275,7 +275,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ), //상단 타이틀 및 검색바 부분
                 Flexible(
-                  flex: 2,
+                  flex: 3,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -313,7 +313,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Flexible(
-                  flex: 2,
+                  flex: 3,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -351,6 +351,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Flexible(
+                  fit: FlexFit.tight,
                   child: Center(
                     child: FlatButton(
                       shape: new RoundedRectangleBorder(

@@ -309,7 +309,7 @@ class _FacilityPageState extends State<FacilityPage> {
                                       fontStyle: FontStyle.normal,
                                       fontSize: ScreenUtil().setSp(24)),
                                   textAlign: TextAlign.center),
-                              Text("편의점, 카페 등 복지시설",
+                              Text("편의점, 카페 등",
                                   style: TextStyle(
                                       color: const Color(0xff5f605f),
                                       fontWeight: FontWeight.w500,

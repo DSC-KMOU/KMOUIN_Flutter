@@ -18,7 +18,8 @@ class BusInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     double fullWidth = MediaQuery.of(context).size.width;
     double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
+    ScreenUtil.init(context,
+        width: fullWidth, height: fullHeight, allowFontScaling: false);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -225,7 +226,17 @@ class BusInfo extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Text(
-                          "다다다음차",
+                          "다다",
+                          style: TextStyle(
+                            color: const Color(0xff131415),
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "NotoSansKR",
+                            fontStyle: FontStyle.normal,
+                            fontSize: ScreenUtil().setSp(10),
+                          ),
+                        ),
+                        Text(
+                          "다음차",
                           style: TextStyle(
                             color: const Color(0xff131415),
                             fontWeight: FontWeight.w500,
