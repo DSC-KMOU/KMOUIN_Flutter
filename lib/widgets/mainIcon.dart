@@ -14,11 +14,11 @@ class IconContainer extends StatelessWidget {
 
     double _mainWidth = MediaQuery.of(context).size.width;
     double _iconSize = _mainWidth * (17.0/100);
-    double _iconPadding = _iconSize * (19.0/100);
+    double _iconPadding = _iconSize * (18.0/100);
 
 
     return Container(
-      margin: EdgeInsets.fromLTRB(0.0, _iconPadding, 0.0, _iconPadding),
+      margin: EdgeInsets.fromLTRB(0.0, _iconPadding-1.0, 0.0, _iconPadding),
       width: _iconSize,
       height: _iconSize,
       child: Stack(
