@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/CommuterCard.dart';
 import '../widgets/BusRoute.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CoummuterBusPage extends StatefulWidget {
@@ -54,7 +54,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+
     double fullWidth = MediaQuery.of(context).size.width;
     double fullHeight = MediaQuery.of(context).size.height;
     ScreenUtil.init(context,width: fullWidth,height: fullHeight,allowFontScaling: false);

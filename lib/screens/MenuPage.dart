@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
+
 import 'package:kmouin/screens/DormMenu.dart';
 import 'package:kmouin/screens/FifthFloor.dart';
 import 'package:kmouin/screens/ThirdFloor.dart';
@@ -32,7 +32,7 @@ class _MenuPageState extends State<MenuPage> {
     double fullHeight = MediaQuery.of(context).size.height;
     ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
 
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+
 
     Color _appbarFont = Color(0xffffffff);
 

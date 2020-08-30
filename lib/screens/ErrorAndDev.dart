@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kmouin/screens/DeveloperInfo.dart';
 import 'package:kmouin/widgets/ErrorContainer.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ErrorAndDev extends StatefulWidget {
   @override
@@ -16,7 +14,7 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
   Widget build(BuildContext context) {
     double _mainWidth = MediaQuery.of(context).size.width;
     double _mainHeight = MediaQuery.of(context).size.height;
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+
     Color _appbarFont = Color(0xff5b9fee);
 
     ScreenUtil.init(context,width: _mainWidth,height: _mainHeight ,allowFontScaling: false);
