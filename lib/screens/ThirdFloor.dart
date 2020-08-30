@@ -8,6 +8,8 @@ import 'package:kmouin/widgets/MenuData.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'Dart:ui';
+import 'package:kmouin/widgets/MenulistCard.dart';
+import 'package:kmouin/widgets/MenulistInfo.dart';
 
 class ThirdFloor extends StatefulWidget {
   @override
@@ -37,12 +39,20 @@ class _ThirdFloorState extends State<ThirdFloor> {
           "f2d": ["식단 정보 없음"],
           "f2s": ["식단 정보 없음"],
           "f3b": ["식단 정보 없음"],
-          "f3m": [
-            {"menu": "메뉴 정보 없음", "price": ""},
-            {"menu": "메뉴 정보 없음", "price": ""},
-            {"menu": "메뉴 정보 없음", "price": ""},
-            {"menu": "메뉴 정보 없음", "price": ""}
-          ],
+          "f3m": {
+            "yc": [
+              {"menu": "메뉴 정보 없음", "price": ""},
+            ],
+            "rc": [
+              {"menu": "메뉴 정보 없음", "price": ""},
+            ],
+            "bc": [
+              {"menu": "메뉴 정보 없음", "price": ""},
+            ],
+            "dc": [
+              {"menu": "메뉴 정보 없음", "price": ""},
+            ],
+          },
           "f5l": ["식단 정보 없음"],
           "f5s": ["식단 정보 없음"],
         }
@@ -224,7 +234,6 @@ class _ThirdFloorState extends State<ThirdFloor> {
                 ),
                 SizedBox(height: 28.0),
                 buildFutureBuilder(fullWidth),
-
               ],
             ),
           ]
@@ -271,190 +280,45 @@ class _ThirdFloorState extends State<ThirdFloor> {
                   ],
                 ),
                 SizedBox(height: 50.0),
-                ThirdMenuList(
+                MenuListCard(
                   fullWidth: fullWidth,
                   title: "양식 코너",
-                  menuList: snapshot.data.result["f3m"],
+                  children: <Widget>[
+                    MenuListInfo(
+                      menuTable: snapshot.data.result["f3m"]["yc"],
+                    ),
+                  ],
                 ),
-                ThirdMenuList(
+                MenuListCard(
                   fullWidth: fullWidth,
                   title: "라면 코너",
-                  menuList: snapshot.data.result["f3m"],
+                  children: <Widget>[
+                    MenuListInfo(
+                      menuTable: snapshot.data.result["f3m"]["rc"],
+                    ),
+                  ],
                 ),
-                ThirdMenuList(
+                MenuListCard(
                   fullWidth: fullWidth,
                   title: "분식 코너",
-                  menuList: snapshot.data.result["f3m"],
+                  children: <Widget>[
+                    MenuListInfo(
+                      menuTable: snapshot.data.result["f3m"]["bc"],
+                    ),
+                  ],
                 ),
-                ThirdMenuList(
+                MenuListCard(
                   fullWidth: fullWidth,
                   title: "덮밥 코너",
-                  menuList:  snapshot.data.result["f3m"],
+                  children: <Widget>[
+                    MenuListInfo(
+                      menuTable: snapshot.data.result["f3m"]["dc"],
+                    ),
+                  ],
                 ),
               ],
             );
           }
         });
-  }
-}
-
-class ThirdMenuList extends StatelessWidget {
-  final double fullWidth;
-  final String title;
-  final List<dynamic> menuList;
-
-  const ThirdMenuList({
-    Key key,
-    this.fullWidth,
-    this.title,
-    this.menuList,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-        left: fullWidth * 0.06,
-        bottom: 45.0,
-        right: fullWidth * 0.06,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(left: fullWidth * 0.02),
-            child: Text(
-              title,
-              style: TextStyle(
-                color: const Color(0xff131415),
-                fontWeight: FontWeight.w500,
-                fontFamily: "NotoSansKR",
-                fontStyle: FontStyle.normal,
-                fontSize: ScreenUtil().setSp(24),
-              ),
-            ),
-          ),
-          Divider(
-            thickness: 1.0,
-            endIndent: 5.0,
-            color: Color(0xffc53786),
-          ),
-          Container(
-            padding: EdgeInsets.only(
-              left: fullWidth * 0.0186,
-              top: 8.0,
-              right: fullWidth * 0.0186,
-            ),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      menuList[0]["menu"],
-                      style: TextStyle(
-                        color: const Color(0xff131415),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(16),
-                      ),
-                    ),
-                    Text(
-                    menuList[0]["price"] == "" ? "￦ 0": menuList[0]["price"],
-                      style: TextStyle(
-                        color: const Color(0xff131415),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(16),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      menuList[1]["menu"],
-                      style: TextStyle(
-                        color: const Color(0xff131415),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(16),
-                      ),
-                    ),
-                    Text(
-    menuList[1]["price"] == "" ? "￦ 0": menuList[1]["price"],
-                      style: TextStyle(
-                        color: const Color(0xff131415),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(16),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      menuList[2]["menu"],
-                      style: TextStyle(
-                        color: const Color(0xff131415),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(16),
-                      ),
-                    ),
-                    Text(
-                      menuList[2]["price"] == "" ? "￦ 0": menuList[2]["price"],
-                      style: TextStyle(
-                        color: const Color(0xff131415),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(16),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      menuList[3]["menu"],
-                      style: TextStyle(
-                        color: const Color(0xff131415),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(16),
-                      ),
-                    ),
-                    Text(
-                    menuList[3]["price"] == "" ? "￦ 0": menuList[3]["price"],
-                      style: TextStyle(
-                        color: const Color(0xff131415),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(16),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
-    );
   }
 }
