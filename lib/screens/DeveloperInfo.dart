@@ -5,8 +5,8 @@ import 'package:flutter/rendering.dart';
 import 'dart:convert';
 
 
-class DeveloperPage extends StatefulWidget {
-  DeveloperPage({Key key, this.title}) : super(key: key);
+class DeveloperInfo extends StatefulWidget {
+  DeveloperInfo({Key key, this.title}) : super(key: key);
 
   final String title;
 
@@ -14,7 +14,7 @@ class DeveloperPage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<DeveloperPage> with TickerProviderStateMixin {
+class _MyHomePageState extends State<DeveloperInfo> with TickerProviderStateMixin {
   bool key = false;
   double begin, end;
   bool ismoved = false;
