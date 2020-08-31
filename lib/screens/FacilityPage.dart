@@ -18,7 +18,8 @@ class _FacilityPageState extends State<FacilityPage> {
   int _stdRoomNum_2 = 2;
   int _stdRoomNum_3 = 3;
   int _stdRoomNum_4 = 4;
-  String _kmouPage = 'http://www.kmou.ac.kr/coop/cm/cntnts/cntntsView.do?mi=1181&cntntsId=1102';
+  String _kmouPage =
+      'http://www.kmou.ac.kr/coop/cm/cntnts/cntntsView.do?mi=1181&cntntsId=1102';
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +35,7 @@ class _FacilityPageState extends State<FacilityPage> {
     double _bottom = MediaQuery.of(context).padding.bottom;
     double _screenHeight = _height;
     ScreenUtil.init(context,
-        width: _width,
-        height: _screenHeight ,
-        allowFontScaling: false
-    );
+        width: _width, height: _screenHeight, allowFontScaling: false);
 
     Color _appbarFont = Color(0xffffffff);
 
@@ -54,11 +52,14 @@ class _FacilityPageState extends State<FacilityPage> {
           title: Align(
             alignment: Alignment.centerLeft,
             child: FlatButton(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(44.0)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(44.0)),
               onPressed: () {
-                setState(() {
-                  Navigator.pop(context);
-                },);
+                setState(
+                  () {
+                    Navigator.pop(context);
+                  },
+                );
               },
               padding: EdgeInsets.only(left: 5.0, right: 5.0),
               child: Align(
@@ -69,7 +70,7 @@ class _FacilityPageState extends State<FacilityPage> {
                   children: <Widget>[
                     Icon(
                       CupertinoIcons.back,
-                      color:  _appbarFont,
+                      color: _appbarFont,
                     ),
                     Text(
                       "메인",
@@ -132,8 +133,7 @@ class _FacilityPageState extends State<FacilityPage> {
                         fontWeight: FontWeight.w300,
                         fontFamily: "NotoSansKR",
                         fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(22)
-                    ),
+                        fontSize: ScreenUtil().setSp(22)),
                   ),
                 ),
               ),
@@ -143,39 +143,36 @@ class _FacilityPageState extends State<FacilityPage> {
                   SizedBox(
                     height: _screenHeight * (3.57 / 100),
                   ),
-
                   Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Flexible(
-                          child: InkWell(
-                            child: LibButton(
-                              num: 1,
-                              stdRoomNum: _stdRoomNum_1,
-                              screenWidth: _width,
-                              screenHeight: _screenHeight,
-                            ),
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Flexible(
+                        child: InkWell(
+                          child: LibButton(
+                            num: 1,
+                            stdRoomNum: _stdRoomNum_1,
+                            screenWidth: _width,
+                            screenHeight: _screenHeight,
                           ),
                         ),
-                        Flexible(
-                          child: InkWell(
+                      ),
+                      Flexible(
+                        child: InkWell(
 //                        onTap: () {
 //                          setState(() {
 //                            _stdRoomNum_2 = _stdRoomNum_2 + 1;
 //                          });
 //                        },
-                            child: LibButton(
-                              num: 2,
-                              stdRoomNum: _stdRoomNum_2,
-                              screenWidth: _width,
-                              screenHeight: _screenHeight,
-                            ),
+                          child: LibButton(
+                            num: 2,
+                            stdRoomNum: _stdRoomNum_2,
+                            screenWidth: _width,
+                            screenHeight: _screenHeight,
                           ),
-                        )
-                      ],
-                    ),
-
-
+                        ),
+                      )
+                    ],
+                  ),
                   SizedBox(
                     height: _screenHeight * (1.84 / 100),
                   ),
@@ -220,8 +217,7 @@ class _FacilityPageState extends State<FacilityPage> {
                         width: _width * (42.7 / 100),
                         height: _width * (42.7 / 100),
                         decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.all(Radius.circular(20)),
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                             boxShadow: [
                               BoxShadow(
                                   color: const Color(0x80cacaca),
@@ -231,48 +227,51 @@ class _FacilityPageState extends State<FacilityPage> {
                             ],
                             color: Colors.white),
                         child: FlatButton(
-                          onPressed: () async {
-                            await showDialog<void>(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return CupertinoAlertDialog(
-                                  title: Text(
-                                    '<준비중>',
-                                    style: TextStyle(fontSize: ScreenUtil().setSp(14)),
-                                  ),
-                                  content: Column(
-                                    children: [
-                                      Text(
-                                        '추가예정입니다.',
-                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
-                                      ),
-                                      Text(
-                                        "더 나은 서비스로 찾아뵙겠습니다",
-                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
-                                      ),
-                                    ],
-                                  ),
-                                  actions: <Widget>[
-                                    FlatButton(
-                                      onPressed: () {
-                                        _launchURL(_kmouPage);
-                                      },
-                                      child: Text('홈페이지',
-                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
-                                      ),
-                                    ),
-                                    FlatButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text('OK',
-                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
+                          onPressed: () {
+                            _launchURL(_kmouPage);
                           },
+//                          onPressed: () async {
+//                            await showDialog<void>(
+//                              context: context,
+//                              builder: (BuildContext context) {
+//                                return CupertinoAlertDialog(
+//                                  title: Text(
+//                                    '<준비중>',
+//                                    style: TextStyle(fontSize: ScreenUtil().setSp(14)),
+//                                  ),
+//                                  content: Column(
+//                                    children: [
+//                                      Text(
+//                                        '추가예정입니다.',
+//                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
+//                                      ),
+//                                      Text(
+//                                        "더 나은 서비스로 찾아뵙겠습니다",
+//                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
+//                                      ),
+//                                    ],
+//                                  ),
+//                                  actions: <Widget>[
+//                                    FlatButton(
+//                                      onPressed: () {
+//                                        _launchURL(_kmouPage);
+//                                      },
+//                                      child: Text('홈페이지',
+//                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
+//                                      ),
+//                                    ),
+//                                    FlatButton(
+//                                      onPressed: () {
+//                                        Navigator.pop(context);
+//                                      },
+//                                      child: Text('OK',
+//                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),),
+//                                    ),
+//                                  ],
+//                                );
+//                              },
+//                            );
+//                          },
                           shape: new RoundedRectangleBorder(
                             borderRadius: new BorderRadius.circular(20.0),
                           ),
@@ -281,7 +280,7 @@ class _FacilityPageState extends State<FacilityPage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               SizedBox(
-                                height: _screenHeight * (36/812),
+                                height: _screenHeight * (36 / 812),
                               ),
                               Row(
                                 children: <Widget>[
@@ -299,7 +298,7 @@ class _FacilityPageState extends State<FacilityPage> {
                                 ],
                               ),
                               SizedBox(
-                                height: _screenHeight * (14/812),
+                                height: _screenHeight * (14 / 812),
                               ),
                               Text("편의 시설",
                                   style: TextStyle(
@@ -330,8 +329,7 @@ class _FacilityPageState extends State<FacilityPage> {
                         width: _width * (42.7 / 100),
                         height: _width * (42.7 / 100),
                         decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.all(Radius.circular(20)),
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                             boxShadow: [
                               BoxShadow(
                                   color: const Color(0x80cacaca),
@@ -357,19 +355,19 @@ class _FacilityPageState extends State<FacilityPage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               SizedBox(
-                                height: _screenHeight * (31/812),
+                                height: _screenHeight * (31 / 812),
                               ),
                               Container(
-                                height: _screenHeight * (49.2/812),
-                                width: _width * (35/375),
+                                height: _screenHeight * (49.2 / 812),
+                                width: _width * (35 / 375),
                                 child: Image.asset(
                                   'images/FacilityPage/sos.png',
                                   fit: BoxFit.fitHeight,
                                 ),
                               ),
-                            SizedBox(
-                              height: _screenHeight * (17.8/812),
-                            ),
+                              SizedBox(
+                                height: _screenHeight * (17.8 / 812),
+                              ),
                               Text("대피 시설 및 지도",
                                   style: TextStyle(
                                       color: const Color(0xff131415),
@@ -379,7 +377,7 @@ class _FacilityPageState extends State<FacilityPage> {
                                       fontSize: ScreenUtil().setSp(20)),
                                   textAlign: TextAlign.center),
                               Text("대피로",
-                                  style:  TextStyle(
+                                  style: TextStyle(
                                       color: const Color(0xff5f605f),
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
