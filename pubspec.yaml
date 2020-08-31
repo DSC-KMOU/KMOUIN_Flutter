@@ -75,6 +75,8 @@ flutter:
     - images/ErrorAndDev/error@3x.png
     - images/ErrorAndDev/survey@3x.png
     - images/ErrorAndDev/DevTeam@3x.png
+    - images/ErrorAndDev/developerPagelogo.png
+    - images/ErrorAndDev/developerPagebackground.png
     - images/map/aZone@3x.png
     - images/map/bZone@3x.png
     - images/map/cZone@3x.png
