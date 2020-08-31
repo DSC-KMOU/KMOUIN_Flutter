@@ -229,6 +229,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         if (value.toString() ==
                                             keywords[i].toString()) {
                                           _connect = i;
+                                          _controller.clear();
                                           return pagePop(i);
                                         }
                                       }
@@ -246,7 +247,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   style: TextStyle(fontSize: ScreenUtil().setSp(14)),
                                                 ),
                                                 Text(
-                                                  "[키워드] \n 통근 / 통근버스 / 2층 / 3층 / 5층 \n 교직원 / 기숙사 / 생활관 \n 편의시설 / 대피시설",
+                                                  "[키워드] \n 통근 / 통근버스 / 2층 / 3층 / 5층 \n 교직원 / 기숙사 / 생활관 \n 지도 / 대피시설",
                                                   style: TextStyle(fontSize: ScreenUtil().setSp(14)),
                                                 ),
                                               ],
@@ -254,6 +255,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             actions: <Widget>[
                                               FlatButton(
                                                 onPressed: () {
+                                                  _controller.clear();
                                                   Navigator.pop(context);
                                                 },
                                                 child: Text('OK',
