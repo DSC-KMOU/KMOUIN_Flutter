@@ -28,7 +28,7 @@ class _MyHomePageState extends State<DeveloperPage> {
           preferredSize: Size.fromHeight(44.0),
           child: AppBar(
             centerTitle: false,
-            titleSpacing: -15.0,
+            titleSpacing: -6.0,
             backgroundColor: Colors.transparent,
             elevation: 0.0,
             automaticallyImplyLeading: false,
@@ -44,7 +44,7 @@ class _MyHomePageState extends State<DeveloperPage> {
                     },
                   );
                 },
-                padding: EdgeInsets.only(left: 1.0, right: 5.0),
+                padding: EdgeInsets.only(left: 5.0, right: 5.0),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   widthFactor: 1.5,
@@ -54,6 +54,17 @@ class _MyHomePageState extends State<DeveloperPage> {
                       Icon(
                         CupertinoIcons.back,
                         color: _appbarFont,
+                      ),
+                      Text(
+                        "뒤로",
+                        style: TextStyle(
+                          color: _appbarFont,
+                          fontWeight: FontWeight.w300,
+                          fontFamily: "NotoSansKR",
+                          fontStyle: FontStyle.normal,
+                          fontSize: 16.0,
+                          wordSpacing: 0.0,
+                        ),
                       ),
                     ],
                   ),
@@ -90,48 +101,75 @@ class _MyHomePageState extends State<DeveloperPage> {
                     SizedBox(height: 45.0),
                     TitleChip(width: fullWidth * 0.587, title: "메인페이지 개발"),
                     LeaderText(major: "IT 융합", name: "김민욱"),
-                    Text(
-                      "팀원",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(14.0),
+                    Divider(
+                      indent: fullWidth*0.41,
+                      endIndent: fullWidth*0.41,
+                      color: Colors.white,
+                      thickness: 0.5,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom:5.0,top:10.0),
+                      child: Text(
+                        "팀원",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: "NotoSansKR",
+                          fontStyle: FontStyle.normal,
+                          fontSize: ScreenUtil().setSp(14.0),
+                        ),
                       ),
                     ),
                     MemberText(major: "해양생명과학", name: "강은솔"),
-                    MemberText(major: "국제통상", name: "강호연"),
+                    MemberText(major: "전파공학", name: "강호연"),
                     MemberText(major: "국제통상", name: "윤예진"),
                     MemberText(major: "조선해양시스템", name: "전현경"),
                     SizedBox(height: 45.0),
                     TitleChip(width: fullWidth * 0.587, title: "버스페이지 개발"),
                     LeaderText(major: "전자통신", name: "한채연"),
-                    Text(
-                      "팀원",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(14.0),
+                    Divider(
+                      indent: fullWidth*0.41,
+                      endIndent: fullWidth*0.41,
+                      color: Colors.white,
+                      thickness: 0.5,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom:5.0,top:10.0),
+                      child: Text(
+                        "팀원",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: "NotoSansKR",
+                          fontStyle: FontStyle.normal,
+                          fontSize: ScreenUtil().setSp(14.0),
+                        ),
                       ),
                     ),
                     MemberText(major: "기관공학", name: "강정인"),
                     MemberText(major: "데이터정보", name: "김정민"),
-                    MemberText(major: "국제통상", name: "남궁재원"),
+                    MemberText(major: "해양공학", name: "남궁재원"),
                     MemberText(major: "데이터정보", name: "최희주"),
                     SizedBox(height: 45.0),
                     TitleChip(width: fullWidth * 0.587, title: "식단페이지 개발"),
                     LeaderText(major: "IT 융합", name: "박선호"),
-                    Text(
-                      "팀원",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(14.0),
+                    Divider(
+                      indent: fullWidth*0.41,
+                      endIndent: fullWidth*0.41,
+                      color: Colors.white,
+                      thickness: 0.5,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom:5.0,top:10.0),
+                      child: Text(
+                        "팀원",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: "NotoSansKR",
+                          fontStyle: FontStyle.normal,
+                          fontSize: ScreenUtil().setSp(14.0),
+                        ),
                       ),
                     ),
                     MemberText(major: "해양생명과학", name: "오희강"),
@@ -143,14 +181,23 @@ class _MyHomePageState extends State<DeveloperPage> {
                       title: "시설페이지 개발",
                     ),
                     LeaderText(major: "IT 융합", name: "김호은"),
-                    Text(
-                      "팀원",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(14.0),
+                    Divider(
+                      indent: fullWidth*0.41,
+                      endIndent: fullWidth*0.41,
+                      color: Colors.white,
+                      thickness: 0.5,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom:5.0,top:10.0),
+                      child: Text(
+                        "팀원",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: "NotoSansKR",
+                          fontStyle: FontStyle.normal,
+                          fontSize: ScreenUtil().setSp(14.0),
+                        ),
                       ),
                     ),
                     MemberText(major: "제어계측", name: "정수민"),
@@ -160,14 +207,23 @@ class _MyHomePageState extends State<DeveloperPage> {
                       major: "IT 융합",
                       name: "정교준",
                     ),
-                    Text(
-                      "팀원",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(14.0),
+                    Divider(
+                      indent: fullWidth*0.41,
+                      endIndent: fullWidth*0.41,
+                      color: Colors.white,
+                      thickness: 0.5,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom:5.0,top:10.0),
+                      child: Text(
+                        "팀원",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: "NotoSansKR",
+                          fontStyle: FontStyle.normal,
+                          fontSize: ScreenUtil().setSp(14.0),
+                        ),
                       ),
                     ),
                     MemberText(major: "해양공학", name: "손경미"),
@@ -254,6 +310,19 @@ class LeaderText extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 10.0),
       child: Column(
         children: <Widget>[
+          Container(
+            margin: EdgeInsets.only(bottom:5.0),
+            child: Text(
+              "팀장",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+                fontFamily: "NotoSansKR",
+                fontStyle: FontStyle.normal,
+                fontSize: ScreenUtil().setSp(18.0),
+              ),
+            ),
+          ),
           Text(
             major,
             style: TextStyle(
@@ -272,16 +341,6 @@ class LeaderText extends StatelessWidget {
             textBaseline: TextBaseline.alphabetic,
             children: <Widget>[
               Text(
-                "팀장",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontFamily: "NotoSansKR",
-                  fontStyle: FontStyle.normal,
-                  fontSize: ScreenUtil().setSp(12.0),
-                ),
-              ),
-              Text(
                 name,
                 style: TextStyle(
                   color: Colors.white,
@@ -293,7 +352,7 @@ class LeaderText extends StatelessWidget {
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
