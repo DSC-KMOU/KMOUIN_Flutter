@@ -378,7 +378,7 @@ class _MyHomePageState extends State<DeveloperPage> with TickerProviderStateMixi
   }
 
   Color _appbarFont = Colors.white;
-
+  Color _backgroundColor = const Color(0xff2a67c2);
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context,
@@ -457,15 +457,8 @@ class _MyHomePageState extends State<DeveloperPage> with TickerProviderStateMixi
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment(1, 1.0066717739762931),
-                    end: Alignment(-0.3834225260416666, -0.3105676773146455),
-                    colors: [
-                  const Color(0xff2862c1),
-                  const Color(0xff358acb),
-                  //Colors.brightCyan,
-                  //Colors.brightCyan
-                ])),
+              color:_backgroundColor,
+                ),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
@@ -487,7 +480,7 @@ class _MyHomePageState extends State<DeveloperPage> with TickerProviderStateMixi
                           width: MediaQuery.of(context).size.height * 0.15,
                           height: MediaQuery.of(context).size.height * 0.18,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Colors.transparent,
                           ),
                           child: Image.asset(
                             'images/frontPage/newLogo@3x.png',
@@ -509,14 +502,8 @@ class _MyHomePageState extends State<DeveloperPage> with TickerProviderStateMixi
                       height: MediaQuery.of(context).size.height * 0.30,
                       alignment: Alignment.topCenter,
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment(1, 1.0066717739762931),
-                              end: Alignment(
-                                  0.58497324218750002, 0.60482816461271842),
-                              colors: [
-                            const Color(0xff2862c1),
-                            const Color(0xff358acb),
-                          ])),
+                          color:_backgroundColor,
+                      ),
                       child: Padding(
                           padding: const EdgeInsets.only(top: 100),
                           child: Text('개발자정보',
@@ -638,16 +625,7 @@ class _MyHomePageState extends State<DeveloperPage> with TickerProviderStateMixi
                 height:
                     MediaQuery.of(context).size.height * 0.5 * animation.value,
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment(1, 1.0066717739762931),
-                        end:
-                            Alignment(-0.3834225260416666, -0.3105676773146455),
-                        colors: [
-                      const Color(0xff2862c1),
-                      const Color(0xff358acb),
-                      //Colors.brightCyan,
-                      //Colors.brightCyan
-                    ])),
+                    color:_backgroundColor),
               ),
             ],
           );
@@ -669,16 +647,8 @@ class _MyHomePageState extends State<DeveloperPage> with TickerProviderStateMixi
                       animation.value,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment(1, 1.0066717739762931),
-                          end: Alignment(
-                              -0.3834225260416666, -0.3105676773146455),
-                          colors: [
-                        const Color(0xff2862c1),
-                        const Color(0xff358acb),
-                        //Colors.brightCyan,
-                        //Colors.brightCyan
-                      ])),
+                      color:_backgroundColor
+                  ),
                   child: Text('Thank You!!',
                       style: TextStyle(
                           color: Colors.white,
@@ -906,55 +876,63 @@ class _MyHomePageState extends State<DeveloperPage> with TickerProviderStateMixi
       width: MediaQuery.of(context).size.width / 2 - 10,
       child: Column(
         children: <Widget>[
-          Row(children: <Widget>[
-            Expanded(child: Text('')),
-            Text(
-              _class,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w300,
-                  fontFamily: "NotoSansKR",
-                  fontStyle: FontStyle.normal,
-                  fontSize: ScreenUtil().setSp(12.0)),
-            ),
-          ]),
+          Container(
+            height:15,
+            width:MediaQuery.of(context).size.width / 2 - 10,
+            child: Row(children: <Widget>[
+              Expanded(child: Text('')),
+              Text(
+                _class,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "NotoSansKR",
+                    fontStyle: FontStyle.normal,
+                    fontSize: ScreenUtil().setSp(12.0)),
+              ),
+            ]),
+          ),
           //Expanded(child:Text('')),
-          Expanded(
-            child: Row(
-              children: <Widget>[
-                Expanded(child: Text('')),
-                Column(
-                  children: <Widget>[
-                    Expanded(child: Text('')),
-                    Container(
-                      child: Text("팀장",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: "NotoSansKR",
-                              fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(15.0)),
-                          textAlign: TextAlign.center),
-                    ),
-                  ],
-                ),
-                SizedBox(width: 8),
-                Column(
-                  children: <Widget>[
-                    Expanded(child: Text('')),
-                    Container(
-                      child: Text(name,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                              fontFamily: "NotoSansKR",
-                              //fontStyle:  FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(20.0)),
-                          textAlign: TextAlign.center),
-                    ),
-                  ],
-                ),
-              ],
+          Container(
+            height:35,
+            width:MediaQuery.of(context).size.width / 2 - 10,
+            child: Expanded(
+              child: Row(
+                children: <Widget>[
+                  Expanded(child: Text('')),
+                  Column(
+                    children: <Widget>[
+                      Expanded(child: Text('')),
+                      Container(
+                        child: Text("팀장",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: "NotoSansKR",
+                                fontStyle: FontStyle.normal,
+                                fontSize: ScreenUtil().setSp(15.0)),
+                            textAlign: TextAlign.center),
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: 8),
+                  Column(
+                    children: <Widget>[
+                      Expanded(child: Text('')),
+                      Container(
+                        child: Text(name,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: "NotoSansKR",
+                                //fontStyle:  FontStyle.normal,
+                                fontSize: ScreenUtil().setSp(20.0)),
+                            textAlign: TextAlign.center),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -987,16 +965,19 @@ class _MyHomePageState extends State<DeveloperPage> with TickerProviderStateMixi
           Row(
             children: <Widget>[
               Expanded(child: Text('')),
-              Text(
+              FittedBox(
+                fit: BoxFit.contain,
+                child: Text(
                 name,
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
                     fontFamily: "NotoSansKR",
                     fontStyle: FontStyle.normal,
-                    fontSize: ScreenUtil().setSp(20.0)),
+                    fontSize: ScreenUtil().setSp(16.0)),
                 textAlign: TextAlign.center,
-              ),
+                ),
+              )
             ],
           )
         ]));
