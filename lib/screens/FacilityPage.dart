@@ -227,67 +227,22 @@ class _FacilityPageState extends State<FacilityPage> {
                             ],
                             color: Colors.white),
                         child: FlatButton(
+                          padding: EdgeInsets.all(0.0),
                           onPressed: () {
                             _launchURL(_kmouPage);
                           },
-//                          onPressed: () async {
-//                            await showDialog<void>(
-//                              context: context,
-//                              builder: (BuildContext context) {
-//                                return CupertinoAlertDialog(
-//                                  title: Text(
-//                                    '<준비중>',
-//                                    style: TextStyle(fontSize: ScreenUtil().setSp(14)),
-//                                  ),
-//                                  content: Column(
-//                                    children: [
-//                                      Text(
-//                                        '추가예정입니다.',
-//                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
-//                                      ),
-//                                      Text(
-//                                        "더 나은 서비스로 찾아뵙겠습니다",
-//                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
-//                                      ),
-//                                    ],
-//                                  ),
-//                                  actions: <Widget>[
-//                                    FlatButton(
-//                                      onPressed: () {
-//                                        _launchURL(_kmouPage);
-//                                      },
-//                                      child: Text('홈페이지',
-//                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),
-//                                      ),
-//                                    ),
-//                                    FlatButton(
-//                                      onPressed: () {
-//                                        Navigator.pop(context);
-//                                      },
-//                                      child: Text('OK',
-//                                        style: TextStyle(fontSize: ScreenUtil().setSp(14)),),
-//                                    ),
-//                                  ],
-//                                );
-//                              },
-//                            );
-//                          },
                           shape: new RoundedRectangleBorder(
                             borderRadius: new BorderRadius.circular(20.0),
                           ),
                           //highlightColor: Colors.white,
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              SizedBox(
-                                height: _screenHeight * (36 / 812),
-                              ),
                               Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  SizedBox(
-                                    width: _width * (12 / 100),
-                                  ),
                                   Container(
+                                    margin:EdgeInsets.only(bottom:_screenHeight * (14 / 812),),
                                     height: _screenHeight * (5.4 / 100),
                                     width: _width * (11.7 / 100),
                                     child: Image.asset(
@@ -296,9 +251,6 @@ class _FacilityPageState extends State<FacilityPage> {
                                     ),
                                   ),
                                 ],
-                              ),
-                              SizedBox(
-                                height: _screenHeight * (14 / 812),
                               ),
                               Text("편의 시설",
                                   style: TextStyle(
@@ -320,11 +272,6 @@ class _FacilityPageState extends State<FacilityPage> {
                           ),
                         ),
                       ),
-//                      SizedBox(
-//                        width: _width * (4/100),
-//                      ),
-
-                      //대피 시설 및 지도
                       Container(
                         width: _width * (42.7 / 100),
                         height: _width * (42.7 / 100),
@@ -339,6 +286,7 @@ class _FacilityPageState extends State<FacilityPage> {
                             ],
                             color: Colors.white),
                         child: FlatButton(
+                          padding: EdgeInsets.all(0.0),
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -349,24 +297,23 @@ class _FacilityPageState extends State<FacilityPage> {
                           shape: new RoundedRectangleBorder(
                             borderRadius: new BorderRadius.circular(20.0),
                           ),
-                          padding: EdgeInsets.all(0.0),
+                          //highlightColor: Colors.white,
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              SizedBox(
-                                height: _screenHeight * (31 / 812),
-                              ),
-                              Container(
-                                height: _screenHeight * (49.2 / 812),
-                                width: _width * (35 / 375),
-                                child: Image.asset(
-                                  'images/FacilityPage/sos.png',
-                                  fit: BoxFit.fitHeight,
-                                ),
-                              ),
-                              SizedBox(
-                                height: _screenHeight * (17.8 / 812),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Container(
+                                    margin:EdgeInsets.only(bottom:_screenHeight * (14 / 812),),
+                                    height: _screenHeight * (5.4 / 100),
+                                    width: _width * (11.7 / 100),
+                                    child: Image.asset(
+                                      'images/FacilityPage/sos.png',
+                                      fit: BoxFit.fitHeight,
+                                    ),
+                                  ),
+                                ],
                               ),
                               Text("대피 시설 및 지도",
                                   style: TextStyle(
@@ -374,9 +321,9 @@ class _FacilityPageState extends State<FacilityPage> {
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
                                       fontStyle: FontStyle.normal,
-                                      fontSize: ScreenUtil().setSp(20)),
+                                      fontSize: ScreenUtil().setSp(24)),
                                   textAlign: TextAlign.center),
-                              Text("대피로",
+                              Text("대피로 및 지도",
                                   style: TextStyle(
                                       color: const Color(0xff5f605f),
                                       fontWeight: FontWeight.w500,
@@ -388,6 +335,71 @@ class _FacilityPageState extends State<FacilityPage> {
                           ),
                         ),
                       ),
+
+                      //대피 시설 및 지도
+//                      Container(
+//                        width: _width * (42.7 / 100),
+//                        height: _width * (42.7 / 100),
+//                        decoration: BoxDecoration(
+//                            borderRadius: BorderRadius.all(Radius.circular(20)),
+//                            boxShadow: [
+//                              BoxShadow(
+//                                  color: const Color(0x80cacaca),
+//                                  offset: Offset(0, -1),
+//                                  blurRadius: 16,
+//                                  spreadRadius: 2)
+//                            ],
+//                            color: Colors.white),
+//                        child: FlatButton(
+//                          onPressed: () {
+//                            Navigator.push(
+//                              context,
+//                              MaterialPageRoute(
+//                                  builder: (context) => EvacuationFacility()),
+//                            );
+//                          },
+//                          shape: new RoundedRectangleBorder(
+//                            borderRadius: new BorderRadius.circular(20.0),
+//                          ),
+//                          padding: EdgeInsets.all(0.0),
+//                          child: Column(
+//                            crossAxisAlignment: CrossAxisAlignment.center,
+//                            mainAxisAlignment: MainAxisAlignment.start,
+//                            children: <Widget>[
+//                              SizedBox(
+//                                height: _screenHeight * (31 / 812),
+//                              ),
+//                              Container(
+//                                height: _screenHeight * (49.2 / 812),
+//                                width: _width * (35 / 375),
+//                                child: Image.asset(
+//                                  'images/FacilityPage/sos.png',
+//                                  fit: BoxFit.fitHeight,
+//                                ),
+//                              ),
+//                              SizedBox(
+//                                height: _screenHeight * (17.8 / 812),
+//                              ),
+//                              Text("대피 시설 및 지도",
+//                                  style: TextStyle(
+//                                      color: const Color(0xff131415),
+//                                      fontWeight: FontWeight.w500,
+//                                      fontFamily: "NotoSansKR",
+//                                      fontStyle: FontStyle.normal,
+//                                      fontSize: ScreenUtil().setSp(20)),
+//                                  textAlign: TextAlign.center),
+//                              Text("대피로",
+//                                  style: TextStyle(
+//                                      color: const Color(0xff5f605f),
+//                                      fontWeight: FontWeight.w500,
+//                                      fontFamily: "NotoSansKR",
+//                                      fontStyle: FontStyle.normal,
+//                                      fontSize: ScreenUtil().setSp(12)),
+//                                  textAlign: TextAlign.center)
+//                            ],
+//                          ),
+//                        ),
+//                      ),
                     ],
                   ),
                 ],
