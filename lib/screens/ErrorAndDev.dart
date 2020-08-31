@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kmouin/main.dart';
 import 'DevLicense.dart';
-import 'package:kmouin/screens/DeveloperInfo.dart';
+import 'package:kmouin/screens/DeveloperPage.dart';
 import 'package:kmouin/widgets/ErrorContainer.dart';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
