@@ -54,7 +54,8 @@ class _SecondFloorState extends State<SecondFloor> {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     double fullWidth = MediaQuery.of(context).size.width;
     double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
+    ScreenUtil.init(context,
+        width: fullWidth, height: fullHeight, allowFontScaling: false);
     Color _appbarFont = Color(0xffeb577c);
 
     return Scaffold(
@@ -242,7 +243,21 @@ class _SecondFloorState extends State<SecondFloor> {
               ],
             );
           } else if (snapshot.hasError) {
-            return Text("error");
+            return Column(
+              children: <Widget>[
+                SizedBox(height: 50.0),
+                Text(
+                  "error",
+                  style: TextStyle(
+                    color: const Color(0xff131415),
+                    fontWeight: FontWeight.w500,
+                    fontFamily: "NotoSansKR",
+                    fontStyle: FontStyle.normal,
+                    fontSize: ScreenUtil().setSp(24),
+                  ),
+                ),
+              ],
+            );
           } else {
             print(snapshot.data);
             return Column(

@@ -17,6 +17,7 @@ class MenuListInfo extends StatelessWidget {
     ScreenUtil.init(context,width: fullwidth,height:fullheight ,allowFontScaling: false);
     List<dynamic> list = menuTable;
     ListView myList = new ListView.builder(
+        physics: const NeverScrollableScrollPhysics(),
         primary: false,
         padding: EdgeInsets.all(0),
         shrinkWrap: true,
