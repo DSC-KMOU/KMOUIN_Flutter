@@ -328,7 +328,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                           containerTitle: '시설 정보',
-                          containerDescription: '#열람실 #대피 #편의 #지도',
+                          containerDescription: '#열람실 #편의 #지도',
                           order: 3,
                         ),
                       ),

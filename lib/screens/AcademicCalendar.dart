@@ -147,8 +147,10 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context,width: MediaQuery.of(context).size.width,
-        height:MediaQuery.of(context).size.height ,allowFontScaling: false);
+    ScreenUtil.init(context,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        allowFontScaling: false);
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return Scaffold(
       //extendBodyBehindAppBar: true,
@@ -166,11 +168,14 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
               Align(
                 alignment: Alignment.centerLeft,
                 child: FlatButton(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(44.0)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(44.0)),
                   onPressed: () {
-                    setState(() {
-                      Navigator.pop(context);
-                    },);
+                    setState(
+                      () {
+                        Navigator.pop(context);
+                      },
+                    );
                   },
                   padding: EdgeInsets.only(left: 5.0, right: 5.0),
                   child: Align(
@@ -181,7 +186,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                       children: <Widget>[
                         Icon(
                           CupertinoIcons.back,
-                          color:  _appbarFont,
+                          color: _appbarFont,
                         ),
                         Text(
                           "메인",
@@ -204,11 +209,11 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                   child: Text(
                     "학사 일정",
                     style: TextStyle(
-                        color:  _appbarFont,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: "NotoSansKR",
-                        fontStyle:  FontStyle.normal,
-                        fontSize: 16.0,
+                      color: _appbarFont,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: "NotoSansKR",
+                      fontStyle: FontStyle.normal,
+                      fontSize: 16.0,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -236,7 +241,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                   }
                   return _buildTableCalendar();
                 }),
-            //const SizedBox(height: 13.3),
+            const SizedBox(height: 15.0),
             Expanded(
               child: _buildEventList(),
             ),
@@ -275,19 +280,42 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
         holidays: _holidays,
         startingDayOfWeek: StartingDayOfWeek.sunday,
         calendarStyle: CalendarStyle(
-          outsideDaysVisible: false,
-          weekdayStyle: TextStyle(color: Colors.blue[800],fontSize: ScreenUtil().setSp(16)),
-          weekendStyle: TextStyle(color: Colors.red[600],fontSize: ScreenUtil().setSp(16)),
-          holidayStyle: TextStyle(color: Colors.red[800],fontSize: ScreenUtil().setSp(16)),
+          outsideDaysVisible: true,
+          outsideStyle: TextStyle(
+            color: Colors.blue[200],
+            fontSize: ScreenUtil().setSp(20),
+          ),
+          outsideHolidayStyle: TextStyle(
+            color: Colors.red[200],
+            fontSize: ScreenUtil().setSp(20),
+          ),
+          outsideWeekendStyle: TextStyle(
+            color: Colors.red[200],
+            fontSize: ScreenUtil().setSp(20),
+          ),
+          weekdayStyle: TextStyle(
+            color: Colors.blue[800],
+            fontSize: ScreenUtil().setSp(20),
+          ),
+          weekendStyle: TextStyle(
+            color: Colors.red,
+            fontSize: ScreenUtil().setSp(20),
+          ),
+          holidayStyle: TextStyle(
+            color: Colors.red,
+            fontSize: ScreenUtil().setSp(20),
+          ),
         ),
         headerStyle: HeaderStyle(
-          titleTextStyle: TextStyle(color: Colors.black,fontSize: ScreenUtil().setSp(20)),
+          titleTextStyle:
+              TextStyle(color: Colors.black, fontSize: ScreenUtil().setSp(20)),
           centerHeaderTitle: true,
           formatButtonVisible: false,
         ),
         daysOfWeekStyle: DaysOfWeekStyle(
           weekdayStyle: TextStyle(fontSize: ScreenUtil().setSp(16)),
-          weekendStyle: TextStyle(color: Colors.red, fontSize: ScreenUtil().setSp(16)),
+          weekendStyle:
+              TextStyle(color: Colors.red, fontSize: ScreenUtil().setSp(16)),
         ),
         onDaySelected: _onDaySelected,
         onVisibleDaysChanged: _onVisibleDaysChanged,
@@ -300,13 +328,14 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                   Tween(begin: 0.0, end: 1.0).animate(_animationController),
               child: Container(
                 margin: const EdgeInsets.all(4.0),
-                padding: const EdgeInsets.only(top: 5.0, left: 6.0),
-                color: Colors.deepOrange[300],
-                width: 100,
-                height: 100,
-                child: Text(
-                  '${date.day}',
-                  style: TextStyle(fontSize: ScreenUtil().setSp(16)),
+              decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.red,),
+                width: 45,
+                height: 45,
+                child: Center(
+                  child: Text(
+                    '${date.day}',
+                    style: TextStyle(fontSize: ScreenUtil().setSp(20), color: Colors.white),
+                  ),
                 ),
               ),
             );
@@ -315,14 +344,16 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
           todayDayBuilder: (context, date, _) {
             return Container(
                 margin: const EdgeInsets.all(4.0),
-                padding: const EdgeInsets.only(top: 5.0, left: 6.0),
-                color: Colors.amber[400],
-                width: 100,
-                height: 100,
+              decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.lightBlue,),
+              width: 45,
+              height: 45,
+              child: Center(
                 child: Text(
                   '${date.day}',
-                  style: TextStyle(fontSize: ScreenUtil().setSp(16)),
-                ));
+                  style: TextStyle(fontSize: ScreenUtil().setSp(20), color: Colors.white),
+                ),
+              ),
+            );
           },
 
           markersBuilder: (context, date, events, holidays) {
@@ -385,36 +416,39 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
       decoration: BoxDecoration(
-        shape: BoxShape.rectangle,
+        shape: BoxShape.circle,
         //선택했는지(isSelected(date)) , 오늘인지(isToday(date))에 따라 색이 변하는 옵션
         // 삼항연산자를 사용했다.
         color: _calendarController.isSelected(date)
-            ? Colors.brown[500]
+            ? Colors.white
             : _calendarController.isToday(date)
-                ? Colors.brown[300]
+                ? Colors.white
                 : Colors.blue[400],
-        borderRadius: BorderRadius.circular(12.0),
+        //borderRadius: BorderRadius.circular(12.0),
       ),
-      width: 9.0,
-      height: 9.0,
+      width: 5.0,
+      height: 5.0,
+      margin: EdgeInsets.all(1.0),
     );
   }
 
   Widget _buildHolidaysMarker() {
     return Icon(
-      Icons.check,
-      size: 20.0,
-      color: Colors.blueGrey[900],
+      Icons.grade,
+      size: 17.0,
+      color: Colors.orange,
     );
   }
 
   Widget _buildEventList() {
     return ListView(
-      children: _selectedEvents.map((event) => Container(
-        decoration: BoxDecoration(
+      children: _selectedEvents
+          .map((event) => Container(
+                decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
                 ),
-                margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                 child: Container(
                     width: MediaQuery.of(context).size.width,
                     height: 50,
@@ -440,18 +474,16 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                       SizedBox(width: 15),
                       Container(
                           child: FittedBox(
-                            fit: BoxFit.contain,
-                            child: Text(event.toString(),
-                                style: TextStyle(
-                                    color: const Color(0xff000000),
-                                    fontWeight: FontWeight.w500,
-                                    fontFamily: "NotoSansKR",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: ScreenUtil().setSp(15),
-                                )
-                            ),
-                          )
-                      ),
+                        fit: BoxFit.contain,
+                        child: Text(event.toString(),
+                            style: TextStyle(
+                              color: const Color(0xff000000),
+                              fontWeight: FontWeight.w500,
+                              fontFamily: "NotoSansKR",
+                              fontStyle: FontStyle.normal,
+                              fontSize: ScreenUtil().setSp(15),
+                            )),
+                      )),
                     ])),
               ))
           .toList(),
