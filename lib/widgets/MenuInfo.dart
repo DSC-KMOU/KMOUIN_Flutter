@@ -14,9 +14,12 @@ class MenuInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     double fullWidth = MediaQuery.of(context).size.width;
     double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
+    ScreenUtil.init(context,
+        width: fullWidth, height: fullHeight, allowFontScaling: false);
     List<dynamic> list = menuTable;
     ListView myList = new ListView.builder(
+        physics: const NeverScrollableScrollPhysics(),
+        primary: false,
         padding: EdgeInsets.all(0),
         shrinkWrap: true,
         itemCount: list.length,
