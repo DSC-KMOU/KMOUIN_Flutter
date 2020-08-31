@@ -57,7 +57,8 @@ class _MyHomePageState extends State<CoummuterBusPage> {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     double fullWidth = MediaQuery.of(context).size.width;
     double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context,width: fullWidth,height: fullHeight,allowFontScaling: false);
+    ScreenUtil.init(context,
+        width: fullWidth, height: fullHeight, allowFontScaling: false);
     Color _appbarFont = Color(0xff842fb5);
 
     return Scaffold(
@@ -74,7 +75,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                 borderRadius: BorderRadius.circular(44.0)),
             onPressed: () {
               setState(
-                    () {
+                () {
                   Navigator.pop(context);
                 },
               );
@@ -97,7 +98,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       fontWeight: FontWeight.w300,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
-                      fontSize: ScreenUtil().setSp(16),
+                      fontSize: 16.0,
                       wordSpacing: 0.0,
                     ),
                   ),
@@ -137,33 +138,42 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        "출근 노선",
-                        style: TextStyle(
-                          fontSize: ScreenUtil().setSp(16),
-                          color: Color(0xff842fb5),
-                          letterSpacing: -1.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          text: "교직원 이용/",
+                      Container(
+                        margin: EdgeInsets.only(bottom: 3.0),
+                        child: Text(
+                          "출근 노선",
                           style: TextStyle(
-                            color: Color(0xff787878),
-                            fontSize: 12,
+                            fontSize: ScreenUtil().setSp(16),
+                            fontFamily: 'NotoSansKR',
+                            color: Color(0xff842fb5),
                             letterSpacing: -1.0,
                             fontWeight: FontWeight.w500,
                           ),
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: '학생은 영도대교 승차\n',
-                              style: TextStyle(
-                                color: Color(0xff842fb5),
-                                letterSpacing: -1.0,
-                              ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: RichText(
+                          text: TextSpan(
+                            text: "교직원 이용/",
+                            style: TextStyle(
+                              color: Color(0xff787878),
+                              fontSize: 12,
+                              fontFamily: 'NotoSansKR',
+                              letterSpacing: -1.0,
+                              fontWeight: FontWeight.w500,
                             ),
-                          ],
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: '학생은 영도대교 승차',
+                                style: TextStyle(
+                                  color: Color(0xff842fb5),
+                                  fontFamily: 'NotoSansKR',
+                                  letterSpacing: -1.0,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       RichText(
@@ -202,57 +212,63 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      Text(
-                        "퇴근 노선",
-                        style: TextStyle(
-                          fontSize: ScreenUtil().setSp(16),
-                          height: 1.5,
-                          letterSpacing: -1.0,
-                          color: Color(0xff842fb5),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          text: "정원 여유시",
+                      Container(
+                        margin: EdgeInsets.only(top: 10.0, bottom: 3.0),
+                        child: Text(
+                          "퇴근 노선",
                           style: TextStyle(
-                            color: Color(0xff787878),
-                            fontSize: 12,
+                            fontSize: ScreenUtil().setSp(16),
+                            fontFamily: 'NotoSansKR',
+                            color: Color(0xff842fb5),
+                            letterSpacing: -1.0,
                             fontWeight: FontWeight.w500,
                           ),
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: ' 학생 이용 가능 ',
-                              style: TextStyle(
-                                color: Color(0xff842fb5),
-                                fontSize: 12,
-                                letterSpacing: -1.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            TextSpan(
-                              text: '( 정원 45명 )',
-                              style: TextStyle(
-                                color: Color(0xff787878),
-                                fontSize: 12,
-                                letterSpacing: -1.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ],
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 10.0),
-                        child: Text(
-                          "학교출발(18:10) > 중앙역 > 부산역 > 서면 > 시청\n동래 > 부산대",
-                          style: TextStyle(
-                            fontSize: ScreenUtil().setSp(13),
-                            fontFamily: 'NotoSansKR',
-                            height: 1.5,
-                            color: Color(0xff787878),
-                            fontWeight: FontWeight.w500,
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: RichText(
+                          text: TextSpan(
+                            text: "정원 여유시",
+                            style: TextStyle(
+                              color: Color(0xff787878),
+                              fontSize: 12,
+                              fontFamily: 'NotoSansKR',
+                              letterSpacing: -1.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: ' 학생 이용 가능 ',
+                                style: TextStyle(
+                                  color: Color(0xff842fb5),
+                                  fontSize: 12,
+                                  fontFamily: 'NotoSansKR',
+                                  letterSpacing: -1.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '( 정원 45명 )',
+                                style: TextStyle(
+                                  color: Color(0xff787878),
+                                  fontSize: 12,
+                                  letterSpacing: -1.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
                           ),
+                        ),
+                      ),
+                      Text(
+                        "학교출발(18:10) > 중앙역 > 부산역 > 서면 > 시청\n동래 > 부산대",
+                        style: TextStyle(
+                          fontSize: ScreenUtil().setSp(13),
+                          fontFamily: 'NotoSansKR',
+                          height: 1.5,
+                          color: Color(0xff787878),
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ],
@@ -270,34 +286,42 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        "출근 노선",
-                        style: TextStyle(
-                          fontSize: ScreenUtil().setSp(16),
-                          color: Color(0xff842fb5),
-                          letterSpacing: -1.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          text: "교직원 이용/",
+                      Container(
+                        margin: EdgeInsets.only(bottom: 3.0),
+                        child: Text(
+                          "출근 노선",
                           style: TextStyle(
-                            color: Color(0xff787878),
-                            fontSize: 12,
+                            fontSize: ScreenUtil().setSp(16),
+                            fontFamily: 'NotoSansKR',
+                            color: Color(0xff842fb5),
                             letterSpacing: -1.0,
                             fontWeight: FontWeight.w500,
                           ),
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: '학생은 영도대교 승차\n',
-                              style: TextStyle(
-                                fontSize: 12.0,
-                                color: Color(0xff842fb5),
-                                letterSpacing: -1.0,
-                              ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: RichText(
+                          text: TextSpan(
+                            text: "교직원 이용/",
+                            style: TextStyle(
+                              color: Color(0xff787878),
+                              fontSize: 12,
+                              fontFamily: 'NotoSansKR',
+                              letterSpacing: -1.0,
+                              fontWeight: FontWeight.w500,
                             ),
-                          ],
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: '학생은 영도대교 승차',
+                                style: TextStyle(
+                                  color: Color(0xff842fb5),
+                                  fontFamily: 'NotoSansKR',
+                                  letterSpacing: -1.0,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       RichText(
@@ -346,57 +370,63 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      Text(
-                        "퇴근 노선",
-                        style: TextStyle(
-                          fontSize: ScreenUtil().setSp(16),
-                          height: 1.5,
-                          letterSpacing: -1.0,
-                          color: Color(0xff842fb5),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          text: "정원 여유시",
+                      Container(
+                        margin: EdgeInsets.only(top: 10.0, bottom: 3.0),
+                        child: Text(
+                          "퇴근 노선",
                           style: TextStyle(
-                            color: Color(0xff787878),
-                            fontSize: 12,
+                            fontSize: ScreenUtil().setSp(16),
+                            fontFamily: 'NotoSansKR',
+                            color: Color(0xff842fb5),
+                            letterSpacing: -1.0,
                             fontWeight: FontWeight.w500,
                           ),
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: ' 학생 이용 가능 ',
-                              style: TextStyle(
-                                color: Color(0xff842fb5),
-                                fontSize: 12,
-                                letterSpacing: -1.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            TextSpan(
-                              text: '( 정원 45명 )',
-                              style: TextStyle(
-                                color: Color(0xff787878),
-                                fontSize: 12,
-                                letterSpacing: -1.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ],
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 10.0),
-                        child: Text(
-                          "학교출발(18:10) > 중리관사앞 > 영도소방서 >  롯데백화\n점 > 부산역 > 부산진역 > 문현동 > 대연동",
-                          style: TextStyle(
-                            fontSize: ScreenUtil().setSp(13),
-                            fontFamily: 'NotoSansKR',
-                            height: 1.5,
-                            color: Color(0xff787878),
-                            fontWeight: FontWeight.w500,
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: RichText(
+                          text: TextSpan(
+                            text: "정원 여유시",
+                            style: TextStyle(
+                              color: Color(0xff787878),
+                              fontSize: 12,
+                              fontFamily: 'NotoSansKR',
+                              letterSpacing: -1.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: ' 학생 이용 가능 ',
+                                style: TextStyle(
+                                  color: Color(0xff842fb5),
+                                  fontSize: 12,
+                                  fontFamily: 'NotoSansKR',
+                                  letterSpacing: -1.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '( 정원 45명 )',
+                                style: TextStyle(
+                                  color: Color(0xff787878),
+                                  fontSize: 12,
+                                  letterSpacing: -1.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
                           ),
+                        ),
+                      ),
+                      Text(
+                        "학교출발(18:10) > 중리관사앞 > 영도소방서 >  롯데백화\n점 > 부산역 > 부산진역 > 문현동 > 대연동",
+                        style: TextStyle(
+                          fontSize: ScreenUtil().setSp(13),
+                          fontFamily: 'NotoSansKR',
+                          height: 1.5,
+                          color: Color(0xff787878),
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ],
@@ -414,34 +444,42 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        "출근 노선",
-                        style: TextStyle(
-                          fontSize: ScreenUtil().setSp(16),
-                          color: Color(0xff842fb5),
-                          letterSpacing: -1.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          text: "교직원 이용/",
+                      Container(
+                        margin: EdgeInsets.only(bottom: 3.0),
+                        child: Text(
+                          "출근 노선",
                           style: TextStyle(
-                            color: Color(0xff787878),
-                            fontSize: 12,
+                            fontSize: ScreenUtil().setSp(16),
+                            fontFamily: 'NotoSansKR',
+                            color: Color(0xff842fb5),
                             letterSpacing: -1.0,
                             fontWeight: FontWeight.w500,
                           ),
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: '학생은 영도대교 승차\n',
-                              style: TextStyle(
-                                fontSize: 12.0,
-                                color: Color(0xff842fb5),
-                                letterSpacing: -1.0,
-                              ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: RichText(
+                          text: TextSpan(
+                            text: "교직원 이용/",
+                            style: TextStyle(
+                              color: Color(0xff787878),
+                              fontSize: 12,
+                              fontFamily: 'NotoSansKR',
+                              letterSpacing: -1.0,
+                              fontWeight: FontWeight.w500,
                             ),
-                          ],
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: '학생은 영도대교 승차',
+                                style: TextStyle(
+                                  color: Color(0xff842fb5),
+                                  fontFamily: 'NotoSansKR',
+                                  letterSpacing: -1.0,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       RichText(
@@ -460,57 +498,63 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                           ],
                         ),
                       ),
-                      Text(
-                        "퇴근 노선",
-                        style: TextStyle(
-                          fontSize: ScreenUtil().setSp(16),
-                          height: 1.5,
-                          letterSpacing: -1.0,
-                          color: Color(0xff842fb5),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          text: "정원 여유시",
+                      Container(
+                        margin: EdgeInsets.only(top: 10.0, bottom: 3.0),
+                        child: Text(
+                          "퇴근 노선",
                           style: TextStyle(
-                            color: Color(0xff787878),
-                            fontSize: 12,
+                            fontSize: ScreenUtil().setSp(16),
+                            fontFamily: 'NotoSansKR',
+                            color: Color(0xff842fb5),
+                            letterSpacing: -1.0,
                             fontWeight: FontWeight.w500,
                           ),
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: ' 학생 이용 가능 ',
-                              style: TextStyle(
-                                color: Color(0xff842fb5),
-                                fontSize: 12,
-                                letterSpacing: -1.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            TextSpan(
-                              text: '( 정원 45명 )',
-                              style: TextStyle(
-                                color: Color(0xff787878),
-                                fontSize: 12,
-                                letterSpacing: -1.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ],
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 10.0),
-                        child: Text(
-                          "학교출발(18:10) > 영도구청 > 부산항대교 >  경성대 > 남\n천역 > 수영로타리 > 망미동주공아파트",
-                          style: TextStyle(
-                            fontSize: ScreenUtil().setSp(13),
-                            fontFamily: 'NotoSansKR',
-                            height: 1.5,
-                            color: Color(0xff787878),
-                            fontWeight: FontWeight.w500,
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: RichText(
+                          text: TextSpan(
+                            text: "정원 여유시",
+                            style: TextStyle(
+                              color: Color(0xff787878),
+                              fontSize: 12,
+                              fontFamily: 'NotoSansKR',
+                              letterSpacing: -1.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: ' 학생 이용 가능 ',
+                                style: TextStyle(
+                                  color: Color(0xff842fb5),
+                                  fontSize: 12,
+                                  fontFamily: 'NotoSansKR',
+                                  letterSpacing: -1.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '( 정원 45명 )',
+                                style: TextStyle(
+                                  color: Color(0xff787878),
+                                  fontSize: 12,
+                                  letterSpacing: -1.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
                           ),
+                        ),
+                      ),
+                      Text(
+                        "학교출발(18:10) > 영도구청 > 부산항대교 >  경성대 > 남\n천역 > 수영로타리 > 망미동주공아파트",
+                        style: TextStyle(
+                          fontSize: ScreenUtil().setSp(13),
+                          fontFamily: 'NotoSansKR',
+                          height: 1.5,
+                          color: Color(0xff787878),
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ],
@@ -524,12 +568,10 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                     Text(
                       "학교버스 셔틀",
                       style: TextStyle(
-                        color: Color(0xff131415),
-                        letterSpacing: -1.0,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
                         fontSize: ScreenUtil().setSp(22),
+                        letterSpacing: -1.0,
+                        color: Color(0xff131415),
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ],
