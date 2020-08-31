@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kmouin/main.dart';
+import 'DevLicense.dart';
 import 'package:kmouin/screens/DeveloperInfo.dart';
 import 'package:kmouin/widgets/ErrorContainer.dart';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
@@ -19,7 +21,8 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     Color _appbarFont = Color(0xff5b9fee);
 
-    ScreenUtil.init(context,width: _mainWidth,height: _mainHeight ,allowFontScaling: false);
+    ScreenUtil.init(context,
+        width: _mainWidth, height: _mainHeight, allowFontScaling: false);
 
     return Scaffold(
       appBar: PreferredSize(
@@ -33,11 +36,14 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
           title: Align(
             alignment: Alignment.centerLeft,
             child: FlatButton(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(44.0)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(44.0)),
               onPressed: () {
-                setState(() {
-                  Navigator.pop(context);
-                },);
+                setState(
+                  () {
+                    Navigator.pop(context);
+                  },
+                );
               },
               padding: EdgeInsets.only(left: 5.0, right: 5.0),
               child: Align(
@@ -48,7 +54,7 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
                   children: <Widget>[
                     Icon(
                       CupertinoIcons.back,
-                      color:  _appbarFont,
+                      color: _appbarFont,
                     ),
                     Text(
                       "메인",
@@ -82,7 +88,8 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
                         imageName: 'error',
                         reportTitle: '오류제보',
                         reportDescription: '버그나 피드 부탁드립니다!',
-                        url: 'https://docs.google.com/forms/d/e/1FAIpQLSdAxdRIV-3rwbN9P36nrP-VGgA0aPYSgVt0vEL8JYeY8TtIdA/viewform?usp=send_form',
+                        url:
+                            'https://docs.google.com/forms/d/e/1FAIpQLSdAxdRIV-3rwbN9P36nrP-VGgA0aPYSgVt0vEL8JYeY8TtIdA/viewform?usp=send_form',
                       ),
                     ),
                   ),
@@ -102,7 +109,8 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
                     imageName: 'survey',
                     reportTitle: '아치신문고',
                     reportDescription: '해양대 아치신문고로 연결됩니다',
-                    url: 'http://www.kmou.ac.kr/kmou/na/ntt/selectNttList.do?mi=3911&bbsId=10873#sideContent',
+                    url:
+                        'http://www.kmou.ac.kr/kmou/na/ntt/selectNttList.do?mi=3911&bbsId=10873#sideContent',
                   ),
                 ],
               ),
@@ -110,15 +118,31 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                margin: EdgeInsets.only(bottom: 55.0,),
-                child: Text('< Copyright 2020. DSC_KMOU. All right reserved. >',
-                    style: TextStyle(
-                        color: Color(0xff828282),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(14.0)),
-                    textAlign: TextAlign.center),
+                margin: EdgeInsets.only(
+                  bottom: 55.0,
+                ),
+                child: FlatButton(
+                  shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(20.0),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DevLicense(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                      '< Copyright 2020. DSC_KMOU. KMOUIN ver. 1.0.0 more info >',
+                      style: TextStyle(
+                          color: Color(0xff828282),
+                          fontWeight: FontWeight.w300,
+                          fontFamily: "NotoSansKR",
+                          fontStyle: FontStyle.normal,
+                          fontSize: ScreenUtil().setSp(12.0)),
+                      textAlign: TextAlign.center),
+                ),
               ),
             ),
           ],

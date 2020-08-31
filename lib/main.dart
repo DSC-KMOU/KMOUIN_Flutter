@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
     FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      title: '해대인',
+      home: MyHomePage(title: 'Flutter KMOUIN'),
     );
   }
 }
