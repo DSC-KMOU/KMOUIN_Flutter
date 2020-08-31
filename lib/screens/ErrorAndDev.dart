@@ -95,18 +95,18 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
                   ),
                   ErrorContainer(
                     imageName: 'survey',
-                    reportTitle: '설문조사 (준비중)',
+                    reportTitle: '설문조사',
                     reportDescription: '앱의 발전을 위해 힘쓰겠습니다!',
-                    //url: 'http://www.naver.com',
+                    url: 'https://docs.google.com/forms/d/e/1FAIpQLScciyiVtf1MjZAX-pEsYaHLW_zQlTQfbFwmvMOOWrSPp2qbBg/viewform',
                   ),
                   ErrorContainer(
                     imageName: 'DevTeam',
-                    reportTitle: '개발자 정보 (준비중)',
+                    reportTitle: '개발자 정보',
                     reportDescription: '사용해주셔서 감사합니다!',
                     page: DeveloperPage(),
                   ),
                   ErrorContainer(
-                    imageName: 'survey',
+                    imageName: 'petition',
                     reportTitle: '아치신문고',
                     reportDescription: '해양대 아치신문고로 연결됩니다',
                     url:
