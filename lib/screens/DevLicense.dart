@@ -82,6 +82,7 @@ class _DevLicense extends State<DevLicense> {
               LicenseCard(licenseTitle: licenseTitle[2], licenseDescription: licenseDescription[2], licenseCardWidth: cardWidth,),
               LicenseCard(licenseTitle: licenseTitle[3], licenseDescription: licenseDescription[3], licenseCardWidth: cardWidth,),
               LicenseCard(licenseTitle: licenseTitle[4], licenseDescription: licenseDescription[4], licenseCardWidth: cardWidth,),
+              Container(height: _mainHeight * 0.1),
             ],
           ),
         ),
