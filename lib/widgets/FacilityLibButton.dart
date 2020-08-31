@@ -69,7 +69,7 @@ class LibButton extends StatelessWidget {
             ],
           ),
           Text(
-              "[준비중]",
+              "[자리없음]",
               style: TextStyle(
                   color:  Colors.red,
                   fontWeight: FontWeight.w500,

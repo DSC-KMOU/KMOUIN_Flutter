@@ -117,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             top: _mainHeight * (8.0 / 100),
                           ),
                           child: Text(
-                            "해양대생의 정보창구",
+                            "해양대 정보 창구",
                             style: TextStyle(
                               color: Color(0xffffffff),
                               letterSpacing: -0.5,
