@@ -241,7 +241,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                   }
                   return _buildTableCalendar();
                 }),
-            //const SizedBox(height: 13.3),
+            const SizedBox(height: 15.0),
             Expanded(
               child: _buildEventList(),
             ),
