@@ -247,7 +247,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   style: TextStyle(fontSize: ScreenUtil().setSp(14)),
                                                 ),
                                                 Text(
-                                                  "[키워드] \n 통근 / 통근버스 / 2층 / 3층 / 5층 \n 교직원 / 기숙사 / 생활관 \n 지도 / 대피시설",
+                                                  "[키워드] \n 통근 / 통근버스 \n 2층 (2) / 3층 (3) / 5층 (5) \n 교직원 / 기숙사 / 생활관 \n 지도 / 대피시설 / 대피 \n 개발 / 개발자 / 개발자 정보",
                                                   style: TextStyle(fontSize: ScreenUtil().setSp(14)),
                                                 ),
                                               ],
