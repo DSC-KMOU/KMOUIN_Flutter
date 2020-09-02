@@ -23,7 +23,7 @@ class _FacilityPageState extends State<FacilityPage> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    FlutterStatusbarTextColor.setTextColor(null);
     //화면 크기 체크
     //디바이스 너비
     double _width = MediaQuery.of(context).size.width;

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    FlutterStatusbarTextColor.setTextColor(null);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: '해대인',
