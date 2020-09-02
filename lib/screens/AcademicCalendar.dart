@@ -168,30 +168,10 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
     FlutterStatusbarTextColor.setTextColor(null);
     return Scaffold(
       //extendBodyBehindAppBar: true,
-      appBar: PreferredSize(
+      appBar:
+      PreferredSize(
         preferredSize: Size.fromHeight(44.0),
         child: AppBar(
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(
-                right: 10.0,
-              ),
-              child: IconButton(
-                icon: Icon(
-                  Icons.list,
-                  color: Colors.blue,
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CalList(),
-                    ),
-                  );
-                }
-              ),
-            ),
-          ],
           centerTitle: false,
           titleSpacing: -6.0,
           backgroundColor: Colors.white,
@@ -239,7 +219,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-              Center(
+              Align(
                 child: Container(
                   child: Text(
                     "학사 일정",
@@ -254,6 +234,27 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                   ),
                 ),
               ),
+              Align(
+                alignment: Alignment.centerRight,
+                child:Padding(
+                padding: const EdgeInsets.only(
+                  right: 13.0,
+                ),
+                child: IconButton(
+                    icon: Icon(
+                      Icons.list,
+                      color: Colors.blue,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CalList(),
+                        ),
+                      );
+                    }
+                ),
+              ),),
             ],
           ),
         ),
@@ -363,13 +364,17 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                   Tween(begin: 0.0, end: 1.0).animate(_animationController),
               child: Container(
                 margin: const EdgeInsets.all(4.0),
-              decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.red,),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.red,
+                ),
                 width: 45,
                 height: 45,
                 child: Center(
                   child: Text(
                     '${date.day}',
-                    style: TextStyle(fontSize: ScreenUtil().setSp(20), color: Colors.white),
+                    style: TextStyle(
+                        fontSize: ScreenUtil().setSp(20), color: Colors.white),
                   ),
                 ),
               ),
@@ -378,14 +383,18 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
           //현재 날짜를 나타내는 옵션
           todayDayBuilder: (context, date, _) {
             return Container(
-                margin: const EdgeInsets.all(4.0),
-              decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.lightBlue,),
+              margin: const EdgeInsets.all(4.0),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.lightBlue,
+              ),
               width: 45,
               height: 45,
               child: Center(
                 child: Text(
                   '${date.day}',
-                  style: TextStyle(fontSize: ScreenUtil().setSp(20), color: Colors.white),
+                  style: TextStyle(
+                      fontSize: ScreenUtil().setSp(20), color: Colors.white),
                 ),
               ),
             );
