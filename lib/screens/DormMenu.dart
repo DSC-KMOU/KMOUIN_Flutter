@@ -48,7 +48,7 @@ class _DormMenuState extends State<DormMenu> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    FlutterStatusbarTextColor.setTextColor(null);
     double fullWidth = MediaQuery.of(context).size.width;
     double fullHeight = MediaQuery.of(context).size.height;
     ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);

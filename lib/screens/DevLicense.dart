@@ -15,7 +15,7 @@ class _DevLicense extends State<DevLicense> {
   Widget build(BuildContext context) {
     double _mainWidth = MediaQuery.of(context).size.width;
     double _mainHeight = MediaQuery.of(context).size.height;
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    FlutterStatusbarTextColor.setTextColor(null);
 
     double cardWidth = _mainWidth * 0.93;
 

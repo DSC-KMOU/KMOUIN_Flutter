@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:kmouin/screens/AcademicCalendarList.dart';
+import 'package:kmouin/widgets/MenuCard.dart';
+import 'package:kmouin/widgets/MenuInfo.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,15 +42,15 @@ class Calendar {
   }
 }
 
-class CalPage extends StatefulWidget {
-  CalPage({Key key, this.title}) : super(key: key);
+class CalList extends StatefulWidget {
+  CalList({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
+class _MyHomePageState extends State<CalList> with TickerProviderStateMixin {
   Map<DateTime, List> _events;
   Map<DateTime, List> _holidays;
 
@@ -161,6 +162,8 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    double fullWidth = MediaQuery.of(context).size.width;
+    double fullHeight = MediaQuery.of(context).size.height;
     ScreenUtil.init(context,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -171,27 +174,6 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(44.0),
         child: AppBar(
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(
-                right: 10.0,
-              ),
-              child: IconButton(
-                icon: Icon(
-                  Icons.list,
-                  color: Colors.blue,
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CalList(),
-                    ),
-                  );
-                }
-              ),
-            ),
-          ],
           centerTitle: false,
           titleSpacing: -6.0,
           backgroundColor: Colors.white,
@@ -274,12 +256,53 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                     print(
                         '\n\nERRORMESSAGE :: snapshot Error :  ${snapshot.error}\n\n');
                   }
-                  return _buildTableCalendar();
+                  return SingleChildScrollView(
+                    child: Container(
+                      padding: EdgeInsets.only(left:5.0, right: 5.0),
+                      child: Column(
+                        children: [
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 1,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 2,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 3,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 4,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 5,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 6,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 7,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 8,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 9,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 10,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 11,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 12,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 7,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 8,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 9,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 10,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 11,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                          new calList(acaList: snapshot.data.jsonList, index: 12,),
+                          Divider(thickness: 1.0, color: Colors.blue,),
+                        ],
+                      ),
+                    ),
+                  );
                 }),
-            const SizedBox(height: 15.0),
-            Expanded(
-              child: _buildEventList(),
-            ),
           ],
         ),
       ),
@@ -307,221 +330,43 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
     }
   }
 
-  Widget _buildTableCalendar() {
-    return TableCalendar(
-        //locale: 'ko_KR',
-        calendarController: _calendarController,
-        events: _events,
-        holidays: _holidays,
-        startingDayOfWeek: StartingDayOfWeek.sunday,
-        calendarStyle: CalendarStyle(
-          outsideDaysVisible: true,
-          outsideStyle: TextStyle(
-            color: Colors.blue[200],
-            fontSize: ScreenUtil().setSp(20),
-          ),
-          outsideHolidayStyle: TextStyle(
-            color: Colors.red[200],
-            fontSize: ScreenUtil().setSp(20),
-          ),
-          outsideWeekendStyle: TextStyle(
-            color: Colors.red[200],
-            fontSize: ScreenUtil().setSp(20),
-          ),
-          weekdayStyle: TextStyle(
-            color: Colors.blue[800],
-            fontSize: ScreenUtil().setSp(20),
-          ),
-          weekendStyle: TextStyle(
-            color: Colors.red,
-            fontSize: ScreenUtil().setSp(20),
-          ),
-          holidayStyle: TextStyle(
-            color: Colors.red,
-            fontSize: ScreenUtil().setSp(20),
+
+}
+
+class calList extends StatelessWidget {
+
+  calList({@required this.index, @required this.acaList});
+
+  final index;
+  final acaList;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          '${acaList[index]["date"]["year"]}년\t${acaList[index]["date"]["month"]}월\t${acaList[index]["date"]["day"]}일',
+          style: TextStyle(
+            color: const Color(0xff131415),
+            fontWeight: FontWeight.w300,
+            fontFamily: "NotoSansKR",
+            fontStyle: FontStyle.normal,
+            fontSize: ScreenUtil().setSp(16),
           ),
         ),
-        headerStyle: HeaderStyle(
-          titleTextStyle:
-              TextStyle(color: Colors.black, fontSize: ScreenUtil().setSp(20)),
-          centerHeaderTitle: true,
-          formatButtonVisible: false,
+        Text(
+//          '${snapshot.data.jsonList[index]["calendar"]}',
+          '${acaList[index]["calendar"]}',
+          style: TextStyle(
+            color: const Color(0xff131415),
+            fontWeight: FontWeight.w300,
+            fontFamily: "NotoSansKR",
+            fontStyle: FontStyle.normal,
+            fontSize: ScreenUtil().setSp(16),
+          ),
         ),
-        daysOfWeekStyle: DaysOfWeekStyle(
-          weekdayStyle: TextStyle(fontSize: ScreenUtil().setSp(16)),
-          weekendStyle:
-              TextStyle(color: Colors.red, fontSize: ScreenUtil().setSp(16)),
-        ),
-        onDaySelected: _onDaySelected,
-        onVisibleDaysChanged: _onVisibleDaysChanged,
-        onCalendarCreated: _onCalendarCreated,
-        builders: CalendarBuilders(
-          //선택한 날짜를 나타내는 옵션
-          selectedDayBuilder: (context, date, _) {
-            return FadeTransition(
-              opacity:
-                  Tween(begin: 0.0, end: 1.0).animate(_animationController),
-              child: Container(
-                margin: const EdgeInsets.all(4.0),
-              decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.red,),
-                width: 45,
-                height: 45,
-                child: Center(
-                  child: Text(
-                    '${date.day}',
-                    style: TextStyle(fontSize: ScreenUtil().setSp(20), color: Colors.white),
-                  ),
-                ),
-              ),
-            );
-          },
-          //현재 날짜를 나타내는 옵션
-          todayDayBuilder: (context, date, _) {
-            return Container(
-                margin: const EdgeInsets.all(4.0),
-              decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.lightBlue,),
-              width: 45,
-              height: 45,
-              child: Center(
-                child: Text(
-                  '${date.day}',
-                  style: TextStyle(fontSize: ScreenUtil().setSp(20), color: Colors.white),
-                ),
-              ),
-            );
-          },
-
-          markersBuilder: (context, date, events, holidays) {
-            final children = <Widget>[];
-
-            if (events.isNotEmpty) {
-              children.add(Positioned(
-                bottom: 1,
-                child: Row(children: <Widget>[
-                  _buildEventsMarker(date, events, holidays),
-                ]),
-              ));
-            }
-
-            if (holidays.isNotEmpty) {
-              children.add(
-                Positioned(
-                  right: 1,
-                  top: 0.5,
-                  child: _buildHolidaysMarker(),
-                ),
-              );
-            }
-            return children;
-          },
-        ));
-  }
-
-  Widget _buildEventsMarker(DateTime date, List events, List holidays) {
-    return Row(children: <Widget>[
-      events.length >= 1
-          ? holidays.length == 0 || holidays.length != 1
-              ? _buildAnimationContainer_events(date, events)
-              : Text('')
-          : Text(''),
-      events.length >= 2
-          ? holidays.length == 0 || holidays.length != 2
-              ? _buildAnimationContainer_events(date, events)
-              : Text('')
-          : Text(''),
-      events.length >= 3
-          ? holidays.length == 0 || holidays.length != 3
-              ? _buildAnimationContainer_events(date, events)
-              : Text('')
-          : Text(''),
-      events.length >= 4
-          ? holidays.length == 0 || holidays.length != 4
-              ? _buildAnimationContainer_events(date, events)
-              : Text('')
-          : Text(''),
-      events.length >= 5
-          ? holidays.length == 0 || holidays.length != 5
-              ? _buildAnimationContainer_events(date, events)
-              : Text('')
-          : Text(''),
-    ]);
-  }
-
-  Widget _buildAnimationContainer_events(DateTime date, List events) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        //선택했는지(isSelected(date)) , 오늘인지(isToday(date))에 따라 색이 변하는 옵션
-        // 삼항연산자를 사용했다.
-        color: _calendarController.isSelected(date)
-            ? Colors.white
-            : _calendarController.isToday(date)
-                ? Colors.white
-                : Colors.blue[400],
-        //borderRadius: BorderRadius.circular(12.0),
-      ),
-      width: 5.0,
-      height: 5.0,
-      margin: EdgeInsets.all(1.0),
-    );
-  }
-
-  Widget _buildHolidaysMarker() {
-    return Icon(
-      Icons.grade,
-      size: 17.0,
-      color: Colors.orange,
-    );
-  }
-
-  Widget _buildEventList() {
-    return ListView(
-      children: _selectedEvents
-          .map((event) => Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.0),
-                ),
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 50,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                        boxShadow: [
-                          BoxShadow(
-                              color: const Color(0x80cacaca),
-                              offset: Offset(0, -1),
-                              blurRadius: 16,
-                              spreadRadius: 2)
-                        ],
-                        color: Colors.white),
-                    child: Row(children: <Widget>[
-                      SizedBox(width: 15),
-                      Container(
-                          width: 6,
-                          height: 6,
-                          decoration: BoxDecoration(
-                            color: const Color(0xff5b9fee),
-                            borderRadius: BorderRadius.circular(12.0),
-                          )),
-                      SizedBox(width: 15),
-                      Container(
-                          child: FittedBox(
-                        fit: BoxFit.contain,
-                        child: Text(event.toString(),
-                            style: TextStyle(
-                              color: const Color(0xff000000),
-                              fontWeight: FontWeight.w500,
-                              fontFamily: "NotoSansKR",
-                              fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(15),
-                            )),
-                      )),
-                    ])),
-              ))
-          .toList(),
+      ],
     );
   }
 }

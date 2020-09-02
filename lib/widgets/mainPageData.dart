@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kmouin/screens/AcademicCalendar.dart';
+import 'package:kmouin/screens/AcademicCalendarList.dart';
 import 'package:kmouin/screens/BusPage.dart';
 import 'package:kmouin/screens/CommuterBusPage.dart';
+import 'package:kmouin/screens/DeveloperPage.dart';
 import 'package:kmouin/screens/DormMenu.dart';
 import 'package:kmouin/screens/EvacuationFacility.dart';
 import 'package:kmouin/screens/FacilityPage.dart';
@@ -15,14 +17,51 @@ final cat2 = MenuPage();
 final cat3 = FacilityPage();
 final cat4 = CalPage();
 
-final sub1 = CoummuterBusPage();
-final sub2 = SecondFloor();
-final sub3 = ThirdFloor();
-final sub4 = FifthFloor();
-final sub5 = DormMenu();
-final sub6 = EvacuationFacility();
+final commute = CoummuterBusPage();
+final floor2 = SecondFloor();
+final floor3 = ThirdFloor();
+final floor5 = FifthFloor();
+final dorm = DormMenu();
+final campusMap = EvacuationFacility();
+final developer = DeveloperPage();
 
 final List category = [cat1, cat2, cat3, cat4];
 
-final List keywords = ['통근버스', '통근', '2층', '3층', '5층', '교직원', '기숙사', '생활관', '지도','대피시설',];
-final List subpage = [sub1, sub1, sub2, sub3, sub4, sub4, sub5, sub5, sub6, sub6,];
+final List keywords = [
+  '통근버스',
+  '통근',
+  '2층',
+  '2',
+  '3층',
+  '3',
+  '5층',
+  '5',
+  '교직원',
+  '기숙사',
+  '생활관',
+  '지도',
+  '대피시설',
+  '대피',
+  '개발',
+  '개발자',
+  '개발자 정보',
+];
+final List subpage = [
+  commute,
+  commute,
+  floor2,
+  floor2,
+  floor3,
+  floor3,
+  floor5,
+  floor5,
+  floor5,
+  dorm,
+  dorm,
+  campusMap,
+  campusMap,
+  campusMap,
+  developer,
+  developer,
+  developer,
+];

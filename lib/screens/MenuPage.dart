@@ -32,7 +32,7 @@ class _MenuPageState extends State<MenuPage> {
     double fullHeight = MediaQuery.of(context).size.height;
     ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
 
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    FlutterStatusbarTextColor.setTextColor(null);
 
     Color _appbarFont = Color(0xffffffff);
 

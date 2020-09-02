@@ -23,7 +23,7 @@ class _FacilityPageState extends State<FacilityPage> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    FlutterStatusbarTextColor.setTextColor(null);
     //화면 크기 체크
     //디바이스 너비
     double _width = MediaQuery.of(context).size.width;
@@ -321,7 +321,7 @@ class _FacilityPageState extends State<FacilityPage> {
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "NotoSansKR",
                                       fontStyle: FontStyle.normal,
-                                      fontSize: ScreenUtil().setSp(24)),
+                                      fontSize: ScreenUtil().setSp(18)),
                                   textAlign: TextAlign.center),
                               Text("대피로 및 지도",
                                   style: TextStyle(
@@ -335,71 +335,6 @@ class _FacilityPageState extends State<FacilityPage> {
                           ),
                         ),
                       ),
-
-                      //대피 시설 및 지도
-//                      Container(
-//                        width: _width * (42.7 / 100),
-//                        height: _width * (42.7 / 100),
-//                        decoration: BoxDecoration(
-//                            borderRadius: BorderRadius.all(Radius.circular(20)),
-//                            boxShadow: [
-//                              BoxShadow(
-//                                  color: const Color(0x80cacaca),
-//                                  offset: Offset(0, -1),
-//                                  blurRadius: 16,
-//                                  spreadRadius: 2)
-//                            ],
-//                            color: Colors.white),
-//                        child: FlatButton(
-//                          onPressed: () {
-//                            Navigator.push(
-//                              context,
-//                              MaterialPageRoute(
-//                                  builder: (context) => EvacuationFacility()),
-//                            );
-//                          },
-//                          shape: new RoundedRectangleBorder(
-//                            borderRadius: new BorderRadius.circular(20.0),
-//                          ),
-//                          padding: EdgeInsets.all(0.0),
-//                          child: Column(
-//                            crossAxisAlignment: CrossAxisAlignment.center,
-//                            mainAxisAlignment: MainAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(
-//                                height: _screenHeight * (31 / 812),
-//                              ),
-//                              Container(
-//                                height: _screenHeight * (49.2 / 812),
-//                                width: _width * (35 / 375),
-//                                child: Image.asset(
-//                                  'images/FacilityPage/sos.png',
-//                                  fit: BoxFit.fitHeight,
-//                                ),
-//                              ),
-//                              SizedBox(
-//                                height: _screenHeight * (17.8 / 812),
-//                              ),
-//                              Text("대피 시설 및 지도",
-//                                  style: TextStyle(
-//                                      color: const Color(0xff131415),
-//                                      fontWeight: FontWeight.w500,
-//                                      fontFamily: "NotoSansKR",
-//                                      fontStyle: FontStyle.normal,
-//                                      fontSize: ScreenUtil().setSp(20)),
-//                                  textAlign: TextAlign.center),
-//                              Text("대피로",
-//                                  style: TextStyle(
-//                                      color: const Color(0xff5f605f),
-//                                      fontWeight: FontWeight.w500,
-//                                      fontFamily: "NotoSansKR",
-//                                      fontStyle: FontStyle.normal,
-//                                      fontSize: ScreenUtil().setSp(12)),
-//                                  textAlign: TextAlign.center)
-//                            ],
-//                          ),
-//                        ),
-//                      ),
                     ],
                   ),
                 ],

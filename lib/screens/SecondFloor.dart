@@ -51,7 +51,7 @@ class _SecondFloorState extends State<SecondFloor> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    FlutterStatusbarTextColor.setTextColor(null);
     double fullWidth = MediaQuery.of(context).size.width;
     double fullHeight = MediaQuery.of(context).size.height;
     ScreenUtil.init(context,

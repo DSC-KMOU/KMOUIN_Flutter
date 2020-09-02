@@ -41,7 +41,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
     double _mapHeight = _width * (217/375);
     Color _appbarFont = Color(0xff000000);
 
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    FlutterStatusbarTextColor.setTextColor(null);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(44.0),

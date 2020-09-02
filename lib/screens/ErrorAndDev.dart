@@ -18,7 +18,7 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
   Widget build(BuildContext context) {
     double _mainWidth = MediaQuery.of(context).size.width;
     double _mainHeight = MediaQuery.of(context).size.height;
-    FlutterStatusbarTextColor.setTextColor(FlutterStatusbarTextColor.dark);
+    FlutterStatusbarTextColor.setTextColor(null);
     Color _appbarFont = Color(0xff5b9fee);
 
     ScreenUtil.init(context,
