@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:url_launcher/url_launcher.dart';
 
 Future<Calendar> fetchPost() async {
   try {
@@ -246,12 +247,13 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                       color: Colors.blue,
                     ),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CalList(),
-                        ),
-                      );
+                      _launchURL('http://www.kmou.ac.kr/onestop/cm/cntnts/cntntsView.do?mi=74&cntntsId=1755',);
+//                      Navigator.push(
+//                        context,
+//                        MaterialPageRoute(
+//                          builder: (context) => CalList(),
+//                        ),
+//                      );
                     }
                 ),
               ),),
@@ -532,5 +534,15 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
               ))
           .toList(),
     );
+  }
+}
+
+_launchURL(FeedUrl) async {
+  var url = FeedUrl;
+
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
