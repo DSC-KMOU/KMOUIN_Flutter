@@ -28,13 +28,16 @@ class BusRoute extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              Text(info,
-                  style: TextStyle(
-                    fontSize: ScreenUtil().setSp(12),
-                    letterSpacing: -1.0,
-                    color: Color(0xff787878),
-                    fontWeight: FontWeight.w500,
-                  )),
+              Padding(
+                padding: const EdgeInsets.only(top:4.0),
+                child: Text(info,
+                    style: TextStyle(
+                      fontSize: ScreenUtil().setSp(12),
+                      letterSpacing: -1.0,
+                      color: Color(0xff787878),
+                      fontWeight: FontWeight.w500,
+                    )),
+              ),
             ],
           ),
           Spacer(),

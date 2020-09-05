@@ -255,6 +255,7 @@ class _MyHomePageState extends State<BusPage> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
+                            Container(),
                             SizedBox(height: 10.0),
                             Text(
                               snapshot.data.cur,
@@ -319,17 +320,36 @@ class _MyHomePageState extends State<BusPage> {
                                   ),
                                 ]),
                             SizedBox(height: 39.0),
-                            FlatButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            CoummuterBusPage()));
-                              },
-                              child: Container(
-                                width: fullWidth * 0.947,
-                                height: 107,
+                            Container(
+                              width: fullWidth * 0.947,
+                              height: 107,
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(18)),
+                                border: Border.all(
+                                  color: const Color(0xff842fb5),
+                                  width: 1,
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: const Color(0x80cacaca),
+                                      offset: Offset(0, -1),
+                                      blurRadius: 16,
+                                      spreadRadius: 2)
+                                ],
+                                color: const Color(0xffffffff),
+                              ),
+                              child: FlatButton(
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(18.0),
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              CoummuterBusPage()));
+                                },
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -353,22 +373,6 @@ class _MyHomePageState extends State<BusPage> {
                                           "images/BusPage/commuterbus.png"),
                                     )
                                   ],
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(18)),
-                                  border: Border.all(
-                                    color: const Color(0xff842fb5),
-                                    width: 1,
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: const Color(0x80cacaca),
-                                        offset: Offset(0, -1),
-                                        blurRadius: 16,
-                                        spreadRadius: 2)
-                                  ],
-                                  color: const Color(0xffffffff),
                                 ),
                               ),
                             ),

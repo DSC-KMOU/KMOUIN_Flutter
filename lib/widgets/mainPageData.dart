@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kmouin/screens/AcademicCalendar.dart';
-import 'package:kmouin/screens/AcademicCalendarList.dart';
+import 'package:kmouin/screens/AcademicCalendarnewList.dart';
 import 'package:kmouin/screens/BusPage.dart';
 import 'package:kmouin/screens/CommuterBusPage.dart';
 import 'package:kmouin/screens/DeveloperPage.dart';
