@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:kmouin/screens/AcademicCalendarList.dart';
+import 'package:kmouin/screens/AcademicCalendarnewList.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -169,8 +169,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
     FlutterStatusbarTextColor.setTextColor(null);
     return Scaffold(
       //extendBodyBehindAppBar: true,
-      appBar:
-      PreferredSize(
+      appBar: PreferredSize(
         preferredSize: Size.fromHeight(44.0),
         child: AppBar(
           centerTitle: false,
@@ -237,26 +236,26 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
               ),
               Align(
                 alignment: Alignment.centerRight,
-                child:Padding(
-                padding: const EdgeInsets.only(
-                  right: 13.0,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    right: 13.0,
+                  ),
+                  child: IconButton(
+                      icon: Icon(
+                        Icons.list,
+                        color: Colors.blue,
+                      ),
+                      onPressed: () {
+                        // _launchURL('http://www.kmou.ac.kr/onestop/cm/cntnts/cntntsView.do?mi=74&cntntsId=1755',);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CalList(),
+                          ),
+                        );
+                      }),
                 ),
-                child: IconButton(
-                    icon: Icon(
-                      Icons.list,
-                      color: Colors.blue,
-                    ),
-                    onPressed: () {
-                      _launchURL('http://www.kmou.ac.kr/onestop/cm/cntnts/cntntsView.do?mi=74&cntntsId=1755',);
-//                      Navigator.push(
-//                        context,
-//                        MaterialPageRoute(
-//                          builder: (context) => CalList(),
-//                        ),
-//                      );
-                    }
-                ),
-              ),),
+              ),
             ],
           ),
         ),
