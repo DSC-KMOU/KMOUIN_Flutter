@@ -28,24 +28,35 @@ class CalendarInfo extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    list[index]["date"]["year"].toString()+"년 "+list[index]["date"]["month"].toString()+"월 "+list[index]["date"]["day"].toString()+"일",
-                    style: TextStyle(
-                      color: const Color(0xff131415),
-                      fontWeight: FontWeight.w300,
-                      fontFamily: "NotoSansKR",
-                      fontStyle: FontStyle.normal,
-                      fontSize: ScreenUtil().setSp(16),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      list[index]["date"]["year"].toString()+"년\t"+list[index]["date"]["month"].toString()+"월\t"+list[index]["date"]["day"].toString()+"일",
+                      style: TextStyle(
+                        color: const Color(0xff131415),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: ScreenUtil().setSp(16),
+                      ),
                     ),
                   ),
-                  Text(
-                    list[index]["calendar"],
-                    style: TextStyle(
-                      color: const Color(0xff131415),
-                      fontWeight: FontWeight.w300,
-                      fontFamily: "NotoSansKR",
-                      fontStyle: FontStyle.normal,
-                      fontSize: ScreenUtil().setSp(16),
+                  Container(
+                    alignment: Alignment.centerRight,
+                    padding: EdgeInsets.only(right: 8.0),
+                    width: fullwidth*0.6,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Text(
+                        list[index]["calendar"],
+                        style: TextStyle(
+                          color: const Color(0xff131415),
+                          fontWeight: FontWeight.w300,
+                          fontFamily: "NotoSansKR",
+                          fontStyle: FontStyle.normal,
+                          fontSize: ScreenUtil().setSp(16),
+                        ),
+                      ),
                     ),
                   ),
                 ],
