@@ -95,7 +95,7 @@ class _CalListState extends State<CalList> {
                           color: _appbarFont,
                         ),
                         Text(
-                          "메인",
+                          "달력",
                           style: TextStyle(
                             color: _appbarFont,
                             fontWeight: FontWeight.w300,
@@ -130,24 +130,24 @@ class _CalListState extends State<CalList> {
         ),
       ),
       body: SafeArea(
-          child: SingleChildScrollView(child: buildFutureBuilder(fullWidth))),
+        child: SingleChildScrollView(
+          child: buildFutureBuilder(fullWidth, fullHeight),
+        ),
+      ),
     );
   }
 
-  FutureBuilder<CalendarData> buildFutureBuilder(double fullWidth) {
+  FutureBuilder<CalendarData> buildFutureBuilder(double fullWidth, double fullHeight) {
     return FutureBuilder(
         future: calendarData,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData == false) {
             return Column(
               children: <Widget>[
-                SizedBox(height: 20.0),
+                SizedBox(height: fullHeight*0.4),
                 Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CupertinoActivityIndicator(
-                      radius: 20,
-                    ),
+                  child: CupertinoActivityIndicator(
+                    radius: 20,
                   ),
                 ),
               ],
