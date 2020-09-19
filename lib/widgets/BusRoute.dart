@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/material.dart";
 
 class BusRoute extends StatelessWidget {
   final String title;
@@ -10,8 +9,6 @@ class BusRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double fullWidth = MediaQuery.of(context).size.width;
-    double fullHeight= MediaQuery.of(context).size.height;
-    ScreenUtil.init(context,width: fullWidth,height: fullHeight,allowFontScaling: false);
     return Container(
       width: fullWidth * 0.947,
       child: Row(
@@ -22,7 +19,7 @@ class BusRoute extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  fontSize: ScreenUtil().setSp(22),
+                  fontSize: 22,
                   letterSpacing: -1.0,
                   color: Color(0xff131415),
                   fontWeight: FontWeight.w500,
@@ -32,7 +29,7 @@ class BusRoute extends StatelessWidget {
                 padding: const EdgeInsets.only(top:4.0),
                 child: Text(info,
                     style: TextStyle(
-                      fontSize: ScreenUtil().setSp(12),
+                      fontSize: 12,
                       letterSpacing: -1.0,
                       color: Color(0xff787878),
                       fontWeight: FontWeight.w500,
@@ -46,7 +43,7 @@ class BusRoute extends StatelessWidget {
               height: 50.0,
               child: Stack(
                 children: <Widget>[
-                  Image.asset('images/BusPage/commuterbus.png'),
+                  Image.asset("images/BusPage/commuterbus.png"),
 
                 ],
               ))

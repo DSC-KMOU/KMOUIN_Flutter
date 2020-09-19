@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import '../widgets/FacilityLibButton.dart';
-import 'dart:ui';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
-import '../screens/EvacuationFacility.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "../widgets/FacilityLibButton.dart";
+import "dart:ui";
+import "EvacuationFacility.dart";
+import "package:url_launcher/url_launcher.dart";
 
 class FacilityPage extends StatefulWidget {
   @override
@@ -19,23 +17,15 @@ class _FacilityPageState extends State<FacilityPage> {
   int _stdRoomNum_3 = 3;
   int _stdRoomNum_4 = 4;
   String _kmouPage =
-      'http://www.kmou.ac.kr/coop/cm/cntnts/cntntsView.do?mi=1181&cntntsId=1102';
+      "http://www.kmou.ac.kr/coop/cm/cntnts/cntntsView.do?mi=1181&cntntsId=1102";
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(null);
-    //화면 크기 체크
     //디바이스 너비
     double _width = MediaQuery.of(context).size.width;
     //디바이스 높이
     double _height = MediaQuery.of(context).size.height;
-    //상태바 높이
-    double _naviTop = MediaQuery.of(context).padding.top;
-    //네비게이션바 높이
-    double _bottom = MediaQuery.of(context).padding.bottom;
     double _screenHeight = _height;
-    ScreenUtil.init(context,
-        width: _width, height: _screenHeight, allowFontScaling: false);
 
     Color _appbarFont = Color(0xffffffff);
 
@@ -97,7 +87,7 @@ class _FacilityPageState extends State<FacilityPage> {
             height: _screenHeight * (50.0 / 100),
             width: _width,
             child: Image.asset(
-              'images/FacilityPage/greenback.png',
+              "images/FacilityPage/greenback.png",
               fit: BoxFit.fill,
             ),
           ),
@@ -112,11 +102,12 @@ class _FacilityPageState extends State<FacilityPage> {
                   child: Text(
                     "오늘은 어디서 공부하지?",
                     style: TextStyle(
-                        color: const Color(0xffffffff),
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(30)),
+                      color: const Color(0xffffffff),
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "NotoSansKR",
+                      fontStyle: FontStyle.normal,
+                      fontSize: 30,
+                    ),
                   ),
                 ),
               ),
@@ -129,11 +120,12 @@ class _FacilityPageState extends State<FacilityPage> {
                     "다른 시설도 확인해봐요",
                     //_ht.toString(),
                     style: TextStyle(
-                        color: const Color(0xffffffff),
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "NotoSansKR",
-                        fontStyle: FontStyle.normal,
-                        fontSize: ScreenUtil().setSp(22)),
+                      color: const Color(0xffffffff),
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "NotoSansKR",
+                      fontStyle: FontStyle.normal,
+                      fontSize: 22,
+                    ),
                   ),
                 ),
               ),
@@ -180,11 +172,6 @@ class _FacilityPageState extends State<FacilityPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       InkWell(
-//                        onTap: () {
-//                          setState(() {
-//                            _stdRoomNum_3 = _stdRoomNum_3 + 1;
-//                          });
-//                        },
                         child: LibButton(
                           num: 3,
                           stdRoomNum: _stdRoomNum_3,
@@ -193,11 +180,6 @@ class _FacilityPageState extends State<FacilityPage> {
                         ),
                       ),
                       InkWell(
-//                        onTap: () {
-//////                          setState(() {
-//////                            _stdRoomNum_4 = _stdRoomNum_4 + 1;
-//////                          });
-//////                        },
                         child: LibButton(
                           num: 4,
                           stdRoomNum: _stdRoomNum_4,
@@ -242,11 +224,13 @@ class _FacilityPageState extends State<FacilityPage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Container(
-                                    margin:EdgeInsets.only(bottom:_screenHeight * (14 / 812),),
+                                    margin: EdgeInsets.only(
+                                      bottom: _screenHeight * (14 / 812),
+                                    ),
                                     height: _screenHeight * (5.4 / 100),
                                     width: _width * (11.7 / 100),
                                     child: Image.asset(
-                                      'images/FacilityPage/coffee.png',
+                                      "images/FacilityPage/coffee.png",
                                       fit: BoxFit.fitHeight,
                                     ),
                                   ),
@@ -254,19 +238,21 @@ class _FacilityPageState extends State<FacilityPage> {
                               ),
                               Text("편의 시설",
                                   style: TextStyle(
-                                      color: const Color(0xff131415),
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: "NotoSansKR",
-                                      fontStyle: FontStyle.normal,
-                                      fontSize: ScreenUtil().setSp(24)),
+                                    color: const Color(0xff131415),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 24,
+                                  ),
                                   textAlign: TextAlign.center),
                               Text("편의점, 카페 등",
                                   style: TextStyle(
-                                      color: const Color(0xff5f605f),
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: "NotoSansKR",
-                                      fontStyle: FontStyle.normal,
-                                      fontSize: ScreenUtil().setSp(12)),
+                                    color: const Color(0xff5f605f),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12,
+                                  ),
                                   textAlign: TextAlign.center)
                             ],
                           ),
@@ -305,11 +291,13 @@ class _FacilityPageState extends State<FacilityPage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Container(
-                                    margin:EdgeInsets.only(bottom:_screenHeight * (14 / 812),),
+                                    margin: EdgeInsets.only(
+                                      bottom: _screenHeight * (14 / 812),
+                                    ),
                                     height: _screenHeight * (5.4 / 100),
                                     width: _width * (11.7 / 100),
                                     child: Image.asset(
-                                      'images/FacilityPage/sos.png',
+                                      "images/FacilityPage/sos.png",
                                       fit: BoxFit.fitHeight,
                                     ),
                                   ),
@@ -317,19 +305,21 @@ class _FacilityPageState extends State<FacilityPage> {
                               ),
                               Text("대피 시설 및 지도",
                                   style: TextStyle(
-                                      color: const Color(0xff131415),
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: "NotoSansKR",
-                                      fontStyle: FontStyle.normal,
-                                      fontSize: ScreenUtil().setSp(18)),
+                                    color: const Color(0xff131415),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 18,
+                                  ),
                                   textAlign: TextAlign.center),
                               Text("대피로 및 지도",
                                   style: TextStyle(
-                                      color: const Color(0xff5f605f),
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: "NotoSansKR",
-                                      fontStyle: FontStyle.normal,
-                                      fontSize: ScreenUtil().setSp(12)),
+                                    color: const Color(0xff5f605f),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12,
+                                  ),
                                   textAlign: TextAlign.center)
                             ],
                           ),
@@ -347,12 +337,11 @@ class _FacilityPageState extends State<FacilityPage> {
   }
 }
 
-_launchURL(FeedUrl) async {
-  var url = FeedUrl;
-
+_launchURL(feedUrl) async {
+  var url = feedUrl;
   if (await canLaunch(url)) {
     await launch(url);
   } else {
-    throw 'Could not launch $url';
+    throw "Could not launch $url";
   }
 }

@@ -1,26 +1,28 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:kmouin/screens/AcademicCalendarnewList.dart';
-import 'package:table_calendar/table_calendar.dart';
-import 'package:intl/date_symbol_data_local.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'package:url_launcher/url_launcher.dart';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "package:flutter/rendering.dart";
+import "AcademicCalendarList.dart";
+import "package:table_calendar/table_calendar.dart";
+import "package:http/http.dart" as http;
+import "dart:convert";
 
 Future<Calendar> fetchPost() async {
   try {
     final response = await http.get(
-        'https://asia-northeast1-kmouin-62d7f.cloudfunctions.net/api/schedule');
+        "https://asia-northeast1-kmouin-62d7f.cloudfunctions.net/api/schedule");
     if (response.statusCode == 200) {
       return Calendar.fromJson(json.decode(response.body));
     } else {
-      throw Exception('Failed to load post');
+      return Calendar.fromJson({
+        "status": "error",
+        "result": {"list": [] },
+      });
     }
   } catch (e) {
-    print('\nfetchERROR :: Errortype : ${e}\n');
+    return Calendar.fromJson({
+      "status": "error",
+      "result": {"list": [] },
+    });
   }
 }
 
@@ -32,8 +34,8 @@ class Calendar {
 
   factory Calendar.fromJson(Map<String, dynamic> json) {
     return Calendar(
-      status: json['status'],
-      jsonList: json['result']['list'],
+      status: json["status"],
+      jsonList: json["result"]["list"],
     );
   }
 
@@ -54,8 +56,6 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
   Map<DateTime, List> _events;
   Map<DateTime, List> _holidays;
 
-  Map<DateTime, List> _calendar;
-
   Future<Calendar> calendar;
   List _selectedEvents;
   bool key = true;
@@ -64,51 +64,50 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
   AnimationController _animationController;
   CalendarController _calendarController;
 
-  Map<DateTime, List> input_events() {
+  Map<DateTime, List> inputEvents() {
     final _selectedDay = DateTime.now();
     calendar = fetchPost();
-    _calendar = {};
     _holidays = {
       // 휴일 저장
-      DateTime(_selectedDay.year - 1, 1, 1): ['새해'],
-      DateTime(_selectedDay.year - 1, 3, 1): ['삼일절'],
-      DateTime(_selectedDay.year - 1, 5, 5): ['어린이날'],
-      DateTime(_selectedDay.year - 1, 6, 6): ['현충일'],
-      DateTime(_selectedDay.year - 1, 8, 15): ['광복절'],
-      DateTime(_selectedDay.year - 1, 10, 3): ['개천절'],
-      DateTime(_selectedDay.year - 1, 10, 9): ['한글날'],
-      DateTime(_selectedDay.year - 1, 12, 25): ['크리스마스'],
+      DateTime(_selectedDay.year - 1, 1, 1): ["새해"],
+      DateTime(_selectedDay.year - 1, 3, 1): ["삼일절"],
+      DateTime(_selectedDay.year - 1, 5, 5): ["어린이날"],
+      DateTime(_selectedDay.year - 1, 6, 6): ["현충일"],
+      DateTime(_selectedDay.year - 1, 8, 15): ["광복절"],
+      DateTime(_selectedDay.year - 1, 10, 3): ["개천절"],
+      DateTime(_selectedDay.year - 1, 10, 9): ["한글날"],
+      DateTime(_selectedDay.year - 1, 12, 25): ["크리스마스"],
 
-      DateTime(_selectedDay.year, 1, 1): ['새해'],
-      DateTime(_selectedDay.year, 1, 24): ['설 연휴'],
-      DateTime(_selectedDay.year, 1, 25): ['설 연휴'],
-      DateTime(_selectedDay.year, 1, 26): ['설 연휴'],
-      DateTime(_selectedDay.year, 3, 1): ['삼일절'],
-      DateTime(_selectedDay.year, 5, 5): ['어린이날'],
-      DateTime(_selectedDay.year, 6, 6): ['현충일'],
-      DateTime(_selectedDay.year, 8, 15): ['광복절'],
-      DateTime(_selectedDay.year, 9, 30): ['추석 연휴'],
-      DateTime(_selectedDay.year, 10, 1): ['추석 연휴'],
-      DateTime(_selectedDay.year, 10, 2): ['추석 연휴'],
-      DateTime(_selectedDay.year, 10, 3): ['개천절'],
-      DateTime(_selectedDay.year, 10, 9): ['한글날'],
-      DateTime(_selectedDay.year, 12, 25): ['크리스마스'],
+      DateTime(_selectedDay.year, 1, 1): ["새해"],
+      DateTime(_selectedDay.year, 1, 24): ["설 연휴"],
+      DateTime(_selectedDay.year, 1, 25): ["설 연휴"],
+      DateTime(_selectedDay.year, 1, 26): ["설 연휴"],
+      DateTime(_selectedDay.year, 3, 1): ["삼일절"],
+      DateTime(_selectedDay.year, 5, 5): ["어린이날"],
+      DateTime(_selectedDay.year, 6, 6): ["현충일"],
+      DateTime(_selectedDay.year, 8, 15): ["광복절"],
+      DateTime(_selectedDay.year, 9, 30): ["추석 연휴"],
+      DateTime(_selectedDay.year, 10, 1): ["추석 연휴"],
+      DateTime(_selectedDay.year, 10, 2): ["추석 연휴"],
+      DateTime(_selectedDay.year, 10, 3): ["개천절"],
+      DateTime(_selectedDay.year, 10, 9): ["한글날"],
+      DateTime(_selectedDay.year, 12, 25): ["크리스마스"],
 
-      DateTime(_selectedDay.year + 1, 1, 1): ['새해'],
-      DateTime(_selectedDay.year + 1, 2, 11): ['설 연휴'],
-      DateTime(_selectedDay.year + 1, 2, 12): ['설 연휴'],
-      DateTime(_selectedDay.year + 1, 2, 13): ['설 연휴'],
-      DateTime(_selectedDay.year + 1, 3, 1): ['삼일절'],
-      DateTime(_selectedDay.year + 1, 5, 5): ['어린이날'],
-      DateTime(_selectedDay.year + 1, 5, 19): ['부처님 오신 날'],
-      DateTime(_selectedDay.year + 1, 6, 6): ['현충일'],
-      DateTime(_selectedDay.year + 1, 8, 15): ['광복절'],
-      DateTime(_selectedDay.year + 1, 9, 20): ['추석 연휴'],
-      DateTime(_selectedDay.year + 1, 9, 21): ['추석 연휴'],
-      DateTime(_selectedDay.year + 1, 9, 22): ['추석 연휴'],
-      DateTime(_selectedDay.year + 1, 10, 3): ['개천절'],
-      DateTime(_selectedDay.year + 1, 10, 9): ['한글날'],
-      DateTime(_selectedDay.year + 1, 12, 25): ['크리스마스'],
+      DateTime(_selectedDay.year + 1, 1, 1): ["새해"],
+      DateTime(_selectedDay.year + 1, 2, 11): ["설 연휴"],
+      DateTime(_selectedDay.year + 1, 2, 12): ["설 연휴"],
+      DateTime(_selectedDay.year + 1, 2, 13): ["설 연휴"],
+      DateTime(_selectedDay.year + 1, 3, 1): ["삼일절"],
+      DateTime(_selectedDay.year + 1, 5, 5): ["어린이날"],
+      DateTime(_selectedDay.year + 1, 5, 19): ["부처님 오신 날"],
+      DateTime(_selectedDay.year + 1, 6, 6): ["현충일"],
+      DateTime(_selectedDay.year + 1, 8, 15): ["광복절"],
+      DateTime(_selectedDay.year + 1, 9, 20): ["추석 연휴"],
+      DateTime(_selectedDay.year + 1, 9, 21): ["추석 연휴"],
+      DateTime(_selectedDay.year + 1, 9, 22): ["추석 연휴"],
+      DateTime(_selectedDay.year + 1, 10, 3): ["개천절"],
+      DateTime(_selectedDay.year + 1, 10, 9): ["한글날"],
+      DateTime(_selectedDay.year + 1, 12, 25): ["크리스마스"],
     };
 
     Map<DateTime, List> events = {
@@ -124,7 +123,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
     super.initState();
     final _selectedDay = DateTime.now();
     _calendarController = CalendarController();
-    _events = input_events();
+    _events = inputEvents();
     _selectedEvents = _events[_selectedDay] ?? []; //널값인지 아닌지를 확인할 것!
     _animationController = AnimationController(
       vsync: this,
@@ -142,7 +141,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
   }
 
   void _onDaySelected(DateTime day, List events) {
-    print('CALLBACK: _onDaySelected');
+    print("CALLBACK: _onDaySelected");
     setState(() {
       _selectedEvents = events;
     });
@@ -150,23 +149,18 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
 
   void _onVisibleDaysChanged(
       DateTime first, DateTime last, CalendarFormat format) {
-    print('CALLBACK: _onVisibleDaysChanged');
+    print("CALLBACK: _onVisibleDaysChanged");
   }
 
   void _onCalendarCreated(
       DateTime first, DateTime last, CalendarFormat format) {
-    print('CALLBACK: _onCalendarCreated');
+    print("CALLBACK: _onCalendarCreated");
   }
 
   Color _appbarFont = Color(0xff5b9fee);
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context,
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        allowFontScaling: false);
-    FlutterStatusbarTextColor.setTextColor(null);
     return Scaffold(
       //extendBodyBehindAppBar: true,
       appBar: PreferredSize(
@@ -246,7 +240,6 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                         color: Colors.blue,
                       ),
                       onPressed: () {
-                        // _launchURL('http://www.kmou.ac.kr/onestop/cm/cntnts/cntntsView.do?mi=74&cntntsId=1755',);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -274,7 +267,7 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                     }
                   } else if (snapshot.hasError) {
                     print(
-                        '\n\nERRORMESSAGE :: snapshot Error :  ${snapshot.error}\n\n');
+                        "\n\nERRORMESSAGE :: snapshot Error :  ${snapshot.error}\n\n");
                   }
                   return _buildTableCalendar();
                 }),
@@ -291,27 +284,27 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
   void setData(List jsonList) {
     try {
       for (var i = 0; i < jsonList.length; i++) {
-        if (_events[DateTime(jsonList[i]['date']['year'],
-                jsonList[i]['date']['month'], jsonList[i]['date']['day'])] ==
+        if (_events[DateTime(jsonList[i]["date"]["year"],
+                jsonList[i]["date"]["month"], jsonList[i]["date"]["day"])] ==
             null) {
-          _events[DateTime(jsonList[i]['date']['year'],
-              jsonList[i]['date']['month'], jsonList[i]['date']['day'])] = [];
+          _events[DateTime(jsonList[i]["date"]["year"],
+              jsonList[i]["date"]["month"], jsonList[i]["date"]["day"])] = [];
         }
         {
-          _events[DateTime(jsonList[i]['date']['year'],
-                  jsonList[i]['date']['month'], jsonList[i]['date']['day'])]
-              .add(jsonList[i]['calendar']);
+          _events[DateTime(jsonList[i]["date"]["year"],
+                  jsonList[i]["date"]["month"], jsonList[i]["date"]["day"])]
+              .add(jsonList[i]["calendar"]);
         }
       }
       key = false;
     } catch (e) {
-      print('\nErrortype : ${e}\n');
+      print(e);
     }
   }
 
   Widget _buildTableCalendar() {
     return TableCalendar(
-        //locale: 'ko_KR',
+        //locale: "ko_KR",
         calendarController: _calendarController,
         events: _events,
         holidays: _holidays,
@@ -320,39 +313,45 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
           outsideDaysVisible: true,
           outsideStyle: TextStyle(
             color: Colors.blue[200],
-            fontSize: ScreenUtil().setSp(20),
+            fontSize: 20,
           ),
           outsideHolidayStyle: TextStyle(
             color: Colors.red[200],
-            fontSize: ScreenUtil().setSp(20),
+            fontSize: 20,
           ),
           outsideWeekendStyle: TextStyle(
             color: Colors.red[200],
-            fontSize: ScreenUtil().setSp(20),
+            fontSize: 20,
           ),
           weekdayStyle: TextStyle(
             color: Colors.blue[800],
-            fontSize: ScreenUtil().setSp(20),
+            fontSize: 20,
           ),
           weekendStyle: TextStyle(
             color: Colors.red,
-            fontSize: ScreenUtil().setSp(20),
+            fontSize: 20,
           ),
           holidayStyle: TextStyle(
             color: Colors.red,
-            fontSize: ScreenUtil().setSp(20),
+            fontSize: 20,
           ),
         ),
         headerStyle: HeaderStyle(
-          titleTextStyle:
-              TextStyle(color: Colors.black, fontSize: ScreenUtil().setSp(20)),
+          titleTextStyle: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+          ),
           centerHeaderTitle: true,
           formatButtonVisible: false,
         ),
         daysOfWeekStyle: DaysOfWeekStyle(
-          weekdayStyle: TextStyle(fontSize: ScreenUtil().setSp(16)),
-          weekendStyle:
-              TextStyle(color: Colors.red, fontSize: ScreenUtil().setSp(16)),
+          weekdayStyle: TextStyle(
+            fontSize: 16,
+          ),
+          weekendStyle: TextStyle(
+            color: Colors.red,
+            fontSize: 16,
+          ),
         ),
         onDaySelected: _onDaySelected,
         onVisibleDaysChanged: _onVisibleDaysChanged,
@@ -373,9 +372,11 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                 height: 45,
                 child: Center(
                   child: Text(
-                    '${date.day}',
+                    "${date.day}",
                     style: TextStyle(
-                        fontSize: ScreenUtil().setSp(20), color: Colors.white),
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -393,9 +394,11 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
               height: 45,
               child: Center(
                 child: Text(
-                  '${date.day}',
+                  "${date.day}",
                   style: TextStyle(
-                      fontSize: ScreenUtil().setSp(20), color: Colors.white),
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             );
@@ -431,33 +434,33 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
     return Row(children: <Widget>[
       events.length >= 1
           ? holidays.length == 0 || holidays.length != 1
-              ? _buildAnimationContainer_events(date, events)
-              : Text('')
-          : Text(''),
+              ? buildAnimationContainerEvents(date, events)
+              : Text("")
+          : Text(""),
       events.length >= 2
           ? holidays.length == 0 || holidays.length != 2
-              ? _buildAnimationContainer_events(date, events)
-              : Text('')
-          : Text(''),
+              ? buildAnimationContainerEvents(date, events)
+              : Text("")
+          : Text(""),
       events.length >= 3
           ? holidays.length == 0 || holidays.length != 3
-              ? _buildAnimationContainer_events(date, events)
-              : Text('')
-          : Text(''),
+              ? buildAnimationContainerEvents(date, events)
+              : Text("")
+          : Text(""),
       events.length >= 4
           ? holidays.length == 0 || holidays.length != 4
-              ? _buildAnimationContainer_events(date, events)
-              : Text('')
-          : Text(''),
+              ? buildAnimationContainerEvents(date, events)
+              : Text("")
+          : Text(""),
       events.length >= 5
           ? holidays.length == 0 || holidays.length != 5
-              ? _buildAnimationContainer_events(date, events)
-              : Text('')
-          : Text(''),
+              ? buildAnimationContainerEvents(date, events)
+              : Text("")
+          : Text(""),
     ]);
   }
 
-  Widget _buildAnimationContainer_events(DateTime date, List events) {
+  Widget buildAnimationContainerEvents(DateTime date, List events) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
       decoration: BoxDecoration(
@@ -520,28 +523,20 @@ class _MyHomePageState extends State<CalPage> with TickerProviderStateMixin {
                       Container(
                           child: FittedBox(
                         fit: BoxFit.contain,
-                        child: Text(event.toString(),
-                            style: TextStyle(
-                              color: const Color(0xff000000),
-                              fontWeight: FontWeight.w500,
-                              fontFamily: "NotoSansKR",
-                              fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(15),
-                            )),
+                        child: Text(
+                          event.toString(),
+                          style: TextStyle(
+                            color: const Color(0xff000000),
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "NotoSansKR",
+                            fontStyle: FontStyle.normal,
+                            fontSize: 15,
+                          ),
+                        ),
                       )),
                     ])),
               ))
           .toList(),
     );
-  }
-}
-
-_launchURL(FeedUrl) async {
-  var url = FeedUrl;
-
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
   }
 }

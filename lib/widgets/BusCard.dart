@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/material.dart";
+import "package:flutter/cupertino.dart";
 
 class BusCard extends StatelessWidget {
   final String title;
@@ -12,9 +11,7 @@ class BusCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double fullWidth = MediaQuery.of(context).size.width;
-    double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context,width: fullWidth,height:fullHeight ,allowFontScaling: false);
+
     return Container(
       padding: EdgeInsets.only(
         left: width * 0.042,
@@ -24,7 +21,6 @@ class BusCard extends StatelessWidget {
       ),
       width: width,
 
-      // height: 185,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,7 +32,7 @@ class BusCard extends StatelessWidget {
               fontWeight: FontWeight.w600,
               fontFamily: "NotoSansKR",
               fontStyle: FontStyle.normal,
-              fontSize: ScreenUtil().setSp(18),
+              fontSize: 18,
             ),
           ),
           Divider(

@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import '../widgets/EvacuationList.dart';
-import 'dart:ui';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "../widgets/EvacuationList.dart";
+import "dart:ui";
 
 class EvacuationFacility extends StatefulWidget {
   @override
@@ -18,30 +16,15 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
   Widget build(BuildContext context) {
     //화면 크기 체크
     //디바이스 너비
-    double _width = MediaQuery
-        .of(context)
-        .size
-        .width;
+    double _width = MediaQuery.of(context).size.width;
     //디바이스 높이
-    double _height = MediaQuery
-        .of(context)
-        .size
-        .height;
+    double _height = MediaQuery.of(context).size.height;
     //상태바 높이
-    double _naviTop = MediaQuery
-        .of(context)
-        .padding
-        .top;
-    //네비게이션바 높이
-    double _bottom = MediaQuery
-        .of(context)
-        .padding
-        .bottom;
+    double _naviTop = MediaQuery.of(context).padding.top;
     double _screenHeight = _height - _naviTop;
-    double _mapHeight = _width * (217/375);
+    double _mapHeight = _width * (217 / 375);
     Color _appbarFont = Color(0xff000000);
 
-    FlutterStatusbarTextColor.setTextColor(null);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(44.0),
@@ -57,52 +40,53 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: FlatButton(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(44.0)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(44.0)),
                   onPressed: () {
-                    setState(() {
-                      Navigator.pop(context);
-                    },);
+                    setState(
+                      () {
+                        Navigator.pop(context);
+                      },
+                    );
                   },
                   padding: EdgeInsets.only(left: 5.0, right: 5.0),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      widthFactor: 1.5,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Icon(
-                            CupertinoIcons.back,
-                            color:  _appbarFont,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    widthFactor: 1.5,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Icon(
+                          CupertinoIcons.back,
+                          color: _appbarFont,
+                        ),
+                        Text(
+                          "시설정보",
+                          style: TextStyle(
+                            color: _appbarFont,
+                            fontWeight: FontWeight.w300,
+                            fontFamily: "NotoSansKR",
+                            fontStyle: FontStyle.normal,
+                            fontSize: 16,
+                            wordSpacing: 0.0,
                           ),
-                          Text(
-                            "시설정보",
-                            style: TextStyle(
-                              //color: Colors.transparent,
-                              color: _appbarFont,
-                              fontWeight: FontWeight.w300,
-                              fontFamily: "NotoSansKR",
-                              fontStyle: FontStyle.normal,
-                              fontSize: 16,
-                              wordSpacing: 0.0,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
+                ),
               ),
               Center(
                 child: Container(
                   child: Text(
-                      "대피시설 및 지도",
-                      style: TextStyle(
-                          color:  _appbarFont,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: "NotoSansKR",
-                          fontStyle:  FontStyle.normal,
-                          fontSize: 16
-                      ),
-                      textAlign: TextAlign.center,
+                    "대피시설 및 지도",
+                    style: TextStyle(
+                        color: _appbarFont,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
@@ -124,7 +108,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 left: _width * (60 / 100),
                 top: _mapHeight * (24.4 / 100),
                 child: Container(
-                  width: _width*(36/100),
+                  width: _width * (36 / 100),
                   child: _bildZone(buttonPushed, 1),
                 ),
               ),
@@ -134,7 +118,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 left: _width * (68 / 100),
                 top: _mapHeight * (24.4 / 100),
                 width: _width * (16 / 100),
-                height: _mapHeight * (34/ 100),
+                height: _mapHeight * (34 / 100),
                 child: InkWell(
                   onTap: () {
                     setState(() {
@@ -148,7 +132,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 left: _width * (47.5 / 100),
                 top: _mapHeight * (52.5 / 100),
                 child: Container(
-                  width: _width*(33/100),
+                  width: _width * (33 / 100),
                   child: _bildZone(buttonPushed, 2),
                 ),
               ),
@@ -158,7 +142,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 left: _width * (53 / 100),
                 top: _mapHeight * (56 / 100),
                 width: _width * (13 / 100),
-                height: _mapHeight * (21/ 100),
+                height: _mapHeight * (21 / 100),
                 child: InkWell(
                   onTap: () {
                     setState(() {
@@ -171,7 +155,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 left: _width * (58 / 100),
                 top: _mapHeight * (64 / 100),
                 width: _width * (13 / 100),
-                height: _mapHeight * (21/ 100),
+                height: _mapHeight * (21 / 100),
                 child: InkWell(
                   onTap: () {
                     setState(() {
@@ -185,7 +169,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 left: _width * (40 / 100),
                 top: _mapHeight * (17.5 / 100),
                 child: Container(
-                  width: _width*(29/100),
+                  width: _width * (29 / 100),
                   child: _bildZone(buttonPushed, 3),
                 ),
               ),
@@ -195,7 +179,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 left: _width * (47 / 100),
                 top: _mapHeight * (20 / 100),
                 width: _width * (13 / 100),
-                height: _mapHeight * (30/ 100),
+                height: _mapHeight * (30 / 100),
                 child: InkWell(
                   onTap: () {
                     setState(() {
@@ -208,9 +192,8 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
               Positioned(
                 left: _width * (19 / 100),
                 top: _mapHeight * (28.1 / 100),
-
                 child: Container(
-                  width: _width*(32/100),
+                  width: _width * (32 / 100),
                   child: _bildZone(buttonPushed, 4),
                 ),
               ),
@@ -220,7 +203,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 left: _width * (20 / 100),
                 top: _mapHeight * (32 / 100),
                 width: _width * (12 / 100),
-                height: _mapHeight * (25/ 100),
+                height: _mapHeight * (25 / 100),
                 child: InkWell(
                   onTap: () {
                     setState(() {
@@ -233,7 +216,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 left: _width * (31 / 100),
                 top: _mapHeight * (40 / 100),
                 width: _width * (12 / 100),
-                height: _mapHeight * (25/ 100),
+                height: _mapHeight * (25 / 100),
                 child: InkWell(
                   onTap: () {
                     setState(() {
@@ -247,7 +230,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 left: _width * (9 / 100),
                 top: _mapHeight * (7.8 / 100),
                 child: Container(
-                  width: _width*(38/100),
+                  width: _width * (38 / 100),
                   child: _bildZone(buttonPushed, 5),
                 ),
               ),
@@ -256,7 +239,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
                 left: _width * (15 / 100),
                 top: _mapHeight * (7.8 / 100),
                 width: _width * (28 / 100),
-                height: _mapHeight * (20/ 100),
+                height: _mapHeight * (20 / 100),
                 child: InkWell(
                   onTap: () {
                     setState(() {
@@ -273,12 +256,12 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
           Text(
             "<한국해양대학교 지도>",
             style: TextStyle(
-                color:  const Color(0xff727272),
-                fontWeight: FontWeight.w500,
-                fontFamily: "NotoSansKR",
-                fontStyle:  FontStyle.normal,
-                fontSize: ScreenUtil().setSp(14)
-            ), //textAlign: TextAlign.center
+              color: const Color(0xff727272),
+              fontWeight: FontWeight.w500,
+              fontFamily: "NotoSansKR",
+              fontStyle: FontStyle.normal,
+              fontSize: 14,
+            ),
           ),
           EvacuationList(
             num: buttonPushed,
@@ -291,7 +274,7 @@ class _EvacuationFacilityState extends State<EvacuationFacility> {
   }
 
   Widget _bildZone(num, loNum) {
-    List<String> tempList = ['a', 'b', 'c', 'd', 'e'];
+    List<String> tempList = ["a", "b", "c", "d", "e"];
     if (num == loNum)
       return Image(
         image: AssetImage("images/map/" + tempList[loNum - 1] + "Zone@3x.png"),

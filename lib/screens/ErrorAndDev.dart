@@ -1,12 +1,8 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kmouin/main.dart';
-import 'DevLicense.dart';
-import 'package:kmouin/screens/DeveloperPage.dart';
-import 'package:kmouin/widgets/ErrorContainer.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "DevLicense.dart";
+import "DeveloperPage.dart";
+import "../widgets/ErrorContainer.dart";
 
 class ErrorAndDev extends StatefulWidget {
   @override
@@ -16,13 +12,7 @@ class ErrorAndDev extends StatefulWidget {
 class _ErrorAndDevState extends State<ErrorAndDev> {
   @override
   Widget build(BuildContext context) {
-    double _mainWidth = MediaQuery.of(context).size.width;
-    double _mainHeight = MediaQuery.of(context).size.height;
-    FlutterStatusbarTextColor.setTextColor(null);
     Color _appbarFont = Color(0xff5b9fee);
-
-    ScreenUtil.init(context,
-        width: _mainWidth, height: _mainHeight, allowFontScaling: false);
 
     return Scaffold(
       appBar: PreferredSize(
@@ -82,35 +72,33 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
               child: Column(
                 children: <Widget>[
                   Container(
-                    child: FlatButton(
-                      padding: EdgeInsets.all(0.0),
-                      child: ErrorContainer(
-                        imageName: 'error',
-                        reportTitle: '오류제보',
-                        reportDescription: '버그나 피드 부탁드립니다!',
-                        url:
-                            'https://docs.google.com/forms/d/e/1FAIpQLSdAxdRIV-3rwbN9P36nrP-VGgA0aPYSgVt0vEL8JYeY8TtIdA/viewform?usp=send_form',
-                      ),
+                    child: ErrorContainer(
+                      imageName: "error",
+                      reportTitle: "오류제보",
+                      reportDescription: "버그나 피드 부탁드립니다!",
+                      url:
+                          "https://docs.google.com/forms/d/e/1FAIpQLSdAxdRIV-3rwbN9P36nrP-VGgA0aPYSgVt0vEL8JYeY8TtIdA/viewform?usp=send_form",
                     ),
                   ),
                   ErrorContainer(
-                    imageName: 'survey',
-                    reportTitle: '설문조사',
-                    reportDescription: '앱의 발전을 위해 힘쓰겠습니다!',
-                    url: 'https://docs.google.com/forms/d/e/1FAIpQLScciyiVtf1MjZAX-pEsYaHLW_zQlTQfbFwmvMOOWrSPp2qbBg/viewform',
+                    imageName: "survey",
+                    reportTitle: "설문조사",
+                    reportDescription: "앱의 발전을 위해 힘쓰겠습니다!",
+                    url:
+                        "https://docs.google.com/forms/d/e/1FAIpQLScciyiVtf1MjZAX-pEsYaHLW_zQlTQfbFwmvMOOWrSPp2qbBg/viewform",
                   ),
                   ErrorContainer(
-                    imageName: 'DevTeam',
-                    reportTitle: '개발자 정보',
-                    reportDescription: '사용해주셔서 감사합니다!',
+                    imageName: "DevTeam",
+                    reportTitle: "개발자 정보",
+                    reportDescription: "사용해주셔서 감사합니다!",
                     page: DeveloperPage(),
                   ),
                   ErrorContainer(
-                    imageName: 'petition',
-                    reportTitle: '아치신문고',
-                    reportDescription: '해양대 아치신문고로 연결됩니다',
+                    imageName: "petition",
+                    reportTitle: "아치신문고",
+                    reportDescription: "해양대 아치신문고로 연결됩니다",
                     url:
-                        'http://www.kmou.ac.kr/kmou/na/ntt/selectNttList.do?mi=3911&bbsId=10873#sideContent',
+                        "http://www.kmou.ac.kr/kmou/na/ntt/selectNttList.do?mi=3911&bbsId=10873#sideContent",
                   ),
                 ],
               ),
@@ -134,13 +122,14 @@ class _ErrorAndDevState extends State<ErrorAndDev> {
                     );
                   },
                   child: Text(
-                      '< Copyright 2020. DSC_KMOU. KMOUIN ver. 1.0.0 more info >',
+                      "< Copyright 2020. DSC_KMOU. KMOUIN ver. 1.0.0 more info >",
                       style: TextStyle(
-                          color: Color(0xff828282),
-                          fontWeight: FontWeight.w300,
-                          fontFamily: "NotoSansKR",
-                          fontStyle: FontStyle.normal,
-                          fontSize: ScreenUtil().setSp(12.0)),
+                        color: Color(0xff828282),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "NotoSansKR",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 12.0,
+                      ),
                       textAlign: TextAlign.center),
                 ),
               ),

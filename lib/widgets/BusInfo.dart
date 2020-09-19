@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/material.dart";
+import "package:flutter/cupertino.dart";
 
 class BusInfo extends StatelessWidget {
   final List<dynamic> timeTable;
@@ -17,9 +16,6 @@ class BusInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double fullWidth = MediaQuery.of(context).size.width;
-    double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context,
-        width: fullWidth, height: fullHeight, allowFontScaling: false);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -32,7 +28,7 @@ class BusInfo extends StatelessWidget {
             fontWeight: FontWeight.w600,
             fontFamily: "NotoSansKR",
             fontStyle: FontStyle.normal,
-            fontSize: ScreenUtil().setSp(16),
+            fontSize: 16,
           ),
         ),
         SizedBox(height: 10.0),
@@ -58,7 +54,7 @@ class BusInfo extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(16),
+                              fontSize: 16,
                               letterSpacing: -0.28,
                             ),
                           ),
@@ -70,7 +66,7 @@ class BusInfo extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(12),
+                              fontSize: 12,
                               height: 1.7,
                               letterSpacing: -0.25,
                             ),
@@ -87,7 +83,7 @@ class BusInfo extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(14),
+                              fontSize: 14,
                             ),
                           ),
                           Spacer(),
@@ -137,7 +133,7 @@ class BusInfo extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(16),
+                              fontSize: 16,
                               letterSpacing: -0.28,
                             ),
                           ),
@@ -150,7 +146,7 @@ class BusInfo extends StatelessWidget {
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
                               height: 1.7,
-                              fontSize: ScreenUtil().setSp(12),
+                              fontSize: 12,
                               letterSpacing: -0.25,
                             ),
                           )
@@ -167,7 +163,7 @@ class BusInfo extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               fontFamily: "NotoSansKR",
                               fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(14),
+                              fontSize: 14,
                             ),
                           ),
                           SizedBox(
@@ -203,7 +199,7 @@ class BusInfo extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
-                            fontSize: ScreenUtil().setSp(16),
+                            fontSize: 16,
                             letterSpacing: -0.28,
                           ),
                         ),
@@ -215,7 +211,7 @@ class BusInfo extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
-                            fontSize: ScreenUtil().setSp(12),
+                            fontSize: 12,
                             height: 1.7,
                             letterSpacing: -0.25,
                           ),
@@ -232,7 +228,7 @@ class BusInfo extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
-                            fontSize: ScreenUtil().setSp(10),
+                            fontSize: 10,
                           ),
                         ),
                         Text(
@@ -242,7 +238,7 @@ class BusInfo extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
-                            fontSize: ScreenUtil().setSp(14),
+                            fontSize: 14,
                           ),
                         ),
                         Spacer(),

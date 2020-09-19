@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kmouin/widgets/LicenseCard.dart';
-import 'package:kmouin/widgets/LicenseData.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "../widgets/LicenseCard.dart";
+import "../widgets/LicenseData.dart";
 
 class DevLicense extends StatefulWidget {
   @override
@@ -15,7 +13,6 @@ class _DevLicense extends State<DevLicense> {
   Widget build(BuildContext context) {
     double _mainWidth = MediaQuery.of(context).size.width;
     double _mainHeight = MediaQuery.of(context).size.height;
-    FlutterStatusbarTextColor.setTextColor(null);
 
     double cardWidth = _mainWidth * 0.93;
 
@@ -37,7 +34,7 @@ class _DevLicense extends State<DevLicense> {
                   borderRadius: BorderRadius.circular(44.0)),
               onPressed: () {
                 setState(
-                  () {
+                      () {
                     Navigator.pop(context);
                   },
                 );

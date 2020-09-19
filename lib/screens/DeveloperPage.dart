@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
 
 class DeveloperPage extends StatefulWidget {
   DeveloperPage({Key key, this.title}) : super(key: key);
@@ -15,11 +13,7 @@ class DeveloperPage extends StatefulWidget {
 class _MyHomePageState extends State<DeveloperPage> {
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(null);
     double fullWidth = MediaQuery.of(context).size.width;
-    double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context,
-        width: fullWidth, height: fullHeight, allowFontScaling: false);
     Color _appbarFont = Color(0xffffffff);
 
     return Scaffold(
@@ -94,7 +88,7 @@ class _MyHomePageState extends State<DeveloperPage> {
                         height: fullWidth * 0.149 * 1.18,
                         margin: EdgeInsets.only(top: 10.0, bottom: 23.0),
                         child: Image.asset(
-                          'images/ErrorAndDev/developerPagelogo.png',
+                          "images/ErrorAndDev/developerPagelogo.png",
                         )),
                     TitleChip(width: fullWidth * 0.587, title: "UI,UX 디자인 총괄"),
                     LeaderText(major: "영어영문", name: "조성우"),
@@ -102,13 +96,13 @@ class _MyHomePageState extends State<DeveloperPage> {
                     TitleChip(width: fullWidth * 0.587, title: "메인페이지 개발"),
                     LeaderText(major: "IT 융합", name: "김민욱"),
                     Divider(
-                      indent: fullWidth*0.41,
-                      endIndent: fullWidth*0.41,
+                      indent: fullWidth * 0.41,
+                      endIndent: fullWidth * 0.41,
                       color: Colors.white,
                       thickness: 0.5,
                     ),
                     Container(
-                      margin: EdgeInsets.only(bottom:5.0,top:10.0),
+                      margin: EdgeInsets.only(bottom: 5.0, top: 10.0),
                       child: Text(
                         "팀원",
                         style: TextStyle(
@@ -116,7 +110,7 @@ class _MyHomePageState extends State<DeveloperPage> {
                           fontWeight: FontWeight.w500,
                           fontFamily: "NotoSansKR",
                           fontStyle: FontStyle.normal,
-                          fontSize: ScreenUtil().setSp(14.0),
+                          fontSize: 14.0,
                         ),
                       ),
                     ),
@@ -128,13 +122,13 @@ class _MyHomePageState extends State<DeveloperPage> {
                     TitleChip(width: fullWidth * 0.587, title: "버스페이지 개발"),
                     LeaderText(major: "전자통신", name: "한채연"),
                     Divider(
-                      indent: fullWidth*0.41,
-                      endIndent: fullWidth*0.41,
+                      indent: fullWidth * 0.41,
+                      endIndent: fullWidth * 0.41,
                       color: Colors.white,
                       thickness: 0.5,
                     ),
                     Container(
-                      margin: EdgeInsets.only(bottom:5.0,top:10.0),
+                      margin: EdgeInsets.only(bottom: 5.0, top: 10.0),
                       child: Text(
                         "팀원",
                         style: TextStyle(
@@ -142,7 +136,7 @@ class _MyHomePageState extends State<DeveloperPage> {
                           fontWeight: FontWeight.w500,
                           fontFamily: "NotoSansKR",
                           fontStyle: FontStyle.normal,
-                          fontSize: ScreenUtil().setSp(14.0),
+                          fontSize: 14.0,
                         ),
                       ),
                     ),
@@ -154,13 +148,13 @@ class _MyHomePageState extends State<DeveloperPage> {
                     TitleChip(width: fullWidth * 0.587, title: "식단페이지 개발"),
                     LeaderText(major: "IT 융합", name: "박선호"),
                     Divider(
-                      indent: fullWidth*0.41,
-                      endIndent: fullWidth*0.41,
+                      indent: fullWidth * 0.41,
+                      endIndent: fullWidth * 0.41,
                       color: Colors.white,
                       thickness: 0.5,
                     ),
                     Container(
-                      margin: EdgeInsets.only(bottom:5.0,top:10.0),
+                      margin: EdgeInsets.only(bottom: 5.0, top: 10.0),
                       child: Text(
                         "팀원",
                         style: TextStyle(
@@ -168,7 +162,7 @@ class _MyHomePageState extends State<DeveloperPage> {
                           fontWeight: FontWeight.w500,
                           fontFamily: "NotoSansKR",
                           fontStyle: FontStyle.normal,
-                          fontSize: ScreenUtil().setSp(14.0),
+                          fontSize: 14.0,
                         ),
                       ),
                     ),
@@ -182,13 +176,13 @@ class _MyHomePageState extends State<DeveloperPage> {
                     ),
                     LeaderText(major: "IT 융합", name: "김호은"),
                     Divider(
-                      indent: fullWidth*0.41,
-                      endIndent: fullWidth*0.41,
+                      indent: fullWidth * 0.41,
+                      endIndent: fullWidth * 0.41,
                       color: Colors.white,
                       thickness: 0.5,
                     ),
                     Container(
-                      margin: EdgeInsets.only(bottom:5.0,top:10.0),
+                      margin: EdgeInsets.only(bottom: 5.0, top: 10.0),
                       child: Text(
                         "팀원",
                         style: TextStyle(
@@ -196,7 +190,7 @@ class _MyHomePageState extends State<DeveloperPage> {
                           fontWeight: FontWeight.w500,
                           fontFamily: "NotoSansKR",
                           fontStyle: FontStyle.normal,
-                          fontSize: ScreenUtil().setSp(14.0),
+                          fontSize: 14.0,
                         ),
                       ),
                     ),
@@ -208,13 +202,13 @@ class _MyHomePageState extends State<DeveloperPage> {
                       name: "정교준",
                     ),
                     Divider(
-                      indent: fullWidth*0.41,
-                      endIndent: fullWidth*0.41,
+                      indent: fullWidth * 0.41,
+                      endIndent: fullWidth * 0.41,
                       color: Colors.white,
                       thickness: 0.5,
                     ),
                     Container(
-                      margin: EdgeInsets.only(bottom:5.0,top:10.0),
+                      margin: EdgeInsets.only(bottom: 5.0, top: 10.0),
                       child: Text(
                         "팀원",
                         style: TextStyle(
@@ -222,7 +216,7 @@ class _MyHomePageState extends State<DeveloperPage> {
                           fontWeight: FontWeight.w500,
                           fontFamily: "NotoSansKR",
                           fontStyle: FontStyle.normal,
-                          fontSize: ScreenUtil().setSp(14.0),
+                          fontSize: 14.0,
                         ),
                       ),
                     ),
@@ -275,7 +269,7 @@ class MemberText extends StatelessWidget {
               fontWeight: FontWeight.w300,
               fontFamily: "NotoSansKR",
               fontStyle: FontStyle.normal,
-              fontSize: ScreenUtil().setSp(12.0),
+              fontSize: 12.0,
             ),
           ),
           Text(
@@ -285,7 +279,7 @@ class MemberText extends StatelessWidget {
               fontWeight: FontWeight.w500,
               fontFamily: "NotoSansKR",
               fontStyle: FontStyle.normal,
-              fontSize: ScreenUtil().setSp(20.0),
+              fontSize: 20.0,
               height: 1.2,
             ),
           ),
@@ -311,7 +305,7 @@ class LeaderText extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(bottom:5.0),
+            margin: EdgeInsets.only(bottom: 5.0),
             child: Text(
               "팀장",
               style: TextStyle(
@@ -319,7 +313,7 @@ class LeaderText extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 fontFamily: "NotoSansKR",
                 fontStyle: FontStyle.normal,
-                fontSize: ScreenUtil().setSp(18.0),
+                fontSize: 18.0,
               ),
             ),
           ),
@@ -331,7 +325,7 @@ class LeaderText extends StatelessWidget {
               fontFamily: "NotoSansKR",
               fontStyle: FontStyle.normal,
               // height: -1.0,
-              fontSize: ScreenUtil().setSp(14.0),
+              fontSize: 14.0,
             ),
           ),
           Row(
@@ -347,7 +341,7 @@ class LeaderText extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                   fontFamily: "NotoSansKR",
                   fontStyle: FontStyle.normal,
-                  fontSize: ScreenUtil().setSp(26.0),
+                  fontSize: 26.0,
                   height: 1.2,
                 ),
               ),
@@ -381,7 +375,7 @@ class SpecialText extends StatelessWidget {
               fontWeight: FontWeight.w300,
               fontFamily: "NotoSansKR",
               fontStyle: FontStyle.normal,
-              fontSize: ScreenUtil().setSp(14.0),
+              fontSize: 14.0,
             ),
           ),
           Row(
@@ -396,7 +390,7 @@ class SpecialText extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                   fontFamily: "NotoSansKR",
                   fontStyle: FontStyle.normal,
-                  fontSize: ScreenUtil().setSp(26.0),
+                  fontSize: 26.0,
                   height: 1.2,
                 ),
               ),
@@ -436,7 +430,7 @@ class TitleChip extends StatelessWidget {
             fontWeight: FontWeight.w500,
             fontFamily: "NotoSansKR",
             fontStyle: FontStyle.normal,
-            fontSize: ScreenUtil().setSp(22.0),
+            fontSize: 22.0,
           ),
         ),
       ),

@@ -6,8 +6,8 @@ class CalendarData {
 
   factory CalendarData.fromJson(Map<String, dynamic> json) {
     return CalendarData(
-      status: json['status'],
-      result: json['result'],
+      status: json["status"],
+      result: json["result"],
     );
   }
 }

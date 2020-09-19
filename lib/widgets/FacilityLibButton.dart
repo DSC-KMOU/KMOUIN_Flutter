@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import '../widgets/FacilityLibButton.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/material.dart";
+import "package:flutter/cupertino.dart";
 
 class LibButton extends StatelessWidget {
   LibButton ({
@@ -17,11 +15,6 @@ class LibButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context,
-        width: screenWidth,
-        height: screenHeight ,
-        allowFontScaling: false
-    );
     return Container(
       width: screenWidth * (42.7/100),
       height: screenHeight * (13.54/100),
@@ -55,7 +48,7 @@ class LibButton extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                       fontFamily: "NotoSansKR",
                       fontStyle:  FontStyle.normal,
-                      fontSize: ScreenUtil().setSp(25),
+                      fontSize: 25,
                   )
               ),
               SizedBox(
@@ -64,7 +57,7 @@ class LibButton extends StatelessWidget {
               Container(
                 height: screenHeight * (6.52/100),
                 width: screenWidth * (8.8/100),
-                child: Image.asset('images/FacilityPage/book.png', fit: BoxFit.fitWidth,),
+                child: Image.asset("images/FacilityPage/book.png", fit: BoxFit.fitWidth,),
               )
             ],
           ),
@@ -75,7 +68,7 @@ class LibButton extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                   fontFamily: "NotoSansKR",
                   fontStyle:  FontStyle.normal,
-                  fontSize: ScreenUtil().setSp(16),
+                  fontSize: 16,
               ),
               textAlign: TextAlign.center
           ),
@@ -84,38 +77,3 @@ class LibButton extends StatelessWidget {
     );
   }
 }
-
-
-//          RichText(
-//              text: TextSpan(
-//                  children: [
-//                    TextSpan(
-//                        style: const TextStyle(
-//                            color:  const Color(0xff5d9023),
-//                            fontWeight: FontWeight.w500,
-//                            fontFamily: "NotoSansKR",
-//                            fontStyle:  FontStyle.normal,
-//                            fontSize: 16.0
-//                        ),
-//                        text: stdRoomNum.toString()),
-//                    TextSpan(
-//                        style: const TextStyle(
-//                            color:  const Color(0xff5f605f),
-//                            fontWeight: FontWeight.w500,
-//                            fontFamily: "NotoSansKR",
-//                            fontStyle:  FontStyle.normal,
-//                            fontSize: 16.0
-//                        ),
-//                        text: "/150석"),
-//                    TextSpan(
-//                        style: const TextStyle(
-//                            color:  const Color(0xff5d9023),
-//                            fontWeight: FontWeight.w500,
-//                            fontFamily: "NotoSansKR",
-//                            fontStyle:  FontStyle.normal,
-//                            fontSize: 14.0
-//                        ),
-//                        text: " (" + ((stdRoomNum/150)*100).toInt().toString() + "%)")
-//                  ]
-//              )
-//          )

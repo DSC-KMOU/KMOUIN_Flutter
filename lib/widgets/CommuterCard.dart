@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+import "package:flutter/material.dart";
+import "package:flutter/cupertino.dart";
 
 class CommuterCard extends StatelessWidget {
   final Widget cardtitle;

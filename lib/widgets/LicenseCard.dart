@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/material.dart";
 
 class LicenseCard extends StatelessWidget {
   LicenseCard({
@@ -14,10 +13,7 @@ class LicenseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _mainWidth = MediaQuery.of(context).size.width;
-    double _mainHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context,
-        width: _mainWidth, height: _mainHeight, allowFontScaling: false);
+
     return Center(
       child: Container(
         padding: EdgeInsets.all(
@@ -41,7 +37,7 @@ class LicenseCard extends StatelessWidget {
           children: [
             Text(
               licenseTitle,
-              style: TextStyle(fontSize: ScreenUtil().setSp(14.0)),
+              style: TextStyle(fontSize: 14.0),
             ),
             Divider(
               color: Colors.black54,
@@ -49,7 +45,7 @@ class LicenseCard extends StatelessWidget {
             ),
             Text(
               licenseDescription,
-              style: TextStyle(fontSize: ScreenUtil().setSp(10.0)),
+              style: TextStyle(fontSize: 10.0),
             )
           ],
         ),

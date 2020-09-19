@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/material.dart";
+import "package:url_launcher/url_launcher.dart";
 
 class ErrorContainer extends StatelessWidget {
   ErrorContainer({
@@ -26,9 +25,6 @@ class ErrorContainer extends StatelessWidget {
     double _containerWidth = _mainWidth * (88.0 / 100);
     double _iconSize = _containerHeight * (27.8 / 100);
 
-    ScreenUtil.init(context,
-        width: _mainWidth, height: _mainHeight, allowFontScaling: false);
-
     return Container(
         margin: EdgeInsets.only(
           top: _marginHeight,
@@ -38,17 +34,16 @@ class ErrorContainer extends StatelessWidget {
             borderRadius: new BorderRadius.circular(20.0),
           ),
           onPressed: () {
-            if(page!=null) {
+            if (page != null) {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => page,
                 ),
               );
-            }
-            else{
+            } else {
               _launchURL(url);
-            };
+            }
           },
           child: Stack(
             children: [
@@ -60,7 +55,7 @@ class ErrorContainer extends StatelessWidget {
                   ),
                   width: _iconSize,
                   child: Image.asset(
-                    'images/ErrorAndDev/$imageName@3x.png',
+                    "images/ErrorAndDev/$imageName@3x.png",
                   ),
                 ),
               ),
@@ -73,20 +68,22 @@ class ErrorContainer extends StatelessWidget {
                       // 오류제보
                       Text(reportTitle,
                           style: TextStyle(
-                              color: Color(0xff131415),
-                              fontWeight: FontWeight.w500,
-                              fontFamily: "NotoSansKR",
-                              fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(24.0)),
+                            color: Color(0xff131415),
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "NotoSansKR",
+                            fontStyle: FontStyle.normal,
+                            fontSize: 24.0,
+                          ),
                           textAlign: TextAlign.center),
                       // 버그나 피드백 부탁드립니다!
                       Text(reportDescription,
                           style: TextStyle(
-                              color: Color(0xff5f605f),
-                              fontWeight: FontWeight.w500,
-                              fontFamily: "NotoSansKR",
-                              fontStyle: FontStyle.normal,
-                              fontSize: ScreenUtil().setSp(12.0)),
+                            color: Color(0xff5f605f),
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "NotoSansKR",
+                            fontStyle: FontStyle.normal,
+                            fontSize: 12.0,
+                          ),
                           textAlign: TextAlign.center)
                     ],
                   ),
@@ -110,12 +107,11 @@ class ErrorContainer extends StatelessWidget {
   }
 }
 
-_launchURL(FeedUrl) async {
-  var url = FeedUrl;
-
+_launchURL(feedUrl) async {
+  var url = feedUrl;
   if (await canLaunch(url)) {
     await launch(url);
   } else {
-    throw 'Could not launch $url';
+    throw "Could not launch $url";
   }
 }

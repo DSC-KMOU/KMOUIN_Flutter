@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:kmouin/main.dart';
-import '../widgets/mainPageData.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/material.dart";
+import "../widgets/mainPageData.dart";
 
 class CategoryCards extends StatelessWidget {
   CategoryCards({
@@ -73,7 +71,7 @@ class CategoryCards extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 fontFamily: "NotoSansKR",
                 fontStyle: FontStyle.normal,
-                fontSize: ScreenUtil().setSp(24.0),
+                fontSize: 24.0,
               ),
               textAlign: TextAlign.center,
             ),
@@ -85,7 +83,7 @@ class CategoryCards extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 fontFamily: "NotoSansKR",
                 fontStyle: FontStyle.normal,
-                fontSize: ScreenUtil().setSp(12.0),
+                fontSize: 12.0,
               ),
               textAlign: TextAlign.center,
             ),

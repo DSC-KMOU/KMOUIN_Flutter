@@ -1,13 +1,11 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
-import 'package:kmouin/widgets/MenuCard.dart';
-import 'package:kmouin/widgets/MenuInfo.dart';
-import 'package:kmouin/widgets/MenuData.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'Dart:ui';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "../widgets/MenuCard.dart";
+import "../widgets/MenuInfo.dart";
+import "../widgets/MenuData.dart";
+import "package:http/http.dart" as http;
+import "dart:convert";
+import "Dart:ui";
 
 class DormMenu extends StatefulWidget {
   @override
@@ -48,10 +46,7 @@ class _DormMenuState extends State<DormMenu> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(null);
     double fullWidth = MediaQuery.of(context).size.width;
-    double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
     Color _appbarFont = Color(0xffeb577c);
 
     return Scaffold(
@@ -122,7 +117,7 @@ class _DormMenuState extends State<DormMenu> {
                           fontWeight: FontWeight.w500,
                           fontFamily: "NotoSansKR",
                           fontStyle: FontStyle.normal,
-                          fontSize: ScreenUtil().setSp(32),
+                          fontSize: 32,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -130,13 +125,13 @@ class _DormMenuState extends State<DormMenu> {
                         height: 4,
                       ),
                       Text(
-                        '오늘의 메뉴는 뭘까요?',
+                        "오늘의 메뉴는 뭘까요?",
                         style: TextStyle(
                           color: const Color(0xfff05c53),
                           fontWeight: FontWeight.w300,
                           fontFamily: "NotoSansKR",
                           fontStyle: FontStyle.normal,
-                          fontSize: ScreenUtil().setSp(20),
+                          fontSize: 20,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -187,7 +182,7 @@ class _DormMenuState extends State<DormMenu> {
                     fontWeight: FontWeight.w500,
                     fontFamily: "NotoSansKR",
                     fontStyle: FontStyle.normal,
-                    fontSize: ScreenUtil().setSp(24),
+                    fontSize: 24,
                   ),
                 ),
               ],
@@ -197,7 +192,7 @@ class _DormMenuState extends State<DormMenu> {
             return Column(
               children: <Widget>[
                 MenuCard(
-                  title: '아침',
+                  title: "아침",
                   width: fullWidth * 0.92,
                   dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
@@ -210,7 +205,7 @@ class _DormMenuState extends State<DormMenu> {
                   height: 34,
                 ),
                 MenuCard(
-                  title: '점심',
+                  title: "점심",
                   width: fullWidth * 0.92,
                   dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
@@ -223,7 +218,7 @@ class _DormMenuState extends State<DormMenu> {
                   height: 34,
                 ),
                 MenuCard(
-                  title: '저녁',
+                  title: "저녁",
                   width: fullWidth * 0.92,
                   dividerWidth: fullWidth * 0.86,
                   children: <Widget>[

@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/material.dart";
+import "package:flutter/cupertino.dart";
 
 class MenuInfo extends StatelessWidget {
   final List<dynamic> menuTable;
@@ -12,10 +11,6 @@ class MenuInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double fullWidth = MediaQuery.of(context).size.width;
-    double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context,
-        width: fullWidth, height: fullHeight, allowFontScaling: false);
     List<dynamic> list = menuTable;
     ListView myList = new ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
@@ -36,7 +31,7 @@ class MenuInfo extends StatelessWidget {
                   fontWeight: FontWeight.w300,
                   fontFamily: "NotoSansKR",
                   fontStyle: FontStyle.normal,
-                  fontSize: ScreenUtil().setSp(16),
+                  fontSize: 16,
                 ),
                 textAlign: TextAlign.center,
               ),

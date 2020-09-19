@@ -1,15 +1,13 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
-import 'package:kmouin/widgets/MenuCard.dart';
-import 'package:kmouin/widgets/MenuInfo.dart';
-import 'package:kmouin/widgets/MenuData.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'Dart:ui';
-import 'package:kmouin/widgets/MenulistCard.dart';
-import 'package:kmouin/widgets/MenulistInfo.dart';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "../widgets/MenuCard.dart";
+import "../widgets/MenuInfo.dart";
+import "../widgets/MenuData.dart";
+import "package:http/http.dart" as http;
+import "dart:convert";
+import "Dart:ui";
+import "../widgets/MenulistCard.dart";
+import "../widgets/MenulistInfo.dart";
 
 class ThirdFloor extends StatefulWidget {
   @override
@@ -67,11 +65,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(null);
     double fullWidth = MediaQuery.of(context).size.width;
-    double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context,
-        width: fullWidth, height: fullHeight, allowFontScaling: false);
 
     Color _appbarFont = Color(0xffeb577c);
 
@@ -127,7 +121,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Stack(children: <Widget>[
-            //점 3개 + '3층학식'
+            //점 3개 + "3층학식"
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -212,13 +206,13 @@ class _ThirdFloorState extends State<ThirdFloor> {
                 Container(),
                 SizedBox(height: 42.0),
                 Text(
-                  '3층 학식',
+                  "3층 학식",
                   style: TextStyle(
                     color: const Color(0xffeb577c),
                     fontWeight: FontWeight.w500,
                     fontFamily: "NotoSansKR",
                     fontStyle: FontStyle.normal,
-                    fontSize: ScreenUtil().setSp(32),
+                    fontSize: 32,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -229,7 +223,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                     fontWeight: FontWeight.w300,
                     fontFamily: "NotoSansKR",
                     fontStyle: FontStyle.normal,
-                    fontSize: ScreenUtil().setSp(20),
+                    fontSize: 20,
                   ),
                 ),
                 SizedBox(height: 28.0),
@@ -237,7 +231,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
               ],
             ),
           ]
-              //'오늘은 이걸 먹어볼까?' + 나머지내용
+              //"오늘은 이걸 먹어볼까?" + 나머지내용
 
               ),
         ),
@@ -274,7 +268,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
                     fontWeight: FontWeight.w500,
                     fontFamily: "NotoSansKR",
                     fontStyle: FontStyle.normal,
-                    fontSize: ScreenUtil().setSp(24),
+                    fontSize: 24,
                   ),
                 ),
               ],
@@ -284,7 +278,7 @@ class _ThirdFloorState extends State<ThirdFloor> {
             return Column(
               children: <Widget>[
                 MenuCard(
-                  title: '천원의 아침',
+                  title: "천원의 아침",
                   width: fullWidth * 0.92,
                   dividerWidth: fullWidth * 0.86,
                   children: <Widget>[

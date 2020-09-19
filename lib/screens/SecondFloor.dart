@@ -1,13 +1,11 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
-import 'package:kmouin/widgets/MenuCard.dart';
-import 'package:kmouin/widgets/MenuInfo.dart';
-import 'package:kmouin/widgets/MenuData.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'Dart:ui';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "../widgets/MenuCard.dart";
+import "../widgets/MenuInfo.dart";
+import "../widgets/MenuData.dart";
+import "package:http/http.dart" as http;
+import "dart:convert";
+import "Dart:ui";
 
 class SecondFloor extends StatefulWidget {
   @override
@@ -51,11 +49,7 @@ class _SecondFloorState extends State<SecondFloor> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(null);
     double fullWidth = MediaQuery.of(context).size.width;
-    double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context,
-        width: fullWidth, height: fullHeight, allowFontScaling: false);
     Color _appbarFont = Color(0xffeb577c);
 
     return Scaffold(
@@ -112,7 +106,7 @@ class _SecondFloorState extends State<SecondFloor> {
           SingleChildScrollView(
             child: Stack(
               children: <Widget>[
-                //점 2개 + '2층학식'
+                //점 2개 + "2층학식"
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -128,13 +122,13 @@ class _SecondFloorState extends State<SecondFloor> {
                               width: 56,
                             ),
                             Text(
-                              '2층 학식',
+                              "2층 학식",
                               style: TextStyle(
                                 color: const Color(0xffeb577c),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: ScreenUtil().setSp(32),
+                                fontSize: 32,
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -187,7 +181,7 @@ class _SecondFloorState extends State<SecondFloor> {
                     ),
                   ],
                 ),
-                //'오늘의 메뉴는 뭘까요?' + 점심저녁일품식
+                //"오늘의 메뉴는 뭘까요?" + 점심저녁일품식
                 Center(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -196,13 +190,13 @@ class _SecondFloorState extends State<SecondFloor> {
                         height: 167,
                       ),
                       Text(
-                        '오늘의 메뉴는 뭘까요?',
+                        "오늘의 메뉴는 뭘까요?",
                         style: TextStyle(
                           color: const Color(0xfff05c53),
                           fontWeight: FontWeight.w300,
                           fontFamily: "NotoSansKR",
                           fontStyle: FontStyle.normal,
-                          fontSize: ScreenUtil().setSp(20),
+                          fontSize: 20,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -253,7 +247,7 @@ class _SecondFloorState extends State<SecondFloor> {
                     fontWeight: FontWeight.w500,
                     fontFamily: "NotoSansKR",
                     fontStyle: FontStyle.normal,
-                    fontSize: ScreenUtil().setSp(24),
+                    fontSize: 24,
                   ),
                 ),
               ],
@@ -263,7 +257,7 @@ class _SecondFloorState extends State<SecondFloor> {
             return Column(
               children: <Widget>[
                 MenuCard(
-                  title: '점심',
+                  title: "점심",
                   width: fullWidth * 0.92,
                   dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
@@ -276,7 +270,7 @@ class _SecondFloorState extends State<SecondFloor> {
                   height: 34,
                 ),
                 MenuCard(
-                  title: '저녁',
+                  title: "저녁",
                   width: fullWidth * 0.92,
                   dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
@@ -289,7 +283,7 @@ class _SecondFloorState extends State<SecondFloor> {
                   height: 34,
                 ),
                 MenuCard(
-                  title: '일품식',
+                  title: "일품식",
                   width: fullWidth * 0.92,
                   dividerWidth: fullWidth * 0.86,
                   children: <Widget>[

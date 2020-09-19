@@ -1,14 +1,11 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import '../widgets/TopContainer.dart';
-import 'CommuterBusPage.dart';
-import '../widgets/BusCard.dart';
-import '../widgets/BusInfo.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "../widgets/TopContainer.dart";
+import "CommuterBusPage.dart";
+import "../widgets/BusCard.dart";
+import "../widgets/BusInfo.dart";
+import "package:http/http.dart" as http;
+import "dart:convert";
 
 class BusPage extends StatefulWidget {
   BusPage({Key key, this.title}) : super(key: key);
@@ -28,9 +25,9 @@ class BusData {
 
   factory BusData.fromJson(Map<String, dynamic> json) {
     return BusData(
-      status: json['status'],
-      cur: json['cur'],
-      result: json['result'],
+      status: json["status"],
+      cur: json["cur"],
+      result: json["result"],
     );
   }
 }
@@ -101,10 +98,7 @@ class _MyHomePageState extends State<BusPage> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(null);
     double fullWidth = MediaQuery.of(context).size.width;
-    double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context,width: fullWidth,height:fullHeight,allowFontScaling: false);
     Color _appbarFont = Color(0xffffffff);
 
     return Scaffold(
@@ -167,9 +161,7 @@ class _MyHomePageState extends State<BusPage> {
                   color: Colors.white,
                 ),
                 onPressed: () async {
-                  // await _fetch1();
                   setState(() {
-                    // 수정 필요 !!
                     busData = _fetch1();
                   });
                 },
@@ -182,11 +174,12 @@ class _MyHomePageState extends State<BusPage> {
         children: <Widget>[
           Container(),
           TopContainer(
-            child: Image.asset('images/BusPage/TopContainer.png'),
+            child: Image.asset("images/BusPage/TopContainer.png"),
           ),
           SafeArea(
             child: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(height: 20.0),
                   Text(
@@ -197,7 +190,7 @@ class _MyHomePageState extends State<BusPage> {
                       fontWeight: FontWeight.w500,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
-                      fontSize: ScreenUtil().setSp(32),
+                      fontSize: 32,
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -210,7 +203,7 @@ class _MyHomePageState extends State<BusPage> {
                       fontWeight: FontWeight.w300,
                       fontFamily: "NotoSansKR",
                       fontStyle: FontStyle.normal,
-                      fontSize: ScreenUtil().setSp(20),
+                      fontSize: 20,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -252,10 +245,10 @@ class _MyHomePageState extends State<BusPage> {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
+                        Container(),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Container(),
                             SizedBox(height: 10.0),
                             Text(
                               snapshot.data.cur,
@@ -264,12 +257,12 @@ class _MyHomePageState extends State<BusPage> {
                                 fontWeight: FontWeight.w300,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: ScreenUtil().setSp(18),
+                                fontSize: 18,
                               ),
                             ),
                             SizedBox(height: 33.0),
                             BusCard(
-                                title: '셔틀 버스',
+                                title: "셔틀 버스",
                                 width: fullWidth * 0.947,
                                 children: <Widget>[
                                   BusInfo(
@@ -295,7 +288,7 @@ class _MyHomePageState extends State<BusPage> {
                                 ]),
                             SizedBox(height: 30.0),
                             BusCard(
-                                title: '190번 버스',
+                                title: "190번 버스",
                                 width: fullWidth * 0.947,
                                 children: <Widget>[
                                   BusInfo(
@@ -362,7 +355,7 @@ class _MyHomePageState extends State<BusPage> {
                                         fontFamily: "NotoSansKR",
                                         fontStyle: FontStyle.normal,
                                         letterSpacing: -1.0,
-                                        fontSize: ScreenUtil().setSp(24),
+                                        fontSize: 24,
                                       ),
                                     ),
                                     SizedBox(width: fullWidth * 0.058),
@@ -384,7 +377,7 @@ class _MyHomePageState extends State<BusPage> {
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: ScreenUtil().setSp(14),
+                                fontSize: 14,
                                 letterSpacing: -0.2,
                               ),
                             ),

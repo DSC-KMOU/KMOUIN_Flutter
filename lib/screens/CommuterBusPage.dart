@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import '../widgets/CommuterCard.dart';
-import '../widgets/BusRoute.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "../widgets/CommuterCard.dart";
+import "../widgets/BusRoute.dart";
 
 class CoummuterBusPage extends StatefulWidget {
   CoummuterBusPage({Key key, this.title}) : super(key: key);
@@ -16,7 +14,7 @@ class CoummuterBusPage extends StatefulWidget {
 
 class _MyHomePageState extends State<CoummuterBusPage> {
   // ignore: non_constant_identifier_names
-  String CommuterBusRoute1 = "구서동2동 풍년혼수마트(07:27) > 롯데캐슬 상가앞(02:28)" +
+  String commuterBusRoute1 = "구서동2동 풍년혼수마트(07:27) > 롯데캐슬 상가앞(02:28)" +
       "\n" +
       "장전동 기아자동차(07:31) > 장전동 놀이터(07:34)" +
       "\n" +
@@ -33,11 +31,11 @@ class _MyHomePageState extends State<CoummuterBusPage> {
       "부산역 3번출구(08:15) > ";
 
   // ignore: non_constant_identifier_names
-  String CommuterBusRoute2 = "서면역(07:58) > 범일역 5번출구(08:03)" +
+  String commuterBusRoute2 = "서면역(07:58) > 범일역 5번출구(08:03)" +
       "\n" +
       "부산진역 7번출구(08:08) > 부산역 3번출구(08:13)" +
       "\n";
-  String CommuterBusRoute3 = "연산9동 안락뜨란채(07:40) > 망미동주공아파트(07:46)" +
+  String commuterBusRoute3 = "연산9동 안락뜨란채(07:40) > 망미동주공아파트(07:46)" +
       "\n" +
       "수영국민은행(07:51) > 수영역10번출구(07:56)" +
       "\n" +
@@ -54,11 +52,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(null);
     double fullWidth = MediaQuery.of(context).size.width;
-    double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context,
-        width: fullWidth, height: fullHeight, allowFontScaling: false);
     Color _appbarFont = Color(0xff842fb5);
 
     return Scaffold(
@@ -120,7 +114,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
               Text(
                 "통근 버스 정보",
                 style: TextStyle(
-                  fontSize: ScreenUtil().setSp(28),
+                  fontSize: 28,
                   fontFamily: "NotoSansKR",
                   color: Color(0xff842fb5),
                   letterSpacing: -1.0,
@@ -143,8 +137,8 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         child: Text(
                           "출근 노선",
                           style: TextStyle(
-                            fontSize: ScreenUtil().setSp(16),
-                            fontFamily: 'NotoSansKR',
+                            fontSize: 16,
+                            fontFamily: "NotoSansKR",
                             color: Color(0xff842fb5),
                             letterSpacing: -1.0,
                             fontWeight: FontWeight.w500,
@@ -159,16 +153,16 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                             style: TextStyle(
                               color: Color(0xff787878),
                               fontSize: 12,
-                              fontFamily: 'NotoSansKR',
+                              fontFamily: "NotoSansKR",
                               letterSpacing: -1.0,
                               fontWeight: FontWeight.w500,
                             ),
                             children: <TextSpan>[
                               TextSpan(
-                                text: '학생은 영도대교 승차',
+                                text: "학생은 영도대교 승차",
                                 style: TextStyle(
                                   color: Color(0xff842fb5),
-                                  fontFamily: 'NotoSansKR',
+                                  fontFamily: "NotoSansKR",
                                   letterSpacing: -1.0,
                                 ),
                               ),
@@ -180,20 +174,20 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: CommuterBusRoute1,
+                              text: commuterBusRoute1,
                               style: TextStyle(
                                 fontSize: 13.0,
-                                fontFamily: 'NotoSansKR',
+                                fontFamily: "NotoSansKR",
                                 height: 1.5,
                                 color: Color(0xff787878),
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                             TextSpan(
-                              text: '영도대교 대궁한정식 앞(08:25)',
+                              text: "영도대교 대궁한정식 앞(08:25)",
                               style: TextStyle(
                                 fontSize: 13.0,
-                                fontFamily: 'NotoSansKR',
+                                fontFamily: "NotoSansKR",
                                 height: 1.5,
                                 color: Color(0xff842fb5),
                                 fontWeight: FontWeight.w500,
@@ -205,8 +199,8 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       Text(
                         "학교도착(08:45)",
                         style: TextStyle(
-                          fontSize: ScreenUtil().setSp(13),
-                          fontFamily: 'NotoSansKR',
+                          fontSize: 13,
+                          fontFamily: "NotoSansKR",
                           height: 1.5,
                           color: Color(0xff787878),
                           fontWeight: FontWeight.w500,
@@ -217,8 +211,8 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         child: Text(
                           "퇴근 노선",
                           style: TextStyle(
-                            fontSize: ScreenUtil().setSp(16),
-                            fontFamily: 'NotoSansKR',
+                            fontSize: 16,
+                            fontFamily: "NotoSansKR",
                             color: Color(0xff842fb5),
                             letterSpacing: -1.0,
                             fontWeight: FontWeight.w500,
@@ -233,23 +227,23 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                             style: TextStyle(
                               color: Color(0xff787878),
                               fontSize: 12,
-                              fontFamily: 'NotoSansKR',
+                              fontFamily: "NotoSansKR",
                               letterSpacing: -1.0,
                               fontWeight: FontWeight.w500,
                             ),
                             children: <TextSpan>[
                               TextSpan(
-                                text: ' 학생 이용 가능 ',
+                                text: " 학생 이용 가능 ",
                                 style: TextStyle(
                                   color: Color(0xff842fb5),
                                   fontSize: 12,
-                                  fontFamily: 'NotoSansKR',
+                                  fontFamily: "NotoSansKR",
                                   letterSpacing: -1.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
                               TextSpan(
-                                text: '( 정원 45명 )',
+                                text: "( 정원 45명 )",
                                 style: TextStyle(
                                   color: Color(0xff787878),
                                   fontSize: 12,
@@ -264,8 +258,8 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       Text(
                         "학교출발(18:10) > 중앙역 > 부산역 > 서면 > 시청\n동래 > 부산대",
                         style: TextStyle(
-                          fontSize: ScreenUtil().setSp(13),
-                          fontFamily: 'NotoSansKR',
+                          fontSize: 13,
+                          fontFamily: "NotoSansKR",
                           height: 1.5,
                           color: Color(0xff787878),
                           fontWeight: FontWeight.w500,
@@ -291,8 +285,8 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         child: Text(
                           "출근 노선",
                           style: TextStyle(
-                            fontSize: ScreenUtil().setSp(16),
-                            fontFamily: 'NotoSansKR',
+                            fontSize: 16,
+                            fontFamily: "NotoSansKR",
                             color: Color(0xff842fb5),
                             letterSpacing: -1.0,
                             fontWeight: FontWeight.w500,
@@ -307,16 +301,16 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                             style: TextStyle(
                               color: Color(0xff787878),
                               fontSize: 12,
-                              fontFamily: 'NotoSansKR',
+                              fontFamily: "NotoSansKR",
                               letterSpacing: -1.0,
                               fontWeight: FontWeight.w500,
                             ),
                             children: <TextSpan>[
                               TextSpan(
-                                text: '학생은 영도대교 승차',
+                                text: "학생은 영도대교 승차",
                                 style: TextStyle(
                                   color: Color(0xff842fb5),
-                                  fontFamily: 'NotoSansKR',
+                                  fontFamily: "NotoSansKR",
                                   letterSpacing: -1.0,
                                 ),
                               ),
@@ -328,20 +322,20 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: CommuterBusRoute2,
+                              text: commuterBusRoute2,
                               style: TextStyle(
                                 fontSize: 13.0,
-                                fontFamily: 'NotoSansKR',
+                                fontFamily: "NotoSansKR",
                                 height: 1.5,
                                 color: Color(0xff787878),
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                             TextSpan(
-                              text: '영도대교 대궁한정식 앞(08:25)',
+                              text: "영도대교 대궁한정식 앞(08:25)",
                               style: TextStyle(
                                 fontSize: 13.0,
-                                fontFamily: 'NotoSansKR',
+                                fontFamily: "NotoSansKR",
                                 height: 1.5,
                                 color: Color(0xff842fb5),
                                 fontWeight: FontWeight.w500,
@@ -351,7 +345,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                               text: " > 관사(08:35)",
                               style: TextStyle(
                                 fontSize: 13.0,
-                                fontFamily: 'NotoSansKR',
+                                fontFamily: "NotoSansKR",
                                 height: 1.5,
                                 color: Color(0xff787878),
                                 fontWeight: FontWeight.w500,
@@ -363,8 +357,8 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       Text(
                         "학교도착(08:45)",
                         style: TextStyle(
-                          fontSize: ScreenUtil().setSp(13),
-                          fontFamily: 'NotoSansKR',
+                          fontSize: 13,
+                          fontFamily: "NotoSansKR",
                           height: 1.5,
                           color: Color(0xff787878),
                           fontWeight: FontWeight.w500,
@@ -375,8 +369,8 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         child: Text(
                           "퇴근 노선",
                           style: TextStyle(
-                            fontSize: ScreenUtil().setSp(16),
-                            fontFamily: 'NotoSansKR',
+                            fontSize: 16,
+                            fontFamily: "NotoSansKR",
                             color: Color(0xff842fb5),
                             letterSpacing: -1.0,
                             fontWeight: FontWeight.w500,
@@ -391,23 +385,23 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                             style: TextStyle(
                               color: Color(0xff787878),
                               fontSize: 12,
-                              fontFamily: 'NotoSansKR',
+                              fontFamily: "NotoSansKR",
                               letterSpacing: -1.0,
                               fontWeight: FontWeight.w500,
                             ),
                             children: <TextSpan>[
                               TextSpan(
-                                text: ' 학생 이용 가능 ',
+                                text: " 학생 이용 가능 ",
                                 style: TextStyle(
                                   color: Color(0xff842fb5),
                                   fontSize: 12,
-                                  fontFamily: 'NotoSansKR',
+                                  fontFamily: "NotoSansKR",
                                   letterSpacing: -1.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
                               TextSpan(
-                                text: '( 정원 45명 )',
+                                text: "( 정원 45명 )",
                                 style: TextStyle(
                                   color: Color(0xff787878),
                                   fontSize: 12,
@@ -422,8 +416,8 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       Text(
                         "학교출발(18:10) > 중리관사앞 > 영도소방서 >  롯데백화\n점 > 부산역 > 부산진역 > 문현동 > 대연동",
                         style: TextStyle(
-                          fontSize: ScreenUtil().setSp(13),
-                          fontFamily: 'NotoSansKR',
+                          fontSize: 13,
+                          fontFamily: "NotoSansKR",
                           height: 1.5,
                           color: Color(0xff787878),
                           fontWeight: FontWeight.w500,
@@ -449,8 +443,8 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         child: Text(
                           "출근 노선",
                           style: TextStyle(
-                            fontSize: ScreenUtil().setSp(16),
-                            fontFamily: 'NotoSansKR',
+                            fontSize: 16,
+                            fontFamily: "NotoSansKR",
                             color: Color(0xff842fb5),
                             letterSpacing: -1.0,
                             fontWeight: FontWeight.w500,
@@ -465,16 +459,16 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                             style: TextStyle(
                               color: Color(0xff787878),
                               fontSize: 12,
-                              fontFamily: 'NotoSansKR',
+                              fontFamily: "NotoSansKR",
                               letterSpacing: -1.0,
                               fontWeight: FontWeight.w500,
                             ),
                             children: <TextSpan>[
                               TextSpan(
-                                text: '학생은 영도대교 승차',
+                                text: "학생은 영도대교 승차",
                                 style: TextStyle(
                                   color: Color(0xff842fb5),
-                                  fontFamily: 'NotoSansKR',
+                                  fontFamily: "NotoSansKR",
                                   letterSpacing: -1.0,
                                 ),
                               ),
@@ -486,10 +480,10 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: CommuterBusRoute3,
+                              text: commuterBusRoute3,
                               style: TextStyle(
                                 fontSize: 13.0,
-                                fontFamily: 'NotoSansKR',
+                                fontFamily: "NotoSansKR",
                                 height: 1.5,
                                 color: Color(0xff787878),
                                 fontWeight: FontWeight.w500,
@@ -503,8 +497,8 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         child: Text(
                           "퇴근 노선",
                           style: TextStyle(
-                            fontSize: ScreenUtil().setSp(16),
-                            fontFamily: 'NotoSansKR',
+                            fontSize: 16,
+                            fontFamily: "NotoSansKR",
                             color: Color(0xff842fb5),
                             letterSpacing: -1.0,
                             fontWeight: FontWeight.w500,
@@ -519,23 +513,23 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                             style: TextStyle(
                               color: Color(0xff787878),
                               fontSize: 12,
-                              fontFamily: 'NotoSansKR',
+                              fontFamily: "NotoSansKR",
                               letterSpacing: -1.0,
                               fontWeight: FontWeight.w500,
                             ),
                             children: <TextSpan>[
                               TextSpan(
-                                text: ' 학생 이용 가능 ',
+                                text: " 학생 이용 가능 ",
                                 style: TextStyle(
                                   color: Color(0xff842fb5),
                                   fontSize: 12,
-                                  fontFamily: 'NotoSansKR',
+                                  fontFamily: "NotoSansKR",
                                   letterSpacing: -1.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
                               TextSpan(
-                                text: '( 정원 45명 )',
+                                text: "( 정원 45명 )",
                                 style: TextStyle(
                                   color: Color(0xff787878),
                                   fontSize: 12,
@@ -550,8 +544,8 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                       Text(
                         "학교출발(18:10) > 영도구청 > 부산항대교 >  경성대 > 남\n천역 > 수영로타리 > 망미동주공아파트",
                         style: TextStyle(
-                          fontSize: ScreenUtil().setSp(13),
-                          fontFamily: 'NotoSansKR',
+                          fontSize: 13,
+                          fontFamily: "NotoSansKR",
                           height: 1.5,
                           color: Color(0xff787878),
                           fontWeight: FontWeight.w500,
@@ -568,7 +562,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                     Text(
                       "학교버스 셔틀",
                       style: TextStyle(
-                        fontSize: ScreenUtil().setSp(22),
+                        fontSize: 22,
                         letterSpacing: -1.0,
                         color: Color(0xff131415),
                         fontWeight: FontWeight.w500,
@@ -585,7 +579,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         "학교 ↔ 남포동간 1회 운행",
                         style: TextStyle(
                           color: Color(0xff842fb5),
-                          fontSize: ScreenUtil().setSp(16),
+                          fontSize: 16,
                           fontFamily: "NotoSansKR",
                           letterSpacing: -1.0,
                           fontWeight: FontWeight.w500,
@@ -599,7 +593,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                                   "학교출발(09:00 > 영도대교 대궁한정식 앞(09:25)\n학교도착(09:50)",
                               style: TextStyle(
                                 fontSize: 13.0,
-                                fontFamily: 'NotoSansKR',
+                                fontFamily: "NotoSansKR",
                                 height: 1.5,
                                 color: Color(0xff787878),
                                 fontWeight: FontWeight.w500,
@@ -613,7 +607,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                         "학교 ↔ 대연동간 1회 운행",
                         style: TextStyle(
                           color: Color(0xff842fb5),
-                          fontSize: ScreenUtil().setSp(16),
+                          fontSize: 16,
                           fontFamily: "NotoSansKR",
                           letterSpacing: -1.0,
                           fontWeight: FontWeight.w500,
@@ -627,7 +621,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                                   "학교출발(08:50) > 경성대부경대역 3번출구 눈사랑안경점 앞(09:20) > 학교도착(09:55)",
                               style: TextStyle(
                                 fontSize: 13.0,
-                                fontFamily: 'NotoSansKR',
+                                fontFamily: "NotoSansKR",
                                 height: 1.5,
                                 color: Color(0xff787878),
                                 fontWeight: FontWeight.w500,
@@ -648,7 +642,7 @@ class _MyHomePageState extends State<CoummuterBusPage> {
                   fontWeight: FontWeight.w500,
                   fontFamily: "NotoSansKR",
                   fontStyle: FontStyle.normal,
-                  fontSize: ScreenUtil().setSp(14),
+                  fontSize: 14,
                   letterSpacing: -0.2,
                 ),
               ),

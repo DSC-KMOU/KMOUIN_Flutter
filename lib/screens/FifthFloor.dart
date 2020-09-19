@@ -1,13 +1,11 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
-import 'package:kmouin/widgets/MenuCard.dart';
-import 'package:kmouin/widgets/MenuInfo.dart';
-import 'package:kmouin/widgets/MenuData.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'Dart:ui';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "../widgets/MenuCard.dart";
+import "../widgets/MenuInfo.dart";
+import "../widgets/MenuData.dart";
+import "package:http/http.dart" as http;
+import "dart:convert";
+import "Dart:ui";
 
 class FifthFloor extends StatefulWidget {
   @override
@@ -19,7 +17,6 @@ class _FifthFloorState extends State<FifthFloor> {
 
   Future<MenuData> _fetch1() async {
     try {
-      print("future 실행!");
       http.Response response = await http.get(
           "https://asia-northeast1-kmouin-62d7f.cloudfunctions.net/api/menu/smeal");
       if (response.statusCode == 200) {
@@ -51,11 +48,7 @@ class _FifthFloorState extends State<FifthFloor> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarTextColor.setTextColor(null);
     double fullWidth = MediaQuery.of(context).size.width;
-    double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context,
-        width: fullWidth, height: fullHeight, allowFontScaling: false);
     Color _appbarFont = Color(0xffeb577c);
 
     return Scaffold(
@@ -180,7 +173,7 @@ class _FifthFloorState extends State<FifthFloor> {
                             fontWeight: FontWeight.w500,
                             fontFamily: "NotoSansKR",
                             fontStyle: FontStyle.normal,
-                            fontSize: ScreenUtil().setSp(32),
+                            fontSize: 32,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -266,7 +259,6 @@ class _FifthFloorState extends State<FifthFloor> {
                     ),
                   ],
                 ),
-                //'교직원 식당입니다' + 점심일품식
                 Center(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -275,13 +267,13 @@ class _FifthFloorState extends State<FifthFloor> {
                         height: 167,
                       ),
                       Text(
-                        '교직원 식당입니다!',
+                        "교직원 식당입니다!",
                         style: TextStyle(
                           color: const Color(0xfff05c53),
                           fontWeight: FontWeight.w300,
                           fontFamily: "NotoSansKR",
                           fontStyle: FontStyle.normal,
-                          fontSize: ScreenUtil().setSp(20),
+                          fontSize: 20,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -332,7 +324,7 @@ class _FifthFloorState extends State<FifthFloor> {
                     fontWeight: FontWeight.w500,
                     fontFamily: "NotoSansKR",
                     fontStyle: FontStyle.normal,
-                    fontSize: ScreenUtil().setSp(24),
+                    fontSize: 24,
                   ),
                 ),
               ],
@@ -342,7 +334,7 @@ class _FifthFloorState extends State<FifthFloor> {
             return Column(
               children: <Widget>[
                 MenuCard(
-                  title: '점심',
+                  title: "점심",
                   width: fullWidth * 0.92,
                   dividerWidth: fullWidth * 0.86,
                   children: <Widget>[
@@ -355,7 +347,7 @@ class _FifthFloorState extends State<FifthFloor> {
                   height: 35,
                 ),
                 MenuCard(
-                  title: '일품식',
+                  title: "일품식",
                   width: fullWidth * 0.92,
                   dividerWidth: fullWidth * 0.86,
                   children: <Widget>[

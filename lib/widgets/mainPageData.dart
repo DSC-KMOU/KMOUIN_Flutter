@@ -1,16 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:kmouin/screens/AcademicCalendar.dart';
-import 'package:kmouin/screens/AcademicCalendarnewList.dart';
-import 'package:kmouin/screens/BusPage.dart';
-import 'package:kmouin/screens/CommuterBusPage.dart';
-import 'package:kmouin/screens/DeveloperPage.dart';
-import 'package:kmouin/screens/DormMenu.dart';
-import 'package:kmouin/screens/EvacuationFacility.dart';
-import 'package:kmouin/screens/FacilityPage.dart';
-import 'package:kmouin/screens/FifthFloor.dart';
-import 'package:kmouin/screens/MenuPage.dart';
-import 'package:kmouin/screens/SecondFloor.dart';
-import 'package:kmouin/screens/ThirdFloor.dart';
+import "../screens/AcademicCalendar.dart";
+import "../screens/BusPage.dart";
+import "../screens/CommuterBusPage.dart";
+import "../screens/DeveloperPage.dart";
+import "../screens/DormMenu.dart";
+import "../screens/EvacuationFacility.dart";
+import "../screens/FacilityPage.dart";
+import "../screens/FifthFloor.dart";
+import "../screens/MenuPage.dart";
+import "../screens/SecondFloor.dart";
+import "../screens/ThirdFloor.dart";
 
 final cat1 = BusPage();
 final cat2 = MenuPage();
@@ -28,23 +26,23 @@ final developer = DeveloperPage();
 final List category = [cat1, cat2, cat3, cat4];
 
 final List keywords = [
-  '통근버스',
-  '통근',
-  '2층',
-  '2',
-  '3층',
-  '3',
-  '5층',
-  '5',
-  '교직원',
-  '기숙사',
-  '생활관',
-  '지도',
-  '대피시설',
-  '대피',
-  '개발',
-  '개발자',
-  '개발자 정보',
+  "통근버스",
+  "통근",
+  "2층",
+  "2",
+  "3층",
+  "3",
+  "5층",
+  "5",
+  "교직원",
+  "기숙사",
+  "생활관",
+  "지도",
+  "대피시설",
+  "대피",
+  "개발",
+  "개발자",
+  "개발자 정보",
 ];
 final List subpage = [
   commute,

@@ -6,8 +6,8 @@ class MenuData {
 
   factory MenuData.fromJson(Map<String, dynamic> json) {
     return MenuData(
-      status: json['status'],
-      result: json['result'],
+      status: json["status"],
+      result: json["result"],
     );
   }
 }

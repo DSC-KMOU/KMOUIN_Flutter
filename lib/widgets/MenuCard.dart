@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import "package:flutter/material.dart";
+import "package:flutter/cupertino.dart";
 
 class MenuCard extends StatelessWidget {
   final String title;
@@ -18,9 +17,6 @@ class MenuCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double fullWidth = MediaQuery.of(context).size.width;
-    double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
     return Container(
       padding: EdgeInsets.all(16),
       width: width,
@@ -44,7 +40,7 @@ class MenuCard extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 fontFamily: "NotoSansKR",
                 fontStyle: FontStyle.normal,
-                fontSize: ScreenUtil().setSp(24),
+                fontSize: 24,
               ),
               textAlign: TextAlign.center),
           SizedBox(

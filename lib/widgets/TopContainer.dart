@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+import "package:flutter/material.dart";
+import "package:flutter/cupertino.dart";
 
 class TopContainer extends StatelessWidget{
 
@@ -10,7 +10,6 @@ class TopContainer extends StatelessWidget{
   Widget build(BuildContext context){
     return  Container(
       width: double.infinity,
-      // height: 282,
       child: child,
     );
   }

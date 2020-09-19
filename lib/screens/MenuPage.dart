@@ -1,13 +1,11 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_statusbar_text_color/flutter_statusbar_text_color.dart';
-import 'package:kmouin/screens/DormMenu.dart';
-import 'package:kmouin/screens/FifthFloor.dart';
-import 'package:kmouin/screens/ThirdFloor.dart';
-import '../widgets/TopContainer.dart';
-import '../screens/SecondFloor.dart';
-import 'dart:ui';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "DormMenu.dart";
+import "FifthFloor.dart";
+import "ThirdFloor.dart";
+import "../widgets/TopContainer.dart";
+import "SecondFloor.dart";
+import "dart:ui";
 
 class MenuPage extends StatefulWidget {
   @override
@@ -28,11 +26,6 @@ class _MenuPageState extends State<MenuPage> {
     double _containerIcon = _mainWidth * (11.7 / 100);
     double _containerInner = _containerSize * (10.6 / 100);
     double _containerBetween = _mainWidth * (2.0 / 100);
-    double fullWidth = MediaQuery.of(context).size.width;
-    double fullHeight = MediaQuery.of(context).size.height;
-    ScreenUtil.init(context, width: fullWidth, height: fullHeight, allowFontScaling: false);
-
-    FlutterStatusbarTextColor.setTextColor(null);
 
     Color _appbarFont = Color(0xffffffff);
 
@@ -95,9 +88,9 @@ class _MenuPageState extends State<MenuPage> {
             filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
             child: TopContainer(
               child: Image.asset(
-                'images/MenuPage/bg_image.png',
+                "images/MenuPage/bg_image.png",
                 fit: BoxFit.cover,
-                height: _mainHeight*0.5,
+                height: _mainHeight * 0.5,
               ),
             ),
           ),
@@ -110,14 +103,14 @@ class _MenuPageState extends State<MenuPage> {
               Container(
                 padding: EdgeInsets.only(left: _titleMargin * 3),
                 child: Text(
-                  '오늘은 몇 층에서\n드시겠어요?',
+                  "오늘은 몇 층에서\n드시겠어요?",
                   style: TextStyle(
                     color: const Color(0xffffffff),
                     letterSpacing: -0.5,
                     fontWeight: FontWeight.w500,
                     fontFamily: "NotoSansKR",
                     fontStyle: FontStyle.normal,
-                    fontSize: ScreenUtil().setSp(32),
+                    fontSize: 32,
                   ),
                 ),
               ),
@@ -127,14 +120,14 @@ class _MenuPageState extends State<MenuPage> {
               Container(
                 padding: EdgeInsets.only(left: _titleMargin * 3),
                 child: Text(
-                  '각 층마다 메뉴가 다르게 나와요',
+                  "각 층마다 메뉴가 다르게 나와요",
                   style: TextStyle(
                     color: const Color(0xffffffff),
                     letterSpacing: -0.5,
                     fontWeight: FontWeight.w300,
                     fontFamily: "NotoSansKR",
                     fontStyle: FontStyle.normal,
-                    fontSize: ScreenUtil().setSp(22),
+                    fontSize: 22,
                   ),
                 ),
               ),
@@ -183,31 +176,31 @@ class _MenuPageState extends State<MenuPage> {
                               margin: EdgeInsets.only(top: _containerTitle),
                               width: _containerIcon,
                               child: Image.asset(
-                                'images/MenuPage/second_imoji.png',
+                                "images/MenuPage/second_imoji.png",
                               ),
                             ),
                             SizedBox(
                               height: _containerInner,
                             ),
                             Text(
-                              '2층 학식',
+                              "2층 학식",
                               style: TextStyle(
                                 color: const Color(0xff131415),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: ScreenUtil().setSp(26),
+                                fontSize: 26,
                               ),
                               textAlign: TextAlign.center,
                             ),
                             Text(
-                              '오늘은 무슨 메뉴일까?',
+                              "오늘은 무슨 메뉴일까?",
                               style: TextStyle(
                                 color: const Color(0xff5f605f),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: ScreenUtil().setSp(12),
+                                fontSize: 12,
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -251,31 +244,31 @@ class _MenuPageState extends State<MenuPage> {
                               margin: EdgeInsets.only(top: _containerTitle),
                               width: _containerIcon,
                               child: Image.asset(
-                                'images/MenuPage/three_imoji.png',
+                                "images/MenuPage/three_imoji.png",
                               ),
                             ),
                             SizedBox(
                               height: _containerInner,
                             ),
                             Text(
-                              '3층 학식',
+                              "3층 학식",
                               style: TextStyle(
                                 color: const Color(0xff131415),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: ScreenUtil().setSp(26),
+                                fontSize: 26,
                               ),
                               textAlign: TextAlign.center,
                             ),
                             Text(
-                              '천원의 아침만 바뀌어요!',
+                              "천원의 아침만 바뀌어요!",
                               style: TextStyle(
                                 color: const Color(0xff5f605f),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: ScreenUtil().setSp(12),
+                                fontSize: 12,
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -324,31 +317,31 @@ class _MenuPageState extends State<MenuPage> {
                               margin: EdgeInsets.only(top: _containerTitle),
                               width: _containerIcon,
                               child: Image.asset(
-                                'images/MenuPage/five_imoji.png',
+                                "images/MenuPage/five_imoji.png",
                               ),
                             ),
                             SizedBox(
                               height: _containerInner,
                             ),
                             Text(
-                              '5층 학식',
+                              "5층 학식",
                               style: TextStyle(
                                 color: const Color(0xff131415),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: ScreenUtil().setSp(26),
+                                fontSize: 26,
                               ),
                               textAlign: TextAlign.center,
                             ),
                             Text(
-                              '교직원 식당입니다!',
+                              "교직원 식당입니다!",
                               style: TextStyle(
                                 color: const Color(0xff5f605f),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: ScreenUtil().setSp(12),
+                                fontSize: 12,
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -392,31 +385,31 @@ class _MenuPageState extends State<MenuPage> {
                               margin: EdgeInsets.only(top: _containerTitle),
                               width: _containerIcon,
                               child: Image.asset(
-                                'images/MenuPage/dorm_imoji.png',
+                                "images/MenuPage/dorm_imoji.png",
                               ),
                             ),
                             SizedBox(
                               height: _containerInner,
                             ),
                             Text(
-                              '기숙사식',
+                              "기숙사식",
                               style: TextStyle(
                                 color: const Color(0xff131415),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: ScreenUtil().setSp(26),
+                                fontSize: 26,
                               ),
                               textAlign: TextAlign.center,
                             ),
                             Text(
-                              '기숙사생들을 위한 식단!',
+                              "기숙사생들을 위한 식단!",
                               style: TextStyle(
                                 color: const Color(0xff5f605f),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: "NotoSansKR",
                                 fontStyle: FontStyle.normal,
-                                fontSize: ScreenUtil().setSp(12),
+                                fontSize: 12,
                               ),
                               textAlign: TextAlign.center,
                             ),
